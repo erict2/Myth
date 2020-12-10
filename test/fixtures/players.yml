@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  emailaddress: MyString
+  joindate: 2020-12-09
+  PlayerType: one
+
+two:
+  firstname: MyString
+  lastname: MyString
+  emailaddress: MyString
+  joindate: 2020-12-09
+  PlayerType: two
