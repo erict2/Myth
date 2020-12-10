@@ -1,10 +1,13 @@
-ADMIN!
-<%= link_to 'Delete This Player', admin_player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit This Player', edit_admin_player_path(@player)%>
+<%= link_to 'Delete This Player', admin_player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %> <br>
+<%= link_to 'Edit This Player', edit_admin_player_path(@player)%> <br>
 <%= link_to 'Back', admin_players_path %>
 <hr>
 First Name: <%= @player.firstname %><br>
 Last Name: <%= @player.lastname %><br>
 Email Address: <%= @player.emailaddress %><br>
 
+<hr>
 <h1>Characters</h1>
+<hr>
+<%= link_to 'Add Character', new_admin_character_path(:playerid=> @player.id) %>
+<hr>
