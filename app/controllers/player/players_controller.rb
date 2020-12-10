@@ -1,4 +1,4 @@
-class Players::PlayersController < PlayerController
+class Player::PlayersController < PlayerController
     def index
 
     end

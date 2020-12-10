@@ -4,4 +4,8 @@ Rails.application.routes.draw do
         resources :players
         resources :characters
     end
+    namespace :player do
+        resources :players
+        resources :characters
+    end
 end
