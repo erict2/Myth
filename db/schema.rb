@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2020_12_10_003418) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "players", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
     t.string "emailaddress"
     t.string "playertype"
-    t.date "joindate"
+    t.date "joindate", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
