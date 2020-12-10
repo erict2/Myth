@@ -1,0 +1,10 @@
+ADMIN!
+<%= link_to 'Delete This Player', admin_player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit This Player', edit_admin_player_path(@player)%>
+<%= link_to 'Back', admin_players_path %>
+<hr>
+First Name: <%= @player.firstname %><br>
+Last Name: <%= @player.lastname %><br>
+Email Address: <%= @player.emailaddress %><br>
+
+<h1>Characters</h1>

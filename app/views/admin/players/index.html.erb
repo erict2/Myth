@@ -14,11 +14,11 @@
     <td><%= player.lastname %></td>
     <td><%= player.emailaddress %></td>
     <td><%= player.playertype %></td>
-    <td><%= link_to 'View', playeradmin_path(player) %> |
-        <%= link_to 'Delete', playeradmin_path(player), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'View', admin_player_path(player) %> |
+        <%= link_to 'Delete', admin_player_path(player), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
     
   <% end %>
   </table>
 
-  <%= link_to 'Add', new_playeradmin_path %>
+  <%= link_to 'Add', new_admin_player_path %>

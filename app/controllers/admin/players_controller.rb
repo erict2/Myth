@@ -1,4 +1,4 @@
-class PlayeradminController < ApplicationController
+class Admin::PlayersController < AdminController
     def index
         @players = Player.all
     end
@@ -15,7 +15,7 @@ class PlayeradminController < ApplicationController
         @player = Player.new(player_params)
         
         if @player.save
-            redirect_to playeradmin_index_path
+            redirect_to admin_players_path
         else
           render 'new'
         end
@@ -29,7 +29,7 @@ class PlayeradminController < ApplicationController
         @player = Player.find(params[:id])
  
         if @player.update(player_params)
-            redirect_to playeradmin_path
+            redirect_to admin_player_path
         else
           render 'edit'
         end
@@ -39,7 +39,7 @@ class PlayeradminController < ApplicationController
         @player = Player.find(params[:id])
         @player.destroy
      
-        redirect_to playeradmin_index_path
+        redirect_to admin_players_path
     end
 
     private

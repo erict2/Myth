@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-  #resources :player
-  resources :playeradmin
+    root 'welcome#index'
+    namespace :admin do
+        resources :players
+    end
 end
