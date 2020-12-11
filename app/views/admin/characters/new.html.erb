@@ -31,7 +31,7 @@ Creating a new character for player: <%= @player.firstname %> <%= @player.lastna
 </p><p>
   Class <%= form.select :classid,  classoptions, :prompt => 'Select A Class' %>
 </p><p>
-  Deity <%= form.select :deityid,  classoptions, :prompt => 'Select A Deity' %>
+  Deity <%= form.select :deityid,  deityoptions, :prompt => 'Select A Deity' %>
 </p><p>
     <%= form.submit 'Save Character' %>
 </p>
