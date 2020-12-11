@@ -1,3 +1,38 @@
 Creating a new character for player: <%= @player.firstname %> <%= @player.lastname %><br>
-<%= link_to 'Back', admin_players_path %>
+<%= link_to 'Back', admin_player_path(@player) %>
 <hr>
+
+<% classoptions = options_from_collection_for_select(@classes, 'id', 'name') %>
+<% deityoptions = options_from_collection_for_select(@deities, 'id', 'name') %>
+<% raceoptions = options_from_collection_for_select(@races, 'id', 'name') %>
+
+<%= form_with(model: @character, url: admin_characters_path, local: true) do |form| %>
+
+<% if @character.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:
+  </h2>
+    <ul>
+      <% @character.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+</div>
+<% end %>
+
+
+<p>
+  Character Name <%= form.text_field :name %>
+</p><p>
+  Pronouns <%= form.text_field :pronouns %>
+</p><p>
+  Race <%= form.select :raceid,  raceoptions, :prompt => 'Select A Race' %>
+</p><p>
+  Class <%= form.select :classid,  classoptions, :prompt => 'Select A Class' %>
+</p><p>
+  Deity <%= form.select :deityid,  classoptions, :prompt => 'Select A Deity' %>
+</p><p>
+    <%= form.submit 'Save Character' %>
+</p>
+<% end %>

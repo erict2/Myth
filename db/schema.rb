@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_10_003418) do
+ActiveRecord::Schema.define(version: 2020_12_11_013859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "character_classes", force: :cascade do |t|
+    t.string "name"
+    t.boolean "playeravailable"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.string "pronoun"
+    t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.bigint "player_id", null: false
+    t.bigint "deity_id"
+    t.bigint "race_id", null: false
+    t.bigint "character_class_id", null: false
+    t.bigint "house_id"
+    t.bigint "guild_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_class_id"], name: "index_characters_on_character_class_id"
+    t.index ["deity_id"], name: "index_characters_on_deity_id"
+    t.index ["guild_id"], name: "index_characters_on_guild_id"
+    t.index ["house_id"], name: "index_characters_on_house_id"
+    t.index ["player_id"], name: "index_characters_on_player_id"
+    t.index ["race_id"], name: "index_characters_on_race_id"
+  end
+
+  create_table "deities", force: :cascade do |t|
+    t.string "name"
+    t.boolean "playeravailable"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "guilds", force: :cascade do |t|
+    t.string "name"
+    t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.bigint "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_guilds_on_player_id"
+  end
+
+  create_table "houses", force: :cascade do |t|
+    t.string "name"
+    t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.bigint "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_houses_on_player_id"
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "firstname"
@@ -25,4 +77,19 @@ ActiveRecord::Schema.define(version: 2020_12_10_003418) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "races", force: :cascade do |t|
+    t.string "name"
+    t.boolean "playeravailable"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "characters", "character_classes"
+  add_foreign_key "characters", "deities"
+  add_foreign_key "characters", "guilds"
+  add_foreign_key "characters", "houses"
+  add_foreign_key "characters", "players"
+  add_foreign_key "characters", "races"
+  add_foreign_key "guilds", "players", name: "guildmaster_id"
+  add_foreign_key "houses", "players", name: "thane_id"
 end
