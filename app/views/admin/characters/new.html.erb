@@ -27,11 +27,11 @@ Creating a new character for player: <%= @player.firstname %> <%= @player.lastna
 </p><p>
   Pronouns <%= form.text_field :pronouns %>
 </p><p>
-  Race <%= form.select :raceid,  raceoptions, :prompt => 'Select A Race' %>
+  Race <%= form.select :race_id,  raceoptions, :prompt => 'Select A Race' %>
 </p><p>
-  Class <%= form.select :classid,  classoptions, :prompt => 'Select A Class' %>
+  Class <%= form.select :characterclass_id,  classoptions, :prompt => 'Select A Class' %>
 </p><p>
-  Deity <%= form.select :deityid,  deityoptions, :prompt => 'Select A Deity' %>
+  Deity <%= form.select :deity_id,  deityoptions, :prompt => 'Select A Deity' %>
 </p><p>
     <%= form.submit 'Save Character' %>
 </p>

@@ -24,6 +24,6 @@
     Player Type <%= form.select :playertype, [ 'Player','Cast' ], :prompt => 'Player Type' %>
 </p><p>
     <%= form.submit 'Save Player' %>
-    <%= link_to 'Cancel', admin_players_path %>
+    <%= link_to 'Cancel', yield(:backurl) %>
 </p>
 <% end %>

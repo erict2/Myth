@@ -1,16 +1,16 @@
 puts 'Starting Character Classes'
-CharacterClass.delete_all
-CharacterClass.create(name: 'Alchemist', playeravailable: true)
-CharacterClass.create(name: 'Artificer', playeravailable: true)
-CharacterClass.create(name: 'Bard', playeravailable: true)
-CharacterClass.create(name: 'Cleric', playeravailable: true)
-CharacterClass.create(name: 'Druid', playeravailable: true)
-CharacterClass.create(name: 'Fighter', playeravailable: true)
-CharacterClass.create(name: 'Paladin', playeravailable: true)
-CharacterClass.create(name: 'Ranger', playeravailable: true)
-CharacterClass.create(name: 'Rogue', playeravailable: true)
-CharacterClass.create(name: 'Runesmith', playeravailable: true)
-CharacterClass.create(name: 'Wizard', playeravailable: true)
+Characterclass.delete_all
+Characterclass.create(name: 'Alchemist', playeravailable: true)
+Characterclass.create(name: 'Artificer', playeravailable: true)
+Characterclass.create(name: 'Bard', playeravailable: true)
+Characterclass.create(name: 'Cleric', playeravailable: true)
+Characterclass.create(name: 'Druid', playeravailable: true)
+Characterclass.create(name: 'Fighter', playeravailable: true)
+Characterclass.create(name: 'Paladin', playeravailable: true)
+Characterclass.create(name: 'Ranger', playeravailable: true)
+Characterclass.create(name: 'Rogue', playeravailable: true)
+Characterclass.create(name: 'Runesmith', playeravailable: true)
+Characterclass.create(name: 'Wizard', playeravailable: true)
 
 puts 'Starting Deities'
 Deity.delete_all

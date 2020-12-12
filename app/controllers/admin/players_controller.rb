@@ -8,7 +8,8 @@ class Admin::PlayersController < AdminController
     end
 
     def show
-        @player = Player.find(params[:id])
+        session[:player_id] = params[:id]
+        @player = Player.find(session[:player_id])
     end
 
     def create
@@ -29,7 +30,7 @@ class Admin::PlayersController < AdminController
         @player = Player.find(params[:id])
  
         if @player.update(player_params)
-            redirect_to admin_player_path
+            redirect_to admin_player_path(session[:player_id])
         else
           render 'edit'
         end

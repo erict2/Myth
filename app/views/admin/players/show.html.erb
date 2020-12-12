@@ -9,5 +9,22 @@ Email Address: <%= @player.emailaddress %><br>
 <hr>
 <h1>Characters</h1>
 <hr>
-<%= link_to 'Add Character', new_admin_character_path(:playerid=> @player.id) %>
+<%= link_to 'Add Character', new_admin_character_path %>
 <hr>
+<table border = 1>
+<tr>
+    <th>Name</th>
+    <th>Race</th>
+    <th>Class</th>
+    <th>Controls</th>
+</tr>
+<% @player.characters.each do |character| %>
+    <tr>
+      <td><%= character.name %></td>
+      <td><%= character.race.name %></td>
+      <td><%= character.characterclass.name %></td>
+      <td>View | Edit</td>
+    </tr>
+  <% end %>
+
+  </table>
