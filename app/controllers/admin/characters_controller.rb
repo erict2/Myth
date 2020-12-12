@@ -5,14 +5,11 @@ class Admin::CharactersController < AdminController
     end
 
     def show
-        @player = Player.find(params[:id])
+        @player = Player.find(session[:player_id])
+        @character = Character.find(params[:id])
     end
 
     def create
-        @player = Player.find(session[:player_id])
-        params[:player_id] = session[:player_id]
-        puts "test"
-        puts params
         @character = Character.new(character_params)
         @character.player_id = session[:player_id]
         if @character.save
@@ -22,6 +19,30 @@ class Admin::CharactersController < AdminController
             render 'new'
         end
     end
+
+    def edit
+        @character = Character.find(params[:id])
+        @character.player_id = session[:player_id]
+        setup_character_lists
+    end
+
+    def update
+        @character = Character.find(params[:id])
+ 
+        if @character.update(character_params)
+            redirect_to admin_character_path(@character)
+        else
+          render 'edit'
+        end
+    end
+
+    def destroy
+        @character = Character.find(params[:id])
+        @character.destroy
+     
+        redirect_to admin_player_path(session[:player_id])
+    end
+    private
 
     def character_params
         params.require(:character).permit(:name, :pronouns, :deity_id, :race_id, :characterclass_id, :player_id)

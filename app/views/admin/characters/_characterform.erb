@@ -1,0 +1,36 @@
+<%= link_to 'Back', yield(:backurl) %>
+<hr>
+
+<% classoptions = options_from_collection_for_select(@classes, 'id', 'name', :selected => @character.characterclass_id) %>
+<% deityoptions = options_from_collection_for_select(@deities, 'id', 'name', :selected => @character.deity_id) %>
+<% raceoptions = options_from_collection_for_select(@races, 'id', 'name', :selected => @character.race_id) %>
+
+<%= form_with(model: @character, url: yield(:url), local: true) do |form| %>
+
+<% if @character.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:
+  </h2>
+    <ul>
+      <% @character.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+</div>
+<% end %>
+
+<p>
+  Character Name <%= form.text_field :name %>
+</p><p>
+  Pronouns <%= form.text_field :pronouns %>
+</p><p>
+  Race <%= form.select :race_id,  raceoptions, :prompt => 'Select A Race' %>
+</p><p>
+  Class <%= form.select :characterclass_id,  classoptions, :prompt => 'Select A Class' %>
+</p><p>
+  Deity <%= form.select :deity_id,  deityoptions, :prompt => 'Select A Deity'  %>
+</p><p>
+    <%= form.submit 'Save Character' %>
+</p>
+<% end %>

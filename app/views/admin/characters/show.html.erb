@@ -1,0 +1,13 @@
+<%= link_to 'Delete This Character', admin_character_path(@character), method: :delete, data: { confirm: 'Are you sure?' } %> <br>
+<%= link_to 'Edit This Character', edit_admin_character_path(@character)%> <br>
+<%= link_to 'Back', admin_player_path(@player) %>
+<hr>
+Name: <%= @character.name %><br>
+Pronouns: <%= @character.pronouns %><br>
+Race: <%= @character.race.name %><br>
+Class: <%= @character.characterclass.name %><br>
+Deity: <%= @character.deity.name %><br>
+House: <%= if(@character.house_id) then @character.house.name end%><br>
+Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
+
+<h1>Skills</h1>
