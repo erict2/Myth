@@ -23,7 +23,7 @@ Email Address: <%= @player.emailaddress %><br>
       <td><%= character.name %></td>
       <td><%= character.race.name %></td>
       <td><%= character.characterclass.name %></td>
-      <td><%= link_to 'View', admin_character_path(character) %> | Edit</td>
+      <td><%= link_to 'View', admin_character_path(character) %> | <%= link_to 'Edit', edit_admin_character_path(character)%></td>
     </tr>
   <% end %>
 
