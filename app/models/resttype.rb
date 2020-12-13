@@ -1,0 +1,2 @@
+class Resttype < ApplicationRecord
+end

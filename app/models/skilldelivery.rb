@@ -1,0 +1,2 @@
+class Skilldelivery < ApplicationRecord
+end
