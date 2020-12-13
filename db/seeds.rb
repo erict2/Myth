@@ -52,8 +52,9 @@ Skilldelivery.find_or_create_by(name: 'Packet', description: 'You must deliver t
 Skilldelivery.find_or_create_by(name: 'Touch', description: 'Skill must be delivered to someone making physical contact with a packet. This skill may not be modified to be delivered by burst, chain, or voice.')
 Skilldelivery.find_or_create_by(name: 'Voice', description: 'Skill affects all individuals within line of sight able to hear it except for the person using the skill. You may not use By My Voice skills while Silenced.')
 Skilldelivery.find_or_create_by(name: 'Weapon', description: 'Skill must be delivered with a weapon.')
+Skilldelivery.find_or_create_by(name: 'Knowledge', description: 'Something your character inherently knows')
 
-puts 'Starting Open Skill Groups'
+puts 'Starting Skill Groups'
 Skillgroup.find_or_create_by(name: 'Basic Open Skills', playeravailable: true)
 Skillgroup.find_or_create_by(name: 'Defense', playeravailable: true)
 Skillgroup.find_or_create_by(name: 'Shadow', playeravailable: true)
@@ -61,3 +62,12 @@ Skillgroup.find_or_create_by(name: 'Weapon', playeravailable: true)
 Skillgroup.find_or_create_by(name: 'Healing / Utility', playeravailable: true)
 Skillgroup.find_or_create_by(name: 'Defensive', playeravailable: true)
 Skillgroup.find_or_create_by(name: 'Offensive', playeravailable: true)
+
+puts 'Starting Skills'
+@Resttypes = Resttype.all
+@Skilldeliveries = Skilldelivery.all
+@Skillgroups = Skillgroup.all
+
+Skill.find_or_create_by(name: 'Apply Pressure', tier: 0, resttype: @Resttypes.find_by(name: 'Permanent'), skilldelivery: @Skilldeliveries.find_by(name: 'Touch'), skillgroup: @Skillgroups.find_by(name: 'Basic Open Skills'), playeravailable: true, description: 'Prop Required: Bandages. RP: Continuously administering first aid with both hands. “Pause your bleed out count until I remove my hands.” This skill will end if you remove your hands, use any other skills, or take damage.')
+Skill.find_or_create_by(name: 'Literacy', tier: 0, resttype: @Resttypes.find_by(name: 'Permanent'), skilldelivery: @Skilldeliveries.find_by(name: 'Knowledge'), skillgroup: @Skillgroups.find_by(name: 'Basic Open Skills'), playeravailable: true, description: 'You may read and write in the game.')
+

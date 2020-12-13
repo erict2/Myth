@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_021254) do
+ActiveRecord::Schema.define(version: 2020_12_13_024215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,22 @@ ActiveRecord::Schema.define(version: 2020_12_13_021254) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "incant"
+    t.integer "tier"
+    t.boolean "playeravailable"
+    t.bigint "skillgroup_id", null: false
+    t.bigint "resttype_id", null: false
+    t.bigint "skilldelivery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resttype_id"], name: "index_skills_on_resttype_id"
+    t.index ["skilldelivery_id"], name: "index_skills_on_skilldelivery_id"
+    t.index ["skillgroup_id"], name: "index_skills_on_skillgroup_id"
+  end
+
   add_foreign_key "characters", "characterclasses"
   add_foreign_key "characters", "deities"
   add_foreign_key "characters", "guilds"
@@ -113,4 +129,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_021254) do
   add_foreign_key "characters", "races"
   add_foreign_key "guilds", "players", name: "guildmaster_id"
   add_foreign_key "houses", "players", name: "thane_id"
+  add_foreign_key "skills", "resttypes"
+  add_foreign_key "skills", "skilldeliveries"
+  add_foreign_key "skills", "skillgroups"
 end
