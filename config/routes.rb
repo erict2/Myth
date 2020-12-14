@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
     root 'welcome#index'
     get "/admin", to: "admin#index"
-    #resources :admin
     namespace :admin do
         resources :players
         resources :characters
+        resources :datatables
     end
     namespace :player do
         resources :players
