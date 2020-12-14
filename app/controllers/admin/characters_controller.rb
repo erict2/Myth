@@ -1,4 +1,9 @@
 class Admin::CharactersController < AdminController
+    def index
+        @characters = Character.all
+        @players = Player.all
+    end
+
     def new
         setup_character_lists
         @character = Character.new

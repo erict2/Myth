@@ -1,4 +1,8 @@
-test<br>
+Welcome to the admin panel. If you shouldnt be here, GET OUT!<br>
+<%= link_to 'List of Players', admin_players_path %><br>
+<%= link_to 'List of Characters', admin_characters_path %><br>
+<hr>
+
 <% @skills.all.each do |skill| %>
 
 Skill: <%= skill.name %><br>
