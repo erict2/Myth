@@ -22,25 +22,14 @@
             <li class="nav-item">
                 <a href="#" class="nav-link">Profile</a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Inbox</a>
-                    <a href="#" class="dropdown-item">Drafts</a>
-                    <a href="#" class="dropdown-item">Sent Items</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#"class="dropdown-item">Trash</a>
-                </div>
-            </li>
         </ul>
         
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin Go Here</a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdown-item">Admin Area</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#"class="dropdown-item">Logout</a>
+                <%= link_to 'Players', admin_players_path, :class => "dropdown-item" %>
+                <%= link_to 'Characters', admin_characters_path, :class => "dropdown-item" %>
                 </div>
             </li>
         </ul>
