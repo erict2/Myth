@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "pronouns"
-    t.integer "level", default: 0
+    t.integer "level", default: 1
+    t.string "status", default: "Active"
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
     t.bigint "player_id", null: false
     t.bigint "deity_id"
