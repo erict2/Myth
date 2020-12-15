@@ -7,7 +7,7 @@ Name: <%= @character.name %><br>
 Pronouns: <%= @character.pronouns %><br>
 Race: <%= @character.race.name %><br>
 Class: <%= @character.characterclass.name %><br>
-Deity: <%= @character.deity.name %><br>
+Deity: <%= if(@character.deity) then @character.deity.name end%><br>
 House: <%= if(@character.house_id) then @character.house.name end%><br>
 Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
 

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
 
   create_table "characterclasses", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "pronouns"
+    t.integer "level", default: 0
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
     t.bigint "player_id", null: false
     t.bigint "deity_id"
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
 
   create_table "deities", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -79,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
 
   create_table "races", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -86,20 +90,23 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
 
   create_table "resttypes", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.string "description"
+    t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "skilldeliveries", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.string "description"
+    t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "skillgroups", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

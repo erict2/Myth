@@ -12,14 +12,20 @@ Email Address: <%= @player.emailaddress %><br>
 <table border = 1>
 <tr>
     <th>Name</th>
-    <th>Race</th>
+    <th>Level</th>
     <th>Class</th>
+    <th>Race</th>
+    <th>Deity</th>
+    <th>Status</th>
 </tr>
 <% @player.characters.each do |character| %>
     <tr>
       <td><%= link_to character.name, admin_character_path(character) %></td>
-      <td><%= character.race.name %></td>
+      <td><%= character.level %></td>
       <td><%= character.characterclass.name %></td>
+      <td><%= character.race.name %></td>
+      <td><%= if(character.deity) then character.deity.name end%></td>
+      <td><%= character.status %></td>
     </tr>
   <% end %>
 
