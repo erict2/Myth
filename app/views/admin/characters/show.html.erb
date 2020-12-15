@@ -1,5 +1,8 @@
 <%= link_to 'Edit This Character', edit_admin_character_path(@character)%> <br>
 <hr>
+Player: <%=  %>
+<%= link_to @player.firstname + ' ' + @player.lastname, admin_player_path(@player)%>
+<br>
 Name: <%= @character.name %><br>
 Pronouns: <%= @character.pronouns %><br>
 Race: <%= @character.race.name %><br>

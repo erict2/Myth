@@ -1,4 +1,3 @@
-<%= link_to 'Delete This Player', admin_player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %> <br>
 <%= link_to 'Edit This Player', edit_admin_player_path(@player)%> <br>
 <hr>
 First Name: <%= @player.firstname %><br>
@@ -15,14 +14,12 @@ Email Address: <%= @player.emailaddress %><br>
     <th>Name</th>
     <th>Race</th>
     <th>Class</th>
-    <th>Controls</th>
 </tr>
 <% @player.characters.each do |character| %>
     <tr>
-      <td><%= character.name %></td>
+      <td><%= link_to character.name, admin_character_path(character) %></td>
       <td><%= character.race.name %></td>
       <td><%= character.characterclass.name %></td>
-      <td><%= link_to 'View', admin_character_path(character) %> | <%= link_to 'Edit', edit_admin_character_path(character)%></td>
     </tr>
   <% end %>
 

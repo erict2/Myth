@@ -21,7 +21,7 @@
   </p><p>
     Email Address <%= form.text_field :emailaddress %>
 </p><p>
-    Player Type <%= form.select :playertype, [ 'Player','Cast' ], :prompt => 'Player Type' %>
+    Player Type <%= form.select :playertype, [ 'Admin', 'Player','Cast' ], :prompt => 'Player Type' %>
 </p><p>
     <%= form.submit 'Save Player' %>
     <%= link_to 'Cancel', yield(:backurl) %>
