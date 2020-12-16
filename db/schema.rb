@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
     t.integer "level", default: 1
     t.string "status", default: "Active"
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
-    t.bigint "player_id", null: false
+    t.bigint "user_id", null: false
     t.bigint "deity_id"
     t.bigint "race_id", null: false
     t.bigint "characterclass_id", null: false
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
     t.index ["deity_id"], name: "index_characters_on_deity_id"
     t.index ["guild_id"], name: "index_characters_on_guild_id"
     t.index ["house_id"], name: "index_characters_on_house_id"
-    t.index ["player_id"], name: "index_characters_on_player_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "deities", force: :cascade do |t|
@@ -56,27 +56,13 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
   create_table "guilds", force: :cascade do |t|
     t.string "name"
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
-    t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["player_id"], name: "index_guilds_on_player_id"
   end
 
   create_table "houses", force: :cascade do |t|
     t.string "name"
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
-    t.bigint "player_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["player_id"], name: "index_houses_on_player_id"
-  end
-
-  create_table "players", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "emailaddress"
-    t.string "playertype"
-    t.date "joindate", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -129,14 +115,37 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
     t.index ["skillgroup_id"], name: "index_skills_on_skillgroup_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "firstname", null: false
+    t.string "lastname", null: false
+    t.string "usertype", default: "Player"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "characters", "characterclasses"
   add_foreign_key "characters", "deities"
   add_foreign_key "characters", "guilds"
   add_foreign_key "characters", "houses"
-  add_foreign_key "characters", "players"
   add_foreign_key "characters", "races"
-  add_foreign_key "guilds", "players", name: "guildmaster_id"
-  add_foreign_key "houses", "players", name: "thane_id"
+  add_foreign_key "characters", "users"
   add_foreign_key "skills", "resttypes"
   add_foreign_key "skills", "skilldeliveries"
   add_foreign_key "skills", "skillgroups"

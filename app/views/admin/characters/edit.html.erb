@@ -1,4 +1,4 @@
-Modifying character <b><%= @character.name %></b> for player: <b><%= @player.firstname %> <%= @player.lastname %></b><br>
+Modifying character <b><%= @character.name %></b> for user: <b><%= @user.firstname %> <%= @user.lastname %></b><br>
 <% provide(:url, admin_character_path(@character)) %>
 <% provide(:backurl, admin_character_path(@character)) %>
 <%= render 'admin/characters/characterform' %>

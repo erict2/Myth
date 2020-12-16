@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-    root 'welcome#index'
-    get "/admin", to: "admin#index"
-    namespace :admin do
-        resources :players
-        resources :characters
-        resources :datatables
-    end
-    namespace :player do
-        resources :players
-        resources :characters
-    end
+  root "pages#index"
+  devise_for :users
+  get "/admin", to: "admin#index"
+  namespace :admin do
+    resources :users
+    resources :characters
+    resources :datatables
+  end
 end
