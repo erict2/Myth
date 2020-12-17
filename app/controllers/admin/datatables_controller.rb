@@ -7,4 +7,20 @@ class Admin::DatatablesController < AdminController
     @skillgroup = Skillgroup.all
     @resttype = Resttype.all
   end
+
+  def edit
+    case params[:tablename]
+      when 'race'
+        @datatable = Race.all
+      when 'class'
+        @datatable = Characterclass.all
+      when 'deity'
+        @datatable = Deity.all
+      when 'skilldelivery'
+        @datatable = Skilldelivery.all
+    end
+  end
+
+  def update
+  end
 end
