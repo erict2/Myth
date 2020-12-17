@@ -1,3 +1,33 @@
+puts 'Initial Users'
+
+if !User.where(:email => 'andrew.warzocha@gmail.com').exists?
+  user = User.new(
+    :firstname => 'Andrew',
+    :lastname => 'Warzocha',
+    :usertype => 'Admin',
+    :email                 => "andrew.warzocha@gmail.com",
+    :password              => "123456",
+    :password_confirmation => "123456"
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
+if !User.where(:email => 'eric@ctfaire.com').exists?
+  user = User.new(
+    :firstname => 'Eric',
+    :lastname => 'Tetreault',
+    :usertype => 'Admin',
+    :email                 => "eric@ctfaire.com",
+    :password              => "123456",
+    :password_confirmation => "123456"
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
+
+
 puts 'Starting Character Classes'
 Characterclass.find_or_create_by(name: 'Alchemist', description: 'Alchemist', playeravailable: true)
 Characterclass.find_or_create_by(name: 'Artificer', description: 'Artificer', playeravailable: true)
