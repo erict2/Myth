@@ -6,21 +6,7 @@ class Admin::DatatablesController < AdminController
     @skilldelivery = Skilldelivery.all
     @skillgroup = Skillgroup.all
     @resttype = Resttype.all
+    @skill = Skill.all
   end
 
-  def edit
-    case params[:tablename]
-      when 'race'
-        @datatable = Race.all
-      when 'class'
-        @datatable = Characterclass.all
-      when 'deity'
-        @datatable = Deity.all
-      when 'skilldelivery'
-        @datatable = Skilldelivery.all
-    end
-  end
-
-  def update
-  end
 end

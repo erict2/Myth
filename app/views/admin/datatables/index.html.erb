@@ -17,6 +17,9 @@
   <li class="nav-item">
     <a class="nav-link" id="resttype-tab" data-toggle="tab" href="#resttype" role="tab" aria-controls="resttype" aria-selected="true">Rest Type</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" id="skill-tab" data-toggle="tab" href="#skill" role="tab" aria-controls="skill" aria-selected="true">Skills</a>
+  </li>
 </ul>
 
 <div class="tab-content" id="myTabContent">
@@ -37,5 +40,8 @@
   </div>
   <div class="tab-pane fade " id="resttype" role="tabpanel" aria-labelledby="resttype-tab">
     <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @resttype, tablename: 'resttype' } %>
+  </div>
+  <div class="tab-pane fade " id="skill" role="tabpanel" aria-labelledby="skill-tab">
+    <%= render partial: 'admin/datatables/tables/skilltable' %>
   </div>
 </div>

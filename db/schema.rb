@@ -103,11 +103,13 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
     t.string "name"
     t.string "description"
     t.string "incant"
+    t.string "target"
+    t.string "prop"
     t.integer "tier"
     t.boolean "playeravailable"
     t.bigint "skillgroup_id", null: false
     t.bigint "resttype_id", null: false
-    t.bigint "skilldelivery_id", null: false
+    t.bigint "skilldelivery_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["resttype_id"], name: "index_skills_on_resttype_id"
