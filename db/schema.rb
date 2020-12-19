@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_024215) do
+ActiveRecord::Schema.define(version: 2020_12_18_143054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
     t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "explogs", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
+    t.string "name"
+    t.string "description"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_explogs_on_character_id"
   end
 
   create_table "guilds", force: :cascade do |t|
@@ -147,6 +158,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_024215) do
   add_foreign_key "characters", "houses"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
+  add_foreign_key "explogs", "characters"
   add_foreign_key "skills", "resttypes"
   add_foreign_key "skills", "skilldeliveries"
   add_foreign_key "skills", "skillgroups"

@@ -1,4 +1,5 @@
 class Character < ApplicationRecord
+  has_many :explogs
   belongs_to :user
   belongs_to :race
   belongs_to :characterclass

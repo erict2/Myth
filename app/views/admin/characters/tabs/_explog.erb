@@ -1,0 +1,37 @@
+<table border = 1>
+<tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Aquire Date</th>
+    <th>Amount</th>
+    <th></th>
+</tr>
+<% @character.explogs.each do |explog| %>
+    <tr>
+      <td><%= link_to explog.name, edit_admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id, id: explog.id), remote: true %></td>
+      <td><%= explog.description %></td>
+      <td><%= explog.aquiredate %></td>
+      <td><%= explog.amount %></td>
+      <td>
+        <%= link_to admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id, id: explog.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <%= fa_icon "trash" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+  </table>
+
+<div class="modal fade" id="expModal" tabindex="-1" role="dialog" aria-labelledby="expModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="expModalLabel">Add Experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <%= render partial: 'admin/modals/explog', locals: {explog: @explog, pathurl: admin_user_character_explogs_path(user_id: @character.user_id, character_id: @character.id)} %>
+    </div>
+  </div>
+</div>
