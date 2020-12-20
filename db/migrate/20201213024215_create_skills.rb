@@ -4,11 +4,13 @@ class CreateSkills < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.string :incant
+      t.string :target
+      t.string :prop
       t.integer :tier
       t.boolean :playeravailable
       t.references :skillgroup, null: false, foreign_key: true
       t.references :resttype, null: false, foreign_key: true
-      t.references :skilldelivery, null: false, foreign_key: true
+      t.references :skilldelivery, null: true, foreign_key: true
       t.timestamps
     end
   end

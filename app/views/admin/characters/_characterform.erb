@@ -3,7 +3,7 @@
 <% deityoptions = options_from_collection_for_select(@deities, 'id', 'name', :selected => @character.deity_id) %>
 <% raceoptions = options_from_collection_for_select(@races, 'id', 'name', :selected => @character.race_id) %>
 
-<%= form_with(model: @character, url: yield(:url), local: true) do |form| %>
+<%= bootstrap_form_with(model: @character, url: yield(:url), local: true) do |f| %>
 
 <% if @character.errors.any? %>
 <div id="error_explanation">
@@ -17,19 +17,12 @@
     </ul>
 </div>
 <% end %>
-
-<p>
-  Character Name <%= form.text_field :name %>
-</p><p>
-  Pronouns <%= form.select :pronouns, [ 'He/Him', 'She/Her','They/Them' ] %>
-</p><p>
-  Race <%= form.select :race_id,  raceoptions %>
-</p><p>
-  Class <%= form.select :characterclass_id,  classoptions %>
-</p><p>
-  Deity <%= form.select :deity_id,  deityoptions, :include_blank => true  %>
-</p><p>
-    <%= form.submit 'Save Character' %>
-    <%= link_to 'Cancel', yield(:backurl) %>
+  <%= f.text_field :name %>
+  <%= f.select :pronouns, [ 'He/Him', 'She/Her','They/Them' ] %>
+  <%= f.select :race_id,  raceoptions %>
+  <%= f.select :characterclass_id,  classoptions %>
+  <%= f.select :deity_id,  deityoptions, :include_blank => true  %>
+  <%= f.submit 'Save Character' %>
+  <%= link_to 'Cancel', yield(:backurl) %>
 </p>
 <% end %>

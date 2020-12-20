@@ -1,73 +1,589 @@
+puts 'Initial Users'
+
+if !User.where(:email => 'andrew.warzocha@gmail.com').exists?
+  user = User.new(
+    :firstname => 'Andrew',
+    :lastname => 'Warzocha',
+    :usertype => 'Admin',
+    :email => "andrew.warzocha@gmail.com",
+    :password => "123456",
+    :password_confirmation => "123456"
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
+if !User.where(:email => 'eric@ctfaire.com').exists?
+  user = User.new(
+    :firstname => 'Eric',
+    :lastname => 'Tetreault',
+    :usertype => 'Admin',
+    :email => "eric@ctfaire.com",
+    :password => "123456",
+    :password_confirmation => "123456"
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
 puts 'Starting Character Classes'
-Characterclass.find_or_create_by(name: 'Alchemist', description: 'Alchemist', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Artificer', description: 'Artificer', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Bard', description: 'Bard', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Cleric', description: 'Cleric', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Druid', description: 'Druid', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Fighter', description: 'Fighter', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Paladin', description: 'Paladin', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Ranger', description: 'Ranger', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Rogue', description: 'Rogue', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Runesmith', description: 'Runesmith', playeravailable: true)
-Characterclass.find_or_create_by(name: 'Wizard', description: 'Wizard', playeravailable: true)
+characterclass = Characterclass.find_or_initialize_by(name: 'Alchemist')
+characterclass.description = 'Alchemist'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Bard')
+characterclass.description = 'Bard'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Cleric')
+characterclass.description = 'Cleric'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Druid')
+characterclass.description = 'Druid'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Fighter')
+characterclass.description = 'Fighter'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Paladin')
+characterclass.description = 'Paladin'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Ranger')
+characterclass.description = 'Ranger'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Rogue')
+characterclass.description = 'Rogue'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Runesmith')
+characterclass.description = 'Runesmith'
+characterclass.playeravailable = true
+characterclass.save!
+
+characterclass = Characterclass.find_or_initialize_by(name: 'Wizard')
+characterclass.description = 'Wizard'
+characterclass.playeravailable = true
+characterclass.save!
 
 puts 'Starting Deities'
-Deity.find_or_create_by(name: 'Adara', description: 'Adara', playeravailable: true)
-Deity.find_or_create_by(name: 'Amitel', description: 'Amitel', playeravailable: true)
-Deity.find_or_create_by(name: 'Dedrot', description: 'Dedrot', playeravailable: true)
-Deity.find_or_create_by(name: 'Enoon', description: 'Enoon', playeravailable: true)
-Deity.find_or_create_by(name: 'Ixbus', description: 'Ixbus', playeravailable: true)
-Deity.find_or_create_by(name: 'Naenya', description: 'Naenya', playeravailable: true)
-Deity.find_or_create_by(name: 'Ororo', description: 'Ororo', playeravailable: true)
-Deity.find_or_create_by(name: 'Ryknos', description: 'Ryknos', playeravailable: true)
-Deity.find_or_create_by(name: 'Scandelen', description: 'Scandelen', playeravailable: true)
+deity = Deity.find_or_initialize_by(name: 'Adara')
+deity.description = 'Adara'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Amitel')
+deity.description = 'Amitel'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Dedrot')
+deity.description = 'Dedrot'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Enoon')
+deity.description = 'Enoon'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Ixbus')
+deity.description = 'Ixbus'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Naenya')
+deity.description = 'Naenya'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Ororo')
+deity.description = 'Ororo'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Ryknos')
+deity.description = 'Ryknos'
+deity.playeravailable = true
+deity.save!
+
+deity = Deity.find_or_initialize_by(name: 'Scandelen')
+deity.description = 'Scandelen'
+deity.playeravailable = true
+deity.save!
 
 puts 'Starting Races'
-Race.find_or_create_by(name: 'Dale Elf', description: 'Dale Elf', playeravailable: true)
-Race.find_or_create_by(name: 'Deep Elf', description: 'Deep Elf', playeravailable: true)
-Race.find_or_create_by(name: 'Dwarf', description: 'Dwarf', playeravailable: true)
-Race.find_or_create_by(name: 'Goblin', description: 'Goblin', playeravailable: true)
-Race.find_or_create_by(name: 'Half Elf', description: 'Half Elf', playeravailable: true)
-Race.find_or_create_by(name: 'High Elf', description: 'High Elf', playeravailable: true)
-Race.find_or_create_by(name: 'Human', description: 'Human', playeravailable: true)
-Race.find_or_create_by(name: 'Suhk', description: 'Suhk', playeravailable: true)
-Race.find_or_create_by(name: 'Wildren', description: 'Wildren', playeravailable: true)
-Race.find_or_create_by(name: 'Tengu', description: 'Tengu', playeravailable: false)
+race = Race.find_or_initialize_by(name: 'Dale Elf')
+race.description = 'Dale Elf'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'Dwarf')
+race.description = 'Dwarf'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'Goblin')
+race.description = 'Goblin'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'Half Elf')
+race.description = 'Half Elf'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'High Elf')
+race.description = 'High Elf'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'Human')
+race.description = 'Human'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'Suhk')
+race.description = 'Suhk'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'Wildren')
+race.description = 'Wildren'
+race.playeravailable = true
+race.save!
+
+race = Race.find_or_initialize_by(name: 'Tengu')
+race.description = 'Tengu'
+race.playeravailable = false
+race.save!
 
 puts 'Starting Rest Types'
-Resttype.find_or_create_by(name: 'Permanent', description: 'Skill may be used as often as you can fulfill the requirements for use or is always active.', playeravailable: true)
-Resttype.find_or_create_by(name: 'Short Rest', description: 'Skill may be used once per purchase and is restored after taking a 15 minute break relaxing in an encampment or building.', playeravailable: true)
-Resttype.find_or_create_by(name: 'Place of Power', description: 'Skill may be used once per purchase and is restored after taking a 15 minute (short rest) break meditating at a Place of Power.', playeravailable: true)
-Resttype.find_or_create_by(name: 'Long Rest', description: 'Skill may be used once per purchase per day and is refreshed at 9am every day.', playeravailable: true)
-Resttype.find_or_create_by(name: 'Between Events', description: 'This skill can only be used at Check-In or Checkout but not during the Game.', playeravailable: true)
-Resttype.find_or_create_by(name: 'Aura', description: 'You must be a designated Benefactor and be within 10 ft. of the person granting this ability and be conscious to receive the effect. Some Auras may have exceptions.', playeravailable: true)
-Resttype.find_or_create_by(name: 'Event', description: 'Skill may only be used per event.', playeravailable: true)
-Resttype.find_or_create_by(name: 'Crafting', description: 'This skill may be used as often as the necessary materials and costs can be paid. Some Crafting is only able to be done Between Events. When you learn a skill with the Crafting Tag, you also learn a recipe relevant to the Skill you have purchased.', playeravailable: true)
+resttype = Resttype.find_or_initialize_by(name: 'Permanent')
+resttype.description = 'Skill may be used as often as you can fulfill the requirements for use or is always active.'
+resttype.playeravailable = true
+resttype.save!
+
+resttype = Resttype.find_or_initialize_by(name: 'Short Rest')
+resttype.description = 'Skill may be used once per purchase and is restored after taking a 15 minute break relaxing in an encampment or building.'
+resttype.playeravailable = true
+resttype.save!
+
+resttype = Resttype.find_or_initialize_by(name: 'Place of Power')
+resttype.description = 'Skill may be used once per purchase and is restored after taking a 15 minute (short rest) break meditating at a Place of Power.'
+resttype.playeravailable = true
+resttype.save!
+
+resttype = Resttype.find_or_initialize_by(name: 'Long Rest')
+resttype.description = 'Skill may be used once per purchase per day and is refreshed at 9am every day.'
+resttype.playeravailable = true
+resttype.save!
+
+resttype = Resttype.find_or_initialize_by(name: 'Between Events')
+resttype.description = 'This skill can only be used at Check-In or Checkout but not during the Game.'
+resttype.playeravailable = true
+resttype.save!
+
+resttype = Resttype.find_or_initialize_by(name: 'Aura')
+resttype.description = 'You must be a designated Benefactor and be within 10 ft. of the person granting this ability and be conscious to receive the effect. Some Auras may have exceptions.'
+resttype.playeravailable = true
+resttype.save!
+
+resttype = Resttype.find_or_initialize_by(name: 'Event')
+resttype.description = 'Skill may only be used per event.'
+resttype.playeravailable = true
+resttype.save!
+
+resttype = Resttype.find_or_initialize_by(name: 'Crafting')
+resttype.description = 'This skill may be used as often as the necessary materials and costs can be paid. Some Crafting is only able to be done Between Events. When you learn a skill with the Crafting Tag, you also learn a recipe relevant to the Skill you have purchased.'
+resttype.playeravailable = true
+resttype.save!
 
 puts 'Starting Skill Delivery'
-Skilldelivery.find_or_create_by(name: 'Crafting', description: 'This skill may be used as often as the necessary materials and costs can be paid. Some Crafting is only able to be done Between Events. When you learn a skill with the Crafting Tag, you also learn a recipe relevant to the Skill you have purchased.', playeravailable: true)
-Skilldelivery.find_or_create_by(name: 'Burst', description: 'Skill must be delivered by a handful of packets (Maximum of 5 Packets Thrown). You only take the effect once regardless of the number of packets that strike you.', playeravailable: true)
-Skilldelivery.find_or_create_by(name: 'Chain', description: 'To use this skill, you must plant both feet firmly on the ground. You may continue to use this skill until your feet are no longer in the original position, you are hit with damage, or use another skill. Skills and spells will state if it is a Weapon Chain or Packet Chain.', playeravailable: true)
-Skilldelivery.find_or_create_by(name: 'Packet', description: 'You must deliver this skill by a packet. The effect of a packet skill with the "Through" keyword is successfully delivered when it strikes a body, clothing, a shield, or a weapon.', playeravailable: true)
-Skilldelivery.find_or_create_by(name: 'Touch', description: 'Skill must be delivered to someone making physical contact with a packet. This skill may not be modified to be delivered by burst, chain, or voice.', playeravailable: true)
-Skilldelivery.find_or_create_by(name: 'Voice', description: 'Skill affects all individuals within line of sight able to hear it except for the person using the skill. You may not use By My Voice skills while Silenced.', playeravailable: true)
-Skilldelivery.find_or_create_by(name: 'Weapon', description: 'Skill must be delivered with a weapon.', playeravailable: true)
-Skilldelivery.find_or_create_by(name: 'Knowledge', description: 'Something your character inherently knows', playeravailable: true)
+
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Crafting')
+skilldelivery.description = 'This skill may be used as often as the necessary materials and costs can be paid. Some Crafting is only able to be done Between Events. When you learn a skill with the Crafting Tag, you also learn a recipe relevant to the Skill you have purchased.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
+
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Burst')
+skilldelivery.description = 'Skill must be delivered by a handful of packets (Maximum of 5 Packets Thrown). You only take the effect once regardless of the number of packets that strike you.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
+
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Chain')
+skilldelivery.description = 'To use this skill, you must plant both feet firmly on the ground. You may continue to use this skill until your feet are no longer in the original position, you are hit with damage, or use another skill. Skills and spells will state if it is a Weapon Chain or Packet Chain.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
+
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Packet')
+skilldelivery.description = 'You must deliver this skill by a packet. The effect of a packet skill with the "Through" keyword is successfully delivered when it strikes a body, clothing, a shield, or a weapon.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
+
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Touch')
+skilldelivery.description = 'Skill must be delivered to someone making physical contact with a packet. This skill may not be modified to be delivered by burst, chain, or voice.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
+
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Voice')
+skilldelivery.description = 'Skill affects all individuals within line of sight able to hear it except for the person using the skill. You may not use By My Voice skills while Silenced.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
+
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Weapon')
+skilldelivery.description = 'Skill must be delivered with a weapon.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
 
 puts 'Starting Skill Groups'
-Skillgroup.find_or_create_by(name: 'Basic Open Skills', description: 'Basic Open Skills', playeravailable: true)
-Skillgroup.find_or_create_by(name: 'Defense', description: 'Defense', playeravailable: true)
-Skillgroup.find_or_create_by(name: 'Shadow', description: 'Shadow', playeravailable: true)
-Skillgroup.find_or_create_by(name: 'Weapon', description: 'Weapon', playeravailable: true)
-Skillgroup.find_or_create_by(name: 'Healing / Utility', description: 'Healing / Utility', playeravailable: true)
-Skillgroup.find_or_create_by(name: 'Defensive', description: 'Defensive', playeravailable: true)
-Skillgroup.find_or_create_by(name: 'Offensive', description: 'Offensive', playeravailable: true)
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+skillgroup.description = 'Basic Open Skills'
+skillgroup.playeravailable = true
+skillgroup.save!
+
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+skillgroup.description = 'Basic Defense Skills'
+skillgroup.playeravailable = true
+skillgroup.save!
+
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Shadow')
+skillgroup.description = 'Shadow'
+skillgroup.playeravailable = true
+skillgroup.save!
+
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Weapon')
+skillgroup.description = 'Weapon'
+skillgroup.playeravailable = true
+skillgroup.save!
+
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+skillgroup.description = 'Healing / Utility'
+skillgroup.playeravailable = true
+skillgroup.save!
+
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Defensive')
+skillgroup.description = 'Defensive'
+skillgroup.playeravailable = true
+skillgroup.save!
+
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Offensive')
+skillgroup.description = 'Offensive'
+skillgroup.playeravailable = true
+skillgroup.save!
 
 puts 'Starting Skills'
 @Resttypes = Resttype.all
 @Skilldeliveries = Skilldelivery.all
 @Skillgroups = Skillgroup.all
 
-Skill.find_or_create_by(name: 'Apply Pressure', tier: 0, resttype: @Resttypes.find_by(name: 'Permanent'), skilldelivery: @Skilldeliveries.find_by(name: 'Touch'), skillgroup: @Skillgroups.find_by(name: 'Basic Open Skills'), playeravailable: true, description: 'Prop Required: Bandages. RP: Continuously administering first aid with both hands. “Pause your bleed out count until I remove my hands.” This skill will end if you remove your hands, use any other skills, or take damage.')
-Skill.find_or_create_by(name: 'Literacy', tier: 0, resttype: @Resttypes.find_by(name: 'Permanent'), skilldelivery: @Skilldeliveries.find_by(name: 'Knowledge'), skillgroup: @Skillgroups.find_by(name: 'Basic Open Skills'), playeravailable: true, description: 'You may read and write in the game.')
+skill = Skill.find_or_initialize_by(name: 'Apply Pressure')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = 'Bandages'
+skill.incant = 'Pause your bleed out count until I remove my hands.'
+skill.description = 'Prop Required: Bandages. RP: Continuously administering first aid with both hands. "Pause your bleed out count until I remove my hands." This skill will end if you remove your hands, use any other skills, or take damage.'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Diagnose')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = 'Unconscious/Bleeding Out Body'
+skill.prop = nil
+skill.incant = 'Diagnose - <How many Hit Points do you have? / Are you Poisoned? / What is your poison count currently at? / How long before you bleed out? / Are you Dead?>'
+skill.description = 'Target: Unconscious/Bleeding Out Body. RP: Checking the targets Vitals. "Diagnose - <How many Hit Points do you have? / Are you Poisoned? / What is your poison count currently at? / How long before you bleed out? / Are you Dead?>'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Literacy')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may read and write in the game.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Escape Bonds')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = 'Self - Rope Bindings Only.'
+skill.prop = nil
+skill.incant = 'Cure Binds.'
+skill.description = 'Self Only - Target: Rope Bindings Only. RP: Five minutes of struggling to get free. "Cure Binds."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Execute')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = 'Unconscious or Immobile Persons Torso.'
+skill.prop = 'Weapon or Packet'
+skill.incant = 'I execute you 1.I execute you 2. I execute you 3.'
+skill.description = 'Target: Unconscious or Immobile Persons Torso. "I execute you 1.I execute you 2. I execute you 3.". If you execute something with an enchanted weapon or spell, state the element it is of. For example: "Air execute 1, Air execute 2, Air execute 3"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Flat')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Flat'
+skill.description = 'Your weapon does no damage this attack.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Light')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = 'Diffused, nonwhite light that is not a Blacklight.'
+skill.incant = 'Through Fire, Light'
+skill.description = 'This light may be a lantern, a faux torch, or a spell. For the spell version: "Through Fire, Light."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Repair')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may wield any one-or-two-handed weapon.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Dagger')
+skill.tier = 0
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may carry a dagger as well as your standard weapon. You may not wield both without Dual Wield.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Light Armor Proficiency')
+skill.tier = 1
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may wear armor that falls under the "Light" category.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Medium Armor Proficiency')
+skill.tier = 2
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may wear armor that falls under the "Medium" category.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Shield')
+skill.tier = 2
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may wield a shield.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Heavy Armor Proficiency')
+skill.tier = 3
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may wear armor that falls under the "Heavy" category.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'First Aid')
+skill.tier = 3
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = 'Medical Kit'
+skill.incant = 'Pause your Bleed Out count. | Heal 1 Hit Points'
+skill.description = 'RP: Continuously administering first aid with both hands. "Pause your Bleed Out count" This skill will end if you use any other skills or take damage. After 1 minute of roleplaying this skill continuously, you may call "Heal 1 Hit Points" on your target. Alternatively, you may spend one minute roleplaying binding limbs. After this time, you may cure a single maimed limb.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Hit Points')
+skill.tier = 3
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Gain one Hit Point to your total.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Dash')
+skill.tier = 1
+skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Resist Slow'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Sneak Attack')
+skill.tier = 1
+skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = 'From Behind'
+skill.prop = nil
+skill.incant = 'Crit, Damage 1'
+skill.description = 'Target: From Behind. "Crit, Damage 1."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Rapid Search')
+skill.tier = 1
+skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = 'From Behind'
+skill.prop = nil
+skill.incant = 'Rapid Search 1, Rapid Search 2, Rapid Search 3.'
+skill.description = '"Rapid Search 1, Rapid Search 2, Rapid Search 3." The target must immediately turn over anything of value not protected by skills, spells, or items.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Sneak Attack 2')
+skill.tier = 2
+skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = 'From Behind'
+skill.prop = nil
+skill.incant = 'Crit, Damage 2'
+skill.description = 'Target: From Behind. "Crit, Damage 2"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Silencing Strike')
+skill.tier = 2
+skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = 'Torso'
+skill.prop = nil
+skill.incant = 'Silence, 1 Minute.'
+skill.description = 'Target: Torso "Silence, 1 Minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Hamstring')
+skill.tier = 2
+skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = 'Leg'
+skill.prop = nil
+skill.incant = 'Slow'
+skill.description = 'Target: Leg. "Slow."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Sneak Attack 3')
+skill.tier = 3
+skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = 'From Behind'
+skill.prop = nil
+skill.incant = 'Crit, Damage 3'
+skill.description = 'Target: From Behind. "Crit, Damage 3"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Pick Locks')
+skill.tier = 3
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may use a self-modified paperclip to pick locks. You may not attempt to open locks without this skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Set/Disarm Traps')
+skill.tier = 3
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'This skill is required to set or disarm a Trap. You must physically disarm the trap to disable it; however, there is no guarantee disarming the trap will be a success. Some traps go off when you attempt to disarm them. You may remove contact poison safely with this skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Hidden Stash')
+skill.tier = 3
+skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may have a small, clearly-marked pouch no larger than 2" x 4" on your person that is immune to searching. If searched or Rapid Searched, you may inform the searcher they find nothing.'
+skill.save!

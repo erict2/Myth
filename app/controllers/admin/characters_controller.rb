@@ -10,15 +10,15 @@ class Admin::CharactersController < AdminController
     end
 
     def show
-        @user = User.find(session[:user_id])
+        @user = User.find(params[:user_id])
         @character = Character.find(params[:id])
     end
 
     def create
         @character = Character.new(character_params)
-        @character.user_id = session[:user_id]
+        @character.user_id = params[:user_id]
         if @character.save
-            redirect_to admin_user_path(session[:user_id])
+            redirect_to admin_user_path(params[:user_id])
         else
             setup_character_lists
             render 'new'
@@ -27,7 +27,7 @@ class Admin::CharactersController < AdminController
 
     def edit
         @character = Character.find(params[:id])
-        @character.user_id = session[:user_id]
+        @character.user_id = params[:user_id]
         setup_character_lists
     end
 
@@ -45,8 +45,9 @@ class Admin::CharactersController < AdminController
         @character = Character.find(params[:id])
         @character.destroy
      
-        redirect_to admin_user_path(session[:user_id])
+        redirect_to admin_user_path(params[:user_id])
     end
+    
     private
 
     def character_params
@@ -54,7 +55,7 @@ class Admin::CharactersController < AdminController
     end
 
     def setup_character_lists
-        @user = User.find(session[:user_id])
+        @user = User.find(params[:user_id])
         @classes = Characterclass.select { |x| x.playeravailable == true }
         @races = Race.select { |x| x.playeravailable == true }
         @deities = Deity.select { |x| x.playeravailable == true }

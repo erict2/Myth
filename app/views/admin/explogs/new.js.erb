@@ -1,0 +1,6 @@
+$('.modal-title').html("Add Experience")
+$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/explog', locals: {explog: @explog, pathurl: admin_user_character_explogs_path(user_id: @character.user_id, character_id: @character.id)} ) %>")
+flatpickr("[data-behavior = 'flatpickr']");
+$(document).ready(function(){
+  $('#expModal').modal('show');
+});

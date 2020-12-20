@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   get "/admin", to: "admin#index"
   namespace :admin do
-    resources :users
-    resources :characters
+    resources :users do
+      resources :characters do
+        resources :explogs
+      end
+    end
     resources :datatables
   end
 end

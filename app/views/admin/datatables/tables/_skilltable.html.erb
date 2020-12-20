@@ -1,0 +1,22 @@
+<table border = 1>
+<tr>
+    <th>Name</th>
+    <th>Tier</th>
+    <th>Skill Group</th>
+    <th>Rest Type</th>
+    <th>Delivery</th>
+    <th>Description</th>
+    <th>Player Available</th>
+</tr>
+<% @skill.all.each do |datarow| %>
+<tr>
+    <td><%= datarow.name %></td>
+    <td><%= datarow.tier %></td>
+    <td><%= datarow.skillgroup.name %></td>
+    <td><%= datarow.resttype.name %></td>
+    <td><%= if(datarow.skilldelivery_id) then datarow.skilldelivery.name end %></td>
+    <td><%= datarow.description %></td>
+    <td><%= datarow.playeravailable %></td>
+</tr>
+<% end %>
+</table>

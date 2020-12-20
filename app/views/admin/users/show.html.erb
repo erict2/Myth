@@ -6,7 +6,7 @@ Email Address: <%= @user.email %><br>
 <hr>
 <h1>Characters</h1>
 <hr>
-<%= link_to 'Add Character', new_admin_character_path %>
+<%= link_to 'Add Character', new_admin_user_character_path(@user) %>
 <hr>
 <table border = 1>
 <tr>
@@ -19,7 +19,7 @@ Email Address: <%= @user.email %><br>
 </tr>
 <% @user.characters.each do |character| %>
     <tr>
-      <td><%= link_to character.name, admin_character_path(character) %></td>
+      <td><%= link_to character.name, admin_user_character_path(character) %></td>
       <td><%= character.level %></td>
       <td><%= character.characterclass.name %></td>
       <td><%= character.race.name %></td>
