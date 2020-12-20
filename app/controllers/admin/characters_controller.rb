@@ -12,7 +12,6 @@ class Admin::CharactersController < AdminController
     def show
         @user = User.find(params[:user_id])
         @character = Character.find(params[:id])
-        @explog = Explog.all
     end
 
     def create

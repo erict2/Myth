@@ -4,13 +4,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 # Bootstrap makes things pretty
-gem 'bootstrap', '~> 4.5', '>= 4.5.3'
+gem 'bootstrap-sass'
 gem "bootstrap_form", "~> 4.0"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'flatpickr'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 # JQuery makes things awesome
-gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgres as the database for Active Record

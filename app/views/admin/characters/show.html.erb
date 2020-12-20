@@ -4,7 +4,7 @@
 User: <%= link_to @user.firstname + ' ' + @user.lastname, admin_user_path(@user)%><br>
 Name: <%= @character.name %><br>
 Level: <%= @character.level %><br>
-Experience: XP GO HERE<br>
+Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) %><br>
 Pronouns: <%= @character.pronouns %><br>
 Race: <%= @character.race.name %><br>
 Class: <%= @character.characterclass.name %><br>
