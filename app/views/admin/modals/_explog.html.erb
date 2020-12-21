@@ -1,6 +1,6 @@
 <div class="modal-body">
   <%= bootstrap_form_with(model: @explog, url: pathurl) do |f| %>
-    <%= f.select :name, ['Donation', 'Event', 'PEL', 'Referral', 'Season Pass', 'Go Big Bonus', 'Setup/Take Down', 'Volunteer' ] %>
+    <%= f.select :name, ['Adjustment', 'Donation', 'Event', 'Feedback Letter', 'Referral', 'Season Pass', 'Go Big Bonus', 'Setup/Take Down', 'Volunteer' ] %>
     <%= f.text_field :description%>
     <%= f.text_field :aquiredate, data: { behavior: "flatpickr" }, id: 'aquiredate' %>
     <%= f.text_field :amount %>

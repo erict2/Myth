@@ -56,12 +56,14 @@ ActiveRecord::Schema.define(version: 2020_12_18_143054) do
   create_table "explogs", force: :cascade do |t|
     t.bigint "character_id", null: false
     t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
-    t.string "name"
-    t.string "description"
-    t.integer "amount"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "amount", null: false
+    t.bigint "grantedby_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_explogs_on_character_id"
+    t.index ["grantedby_id"], name: "index_explogs_on_grantedby_id"
   end
 
   create_table "guilds", force: :cascade do |t|
@@ -159,6 +161,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_143054) do
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
   add_foreign_key "explogs", "characters"
+  add_foreign_key "explogs", "users", column: "grantedby_id"
   add_foreign_key "skills", "resttypes"
   add_foreign_key "skills", "skilldeliveries"
   add_foreign_key "skills", "skillgroups"
