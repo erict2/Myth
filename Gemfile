@@ -7,7 +7,6 @@ ruby '2.7.2'
 gem 'bootstrap-sass'
 gem "bootstrap_form", "~> 4.0"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
-gem 'flatpickr'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 # JQuery makes things awesome
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
