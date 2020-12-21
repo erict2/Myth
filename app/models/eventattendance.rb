@@ -1,4 +1,4 @@
 class Eventattendance < ApplicationRecord
-  has_many :events
-  has_many :characters
+  belongs_to :event
+  belongs_to :character
 end

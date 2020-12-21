@@ -8,7 +8,6 @@ gem 'bootstrap-sass'
 gem "bootstrap_form", "~> 4.0"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
-# JQuery makes things awesome
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgres as the database for Active Record

@@ -1,0 +1,41 @@
+<%= bootstrap_form_with(model: @event, url: admin_events_path(@event)) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :startdate, label: 'Start Date: (YYYY-MM-DD)'%>
+  <%= f.text_field :enddate, label: 'End Date: (YYYY-MM-DD)'%>
+  <%= f.text_field :description %>
+  <%= f.text_field :castcount %>
+
+  <%= link_to 'Back', admin_events_path, :class => "btn btn-secondary"%>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+<% end %>
+<hr>
+<%= link_to 'Add Character', new_admin_event_eventattendance_path(event_id: @event.id), :class => "btn btn-secondary", remote: true%>
+<table border = 1>
+<tr>
+  <th>Character Name</th>
+  <th>Player Name</th>
+  <th>Player Email</th>
+  <th>Player Type</th>
+  <th>Registered Date</th>
+</tr>
+<% @event.characters.each do |character| %>
+  <tr>
+    <td><%= character.name %></td>
+  </tr>
+<% end %>
+
+
+<div class="modal fade" id="addCharToEventModal" tabindex="-1" role="dialog" aria-labelledby="addCharToEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCharToEventModalLabel">Add Character</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <%= render partial: 'admin/modals/addevent' %>
+    </div>
+  </div>
+</div>

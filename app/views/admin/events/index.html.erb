@@ -3,21 +3,21 @@
 <hr>
 <table border = 1>
 <tr>
-    <th>Name</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-    <th>Player Count</th>
-    <th>Cast Count</th>
-    <th>Plot Count</th>
+  <th>Name</th>
+  <th>Start Date</th>
+  <th>End Date</th>
+  <th>Player Count</th>
+  <th>Plot Count</th>
+  <th>Cast Count</th>
 </tr>
 <% @events.all.each do |event| %>
 <tr>
-    <td><%= event.name %></td>
-    <td><%= event.startdate %></td>
-    <td><%= event.enddate%></td>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
+  <td><%= link_to event.name, edit_admin_event_path(event) %></td>
+  <td><%= event.startdate %></td>
+  <td><%= event.enddate%></td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 <% end %>
 </table>
@@ -26,7 +26,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addEventModalLabel">Add Experience</h5>
+        <h5 class="modal-title" id="addEventModalLabel">Add Event</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -36,4 +36,13 @@
   </div>
 </div>
 
+<script>
+$(document).ready(function() { $("#e1").select2(); });
+</script>
 
+
+
+<select id="e1">
+    <option value="AL">Alabama</option>
+    <option value="WY">Wyoming</option>
+</select>

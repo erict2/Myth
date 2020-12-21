@@ -1,0 +1,4 @@
+$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addchartoevent', locals: {event: @event} ) %>")
+$(document).ready(function(){
+  $('#addCharToEventModal').modal('show');
+});

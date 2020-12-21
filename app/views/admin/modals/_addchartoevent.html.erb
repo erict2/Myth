@@ -1,0 +1,8 @@
+<div class="modal-body">
+
+  <%= bootstrap_form_with(model: @eventattendance, url: admin_event_eventattendances_path) do |f| %>
+    
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  <% end %>
+</div>    

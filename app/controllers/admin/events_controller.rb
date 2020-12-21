@@ -10,6 +10,10 @@ class Admin::EventsController < AdminController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
   def create
     @event = Event.new(addevent_params)
 
