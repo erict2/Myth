@@ -1,4 +1,18 @@
+var country, options, states;
 $('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addchartoevent', locals: {event: @event} ) %>")
 $(document).ready(function(){
   $('#addCharToEventModal').modal('show');
 });
+
+characters = $('#eventattendance_character_id').html();
+$('#eventattendance_email').change(function() {
+  user = $('#eventattendance_email :selected').text();
+  options = $(characters).filter(`optgroup[label='${user}']`).html();
+  if (options) {
+  $('#eventattendance_character_id').html(options);
+} else {
+  $('#eventattendance_character_id').empty();
+}
+});
+
+$(document).ready(function() { $("#eventattendance_email").select2(); });

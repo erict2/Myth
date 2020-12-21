@@ -3,12 +3,14 @@ class Admin::EventattendancesController < AdminController
     @eventattendance = Eventattendance.new
     @event = Event.find_by(id: params[:event_id])
     @characters = Character.all
+    @users = User.all
     respond_to do |format|
       format.js
     end
   end
 
   def create
+    params.delete :email
     @eventattendance = Eventattendance.new(event_params)
     @eventattendance.character_id = params[:character_id]
     @eventattendance.event_id = params[:event_id]
