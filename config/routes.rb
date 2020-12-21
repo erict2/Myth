@@ -9,5 +9,6 @@ Rails.application.routes.draw do
       end
     end
     resources :datatables
+    resources :events
   end
 end

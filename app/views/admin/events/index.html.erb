@@ -1,0 +1,39 @@
+<%= link_to 'Register New Event', new_admin_event_path, remote: true %>
+
+<hr>
+<table border = 1>
+<tr>
+    <th>Name</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Player Count</th>
+    <th>Cast Count</th>
+    <th>Plot Count</th>
+</tr>
+<% @events.all.each do |event| %>
+<tr>
+    <td><%= event.name %></td>
+    <td><%= event.startdate %></td>
+    <td><%= event.enddate%></td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+</tr>
+<% end %>
+</table>
+
+<div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEventModalLabel">Add Experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <%= render partial: 'admin/modals/addevent' %>
+    </div>
+  </div>
+</div>
+
+
