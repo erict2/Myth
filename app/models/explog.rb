@@ -1,7 +1,9 @@
 class Explog < ApplicationRecord
-    has_many :user, foreign_key: "id"
-    
-    default_scope { order(aquiredate: :desc) }
     belongs_to :character
+    
+    belongs_to :grantedby, class_name: 'User'
+
+    default_scope { order(aquiredate: :desc) }
+    
     
 end

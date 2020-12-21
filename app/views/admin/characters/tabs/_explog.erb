@@ -14,7 +14,7 @@
       <td><%= explog.description %></td>
       <td><%= explog.aquiredate %></td>
       <td><%= explog.amount %></td>
-      <td><%= explog.user.first.firstname + ' ' + explog.user.first.lastname%> </td>
+      <td><%= explog.grantedby.firstname + ' ' + explog.grantedby.lastname%> </td>
       <td>
         <%= link_to admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id, id: explog.id), method: :delete, data: { confirm: "Are you sure?" } do %>
           <%= fa_icon "trash" %>
