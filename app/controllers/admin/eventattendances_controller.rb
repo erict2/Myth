@@ -9,21 +9,17 @@ class Admin::EventattendancesController < AdminController
     end
   end
 
-  def create
-    params.delete :email
-    @eventattendance = Eventattendance.new(event_params)
-    @eventattendance.character_id = params[:character_id]
-    @eventattendance.event_id = params[:event_id]
-
+  def create    
+    @eventattendance = Eventattendance.new(addchar_params)
     if @eventattendance.save
-        redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
+      redirect_to edit_admin_event_path(params[:event_id])
     else
-        redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
+        redirect_to edit_admin_event_path(params[:event_id])
     end
   end
 
   private
-  def event_params
-    params.require(:eventattendance).permit(:character_id, :event_id)
+  def addchar_params
+    params.require(:eventattendance).permit(:character_id, :event_id, :startdate, :enddate)
   end
 end
