@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_022705) do
+ActiveRecord::Schema.define(version: 2020_12_22_143809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_12_22_022705) do
     t.boolean "playeravailable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "characterclassskillgroups", force: :cascade do |t|
+    t.bigint "skillgroup_id", null: false
+    t.bigint "characterclass_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["characterclass_id"], name: "index_characterclassskillgroups_on_characterclass_id"
+    t.index ["skillgroup_id"], name: "index_characterclassskillgroups_on_skillgroup_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -143,6 +152,15 @@ ActiveRecord::Schema.define(version: 2020_12_22_022705) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "skillrequirements", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "requiredskill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["requiredskill_id"], name: "index_skillrequirements_on_requiredskill_id"
+    t.index ["skill_id"], name: "index_skillrequirements_on_skill_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -185,6 +203,8 @@ ActiveRecord::Schema.define(version: 2020_12_22_022705) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "characterclassskillgroups", "characterclasses"
+  add_foreign_key "characterclassskillgroups", "skillgroups"
   add_foreign_key "characters", "characterclasses"
   add_foreign_key "characters", "deities"
   add_foreign_key "characters", "guilds"
@@ -197,6 +217,8 @@ ActiveRecord::Schema.define(version: 2020_12_22_022705) do
   add_foreign_key "eventattendances", "events"
   add_foreign_key "explogs", "characters"
   add_foreign_key "explogs", "users", column: "grantedby_id"
+  add_foreign_key "skillrequirements", "skills"
+  add_foreign_key "skillrequirements", "skills", column: "requiredskill_id"
   add_foreign_key "skills", "resttypes"
   add_foreign_key "skills", "skilldeliveries"
   add_foreign_key "skills", "skillgroups"

@@ -1,10 +1,10 @@
 <div class="modal-body">
-  <%= select_tag 'skillgroups', options_from_collection_for_select(Skillgroup.all, :name, :name) %>
+  <%= select_tag 'skillgroups', options_from_collection_for_select(@characterskillgroups, :id, :name) %>
   <%= bootstrap_form_with(model: @characterskill, url: pathurl) do |f| %>
-    <%= f.select :name, ['Adjustment', 'Donation', 'Event', 'Feedback Letter', 'Referral', 'Season Pass', 'Go Big Bonus', 'Setup/Take Down', 'Volunteer' ], label: 'Type' %>
-    <%= f.text_field :description %>
-    <%= f.text_field :aquiredate, label: 'Date: (YYYY-MM-DD)'%>
-    <%= f.text_field :amount %>
+    f.grouped_collection_select :skill_id, @grouplist.order(:name), :skills, :name, :id, :name
+
+    <%= f.grouped_collection_select :skill_id, @grouplist.order(:name), :skills, :name, :id, :name %>
+
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>
