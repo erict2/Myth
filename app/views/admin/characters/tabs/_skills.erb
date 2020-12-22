@@ -10,18 +10,32 @@
     <th>Description</th>
     <th></th>
 </tr>
-<% @character.characterskills.select("skill_id").group("skill_id").each do |characterskill| %>
+<% @character.characterskills.select("skill_id, max(aquiredate) as aquiredate").group("skill_id").each do |characterskill| %>
     <tr>
       <td><%= characterskill.skill.name %></td>
       <td><%= @character.characterskills.select("skill_id").group("skill_id").count[characterskill.skill_id] %></td>
-
       <td><%= characterskill.skill.tier %></td>
       <td><%= characterskill.skill.skillgroup.name %></td>
       <td><%= characterskill.skill.resttype.name %></td>
       <td><%= characterskill.skill.incant %></td>
       <td><%= characterskill.skill.description %> </td>
       <td>
-        DELETE GO HERE
+      <%=
+        if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > characterskill.aquiredate)
+          delmessage = 'Are you sure? Doing so will not cost you any XP'
+          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: delmessage  } do 
+            fa_icon "trash" 
+           end
+        elsif characterskill.skill.tier == 0
+           # Do nothing. You cant refund Tier 0
+        else
+          delmessage = 'Doing this will cost you ' + (characterskill.skill.tier * 25).to_s + ' exp. This is irreversible.'
+          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: delmessage  } do 
+            fa_icon "trash" 
+          end
+        end
+
+      %>
       </td>
     </tr>
   <% end %>
