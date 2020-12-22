@@ -21,7 +21,7 @@ class Admin::EventattendancesController < AdminController
       @explog.description = 'Exp for Attending a Myth Event'
       @explog.amount = 300
       @explog.grantedby_id = current_user.id
-      if (@explog.save!)
+      if @explog.save!
         redirect_to edit_admin_event_path(params[:event_id])
       end
     else

@@ -1,9 +1,7 @@
 <div class="modal-body">
-  <%= select_tag 'skillgroups', options_from_collection_for_select(@characterskillgroups, :id, :name) %>
   <%= bootstrap_form_with(model: @characterskill, url: pathurl) do |f| %>
-    f.grouped_collection_select :skill_id, @grouplist.order(:name), :skills, :name, :id, :name
-
-    <%= f.grouped_collection_select :skill_id, @grouplist.order(:name), :skills, :name, :id, :name %>
+    <%= f.hidden_field :character_id, value: @character.id  %>
+    <%= f.collection_select :skill_id, @availableskills, :id, :name %>
 
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>

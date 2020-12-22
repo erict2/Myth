@@ -3,7 +3,6 @@
 <%= select_tag 'eventattendance_email', options_from_collection_for_select(User.all, :email, :email) %>
 
   <%= bootstrap_form_with(model: @eventattendance, url: admin_event_eventattendances_path) do |f| %>
-    
     <hr>
     <%= f.hidden_field :event_id, value: @event.id  %>
     <%= f.grouped_collection_select :character_id, User.order(:email), :characters, :email, :id, :name %>

@@ -3,3 +3,8 @@ $('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/adds
 $(document).ready(function(){
   $('#characterSkillModal').modal('show');
 });
+
+$(document).ready(function() {$("#skill_id").select2({
+  width: '400'
+  });
+});
