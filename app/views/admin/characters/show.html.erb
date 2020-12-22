@@ -1,7 +1,7 @@
 <%= link_to 'Edit This Character', edit_admin_user_character_path(@character)%> <br>
 <hr>
 
-User: <%= link_to @user.firstname + ' ' + @user.lastname, admin_user_path(@user)%><br>
+User: <%= link_to @character.user.firstname + ' ' + @character.user.lastname, admin_user_path(@character.user)%><br>
 Name: <%= @character.name %><br>
 Level: <%= @character.level %><br>
 Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) %><br>
