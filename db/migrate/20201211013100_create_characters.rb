@@ -4,6 +4,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :pronouns
       t.integer :level, default: 1 
+      t.date :levelupdate, default: -> { 'CURRENT_TIMESTAMP' }
       t.string :status, default: 'Active'
       t.date :createdate, default: -> { 'CURRENT_TIMESTAMP' }
       t.references :user, null: false, foreign_key: true

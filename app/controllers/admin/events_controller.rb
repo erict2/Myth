@@ -14,6 +14,16 @@ class Admin::EventsController < AdminController
     @event = Event.find(params[:id])
   end
 
+  def update
+    @event = Event.find(params[:id])
+
+    if @event.update(updateevent_params)
+      redirect_to admin_events_path
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @event = Event.new(addevent_params)
 
@@ -27,6 +37,10 @@ class Admin::EventsController < AdminController
   private
   def addevent_params
     params.require(:event).permit(:name, :description, :startdate, :enddate)
+  end
+
+  def updateevent_params
+    params.require(:event).permit(:name, :description, :startdate, :enddate, :castcount)
   end
 
 end
