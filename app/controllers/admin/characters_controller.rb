@@ -1,10 +1,4 @@
 class Admin::CharactersController < AdminController
-  def get_characters_by_email
-    @characters = Character.where('user_id = ?', User.select('id').where('email = ?', params[:email])
-
-    
-  end 
-  
   def index
     @characters = Character.all
     @users = User.all

@@ -1,4 +1,5 @@
 <div class="modal-body">
+
 <%= select_tag 'eventattendance_email', options_from_collection_for_select(User.all, :email, :email) %>
 
   <%= bootstrap_form_with(model: @eventattendance, url: admin_event_eventattendances_path) do |f| %>
@@ -8,6 +9,5 @@
     <%= f.grouped_collection_select :character_id, User.order(:email), :characters, :email, :id, :name %>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <%= f.submit 'Save Character' %>
   <% end %>
 </div>    

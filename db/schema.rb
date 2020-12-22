@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 2020_12_21_153207) do
   create_table "eventattendances", force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "character_id", null: false
+    t.date "registerdate", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
     t.index ["character_id"], name: "index_eventattendances_on_character_id"
     t.index ["event_id"], name: "index_eventattendances_on_event_id"
   end
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_153207) do
     t.date "startdate", null: false
     t.date "enddate", null: false
     t.string "description", null: false
+    t.integer "castcount", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -14,18 +14,36 @@
 <%= link_to 'Add Character', new_admin_event_eventattendance_path(event_id: @event.id), :class => "btn btn-secondary", remote: true%>
 <table border = 1>
 <tr>
-  <th>Character Name</th>
-  <th>Player Name</th>
-  <th>Player Email</th>
-  <th>Player Type</th>
+  
+  <th>User Name</th>
+  <th>User Email</th>
+  <th>User Type</th>
   <th>Registered Date</th>
+  <th>Character Name</th>
+  <th>Level</th>
+  <th>Class</th>
+  <th>House</th>
+  <th>Guild</th>
+  <th></th>
 </tr>
 <% @event.characters.each do |character| %>
   <tr>
+    <td><%= character.user.firstname + ' ' + character.user.lastname %></td>
+    <td><%= character.user.email %></td>
+    <td><%= character.user.usertype %></td>
+    <td><%= character.eventattendances.first.registerdate %></td>
     <td><%= character.name %></td>
+    <td><%= character.level %></td>
+    <td><%= character.characterclass.name %></td>
+    <td><%= if(character.house) then character.house.name end%></td>
+    <td><%= if(character.guild) then character.guild.name end%></td>
+    <td>
+      <%= link_to admin_event_eventattendance_path(character_id: character.id, event_id: @event.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= fa_icon "trash" %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
-
 
 <div class="modal fade" id="addCharToEventModal" tabindex="-1" role="dialog" aria-labelledby="addCharToEventModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
