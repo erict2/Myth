@@ -11,6 +11,8 @@ class Admin::CharactersController < AdminController
 
   def show
     @character = Character.find(params[:id])
+    @characterskills = Characterskill.all.where(character_id: @character.id).group(:skills_id)
+   
   end
 
   def create

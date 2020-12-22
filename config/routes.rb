@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users do
       resources :characters do
         resources :explogs
+        resources :characterskills
       end
     end
     resources :datatables
