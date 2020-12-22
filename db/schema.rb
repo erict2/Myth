@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_153207) do
+ActiveRecord::Schema.define(version: 2020_12_22_022705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2020_12_21_153207) do
     t.index ["house_id"], name: "index_characters_on_house_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "characterskills", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "character_id", null: false
+    t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_characterskills_on_character_id"
+    t.index ["skill_id"], name: "index_characterskills_on_skill_id"
   end
 
   create_table "deities", force: :cascade do |t|
@@ -181,6 +191,8 @@ ActiveRecord::Schema.define(version: 2020_12_21_153207) do
   add_foreign_key "characters", "houses"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
+  add_foreign_key "characterskills", "characters"
+  add_foreign_key "characterskills", "skills"
   add_foreign_key "eventattendances", "characters"
   add_foreign_key "eventattendances", "events"
   add_foreign_key "explogs", "characters"

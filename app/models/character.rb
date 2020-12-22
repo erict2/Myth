@@ -1,5 +1,7 @@
 class Character < ApplicationRecord
   has_many :explogs
+  has_many :characterskills
+  has_many :skills, through: :characterskills
   has_many :eventattendances
   has_many :events, through: :eventattendances
   belongs_to :user
