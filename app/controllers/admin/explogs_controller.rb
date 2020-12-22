@@ -2,7 +2,6 @@ class Admin::ExplogsController < AdminController
   def new
     @explog = Explog.new
     @character = Character.find_by(id: params[:character_id])
-    @user = User.find_by(id: params[:user_id])
     respond_to do |format|
       format.js
     end
@@ -11,7 +10,6 @@ class Admin::ExplogsController < AdminController
   def edit
     @explog = Explog.find_by(id: params[:id])
     @character = Character.find_by(id: params[:character_id])
-    @user = User.find_by(id: params[:user_id])
     respond_to do |format|
         format.js
     end
