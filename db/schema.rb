@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_143809) do
     t.string "name"
     t.string "pronouns"
     t.integer "level", default: 1
+    t.date "levelupdate", default: -> { "CURRENT_TIMESTAMP" }
     t.string "status", default: "Active"
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
     t.bigint "user_id", null: false
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_143809) do
   end
 
   create_table "eventattendances", force: :cascade do |t|
+    t.integer "castcount", default: 0
     t.bigint "event_id", null: false
     t.bigint "character_id", null: false
     t.date "registerdate", default: -> { "CURRENT_TIMESTAMP" }
