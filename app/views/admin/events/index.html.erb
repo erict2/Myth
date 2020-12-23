@@ -16,7 +16,7 @@
   <td><%= event.startdate %></td>
   <td><%= event.enddate %></td>
   <td><%= event.users.where(usertype: 'Player').count %></td>
-  <td><%= event.users.where('usertype = ? OR usertype = ?', 'Admin', 'Cast').count %></td>
+  <td><%= event.users.where('usertype = ? OR usertype = ?', 'Admin', 'Cast').distinct.count(:user_id) %></td>
   <td><%= event.castcount %></td>
 </tr>
 <% end %>

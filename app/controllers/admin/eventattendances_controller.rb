@@ -29,6 +29,26 @@ class Admin::EventattendancesController < AdminController
     end
   end
 
+  def edit
+    @eventattendance = Eventattendance.find_by(id: params[:id])
+    @event = Event.find_by(id: @eventattendance.event_id)
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    @eventattendance = Eventattendance.find_by(id:params[:id])
+
+    if @eventattendance.update(addchar_params)
+      redirect_to edit_admin_event_path(params[:event_id])
+    else
+      render 'edit'
+    end
+
+  end
+
   def destroy    
     @eventattendance = Eventattendance.find_by character_id: params[:character_id], event_id: params[:event_id]
     @event = Event.find_by(id: params[:event_id])
@@ -43,7 +63,7 @@ class Admin::EventattendancesController < AdminController
 
   private
   def addchar_params
-    params.require(:eventattendance).permit(:character_id, :event_id)
+    params.require(:eventattendance).permit(:character_id, :event_id, :cabin)
   end
 
 

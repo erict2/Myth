@@ -1,5 +1,4 @@
-var country, options, states;
-$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addchartoevent', locals: {event: @event} ) %>")
+$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addchartoevent', locals: {event: @event, pathurl: admin_event_eventattendances_path} ) %>")
 $(document).ready(function(){
   $('#addCharToEventModal').modal('show');
 });

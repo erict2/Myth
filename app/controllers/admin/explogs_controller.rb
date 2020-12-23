@@ -11,7 +11,7 @@ class Admin::ExplogsController < AdminController
     @explog = Explog.find_by(id: params[:id])
     @character = Character.find_by(id: params[:character_id])
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 

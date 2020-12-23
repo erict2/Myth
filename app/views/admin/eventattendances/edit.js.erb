@@ -1,0 +1,6 @@
+$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addchartoevent', locals: {event: @event, pathurl: admin_event_eventattendance_path(id: @eventattendance.id)} ) %>")
+$(document).ready(function(){
+  $("#eventattendance_email").prop('disabled', true);
+  $("#eventattendance_character_id").prop('disabled', true);
+  $('#addCharToEventModal').modal('show');
+});

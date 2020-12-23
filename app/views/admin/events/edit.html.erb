@@ -16,9 +16,10 @@
 <tr>
   
   <th>User Name</th>
-  <th>User Email</th>
+  <th>Email</th>
   <th>User Type</th>
   <th>Registered Date</th>
+  <th>Cabin</th>
   <th>Character Name</th>
   <th>Level</th>
   <th>Class</th>
@@ -28,10 +29,15 @@
 </tr>
 <% @event.characters.each do |character| %>
   <tr>
-    <td><%= character.user.firstname + ' ' + character.user.lastname %></td>
+    <td><%=  %>
+    
+    <%= link_to character.user.firstname + ' ' + character.user.lastname,  edit_admin_event_eventattendance_path(event_id: @event.id, id: character.eventattendances.first.id), remote: true %>
+    
+    </td>
     <td><%= character.user.email %></td>
     <td><%= character.user.usertype %></td>
     <td><%= character.eventattendances.first.registerdate %></td>
+    <td><%= character.eventattendances.first.cabin %></td>
     <td><%= character.name %></td>
     <td><%= character.level %></td>
     <td><%= character.characterclass.name %></td>
