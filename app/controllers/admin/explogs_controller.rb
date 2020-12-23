@@ -2,7 +2,6 @@ class Admin::ExplogsController < AdminController
   def new
     @explog = Explog.new
     @character = Character.find_by(id: params[:character_id])
-    @user = User.find_by(id: params[:user_id])
     respond_to do |format|
       format.js
     end
@@ -11,15 +10,15 @@ class Admin::ExplogsController < AdminController
   def edit
     @explog = Explog.find_by(id: params[:id])
     @character = Character.find_by(id: params[:character_id])
-    @user = User.find_by(id: params[:user_id])
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 
   def create
     @explog = Explog.new(exp_params)
     @explog.character_id = params[:character_id]
+    @explog.grantedby_id = current_user.id
 
     if @explog.save
         redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])

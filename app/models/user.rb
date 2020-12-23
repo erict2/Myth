@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :characters
-  
+  has_many :eventattendances, through: :characters
+  has_one :explog, foreign_key: 'grantedby_id'
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable

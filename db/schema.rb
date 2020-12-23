@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_143054) do
+
+ActiveRecord::Schema.define(version: 2020_12_23_030047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +24,20 @@ ActiveRecord::Schema.define(version: 2020_12_18_143054) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "characterclassskillgroups", force: :cascade do |t|
+    t.bigint "skillgroup_id", null: false
+    t.bigint "characterclass_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["characterclass_id"], name: "index_characterclassskillgroups_on_characterclass_id"
+    t.index ["skillgroup_id"], name: "index_characterclassskillgroups_on_skillgroup_id"
+  end
+
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "pronouns"
     t.integer "level", default: 1
+    t.date "levelupdate", default: -> { "CURRENT_TIMESTAMP" }
     t.string "status", default: "Active"
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
     t.bigint "user_id", null: false
@@ -45,6 +56,16 @@ ActiveRecord::Schema.define(version: 2020_12_18_143054) do
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
+  create_table "characterskills", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "character_id", null: false
+    t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_characterskills_on_character_id"
+    t.index ["skill_id"], name: "index_characterskills_on_skill_id"
+  end
+
   create_table "deities", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -53,15 +74,40 @@ ActiveRecord::Schema.define(version: 2020_12_18_143054) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "eventattendances", force: :cascade do |t|
+    t.integer "castcount", default: 0
+    t.bigint "event_id", null: false
+    t.bigint "character_id", null: false
+    t.date "registerdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "cabin"
+    t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
+    t.index ["character_id"], name: "index_eventattendances_on_character_id"
+    t.index ["event_id"], name: "index_eventattendances_on_event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "startdate", null: false
+    t.date "enddate", null: false
+    t.string "description", null: false
+    t.integer "castcount", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "explogs", force: :cascade do |t|
     t.bigint "character_id", null: false
     t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
-    t.string "name"
-    t.string "description"
-    t.integer "amount"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "amount", null: false
+    t.bigint "grantedby_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_explogs_on_character_id"
+    t.index ["grantedby_id"], name: "index_explogs_on_grantedby_id"
   end
 
   create_table "guilds", force: :cascade do |t|
@@ -110,6 +156,15 @@ ActiveRecord::Schema.define(version: 2020_12_18_143054) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "skillrequirements", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "requiredskill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["requiredskill_id"], name: "index_skillrequirements_on_requiredskill_id"
+    t.index ["skill_id"], name: "index_skillrequirements_on_skill_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -152,13 +207,22 @@ ActiveRecord::Schema.define(version: 2020_12_18_143054) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "characterclassskillgroups", "characterclasses"
+  add_foreign_key "characterclassskillgroups", "skillgroups"
   add_foreign_key "characters", "characterclasses"
   add_foreign_key "characters", "deities"
   add_foreign_key "characters", "guilds"
   add_foreign_key "characters", "houses"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
+  add_foreign_key "characterskills", "characters"
+  add_foreign_key "characterskills", "skills"
+  add_foreign_key "eventattendances", "characters"
+  add_foreign_key "eventattendances", "events"
   add_foreign_key "explogs", "characters"
+  add_foreign_key "explogs", "users", column: "grantedby_id"
+  add_foreign_key "skillrequirements", "skills"
+  add_foreign_key "skillrequirements", "skills", column: "requiredskill_id"
   add_foreign_key "skills", "resttypes"
   add_foreign_key "skills", "skilldeliveries"
   add_foreign_key "skills", "skillgroups"

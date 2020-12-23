@@ -1,0 +1,10 @@
+$('.modal-title').html("Add Skill")
+$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addskill', locals: {characterskill: @characterskill, pathurl: admin_user_character_characterskills_path(user_id: @character.user_id, character_id: @character.id)} ) %>")
+$(document).ready(function(){
+  $('#characterSkillModal').modal('show');
+});
+
+$(document).ready(function() {$("#skill_id").select2({
+  width: '400'
+  });
+});

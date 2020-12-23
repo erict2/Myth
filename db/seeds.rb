@@ -283,16 +283,30 @@ skillgroup.description = 'Offensive'
 skillgroup.playeravailable = true
 skillgroup.save!
 
+
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Alchemist')
+skillgroup.description = 'Alchemist'
+skillgroup.playeravailable = true
+skillgroup.save!
+
+puts 'Starting Class Skill Groups'
+
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive')).save!
+
 puts 'Starting Skills'
-@Resttypes = Resttype.all
-@Skilldeliveries = Skilldelivery.all
-@Skillgroups = Skillgroup.all
 
 skill = Skill.find_or_initialize_by(name: 'Apply Pressure')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = 'Bandages'
@@ -302,9 +316,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Diagnose')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = 'Unconscious/Bleeding Out Body'
 skill.prop = nil
@@ -314,9 +328,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Literacy')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -326,9 +340,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Escape Bonds')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = 'Self - Rope Bindings Only.'
 skill.prop = nil
@@ -338,9 +352,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Execute')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = 'Unconscious or Immobile Persons Torso.'
 skill.prop = 'Weapon or Packet'
@@ -350,9 +364,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flat')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -362,9 +376,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Light')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = 'Diffused, nonwhite light that is not a Blacklight.'
@@ -374,9 +388,10 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Repair')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -386,9 +401,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Dagger')
 skill.tier = 0
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Open Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -398,9 +413,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Light Armor Proficiency')
 skill.tier = 1
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Defense Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -410,9 +425,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Medium Armor Proficiency')
 skill.tier = 2
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Defense Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -420,11 +435,13 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Medium" category.'
 skill.save!
 
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'), requiredskill: Skill.find_or_initialize_by(name: 'Light Armor Proficiency')).save!
+
 skill = Skill.find_or_initialize_by(name: 'Shield')
 skill.tier = 2
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Defense Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -434,9 +451,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Heavy Armor Proficiency')
 skill.tier = 3
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Defense Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -444,11 +461,13 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Heavy" category.'
 skill.save!
 
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Heavy Armor Proficiency'), requiredskill: Skill.find_or_initialize_by(name: 'Medium Armor Proficiency')).save!
+
 skill = Skill.find_or_initialize_by(name: 'First Aid')
 skill.tier = 3
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Defense Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = 'Medical Kit'
@@ -458,9 +477,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Hit Points')
 skill.tier = 3
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Basic Defense Skills')
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Defense Skills')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -470,9 +489,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Dash')
 skill.tier = 1
-skill.resttype = @Resttypes.find_by(name: 'Short Rest')
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = 'Self'
 skill.prop = nil
@@ -482,9 +501,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Sneak Attack')
 skill.tier = 1
-skill.resttype = @Resttypes.find_by(name: 'Short Rest')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = 'From Behind'
 skill.prop = nil
@@ -494,9 +513,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Rapid Search')
 skill.tier = 1
-skill.resttype = @Resttypes.find_by(name: 'Short Rest')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Touch')
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = 'From Behind'
 skill.prop = nil
@@ -506,9 +525,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Sneak Attack 2')
 skill.tier = 2
-skill.resttype = @Resttypes.find_by(name: 'Short Rest')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = 'From Behind'
 skill.prop = nil
@@ -516,11 +535,13 @@ skill.incant = 'Crit, Damage 2'
 skill.description = 'Target: From Behind. "Crit, Damage 2"'
 skill.save!
 
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 2'), requiredskill: Skill.find_or_initialize_by(name: 'Sneak Attack')).save!
+
 skill = Skill.find_or_initialize_by(name: 'Silencing Strike')
 skill.tier = 2
-skill.resttype = @Resttypes.find_by(name: 'Short Rest')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = 'Torso'
 skill.prop = nil
@@ -530,9 +551,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Hamstring')
 skill.tier = 2
-skill.resttype = @Resttypes.find_by(name: 'Short Rest')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = 'Leg'
 skill.prop = nil
@@ -542,9 +563,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Sneak Attack 3')
 skill.tier = 3
-skill.resttype = @Resttypes.find_by(name: 'Short Rest')
-skill.skilldelivery = @Skilldeliveries.find_by(name: 'Weapon')
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = 'From Behind'
 skill.prop = nil
@@ -552,11 +573,13 @@ skill.incant = 'Crit, Damage 3'
 skill.description = 'Target: From Behind. "Crit, Damage 3"'
 skill.save!
 
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 3'), requiredskill: Skill.find_or_initialize_by(name: 'Sneak Attack 2')).save!
+
 skill = Skill.find_or_initialize_by(name: 'Pick Locks')
 skill.tier = 3
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -566,9 +589,9 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Set/Disarm Traps')
 skill.tier = 3
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
@@ -578,12 +601,101 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Hidden Stash')
 skill.tier = 3
-skill.resttype = @Resttypes.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = @Skillgroups.find_by(name: 'Shadow')
+skill.skillgroup = Skillgroup.find_by(name: 'Shadow')
 skill.playeravailable = true
 skill.target = nil
 skill.prop = nil
 skill.incant = nil
 skill.description = 'You may have a small, clearly-marked pouch no larger than 2" x 4" on your person that is immune to searching. If searched or Rapid Searched, you may inform the searcher they find nothing.'
+skill.save!
+
+
+
+
+
+skill = Skill.find_or_initialize_by(name: "Alchemist’s Fire")
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = 'Potion/Bomb Coreless Thrown Weapon or Packet'
+skill.incant = 'Fire. Damage 1.'
+skill.description = 'Prop Required: Potion/Bomb Coreless Thrown Weapon or Packet - “Fire. Damage 1.”'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Combine Potions')
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may take two potions and have them combined into a single bottle. The imbiber would then receive the effect of both potions when drunk. These potions cannot be further combined.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Hurl Potion')
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may deliver a potion by packet instead of roleplaying drinking the potion as normal. State the effects of the potion and then throw the Packet at your target.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Identify Potion')
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may open up potions and look at the tag without needing to use it.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Novice Alchemy')
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Novice Alchemy Recipes.'
+skill.save!
+
+
+skill = Skill.find_or_initialize_by(name: 'Sensitive Palate')
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you consume a potion that grants you a Heal effect, you may add one to the number of Hit Points restored.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Steady Hand')
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You do not ruin your potions if attacked while trying to consume them, but cannot consume them while being attacked.'
 skill.save!

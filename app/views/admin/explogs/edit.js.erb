@@ -1,6 +1,5 @@
 $('.modal-title').html("Edit Exp")
 $('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/explog', locals: {explog: @explog, pathurl: admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id)} ) %>")
-flatpickr("[data-behavior = 'flatpickr']");
 $(document).ready(function(){
   $('#expModal').modal('show');
 });
