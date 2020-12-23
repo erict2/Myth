@@ -6,4 +6,5 @@ class Explog < ApplicationRecord
     default_scope { order(aquiredate: :desc) }
     
     
+
 end

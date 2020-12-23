@@ -5,4 +5,5 @@ class Skill < ApplicationRecord
     has_many :characterskills
     has_many :skillrequirements
     has_many :skillrequirements, foreign_key: 'requiredskill_id'
+
 end

@@ -1,4 +1,5 @@
 <%= bootstrap_form_with(model: @character, url: yield(:url), local: true) do |f| %>
+
 <% if @character.errors.any? %>
 <div id="error_explanation">
   <h2>
@@ -11,6 +12,7 @@
     </ul>
 </div>
 <% end %>
+
   <%= f.text_field :name, :required => true %>
   <%= f.select :pronouns, [ 'He/Him', 'She/Her','They/Them' ] %>
   

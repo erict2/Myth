@@ -28,10 +28,12 @@ class Admin::CharactersController < AdminController
   def edit
     @character = Character.find(params[:id])
 
+
   end
 
   def update
     @character = Character.find(params[:id])
+
 
     if @character.update(character_params)
       redirect_to admin_user_character_path(@character)

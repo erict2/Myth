@@ -283,6 +283,7 @@ skillgroup.description = 'Offensive'
 skillgroup.playeravailable = true
 skillgroup.save!
 
+
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Alchemist')
 skillgroup.description = 'Alchemist'
 skillgroup.playeravailable = true
@@ -302,6 +303,7 @@ puts 'Starting Skills'
 
 skill = Skill.find_or_initialize_by(name: 'Apply Pressure')
 skill.tier = 0
+
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
 skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
@@ -386,6 +388,7 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Repair')
 skill.tier = 0
+
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
 skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
@@ -433,7 +436,6 @@ skill.description = 'You may wear armor that falls under the "Medium" category.'
 skill.save!
 
 Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'), requiredskill: Skill.find_or_initialize_by(name: 'Light Armor Proficiency')).save!
-
 
 skill = Skill.find_or_initialize_by(name: 'Shield')
 skill.tier = 2
