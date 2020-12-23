@@ -4,11 +4,9 @@ class Admin::CharacterskillsController < AdminController
     @character = Character.find_by(id: params[:character_id])
     cpavailable = ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10)
     maxtier = cpavailable / 10
-
     @character.skills
-
     charskilllist = []
-    Characterclass.find_by(id: @character.characterclass_id).skills.each do |skill|
+     Characterclass.find_by(id: @character.characterclass_id).skills.each do |skill|
       @canbuy = true
       if Skillrequirement.exists?(skill: skill.id)
         Skillrequirement.where(skill: skill.id).each do |r|
