@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_12_23_030047) do
+ActiveRecord::Schema.define(version: 2020_12_22_143809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "characterclasses", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "playeravailable"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,9 +33,9 @@ ActiveRecord::Schema.define(version: 2020_12_23_030047) do
   end
 
   create_table "characters", force: :cascade do |t|
-    t.string "name"
-    t.string "pronouns"
-    t.integer "level", default: 1
+    t.string "name", null: false
+    t.string "pronouns", null: false
+    t.integer "level", default: 1, null: false
     t.date "levelupdate", default: -> { "CURRENT_TIMESTAMP" }
     t.string "status", default: "Active"
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
@@ -67,21 +66,21 @@ ActiveRecord::Schema.define(version: 2020_12_23_030047) do
   end
 
   create_table "deities", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "playeravailable"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "eventattendances", force: :cascade do |t|
-    t.integer "castcount", default: 0
+    t.string "eventattendances"
+    t.string "cabin"
     t.bigint "event_id", null: false
     t.bigint "character_id", null: false
     t.date "registerdate", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "cabin"
     t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
     t.index ["character_id"], name: "index_eventattendances_on_character_id"
     t.index ["event_id"], name: "index_eventattendances_on_event_id"
@@ -89,10 +88,17 @@ ActiveRecord::Schema.define(version: 2020_12_23_030047) do
 
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
+    t.string "eventtype", null: false
+    t.string "location", null: false
     t.date "startdate", null: false
     t.date "enddate", null: false
     t.string "description", null: false
     t.integer "castcount", default: 0
+    t.integer "atdoorcost", default: 0
+    t.integer "earlybirdcost", default: 0
+    t.integer "eventexp", default: 300
+    t.integer "feedbackexp", default: 100
+    t.boolean "levelingevent", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -111,47 +117,47 @@ ActiveRecord::Schema.define(version: 2020_12_23_030047) do
   end
 
   create_table "guilds", force: :cascade do |t|
-    t.string "name"
-    t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.string "name", null: false
+    t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "houses", force: :cascade do |t|
-    t.string "name"
-    t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.string "name", null: false
+    t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "races", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "playeravailable"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "resttypes", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "playeravailable"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "skilldeliveries", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "playeravailable"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "skillgroups", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "playeravailable"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -166,12 +172,12 @@ ActiveRecord::Schema.define(version: 2020_12_23_030047) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "name", null: false
+    t.string "description", null: false
     t.string "incant"
     t.string "target"
     t.string "prop"
-    t.integer "tier"
+    t.integer "tier", null: false
     t.boolean "playeravailable"
     t.bigint "skillgroup_id", null: false
     t.bigint "resttype_id", null: false

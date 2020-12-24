@@ -11,6 +11,9 @@ Class: <%= @character.characterclass.name %><br>
 Deity: <%= if(@character.deity) then @character.deity.name end%><br>
 House: <%= if(@character.house_id) then @character.house.name end%><br>
 Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
+<br>
+Total CP: <%= (@character.level * 50) + 50 %><br>
+Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %><br>
 <hr>
 <ul class="nav nav-tabs" id="charTab" role="tablist">
   <li class="nav-item">

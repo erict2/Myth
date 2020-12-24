@@ -273,13 +273,13 @@ skillgroup.description = 'Healing / Utility'
 skillgroup.playeravailable = true
 skillgroup.save!
 
-skillgroup = Skillgroup.find_or_initialize_by(name: 'Defensive')
-skillgroup.description = 'Defensive'
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+skillgroup.description = 'Defensive Magic'
 skillgroup.playeravailable = true
 skillgroup.save!
 
-skillgroup = Skillgroup.find_or_initialize_by(name: 'Offensive')
-skillgroup.description = 'Offensive'
+skillgroup = Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+skillgroup.description = 'Offensive Magic'
 skillgroup.playeravailable = true
 skillgroup.save!
 
@@ -611,11 +611,809 @@ skill.incant = nil
 skill.description = 'You may have a small, clearly-marked pouch no larger than 2" x 4" on your person that is immune to searching. If searched or Rapid Searched, you may inform the searcher they find nothing.'
 skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Disengage')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = 'Torso'
+skill.prop = nil
+skill.incant = 'Disengage'
+skill.description = 'Weapon - Short Rest - Target: "Disengage."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Spare Blade')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You can possess (not wield) an additional in-game weapon.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slash 2')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Damage 2'
+skill.description = 'Weapon - Short Rest - "Damage 2."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slash 2')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = 'Weapon'
+skill.prop = nil
+skill.incant = 'Disarm'
+skill.description = 'Weapon - Short Rest - "Disarm."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slash 3')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Damage 3'
+skill.description = 'Weapon - Short Rest - "Damage 3."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 3'), requiredskill: Skill.find_or_initialize_by(name: 'Slash 2')).save!
+
+skill = Skill.find_or_initialize_by(name: 'Strong Grip')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist Disarm'
+skill.description = 'Weapon - Short Rest - "Resist Disarm"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Dual Weapons')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You can possess and wield any combination of up to two (2) one-handed weapons in battle. You are allowed to keep backup weapons to replace real damage to weapons, but not to replace weapons that are "broken" in-game.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Maim')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = 'Limb'
+skill.prop = nil
+skill.incant = 'Maim'
+skill.description = 'Weapon - Short Rest - Target: Limb "Maim."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slash 4')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Damage 4'
+skill.description = 'Weapon - Short Rest - "Damage 4"'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 4'), requiredskill: Skill.find_or_initialize_by(name: 'Slash 3')).save!
+
+skill = Skill.find_or_initialize_by(name: 'Pierce')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Crit, Damage 1'
+skill.description = 'Weapon - Short Rest - "Crit, Damage 1"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Archery/Blowgun')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'This skill allows you to use a bow/crossbow or Blowgun in combat. To use this skill, you must go through real-world training and have your equipment examined for safety before each event. You must have both feet planted on the ground when using this skill. Without the proper ability or in-game item, you may not fire a repeating NERF®-style weapon more than once every 10 seconds.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Thrown Weapon')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Allows you to carry and use any number of thrown weapons.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Subdue')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.target = 'Arm\'s Reach'
+skill.prop = nil
+skill.incant = 'Prone'
+skill.description = 'Packet - Short Rest - "Prone." The target must be close to arms reach'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Bark Skin')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Earth, Bestow one temporary Armor Point.'
+skill.description = 'Packet - Short Rest - "Through Earth, Bestow one temporary Armor Point."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Iron Will')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Mind, Bestow Resist Mind.'
+skill.description = 'Packet - Short Rest - "Through Mind, Bestow Resist Mind."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Minor Arcane Shield')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Wood, Bestow Resist Arcane.'
+skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Arcane."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Minor EarthShield')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Wood, Bestow Resist Earth.'
+skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Earth."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Minor Shield - Resist Missile')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Wood, Bestow Resist Earth.'
+skill.description = 'Packet - Short Rest - "Through Earth, Bestow Resist Missile."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Repel Undead')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = 'Undead'
+skill.prop = nil
+skill.incant = 'Through Spirit, Fear to Undead.'
+skill.description = 'Packet - Short Rest - "Through Spirit, Fear to Undead."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Minor Water Shield')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Wood, Bestow Resist Water.'
+skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Water."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Minor Air Shield')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Wood, Bestow Resist Air.'
+skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Air."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Pacify')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Mind, pacify, one minute.'
+skill.description = 'Packet - Short Rest - "Through Mind, pacify, one minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slow')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, Slow, one minute.'
+skill.description = 'Packet - Short Rest - "Through Air, Slow, one minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slow Undead')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = 'Undead'
+skill.prop = nil
+skill.incant = 'Through Spirit, Slow to Undead.'
+skill.description = 'Packet - Short Rest - "Through Spirit, Slow to Undead."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Spin')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = 'Undead'
+skill.prop = nil
+skill.incant = 'Through Air, spin in place five times.'
+skill.description = 'Packet - Short Rest - "Through Air, spin in place five times."'
+
+skill = Skill.find_or_initialize_by(name: 'Command: Ignore')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = 'Undead'
+skill.prop = nil
+skill.incant = 'Through Mind, Ignore me, one minute.'
+skill.description = 'Packet - Short Rest - "Through Mind, Ignore me, one minute." If the caster strikes the target, this spell is broken.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Command: Flee')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = 'Undead'
+skill.prop = nil
+skill.incant = 'Through Mind, fear, one minute.'
+skill.description = 'Packet - Short Rest - "Through Mind, fear, one minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Minor Fire Shield')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Wood, Bestow Resist Fire.'
+skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Fire."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Pin')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air – I pin your left/ right foot to the ground, one minute.'
+skill.description = 'Packet - Short Rest - "Through Air – I pin your left/ right foot to the ground, one minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Snare to Undead')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = 'Undead'
+skill.prop = nil
+skill.incant = 'Through Spirit, Snare to Undead.'
+skill.description = 'Packet - Short Rest - "Through Spirit, Snare to Undead."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Weakness')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Water, Weakness, one minute.'
+skill.description = 'Packet - Short Rest - "Through Water, Weakness, one minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Alarm')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
+skill.description = 'Packet - Short Rest - "Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Awaken')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Water – Cure Waylay and Sleep.'
+skill.description = 'Packet - Short Rest - "Through Water – Cure Waylay and Sleep.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Carry Companion')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Earth, Bestow you may be carried at full speed, 30 seconds.'
+skill.description = 'Packet - Short Rest - "Through Earth, Bestow you may be carried at full speed, 30 seconds." This spell allows a person (Follow contact rules. Do not physically carry) to be carried and move at full speed for 30 seconds.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cure Minor Wounds')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I heal you one Hit Point.'
+skill.description = 'Packet - Short Rest - "Through Life, I heal you one Hit Point."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Flame Blade')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing.'
+skill.description = 'Packet - Short Rest - "Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Sanctify Corpse')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = 'Corpse'
+skill.prop = nil
+skill.incant = 'Through Life - I prevent this body from being raised as undead.'
+skill.description = 'Packet - Short Rest - "Through Life - I prevent this body from being raised as undead."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cure Light Wounds')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I heal you two Hit Points.'
+skill.description = 'Packet - Short Rest - "Through Life, I heal you two Hit Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Delay Poison')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Earth, Bestow, I stop your poison countdown for 5 minutes.'
+skill.description = 'Packet - Short Rest - "Through Earth, Bestow, I stop your poison countdown for 5 minutes."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Blessed Weapon')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing.'
+skill.description = 'Packet - Short Rest - "Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Enhance Weapon')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack.'
+skill.description = 'Packet - Short Rest - "Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Magic Weapon')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing.'
+skill.description = 'Packet - Short Rest - "Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Frostbrand')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = '"Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
+skill.description = 'Packet - Short Rest - "Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Free Action')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, <Pin, Snare, or Bind>'
+skill.description = 'Packet - Short Rest - "Through Arcane, <Pin, Snare, or Bind>"'
+
+skill = Skill.find_or_initialize_by(name: 'Empower')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack.'
+skill.description = 'Packet - Short Rest - "Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Hope\'s Blessing')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, Restore a Tier 1-3 Shadow or Weapon Skill.'
+skill.description = 'Packet - Short Rest - "Through Life, Restore a Tier 1-3 Shadow or Weapon Skill."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Dissipate Corpse')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = 'Corpse'
+skill.prop = nil
+skill.incant = 'Through Water, I end your death count immediately.'
+skill.description = 'Packet - Short Rest - "Through Water, I end your death count immediately."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cure Moderate Wounds')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I heal you three Hit Points.'
+skill.description = 'Packet - Short Rest - "Through Life, I heal you three Hit Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Transfer Skill')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Healing / Utility')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\''
+skill.description = 'Packet - Short Rest - "Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\'" This spell allows you to expend a Short Rest skill you know so someone else can use it. You may not use the skill you transfer for the remainder of the event, nor can it be transferred again. You cannot cast this spell by voice, burst, or chained. You may only have a single transferred skill on you at a time.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Arcane Blast')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, Damage Two.'
+skill.description = 'Packet - Short Rest - "Through Arcane, Damage Two."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Windburn')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, Damage Two.'
+skill.description = 'Packet - Short Rest - "Through Air, Damage Two."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Magic Stone')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Earth, Damage Two.'
+skill.description = 'Packet - Short Rest - "Through Earth, Damage Two."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Flare')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Fire, Damage Two.'
+skill.description = 'Packet - Short Rest - "Through Fire, Damage Two."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Frostbite')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Water, Damage Two.'
+skill.description = 'Packet - Short Rest - "Through Water, Damage Two."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Spirit Bolt')
+skill.tier = 1
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Spirit, Damage Two.'
+skill.description = 'Packet - Short Rest - "Through Spirit, Damage Two."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Arcane Storm')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane Damage Three.'
+skill.description = 'Packet - Short Rest - "Through Arcane, Damage Three."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cold Snap')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Water, Damage Three.'
+skill.description = 'Packet - Short Rest - "Through Water, Damage Three."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Fire Bolt')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = '"Through Fire, Damage Three.'
+skill.description = 'Packet - Short Rest - "Through Fire, Damage Three."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Rock Fall')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Earth, Damage Three.'
+skill.description = 'Packet - Short Rest - "Through Earth, Damage Three."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Migraine')
+skill.tier = 2
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Mind, Damage Three.'
+skill.description = 'Packet - Short Rest - "Through Mind, Damage Three."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Flame Wave')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Fire, Damage Four.'
+skill.description = 'Packet - Short Rest - "Through Fire, Damage Four."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Break Limb')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Fire, Maim \'Left/Right Arm/Leg\'.'
+skill.description = 'Packet - Short Rest - "Through Fire, Maim \'Left/Right Arm/Leg\'"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Flay Mind')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Mind, Damage Four.'
+skill.description = 'Packet - Short Rest - "Through Mind, Damage Four."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Bash Undead')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = 'Undead'
+skill.prop = nil
+skill.incant = 'Through Spirit, Damage Five to Undead.'
+skill.description = 'Packet - Short Rest - "Through Spirit, Damage Five to Undead."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Lighting Bolt')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, Damage Four.'
+skill.description = 'Packet - Short Rest - "Through Air, Damage Four."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Flay Mind')
+skill.tier = 3
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.skillgroup = Skillgroup.find_by(name: 'Offensive Magic')
+skill.playeravailable = true
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Wood, Damage Four.'
+skill.description = 'Packet - Short Rest - "Through Wood, Damage Four."'
+skill.save!
 
 
 
 
-skill = Skill.find_or_initialize_by(name: "Alchemist’s Fire")
+
+
+
+
+
+skill = Skill.find_or_initialize_by(name: "Alchemist's Fire")
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
@@ -624,7 +1422,7 @@ skill.playeravailable = true
 skill.target = nil
 skill.prop = 'Potion/Bomb Coreless Thrown Weapon or Packet'
 skill.incant = 'Fire. Damage 1.'
-skill.description = 'Prop Required: Potion/Bomb Coreless Thrown Weapon or Packet - “Fire. Damage 1.”'
+skill.description = 'Prop Required: Potion/Bomb Coreless Thrown Weapon or Packet - "Fire. Damage 1."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Combine Potions')
@@ -675,7 +1473,6 @@ skill.incant = nil
 skill.description = 'You may Craft Novice Alchemy Recipes.'
 skill.save!
 
-
 skill = Skill.find_or_initialize_by(name: 'Sensitive Palate')
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
@@ -699,3 +1496,5 @@ skill.prop = nil
 skill.incant = nil
 skill.description = 'You do not ruin your potions if attacked while trying to consume them, but cannot consume them while being attacked.'
 skill.save!
+
+puts ('Adding Previous Events')
