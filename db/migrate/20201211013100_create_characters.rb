@@ -8,7 +8,6 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :favoredfoe, null: true
       t.string :status, default: 'Active'
       t.date :levelupdate, default: -> { 'CURRENT_TIMESTAMP' }
-      t.string :status, default: 'Active'
       t.date :createdate, default: -> { 'CURRENT_TIMESTAMP' }
       t.references :user, null: false, foreign_key: true
       t.references :deity, null: true, foreign_key: true

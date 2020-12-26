@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_143809) do
+ActiveRecord::Schema.define(version: 2020_12_26_170705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 2020_12_22_143809) do
     t.string "name", null: false
     t.string "pronouns", null: false
     t.integer "level", default: 1, null: false
-    t.date "levelupdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.string "totem"
+    t.string "favoredfoe"
     t.string "status", default: "Active"
+    t.date "levelupdate", default: -> { "CURRENT_TIMESTAMP" }
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
     t.bigint "user_id", null: false
     t.bigint "deity_id"
@@ -144,6 +146,14 @@ ActiveRecord::Schema.define(version: 2020_12_22_143809) do
     t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "var", null: false
+    t.text "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["var"], name: "index_settings_on_var", unique: true
   end
 
   create_table "skilldeliveries", force: :cascade do |t|

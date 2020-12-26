@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "pages#index"
   devise_for :users
   namespace :admin do
+    resource :settings
     resources :users do
       resources :characters do
         resources :explogs

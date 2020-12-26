@@ -7,6 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :firstname, null: false
       t.string :lastname, null: false
       t.string :usertype, default: "Player"
+      t.integar :charactercount, default: 0
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
