@@ -8,14 +8,16 @@ Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day
 Pronouns: <%= @character.pronouns %><br>
 Race: <%= @character.race.name %><br>
 Class: <%= @character.characterclass.name %><br>
+<% if (@character.totem) %>
+  Totem: <%= @character.totem  %><br>
+<% end %>
 Deity: <%= if(@character.deity) then @character.deity.name end %><br>
 House: <%= if(@character.house_id) then @character.house.name end %><br>
 Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
 <br>
 Total CP: <%= (@character.level * 50) + 50 %><br>
 Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %><br><br>
-<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
-  
+<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %> 
   Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
 <% end %>
 <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Weapon Specialization'))).count > 0  %>

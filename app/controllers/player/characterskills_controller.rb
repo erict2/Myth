@@ -1,5 +1,6 @@
 class Player::CharacterskillsController < PlayerController
-  before_action :check_character_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_character_user
+  before_action :check_sheets_locked
 
   def new
     @characterskill = Characterskill.new
@@ -36,7 +37,6 @@ class Player::CharacterskillsController < PlayerController
     respond_to do |format|
       format.js
     end
-
   end
 
   def create    
@@ -98,7 +98,15 @@ class Player::CharacterskillsController < PlayerController
   end
 
   def check_character_user
-    if (current_user.id != Character.find(params[:id]).user_id)
+    if (current_user.id != Character.find(params[:character_id]).user_id)
+      redirect_to player_characters_path
+      return true
+    end
+    false
+  end
+
+  def check_sheets_locked
+    if (Setting.sheets_locked)
       redirect_to player_characters_path
       return true
     end

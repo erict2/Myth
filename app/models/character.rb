@@ -12,16 +12,22 @@ class Character < ApplicationRecord
   belongs_to :guild, optional: true
   validates :name, presence: true
 
-  after_update :do_this
+  after_update :check_class
 
 
-  def do_this
+  def check_class
     if (saved_change_to_characterclass_id?)
       self.characterskills.each do |charskill|
         if charskill.skill.tier >= 4
           charskill.destroy
         end
       end
+      if (self.characterclass.name != 'Druid')
+        self.totem = nil
+        self.save!
+      end
     end
   end
+
+
 end

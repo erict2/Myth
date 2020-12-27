@@ -1,4 +1,6 @@
-<%= link_to 'Add Skill', new_player_character_characterskill_path(user_id: @character.user_id, character_id: @character.id), remote: true %>
+<% if !Setting.sheets_locked %>
+  <%= link_to 'Add Skill', new_player_character_characterskill_path(character_id: @character.id), remote: true %>
+<% end %>
 <table border = 1>
 <tr>
     <th>Name</th>

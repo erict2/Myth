@@ -1,6 +1,7 @@
 class Player::CharactersController < PlayerController
   before_action :check_character_count, only: [:new, :create]
   before_action :check_character_user, only: [:show, :edit, :update]
+  before_action :check_sheets_locked, only: [:edit, :update]
 
   def index
     
@@ -32,7 +33,7 @@ class Player::CharactersController < PlayerController
   end
 
   def update
-    @character = Character.find(params[:id])  
+    @character = Character.find(params[:id])
     if @character.update(character_params)
       redirect_to player_character_path(@character)
     else
@@ -43,7 +44,7 @@ class Player::CharactersController < PlayerController
   private
 
   def character_params
-    params.require(:character).permit(:name, :pronouns, :deity_id, :race_id, :characterclass_id)
+    params.require(:character).permit(:name, :pronouns, :deity_id, :race_id, :characterclass_id, :totem)
   end
 
   def check_character_count
@@ -56,6 +57,14 @@ class Player::CharactersController < PlayerController
 
   def check_character_user
     if (current_user.id != Character.find(params[:id]).user_id)
+      redirect_to player_characters_path
+      return true
+    end
+    false
+  end
+
+  def check_sheets_locked
+    if (Setting.sheets_locked)
       redirect_to player_characters_path
       return true
     end
