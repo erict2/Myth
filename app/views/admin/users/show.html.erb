@@ -19,7 +19,7 @@ Email Address: <%= @user.email %><br>
 </tr>
 <% @user.characters.each do |character| %>
     <tr>
-      <td><%= link_to character.name, admin_user_character_path(character) %></td>
+      <td><%= link_to character.name, admin_user_character_path(user_id: character.user_id, id: character.id) %></td>
       <td><%= character.level %></td>
       <td><%= character.characterclass.name %></td>
       <td><%= character.race.name %></td>

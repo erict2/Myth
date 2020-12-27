@@ -1,0 +1,40 @@
+$('.modal-title').html("Add Skill")
+$('.modal-body').html("<%= escape_javascript( render partial: 'player/modals/addskill', locals: {characterskill: @characterskill, pathurl: player_character_characterskills_path(character_id: @character.id)} ) %>")
+$(document).ready(function(){
+  $('#characterSkillModal').modal('show');
+});
+
+$(document).ready(function() {
+  formValidation()
+  
+  console.log(favoredfoe)
+  $("#characterskill_skill_id").select2({
+  width: '400'
+  });
+
+  $('#characterskill_skill_id').change(function() {
+    formValidation()
+  });
+
+
+  function formValidation() {
+    var characterclass = $('#characterskill_skill_id option:selected').text()
+    
+    if (characterclass == 'Favored Foe') {
+      $('#favoredfoe').show()
+    }  else {
+      document.getElementById('characterskill_favoredfoe').selectedIndex = -1
+      $('#favoredfoe').hide()
+    }
+
+    if (characterclass == 'Weapon Specialization') {
+      $('#weaponspec').show()
+    }  else {
+      document.getElementById('characterskill_weaponspec').selectedIndex = -1
+      $('#weaponspec').hide()
+    }
+
+
+  }
+
+});

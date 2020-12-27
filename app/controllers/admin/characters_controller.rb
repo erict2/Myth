@@ -37,21 +37,8 @@ class Admin::CharactersController < AdminController
   def update
     @character = Character.find(params[:id])
 
-    puts('I am a: ')
-    puts(@character.characterclass.name)
-    puts('I wanna be: ')
-    puts(params[:characterclass_id])
-    @character.characterskills.each do |skill|
-
-      puts('I wanna destroy!')
-      puts(skill.id)
-    end
-
+  
     if @character.update(character_params)
-
-      if(@character.characterclass_id_changed?)
-        puts('IM A NEW CLASS! YAY')
-      end
       redirect_to admin_user_character_path(@character)
     else
       render 'edit'
