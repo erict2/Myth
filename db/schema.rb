@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.string "pronouns", null: false
     t.integer "level", default: 1, null: false
     t.string "totem"
-    t.string "favoredfoe"
     t.string "status", default: "Active"
     t.date "levelupdate", default: -> { "CURRENT_TIMESTAMP" }
     t.date "createdate", default: -> { "CURRENT_TIMESTAMP" }
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
   end
 
   create_table "characterskills", force: :cascade do |t|
+    t.string "details"
     t.bigint "skill_id", null: false
     t.bigint "character_id", null: false
     t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
@@ -188,6 +188,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.string "target"
     t.string "prop"
     t.integer "tier", null: false
+    t.integer "maxpurchase", null: false
     t.boolean "playeravailable"
     t.bigint "skillgroup_id", null: false
     t.bigint "resttype_id", null: false
@@ -205,6 +206,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "usertype", default: "Player"
+    t.integer "charactercount", default: 0
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

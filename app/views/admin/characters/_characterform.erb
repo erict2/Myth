@@ -19,8 +19,8 @@
   <%= f.collection_select :race_id, Race.all, :id, :name %>
   <%= f.collection_select :characterclass_id, Characterclass.all, :id, :name %>
   <div id='totemselect'>
-  <%= f.select :totem, [ 'Bear', 'Lizard', 'Rat', 'Raven', 'Snake', 'Spider', 'Wolf' ] %>
- </div>
+    <%= f.select :totem, [ 'Bear', 'Lizard', 'Rat', 'Raven', 'Snake', 'Spider', 'Wolf' ] %>
+  </div>
 
 
   <%= f.collection_select :deity_id, Deity.all, :id, :name, :include_blank => true %>

@@ -11,4 +11,17 @@ class Character < ApplicationRecord
   belongs_to :house, optional: true
   belongs_to :guild, optional: true
   validates :name, presence: true
+
+  after_update :do_this
+
+
+  def do_this
+    if (saved_change_to_characterclass_id?)
+      self.characterskills.each do |charskill|
+        if charskill.skill.tier >= 4
+          charskill.destroy
+        end
+      end
+    end
+  end
 end

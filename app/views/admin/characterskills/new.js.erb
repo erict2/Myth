@@ -4,7 +4,37 @@ $(document).ready(function(){
   $('#characterSkillModal').modal('show');
 });
 
-$(document).ready(function() {$("#skill_id").select2({
+$(document).ready(function() {
+  formValidation()
+  
+  console.log(favoredfoe)
+  $("#characterskill_skill_id").select2({
   width: '400'
   });
+
+  $('#characterskill_skill_id').change(function() {
+    formValidation()
+  });
+
+
+  function formValidation() {
+    var characterclass = $('#characterskill_skill_id option:selected').text()
+    
+    if (characterclass == 'Favored Foe') {
+      $('#favoredfoe').show()
+    }  else {
+      document.getElementById('characterskill_favoredfoe').selectedIndex = -1
+      $('#favoredfoe').hide()
+    }
+
+    if (characterclass == 'Weapon Specialization') {
+      $('#weaponspec').show()
+    }  else {
+      document.getElementById('characterskill_weaponspec').selectedIndex = -1
+      $('#weaponspec').hide()
+    }
+
+
+  }
+
 });

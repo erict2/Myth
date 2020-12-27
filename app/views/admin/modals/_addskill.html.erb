@@ -1,8 +1,13 @@
 <div class="modal-body">
   <%= bootstrap_form_with(model: @characterskill, url: pathurl) do |f| %>
     <%= f.hidden_field :character_id, value: @character.id  %>
-    <%= f.collection_select :skill_id, @availableskills, :id, :name %>
-
+    <%= f.collection_select :skill_id, @availableskills, :id, :name, hide_label: true %>
+    <div id='favoredfoe'>
+      <%= f.select :favoredfoe, options_for_select(@favoredfoes), label: 'Favored Foe' %>
+    </div>
+    <div id='weaponspec'>
+      <%= f.select :weaponspec, options_for_select(@weaponspec), label: 'Weapon Specialization' %>
+    </div>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>
