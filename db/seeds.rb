@@ -1642,6 +1642,7 @@ skill.description = 'Packet - Short Rest - "Through Wood, Damage Four."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: "Alchemist's Fire")
+
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
@@ -1731,6 +1732,7 @@ skill.prop = nil
 skill.incant = nil
 skill.description = 'You do not ruin your potions if attacked while trying to consume them, but cannot consume them while being attacked.'
 skill.save!
+
 
 
 

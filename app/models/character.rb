@@ -14,7 +14,6 @@ class Character < ApplicationRecord
 
   after_update :check_class
 
-
   def check_class
     if (saved_change_to_characterclass_id?)
       self.characterskills.each do |charskill|
@@ -28,6 +27,4 @@ class Character < ApplicationRecord
       end
     end
   end
-
-
 end

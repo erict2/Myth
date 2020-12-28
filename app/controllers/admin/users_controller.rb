@@ -35,6 +35,4 @@ class Admin::UsersController < AdminController
     params.require(:user).permit(:firstname, :lastname, :email, :usertype, :charactercount)
   end
 
-  
-
 end
