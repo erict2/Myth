@@ -32,15 +32,6 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.index ["skillgroup_id"], name: "index_characterclassskillgroups_on_skillgroup_id"
   end
 
-  create_table "characterclassskillgroups", force: :cascade do |t|
-    t.bigint "skillgroup_id", null: false
-    t.bigint "characterclass_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["characterclass_id"], name: "index_characterclassskillgroups_on_characterclass_id"
-    t.index ["skillgroup_id"], name: "index_characterclassskillgroups_on_skillgroup_id"
-  end
-
   create_table "characters", force: :cascade do |t|
     t.string "name", null: false
     t.string "pronouns", null: false
@@ -85,16 +76,18 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
   end
 
   create_table "eventattendances", force: :cascade do |t|
-    t.string "eventattendances"
-    t.string "cabin"
     t.bigint "event_id", null: false
-    t.bigint "character_id", null: false
-    t.date "registerdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.string "registrationtype"
+    t.datetime "registerdate", default: -> { "CURRENT_TIMESTAMP" }
+    t.bigint "user_id"
+    t.bigint "character_id"
+    t.string "cabin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
     t.index ["character_id"], name: "index_eventattendances_on_character_id"
     t.index ["event_id"], name: "index_eventattendances_on_event_id"
+    t.index ["user_id"], name: "index_eventattendances_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -114,40 +107,17 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "eventattendances", force: :cascade do |t|
-    t.integer "castcount", default: 0
-    t.bigint "event_id", null: false
-    t.bigint "character_id", null: false
-    t.date "registerdate", default: -> { "CURRENT_TIMESTAMP" }
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "cabin"
-    t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
-    t.index ["character_id"], name: "index_eventattendances_on_character_id"
-    t.index ["event_id"], name: "index_eventattendances_on_event_id"
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.string "name", null: false
-    t.date "startdate", null: false
-    t.date "enddate", null: false
-    t.string "description", null: false
-    t.integer "castcount", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "explogs", force: :cascade do |t|
-    t.bigint "character_id", null: false
-    t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
+    t.bigint "user_id", null: false
+    t.datetime "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
     t.string "name", null: false
     t.string "description", null: false
     t.integer "amount", null: false
     t.bigint "grantedby_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["character_id"], name: "index_explogs_on_character_id"
     t.index ["grantedby_id"], name: "index_explogs_on_grantedby_id"
+    t.index ["user_id"], name: "index_explogs_on_user_id"
   end
 
   create_table "guilds", force: :cascade do |t|
@@ -213,15 +183,6 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.index ["skill_id"], name: "index_skillrequirements_on_skill_id"
   end
 
-  create_table "skillrequirements", force: :cascade do |t|
-    t.bigint "skill_id", null: false
-    t.bigint "requiredskill_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["requiredskill_id"], name: "index_skillrequirements_on_requiredskill_id"
-    t.index ["skill_id"], name: "index_skillrequirements_on_skill_id"
-  end
-
   create_table "skills", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
@@ -247,7 +208,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "usertype", default: "Player"
-    t.integer "charactercount", default: 0
+    t.integer "charactercount", default: 1
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -278,7 +239,8 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
   add_foreign_key "characterskills", "skills"
   add_foreign_key "eventattendances", "characters"
   add_foreign_key "eventattendances", "events"
-  add_foreign_key "explogs", "characters"
+  add_foreign_key "eventattendances", "users"
+  add_foreign_key "explogs", "users"
   add_foreign_key "explogs", "users", column: "grantedby_id"
   add_foreign_key "skillrequirements", "skills"
   add_foreign_key "skillrequirements", "skills", column: "requiredskill_id"

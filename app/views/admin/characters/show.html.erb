@@ -4,7 +4,7 @@
 User: <%= link_to @character.user.firstname + ' ' + @character.user.lastname, admin_user_path(@character.user)%><br>
 Name: <%= @character.name %><br>
 Level: <%= @character.level %><br>
-Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) %><br>
+
 Pronouns: <%= @character.pronouns %><br>
 Race: <%= @character.race.name %><br>
 Class: <%= @character.characterclass.name %><br>
@@ -30,10 +30,6 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
     <a class="nav-link active" id="skill-tab" data-toggle="tab" href="#skill" role="tab" aria-controls="skill" aria-selected="true">Skills</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="explog-tab" data-toggle="tab" href="#explog" role="tab" aria-controls="class" aria-selected="false">Exp Log</a>
-  </li>
-  <li class="nav-item">
-
     <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="class" aria-selected="false">Events</a>
   </li>
 </ul>
@@ -42,10 +38,7 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
   <div class="tab-pane fade show active" id="skill" role="tabpanel" aria-labelledby="skill-tab">
     <%= render partial: 'admin/characters/tabs/skills' %>
   </div>
-  <div class="tab-pane fade" id="explog" role="tabpanel" aria-labelledby="explog-tab">
-    <%= render partial: 'admin/characters/tabs/explog' %>
-  </div>
   <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-  <%= render partial: 'admin/characters/tabs/events' %>
-</div>
+    <%= render partial: 'admin/characters/tabs/events' %>
+  </div>
 </div>

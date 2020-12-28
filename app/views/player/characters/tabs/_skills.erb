@@ -29,7 +29,7 @@
            end
         elsif characterskill.skill.tier == 0
            # Do nothing. You cant refund Tier 0
-        elsif @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) < characterskill.skill.tier * 25
+        elsif current_user.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) < characterskill.skill.tier * 25
           # Do nothing. You cant afford this
         else
           link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: 'Doing this will cost you ' + (characterskill.skill.tier * 25).to_s + ' exp. This is irreversible.' } do 

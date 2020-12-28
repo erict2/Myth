@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  has_many :explogs
   has_many :characters
-  has_many :eventattendances, through: :characters
+  has_many :eventattendances
+  has_many :events, through: :eventattendances
   has_one :explog, foreign_key: 'grantedby_id'
 
   devise :database_authenticatable, :registerable,
@@ -8,6 +10,6 @@ class User < ApplicationRecord
          :confirmable
          
   validates :usertype,
-    :inclusion  => { :in => [ 'Cast', 'Player', 'Admin' ],
+    :inclusion  => { :in => [ 'Cast', 'Staff', 'Player', 'Admin' ],
     :message    => "%{value} is not a valid Player Type" }
 end

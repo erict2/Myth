@@ -7,7 +7,6 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.date :startdate, null: false
       t.date :enddate, null: false
       t.string :description, null: false
-      t.integer :castcount, default: 0
       t.integer :atdoorcost, default: 0
       t.integer :earlybirdcost, default: 0
       t.integer :eventexp, default: 300

@@ -59,36 +59,15 @@ class Player::CharacterskillsController < PlayerController
       redirect_to player_character_path(id: params[:character_id])
     else
       @explog = Explog.new
-      @explog.character_id = @character.id
+      @explog.user_id = @character.user_id
       @explog.name = 'Skill Refund'
       @explog.aquiredate = Time.now
-      @explog.description = 'Exp for refunding: ' + @characterskill.skill.name
+      @explog.description = 'Refunded "' + @characterskill.skill.name + '" for "' + @character.name + '"'
       @explog.amount = @characterskill.skill.tier * -25
       @explog.grantedby_id = current_user.id
       @explog.save!
       @characterskill.destroy
       redirect_to player_character_path( id: params[:character_id])
-    end    
-  end
-
-  def destroy
-    @characterskill = Characterskill.order('aquiredate desc, id desc').find_by(skill_id: params[:id], character_id: params[:character_id])
-    @character = Character.find_by(id: params[:character_id])
-
-    if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > @characterskill.aquiredate)
-      @characterskill.destroy
-      redirect_to player_character_path(id: params[:character_id])
-    else
-      @explog = Explog.new
-      @explog.character_id = @character.id
-      @explog.name = 'Skill Refund'
-      @explog.aquiredate = Time.now
-      @explog.description = 'Exp for refunding: ' + @characterskill.skill.name
-      @explog.amount = @characterskill.skill.tier * -25
-      @explog.grantedby_id = current_user.id
-      @explog.save!
-      @characterskill.destroy
-      redirect_to player_character_path(id: params[:character_id])
     end    
   end
   

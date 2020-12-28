@@ -1,25 +1,25 @@
-<% if (current_user.charactercount > current_user.characters.count) %>
-  <%= link_to 'Add A Character', new_player_character_path  %>
-<% end %>
+Experience: <%= current_user.explogs.where('aquiredate <= ? ', Time.now).sum(:amount) %><br>
 <hr>
-<table border = 1>
-<tr>
-    <th>Name</th>
-    <th>Level</th>
-    <th>Class</th>
-    <th>Race</th>
-    <th>Deity</th>
-    <th>Status</th>
-</tr>
-<% current_user.characters.each do |character| %>
-    <tr>
-      <td><%= link_to character.name, player_character_path(character) %></td>
-      <td><%= character.level %></td>
-      <td><%= character.characterclass.name %></td>
-      <td><%= character.race.name %></td>
-      <td><%= if(character.deity) then character.deity.name end%></td>
-      <td><%= character.status %></td>
-    </tr>
-  <% end %>
+<ul class="nav nav-tabs" id="charTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Characters</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="explog-tab" data-toggle="tab" href="#explog" role="tab" aria-controls="class" aria-selected="false">Exp Log</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="class" aria-selected="false">Events</a>
+  </li>
+</ul>
 
-  </table>
+<div class="tab-content" id="charTabContent">
+  <div class="tab-pane fade show active" id="characters" role="tabpanel" aria-labelledby="characters-tab">
+    <%= render partial: 'player/tabs/characters' %>
+  </div>
+  <div class="tab-pane fade" id="explog" role="tabpanel" aria-labelledby="explog-tab">
+    <%= render partial: 'player/tabs/explog' %>
+  </div>
+  <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+    <%= render partial: 'player/tabs/events' %>
+  </div>
+</div>

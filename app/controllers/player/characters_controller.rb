@@ -46,15 +46,15 @@ class Player::CharactersController < PlayerController
     @character = Character.find(params[:character_id])
     @exptolevel = get_exp_to_level
     
-    if (@character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
+    if (current_user.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
       @character.level = @character.level + 1
       @character.levelupdate = Time.now
 
       @explog = Explog.new
-      @explog.character_id = @character.id
+      @explog.user_id = @character.user_id
       @explog.name = 'Level Up'
       @explog.aquiredate = Time.now
-      @explog.description = 'Leveled From ' + (@character.level - 1).to_s + ' to ' + @character.level.to_s
+      @explog.description = 'Leveled "' + @character.name + '" to ' + @character.level.to_s
       @explog.amount = @exptolevel * -1
       @explog.grantedby_id = current_user.id
 

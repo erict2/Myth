@@ -1,4 +1,4 @@
-<%= link_to 'Add Exp', new_admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id), remote: true %>
+<%= link_to 'Add Exp', new_admin_user_explog_path(user_id: @user.id), remote: true %>
 <table border = 1>
 <tr>
     <th>Name</th>
@@ -8,15 +8,15 @@
     <th>Granted By</th>
     <th></th>
 </tr>
-<% @character.explogs.each do |explog| %>
+<% @user.explogs.each do |explog| %>
     <tr>
-      <td><%= link_to explog.name, edit_admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id, id: explog.id), remote: true %></td>
+      <td><%= link_to explog.name, edit_admin_user_explog_path(user_id: @user.id, id: explog.id), remote: true %></td>
       <td><%= explog.description %></td>
-      <td><%= explog.aquiredate %></td>
+      <td><%= explog.aquiredate.to_date %></td>
       <td><%= explog.amount %></td>
       <td><%= explog.grantedby.firstname + ' ' + explog.grantedby.lastname%> </td>
       <td>
-        <%= link_to admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id, id: explog.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= link_to admin_user_explog_path(user_id: @user.id, id: explog.id), method: :delete, data: { confirm: "Are you sure?" } do %>
           <%= fa_icon "trash" %>
         <% end %>
       </td>
@@ -33,7 +33,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div> 
-      <%= render partial: 'admin/modals/explog', locals: {explog: @explog, pathurl: admin_user_character_explogs_path(user_id: @character.user_id, character_id: @character.id)} %>
+      <%= render partial: 'admin/modals/explog', locals: {explog: @explog, pathurl: admin_user_explogs_path(user_id: @user.id)} %>
     </div>
   </div>
-</div>
+</div> 

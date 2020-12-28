@@ -6,11 +6,11 @@
     <th>Amount</th>
     <th>Granted By</th>
 </tr>
-<% @character.explogs.each do |explog| %>
+<% current_user.explogs.each do |explog| %>
     <tr>
-      <td><%= link_to explog.name, edit_admin_user_character_explog_path(user_id: @character.user_id, character_id: @character.id, id: explog.id), remote: true %></td>
+      <td><%= explog.name %></td>
       <td><%= explog.description %></td>
-      <td><%= explog.aquiredate %></td>
+      <td><%= explog.aquiredate.to_date %></td>
       <td><%= explog.amount %></td>
       <td><%= explog.grantedby.firstname + ' ' + explog.grantedby.lastname%> </td>
     </tr>

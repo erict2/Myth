@@ -11,7 +11,7 @@ Name: <%= @character.name %><br>
 Level: <%= @character.level %> 
 <% 
 if (!Setting.sheets_locked )
-  if (@character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
+  if (current_user.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
     if (@character.events.where('startdate <= ? AND startdate > ? AND eventtype = ? ', Time.now.end_of_day, @character.levelupdate, 'Adventure Weekend').count > 0) %>
       - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
 <% 
@@ -19,8 +19,6 @@ if (!Setting.sheets_locked )
   end
 end %>
 <br>
-
-Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) %><br>
 
 Pronouns: <%= @character.pronouns %><br>
 
@@ -46,17 +44,11 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
 <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
   Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
 <% end %>
-<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Weapon Specialization'))).count > 0  %>
-  Weapon Specialization:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Weapon Specialization')).pluck('details').join(',') %> <br>
-<% end %>
 
 <hr>
 <ul class="nav nav-tabs" id="charTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="skill-tab" data-toggle="tab" href="#skill" role="tab" aria-controls="skill" aria-selected="true">Skills</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="explog-tab" data-toggle="tab" href="#explog" role="tab" aria-controls="class" aria-selected="false">Exp Log</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="class" aria-selected="false">Events</a>
@@ -66,9 +58,6 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
 <div class="tab-content" id="charTabContent">
   <div class="tab-pane fade show active" id="skill" role="tabpanel" aria-labelledby="skill-tab">
     <%= render partial: 'player/characters/tabs/skills' %>
-  </div>
-  <div class="tab-pane fade" id="explog" role="tabpanel" aria-labelledby="explog-tab">
-    <%= render partial: 'player/characters/tabs/explog' %>
   </div>
   <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
   <%= render partial: 'player/characters/tabs/events' %>

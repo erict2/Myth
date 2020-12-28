@@ -1,0 +1,5 @@
+$('.modal-title').html("Editing User <%= @user.firstname + ' ' + @user.lastname %>")
+$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/edituser', locals: {id: @user} ) %>")
+$(document).ready(function(){
+  $('#editUserModal').modal('show');
+});

@@ -1,0 +1,21 @@
+<%= link_to 'Add a Character', new_admin_user_character_path(@user) %>
+<table border = 1>
+<tr>
+    <th>Name</th>
+    <th>Level</th>
+    <th>Class</th>
+    <th>Race</th>
+    <th>Deity</th>
+    <th>Status</th>
+</tr>
+<% @user.characters.each do |character| %>
+    <tr>
+      <td><%= link_to character.name, admin_user_character_path(user_id: character.user_id, id: character.id) %></td>
+      <td><%= character.level %></td>
+      <td><%= character.characterclass.name %></td>
+      <td><%= character.race.name %></td>
+      <td><%= if(character.deity) then character.deity.name end%></td>
+      <td><%= character.status %></td>
+    </tr>
+  <% end %>
+  </table>
