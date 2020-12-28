@@ -1,23 +1,49 @@
-<%= link_to 'Edit This Character', edit_admin_user_character_path(@character)%> <br>
-<hr>
-
-User: <%= link_to @character.user.firstname + ' ' + @character.user.lastname, admin_user_path(@character.user)%><br>
+<% 
+if (!Setting.sheets_locked) 
+  if ((@character.events.where('startdate <= ? AND eventtype = ? ', Time.now.end_of_day, 'Adventure Weekend').count) < 3) %>
+    <%= link_to 'Edit This Character', edit_player_character_path(@character)%>
+    <hr>
+<% 
+  end
+end %>
 Name: <%= @character.name %><br>
-Level: <%= @character.level %><br>
+
+Level: <%= @character.level %> 
+<% 
+if (!Setting.sheets_locked )
+  if (@character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
+    if (@character.events.where('startdate <= ? AND startdate > ? AND eventtype = ? ', Time.now.end_of_day, @character.levelupdate, 'Adventure Weekend').count > 0) %>
+      - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+<% 
+    end
+  end
+end %>
+<br>
+
 Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) %><br>
+
 Pronouns: <%= @character.pronouns %><br>
+
 Race: <%= @character.race.name %><br>
+
 Class: <%= @character.characterclass.name %><br>
+
 <% if (@character.totem) %>
   Totem: <%= @character.totem  %><br>
 <% end %>
+
 Deity: <%= if(@character.deity) then @character.deity.name end %><br>
+
 House: <%= if(@character.house_id) then @character.house.name end %><br>
+
 Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
+
 <br>
 Total CP: <%= (@character.level * 50) + 50 %><br>
+
 Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %><br><br>
-<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %> 
+
+<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
   Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
 <% end %>
 <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Weapon Specialization'))).count > 0  %>
@@ -33,19 +59,18 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
     <a class="nav-link" id="explog-tab" data-toggle="tab" href="#explog" role="tab" aria-controls="class" aria-selected="false">Exp Log</a>
   </li>
   <li class="nav-item">
-
     <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="class" aria-selected="false">Events</a>
   </li>
 </ul>
 
 <div class="tab-content" id="charTabContent">
   <div class="tab-pane fade show active" id="skill" role="tabpanel" aria-labelledby="skill-tab">
-    <%= render partial: 'admin/characters/tabs/skills' %>
+    <%= render partial: 'player/characters/tabs/skills' %>
   </div>
   <div class="tab-pane fade" id="explog" role="tabpanel" aria-labelledby="explog-tab">
-    <%= render partial: 'admin/characters/tabs/explog' %>
+    <%= render partial: 'player/characters/tabs/explog' %>
   </div>
   <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-  <%= render partial: 'admin/characters/tabs/events' %>
+  <%= render partial: 'player/characters/tabs/events' %>
 </div>
 </div>

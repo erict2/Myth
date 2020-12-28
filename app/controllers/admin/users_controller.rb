@@ -1,6 +1,5 @@
 class Admin::UsersController < AdminController
-  before_action :authenticate_user!
-  before_action :check_admin
+
   def index
     @users = User.all
   end
@@ -33,15 +32,7 @@ class Admin::UsersController < AdminController
   private
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :usertype)
-  end
-
-  def check_admin
-    if current_user.usertype != 'Admin'
-      redirect_to root_path
-      return true
-    end
-    false
+    params.require(:user).permit(:firstname, :lastname, :email, :usertype, :charactercount)
   end
 
 end

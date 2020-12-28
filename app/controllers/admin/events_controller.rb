@@ -5,6 +5,7 @@ class Admin::EventsController < AdminController
 
   def new
     @event = Event.new
+    @event.levelingevent = true
     respond_to do |format|
       format.js
     end
@@ -36,11 +37,11 @@ class Admin::EventsController < AdminController
 
   private
   def addevent_params
-    params.require(:event).permit(:name, :description, :startdate, :enddate)
+    params.require(:event).permit(:name, :description, :startdate, :enddate, :eventtype, :levelingevent, :location, :earlybirdcost, :atdoorcost, :eventexp, :feedbackexp)
   end
 
   def updateevent_params
-    params.require(:event).permit(:name, :description, :startdate, :enddate, :castcount)
+    params.require(:event).permit(:name, :description, :startdate, :enddate, :eventtype, :levelingevent, :location, :earlybirdcost, :atdoorcost, :eventexp, :feedbackexp, :castcount)
   end
 
 end

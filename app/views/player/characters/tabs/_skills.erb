@@ -1,4 +1,6 @@
-<%= link_to 'Add Skill', new_admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id), remote: true %>
+<% if !Setting.sheets_locked %>
+  <%= link_to 'Add Skill', new_player_character_characterskill_path(character_id: @character.id), remote: true %>
+<% end %>
 <table border = 1>
 <tr>
     <th>Name</th>
@@ -22,13 +24,16 @@
       <td>
       <%=
         if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > characterskill.aquiredate)
-          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete do 
+          link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete do 
             fa_icon "trash" 
            end
+        elsif characterskill.skill.tier == 0
+           # Do nothing. You cant refund Tier 0
+        elsif @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) < characterskill.skill.tier * 25
+          # Do nothing. You cant afford this
         else
-          delmessage = 'Are you sure?'
-          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: delmessage  } do 
-            fa_icon "trash"
+          link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: 'Doing this will cost you ' + (characterskill.skill.tier * 25).to_s + ' exp. This is irreversible.' } do 
+            fa_icon "trash" 
           end
         end
 
@@ -37,8 +42,6 @@
     </tr>
   <% end %>
   </table>
-
-
 
   <div class="modal fade" id="characterSkillModal" tabindex="-1" role="dialog" aria-labelledby="characterSkillModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

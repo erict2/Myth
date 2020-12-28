@@ -1,7 +1,7 @@
 class CreateEventattendances < ActiveRecord::Migration[6.0]
   def change
     create_table :eventattendances do |t|
-      t.integer :castcount, default: -> { '0' }
+      t.string :eventattendances, :cabin
       t.references :event, null: false, foreign_key: true
       t.references :character, null: false, foreign_key: true
       t.date :registerdate, default: -> { 'CURRENT_TIMESTAMP' }

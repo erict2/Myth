@@ -16,16 +16,15 @@
   <%= f.text_field :name, :required => true %>
   <%= f.select :pronouns, [ 'He/Him', 'She/Her','They/Them' ] %>
   
-  <%= f.collection_select :race_id, Race.all, :id, :name %>
+  <%= f.collection_select :race_id, Race.all.where('playeravailable = true'), :id, :name %>
   <%= f.collection_select :characterclass_id, Characterclass.all, :id, :name %>
   <div id='totemselect'>
     <%= f.select :totem, [ 'Bear', 'Lizard', 'Rat', 'Raven', 'Snake', 'Spider', 'Wolf' ] %>
   </div>
 
 
-
-  <%= f.collection_select :deity_id, Deity.all, :id, :name, :include_blank => true %>
-  <%= f.select :level,  [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ] %>
+  <%= f.collection_select :deity_id, Deity.where('playeravailable = true').all, :id, :name, :include_blank => true %>
+  
   <%= f.submit 'Save Character' %>
   <%= link_to 'Cancel', yield(:backurl) %>
 </p>
@@ -41,20 +40,16 @@ $(document).ready(function(){
 
 function formValidation() {
   var characterclass = $('#character_characterclass_id option:selected').text()
-  
+  console.log(characterclass)
   if (characterclass == 'Druid') {
     $('#totemselect').show()
-    $("#character_totem").prop('required',true);
   }  else {
     document.getElementById('character_totem').selectedIndex = -1
     $('#totemselect').hide()
-    $("#character_totem").prop('required',false);
   }
 
   if (characterclass == 'Cleric') {
     $("#character_deity_id").prop('required',true);
-    $("#character_deity_id").prop('include_blank',false);
-    console.log('Shits required')
   }  else {
     $("#character_deity_id").prop('required',false);
   }

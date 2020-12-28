@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   root "pages#index"
   devise_for :users
-  get "/admin", to: "admin#index"
-  get 'get_characters_by_email/:email', to: 'characters#get_characters_by_email'
+
+  namespace :player do
+    resources :characters do
+      post :levelup
+      resources :characterskills
+    end
+  end
+
   namespace :admin do
+    resource :settings
     resources :users do
       resources :characters do
         resources :explogs
