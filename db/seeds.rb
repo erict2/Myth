@@ -1765,3 +1765,230 @@ skill.save!
 
 
 puts ('Adding Previous Events')
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - OCT 2018')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2018-10-26'
+event.enddate = '2018-10-28'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - APR 2019')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2019-04-19'
+event.enddate = '2019-04-21'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAY 2019')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2019-05-24'
+event.enddate = '2019-05-26'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - AUG 2019')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2019-08-09'
+event.enddate = '2019-08-11'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - SEP 2019')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2019-09-20'
+event.enddate = '2019-09-22'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - NOV 2019')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2019-11-01'
+event.enddate = '2019-11-03'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAR 2020')
+event.eventtype = 'Adventure Weekend - Go Big'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2020-03-27'
+event.enddate = '2020-03-29'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAY 2020')
+event.eventtype = 'Adventure Weekend - Go Big'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2020-05-22'
+event.enddate = '2020-05-24'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - AUG 2020')
+event.eventtype = 'Adventure Weekend - Go Big'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2020-08-14'
+event.enddate = '2020-08-16'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - OCT 2020')
+event.eventtype = 'Adventure Weekend - Go Big'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2020-10-09'
+event.enddate = '2020-10-11'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - NOV 2020')
+event.eventtype = 'Adventure Weekend - Go Big'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2020-11-06'
+event.enddate = '2020-11-08'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 90
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAR 2021')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2021-03-26'
+event.enddate = '2021-03-28'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 100
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAY 2021')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2021-05-07'
+event.enddate = '2021-05-09'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 100
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - AUG 2021')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2021-08-20'
+event.enddate = '2021-08-22'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 100
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - SEP 2021')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2021-09-22'
+event.enddate = '2021-09-26'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 100
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
+
+event = Event.find_or_initialize_by(name: 'Adventure Weekend - NOV 2021')
+event.eventtype = 'Adventure Weekend'
+event.location = '326 Taft Pond Rd, Pomfret, CT'
+event.startdate = '2021-11-05'
+event.enddate = '2021-11-07'
+event.description = ''
+event.castcount = nil
+event.atdoorcost = 100
+event.earlybirdcost = 75
+event.eventexp = 300
+event.eventexp = 100
+event.levelingevent = true
+event.save!
