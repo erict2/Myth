@@ -24,6 +24,7 @@ class Player::CharactersController < PlayerController
 
   def show
     @character = Character.find(params[:id])
+    @exptolevel = get_exp_to_level
     
   end
 
@@ -39,6 +40,29 @@ class Player::CharactersController < PlayerController
     else
       render 'edit'
     end
+  end
+
+  def levelup
+    @character = Character.find(params[:character_id])
+    @exptolevel = get_exp_to_level
+    
+    if (@character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
+      @character.level = @character.level + 1
+      @character.levelupdate = Time.now
+
+      @explog = Explog.new
+      @explog.character_id = @character.id
+      @explog.name = 'Level Up'
+      @explog.aquiredate = Time.now
+      @explog.description = 'Leveled From ' + (@character.level - 1).to_s + ' to ' + @character.level.to_s
+      @explog.amount = @exptolevel * -1
+      @explog.grantedby_id = current_user.id
+
+      @explog.save!
+      @character.save!
+    end
+    redirect_to player_character_path(@character)
+
   end
 
   private
@@ -69,6 +93,24 @@ class Player::CharactersController < PlayerController
       return true
     end
     false
+  end
+
+  def get_exp_to_level
+    if @character.level.between?(0,1) 
+      return 400
+    elsif @character.level.between?(2,9) 
+      return 500
+    elsif @character.level.between?(10,12) 
+      return 600
+    elsif @character.level.between?(13,14) 
+      return 700
+    elsif @character.level.between?(15,16) 
+      return 800
+    elsif @character.level.between?(17,18) 
+      return 900
+    elsif @character.level.between?(19,20) 
+      return 1000
+    end
   end
 
 end

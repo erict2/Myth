@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :player do
     resources :characters do
+      post :levelup
       resources :characterskills
     end
   end

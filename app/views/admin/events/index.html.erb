@@ -4,15 +4,17 @@
 <table border = 1>
 <tr>
   <th>Name</th>
+  <th>Type</th>
   <th>Start Date</th>
   <th>End Date</th>
   <th>Player Count</th>
-  <th>Plot Count</th>
+  <th>Staff Count</th>
   <th>Cast Count</th>
 </tr>
 <% @events.all.each do |event| %>
 <tr>
   <td><%= link_to event.name, edit_admin_event_path(event) %></td>
+  <td><%= event.eventtype %></td>
   <td><%= event.startdate %></td>
   <td><%= event.enddate %></td>
   <td><%= event.users.where(usertype: 'Player').count %></td>

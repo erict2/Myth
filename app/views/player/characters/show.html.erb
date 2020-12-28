@@ -1,9 +1,16 @@
-<% if !Setting.sheets_locked %>
+<% if (!Setting.sheets_locked ) %>
   <%= link_to 'Edit This Character', edit_player_character_path(@character)%><br>
-  <hr>
+<hr>
 <% end %>
 Name: <%= @character.name %><br>
-Level: <%= @character.level %><br>
+Level: <%= @character.level %> 
+<% if (!Setting.sheets_locked )
+  if (@character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel) %>
+    - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+<% 
+  end
+end %>
+<br>
 Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) %><br>
 Pronouns: <%= @character.pronouns %><br>
 Race: <%= @character.race.name %><br>

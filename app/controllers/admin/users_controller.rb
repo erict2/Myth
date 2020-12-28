@@ -32,7 +32,7 @@ class Admin::UsersController < AdminController
   private
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :usertype)
+    params.require(:user).permit(:firstname, :lastname, :email, :usertype, :charactercount)
   end
 
   

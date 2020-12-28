@@ -1,0 +1,20 @@
+  
+<div class="modal-body">
+<%= bootstrap_form_with(model: @event, url: admin_events_path) do |f| %>
+  <%= f.check_box :levelingevent, label: 'Event Grants Levels' %>
+  <%= f.text_field :name %>
+  <%= f.select :eventtype, [ 'Adventure Weekend', 'Adventure Day','Other' ], label: 'Event Type' %>
+  <%= f.text_field :description %>
+  <%= f.text_field :startdate, label: 'Start Date: (YYYY-MM-DD)' %>
+  <%= f.text_field :enddate, label: 'End Date: (YYYY-MM-DD)' %>
+  <%= f.text_field :location %>
+  <%= f.text_field :earlybirdcost, label: 'Early Bird Cost' %>
+  <%= f.text_field :atdoorcost, label: 'At Door Cost' %>
+  
+  <%= f.text_field :eventexp, label: 'EXP For Event' %>
+  <%= f.text_field :feedbackexp, label: 'EXP For Feedback Letter' %>
+  
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>
+</div>

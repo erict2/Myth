@@ -22,8 +22,7 @@
       <td>
       <%=
         if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > characterskill.aquiredate)
-          delmessage = 'Are you sure? Doing so will not cost you any XP'
-          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: delmessage  } do 
+          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete do 
             fa_icon "trash" 
            end
         elsif characterskill.skill.tier == 0
