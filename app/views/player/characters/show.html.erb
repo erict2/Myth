@@ -1,29 +1,48 @@
-<% if (!Setting.sheets_locked ) %>
-  <%= link_to 'Edit This Character', edit_player_character_path(@character)%><br>
-<hr>
-<% end %>
-Name: <%= @character.name %><br>
-Level: <%= @character.level %> 
-<% if (!Setting.sheets_locked )
-  if (@character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel) %>
-    - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+<% 
+if (!Setting.sheets_locked) 
+  if ((@character.events.where('startdate <= ? AND eventtype = ? ', Time.now.end_of_day, 'Adventure Weekend').count) < 3) %>
+    <%= link_to 'Edit This Character', edit_player_character_path(@character)%>
+    <hr>
 <% 
   end
 end %>
+Name: <%= @character.name %><br>
+
+Level: <%= @character.level %> 
+<% 
+if (!Setting.sheets_locked )
+  if (@character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
+    if (@character.events.where('startdate <= ? AND startdate > ? AND eventtype = ? ', Time.now.end_of_day, @character.levelupdate, 'Adventure Weekend').count > 0) %>
+      - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+<% 
+    end
+  end
+end %>
 <br>
+
 Experience: <%= @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) %><br>
+
 Pronouns: <%= @character.pronouns %><br>
+
 Race: <%= @character.race.name %><br>
+
 Class: <%= @character.characterclass.name %><br>
+
 <% if (@character.totem) %>
   Totem: <%= @character.totem  %><br>
 <% end %>
+
 Deity: <%= if(@character.deity) then @character.deity.name end %><br>
+
 House: <%= if(@character.house_id) then @character.house.name end %><br>
+
 Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
+
 <br>
 Total CP: <%= (@character.level * 50) + 50 %><br>
+
 Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %><br><br>
+
 <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
   Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
 <% end %>
