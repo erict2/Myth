@@ -5,9 +5,7 @@
     <div id='favoredfoe'>
       <%= f.select :favoredfoe, options_for_select(@favoredfoes), label: 'Favored Foe' %>
     </div>
-    <div id='weaponspec'>
-      <%= f.select :weaponspec, options_for_select(@weaponspec), label: 'Weapon Specialization' %>
-    </div>
+    <%= f.text_field :aquiredate, label: 'Date: (YYYY-MM-DD)'%>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>

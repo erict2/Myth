@@ -25,14 +25,10 @@
           link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete do 
             fa_icon "trash" 
            end
-        elsif characterskill.skill.tier == 0
-           # Do nothing. You cant refund Tier 0
-        elsif @character.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) < characterskill.skill.tier * 25
-          # Do nothing. You cant refund Tier 0
         else
-          delmessage = 'Doing this will cost you ' + (characterskill.skill.tier * 25).to_s + ' exp. This is irreversible.'
+          delmessage = 'Are you sure?'
           link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: delmessage  } do 
-            fa_icon "trash" 
+            fa_icon "trash"
           end
         end
 

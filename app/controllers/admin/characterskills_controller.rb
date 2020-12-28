@@ -52,26 +52,12 @@ class Admin::CharacterskillsController < AdminController
     @characterskill = Characterskill.order('aquiredate desc, id desc').find_by(skill_id: params[:id], character_id: params[:character_id])
     @character = Character.find_by(id: params[:character_id])
 
-    if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > @characterskill.aquiredate)
-      @characterskill.destroy
-      redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
-    else
-      @explog = Explog.new
-      @explog.character_id = @character.id
-      @explog.name = 'Skill Refund'
-      @explog.aquiredate = Time.now
-      @explog.description = 'Exp for refunding: ' + @characterskill.skill.name
-      @explog.amount = @characterskill.skill.tier * -25
-      @explog.grantedby_id = current_user.id
-      @explog.save!
-      @characterskill.destroy
-      redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
-    end    
+    @characterskill.destroy 
   end
   
   private
   def addskill_params
-    params.require(:characterskill).permit(:skill_id, :character_id, :favoredfoe, :weaponspec)
+    params.require(:characterskill).permit(:skill_id, :character_id, :favoredfoe, :weaponspec, :aquiredate)
   end
 
 end
