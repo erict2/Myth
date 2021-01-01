@@ -23,6 +23,26 @@ class Admin::UsersController < AdminController
     redirect_to admin_user_path(params[:id])
   end
 
+  def reset
+    @user = User.find(params[:user_id])
+    @raw_token, hashed_token = Devise.token_generator.generate(User, :reset_password_token)
+    @user.reset_password_token = hashed_token
+    @user.reset_password_sent_at = Time.now
+    @user.save!
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def confirm
+    @user = User.find(params[:user_id])
+    @user.confirmed_at = Time.now.utc
+    @user.save!
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
