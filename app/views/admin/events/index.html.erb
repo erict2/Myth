@@ -10,16 +10,22 @@
   <th>Player Count</th>
   <th>Staff Count</th>
   <th>Cast Count</th>
+  <th></th>
 </tr>
 <% @events.all.each do |event| %>
 <tr>
-  <td><%= link_to event.name, edit_admin_event_path(event) %></td>
+  <td><%= link_to event.name, admin_event_path(event) %></td>
   <td><%= event.eventtype %></td>
   <td><%= event.startdate %></td>
   <td><%= event.enddate %></td>
   <td><%= event.eventattendances.where(registrationtype: 'Player').count %></td>
   <td><%= event.eventattendances.where(registrationtype: 'Staff').count %></td>
   <td><%= event.eventattendances.where(registrationtype: 'Cast').count %></td>
+  <td><%= link_to edit_admin_event_path(event), remote: true do 
+      fa_icon "edit"
+    end
+    %>
+    </td>
 </tr>
 <% end %>
 </table>
@@ -28,12 +34,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addEventModalLabel">Add Event</h5>
+        <h5 class="modal-title" id="addEventModalLabel">Event</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div> 
-      <%= render partial: 'admin/modals/addevent' %>
+      <div class="modal-body"></div>
     </div>
   </div>
 </div>

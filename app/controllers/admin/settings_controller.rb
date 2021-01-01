@@ -17,6 +17,6 @@ class Admin::SettingsController < AdminController
 
   private
     def setting_params
-      params.require(:setting).permit(:sheets_locked)
+      params.require(:setting).permit(:sheets_locked, :one_level_per_game, :sheets_auto_lock, :sheets_auto_lock_day)
     end
 end

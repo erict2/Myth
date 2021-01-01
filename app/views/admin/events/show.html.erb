@@ -1,0 +1,57 @@
+Name: <%= @event.name %><br>
+Description: <%= @event.description %><br>
+Start Date: <%= @event.startdate %><br>
+End Date: <%= @event.enddate %><br>
+
+<hr>
+
+<%= link_to 'Add User', new_admin_event_eventattendance_path(event_id: @event.id), :class => "btn btn-secondary", remote: true%>
+<table border = 1>
+<tr>
+  <th>User Name</th>
+  <th>Email</th>
+  <th>Registration Type</th>
+  <th>Registered Date</th>
+  <th>Cabin</th>
+  <th>Character Name</th>
+  <th>Level</th>
+  <th>Class</th>
+  <th></th>
+</tr>
+<% @event.eventattendances.each do |eventattendance| %>
+  <tr>
+    <td><%=  %>
+      <%= link_to eventattendance.user.firstname + ' ' + eventattendance.user.lastname,  edit_admin_event_eventattendance_path(event_id: @event.id, id: eventattendance.id), remote: true %>
+    </td>
+    <td><%= eventattendance.user.email %></td>
+    <td><%= eventattendance.registrationtype %></td>
+    <td><%= eventattendance.registerdate.to_date %></td>
+    <td><%= eventattendance.cabin %></td>
+    <td><%= if(eventattendance.character) then eventattendance.character.name end%></td>
+    <td><%= if(eventattendance.character) then eventattendance.character.level end%></td>
+    <td><%= if(eventattendance.character) then eventattendance.character.characterclass.name end%></td>
+    <td>
+      <%= link_to edit_admin_event_eventattendance_path(event_id: @event.id, id: eventattendance.id), remote: true do 
+        fa_icon "edit"
+      end
+      %>
+      <%= link_to admin_event_eventattendance_path(user_id: eventattendance.user_id, event_id: @event.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= fa_icon "trash" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+
+<div class="modal fade" id="addUserToEventModal" tabindex="-1" role="dialog" aria-labelledby="addUserToEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserToEventModalLabel">Add User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <div class="modal-body"></div>
+    </div>
+  </div>
+</div>

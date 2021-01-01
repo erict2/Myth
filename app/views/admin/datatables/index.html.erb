@@ -20,28 +20,40 @@
   <li class="nav-item">
     <a class="nav-link" id="skill-tab" data-toggle="tab" href="#skill" role="tab" aria-controls="skill" aria-selected="true">Skills</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" id="professiongroup-tab" data-toggle="tab" href="#professiongroup" role="tab" aria-controls="professiongroup" aria-selected="true">Profession Group</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profession-tab" data-toggle="tab" href="#profession" role="tab" aria-controls="profession" aria-selected="true">Profession</a>
+</li>
 </ul>
 
 <div class="tab-content" id="dataTabContent">
   <div class="tab-pane fade show active" id="race" role="tabpanel" aria-labelledby="race-tab">
-    <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @race, tablename: 'race' } %>
+    <%= render partial: 'admin/datatables/tables/1coldatatable', locals: { datatable: @race, tablename: 'race' } %>
   </div>
   <div class="tab-pane fade" id="class" role="tabpanel" aria-labelledby="class-tab">
-    <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @class, tablename: 'class' } %>
+    <%= render partial: 'admin/datatables/tables/1coldatatable', locals: { datatable: @class, tablename: 'class' } %>
   </div>
   <div class="tab-pane fade" id="deity" role="tabpanel" aria-labelledby="deity-tab">
-    <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @deity, tablename: 'deity' } %>
+    <%= render partial: 'admin/datatables/tables/1coldatatable', locals: { datatable: @deity, tablename: 'deity' } %>
   </div>
   <div class="tab-pane fade" id="skilldelivery" role="tabpanel" aria-labelledby="skilldelivery-tab">
     <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @skilldelivery, tablename: 'skilldelivery' } %>
   </div>
   <div class="tab-pane fade" id="skillgroup" role="tabpanel" aria-labelledby="skillgroup-tab">
-    <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @skillgroup, tablename: 'skillgroup' } %>
+    <%= render partial: 'admin/datatables/tables/1coldatatable', locals: { datatable: @skillgroup, tablename: 'skillgroup' } %>
   </div>
   <div class="tab-pane fade " id="resttype" role="tabpanel" aria-labelledby="resttype-tab">
     <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @resttype, tablename: 'resttype' } %>
   </div>
   <div class="tab-pane fade " id="skill" role="tabpanel" aria-labelledby="skill-tab">
     <%= render partial: 'admin/datatables/tables/skilltable' %>
+  </div>
+  <div class="tab-pane fade " id="professiongroup" role="tabpanel" aria-labelledby="professiongroup-tab">
+    <%= render partial: 'admin/datatables/tables/2coldatatable', locals: { datatable: @professiongroup, tablename: 'professiongroup' } %>
+  </div>
+  <div class="tab-pane fade " id="profession" role="tabpanel" aria-labelledby="profession-tab">
+    <%= render partial: 'admin/datatables/tables/professiontable' %>
   </div>
 </div>

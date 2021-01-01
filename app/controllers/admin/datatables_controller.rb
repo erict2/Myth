@@ -7,6 +7,7 @@ class Admin::DatatablesController < AdminController
     @skillgroup = Skillgroup.all
     @resttype = Resttype.all
     @skill = Skill.all
+    @professiongroup = Professiongroup.all
+    @profession = Profession.all
   end
-
 end

@@ -1,5 +1,5 @@
 <div class="modal-body">
-<%= bootstrap_form_with(model: @event, url: admin_events_path) do |f| %>
+<%= bootstrap_form_with(model: @event, url: pathurl) do |f| %>
   <%= f.check_box :levelingevent, label: 'Event Grants Levels' %>
   <%= f.text_field :name %>
   <%= f.select :eventtype, [ 'Adventure Weekend', 'Adventure Day', 'Adventure Weekend - Go Big', 'Other' ], label: 'Event Type' %>

@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :player do
+    resources :eventattendances
     resources :characters do
       post :levelup
       resources :characterskills
+      resources :characterprofessions
     end
   end
 
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
       resources :explogs
       resources :characters do
         resources :characterskills
+        resources :characterprofessions
       end
     end
     resources :datatables

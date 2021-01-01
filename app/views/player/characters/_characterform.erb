@@ -17,7 +17,7 @@
   <%= f.select :pronouns, [ 'He/Him', 'She/Her','They/Them' ] %>
   
   <%= f.collection_select :race_id, Race.all.where('playeravailable = true'), :id, :name %>
-  <%= f.collection_select :characterclass_id, Characterclass.all, :id, :name %>
+  <%= f.collection_select :characterclass_id, Characterclass.all, :id, :name, label: 'Class' %>
   <div id='totemselect'>
     <%= f.select :totem, [ 'Bear', 'Lizard', 'Rat', 'Raven', 'Snake', 'Spider', 'Wolf' ] %>
   </div>

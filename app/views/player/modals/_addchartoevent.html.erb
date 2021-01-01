@@ -1,0 +1,7 @@
+<div class="modal-body">
+<%= bootstrap_form_with(model: @eventattendance, url: player_eventattendance_path) do |f| %>
+  <%= f.collection_select :character_id, @characters, :id, :name, label: 'Select Your Character' %>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>
+</div>

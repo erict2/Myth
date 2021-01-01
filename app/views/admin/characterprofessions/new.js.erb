@@ -1,0 +1,25 @@
+$('#professionModalBody').html("<%= escape_javascript( render partial: 'admin/modals/addprofession' ) %>")
+$(document).ready(function(){
+  $('#characterProfessionModal').modal('show');
+  professions = $('#characterprofession_profession_id').html();
+  professionListUpdate()
+  $('#professiongroup').change(function() {
+    professionListUpdate()
+  });
+
+  $('#profForm').submit(function() {
+    return confirm('Are you sure?');
+  })
+});
+
+function professionListUpdate() {
+  professiongroup = $('#professiongroup :selected').text();
+  options = $(professions).filter(`optgroup[label='${professiongroup}']`).html();
+  if (options) {
+    $('#characterprofession_profession_id').html(options);
+  } else {
+    $('#characterprofession_profession_id').empty();
+  }
+}
+
+

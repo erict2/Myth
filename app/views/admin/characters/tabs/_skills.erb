@@ -10,7 +10,7 @@
     <th>Description</th>
     <th></th>
 </tr>
-<% @character.characterskills.select("skill_id, max(aquiredate) as aquiredate").group("skill_id").each do |characterskill| %>
+<% @character.characterskills.select("skill_id, max(acquiredate) as acquiredate").group("skill_id").each do |characterskill| %>
     <tr>
       <td><%= characterskill.skill.name %></td>
       <td><%= @character.characterskills.select("skill_id").group("skill_id").count[characterskill.skill_id] %></td>
@@ -21,35 +21,25 @@
       <td><%= characterskill.skill.description %> </td>
       <td>
       <%=
-        if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > characterskill.aquiredate)
-          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete do 
-            fa_icon "trash" 
-           end
-        else
-          delmessage = 'Are you sure?'
-          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: delmessage  } do 
+          link_to admin_user_character_characterskill_path(user_id: @character.user_id, character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: 'Are you sure?'  } do 
             fa_icon "trash"
           end
-        end
-
       %>
       </td>
     </tr>
   <% end %>
   </table>
 
-
-
   <div class="modal fade" id="characterSkillModal" tabindex="-1" role="dialog" aria-labelledby="characterSkillModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="characterSkillModalLabel">Add Experience</h5>
+        <h5 class="modal-title" id="characterSkillModalLabel">Add Skill</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div> 
-      <div class="modal-body">
+      <div class="modal-body" id="skillModalBody">
       </div>
     </div>
   </div>

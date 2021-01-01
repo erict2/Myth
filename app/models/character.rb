@@ -1,7 +1,9 @@
 class Character < ApplicationRecord
   has_many :characterskills
   has_many :skills, through: :characterskills
-  
+  has_many :characterprofessions
+  has_many :professions, through: :characterprofessions
+  has_many :professiongroups, through: :professions
   
   belongs_to :user
   has_many :eventattendances

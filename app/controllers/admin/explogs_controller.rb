@@ -41,6 +41,6 @@ class Admin::ExplogsController < AdminController
 
   private
   def exp_params
-    params.require(:explog).permit(:user_id, :name, :aquiredate, :description, :amount)
+    params.require(:explog).permit(:user_id, :name, :acquiredate, :description, :amount)
   end
 end

@@ -1,10 +1,37 @@
 $('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addusertoevent', locals: {event: @event, pathurl: admin_event_eventattendances_path} ) %>")
 $(document).ready(function(){
+  $("#eventattendance_user_id").select2({width: '400'});
   $('#addUserToEventModal').modal('show');
+  characters = $('#eventattendance_character_id').html();
+  characterListUpdate()
+  
 });
 
-
-$(document).ready(function() {$("#eventattendance_user_id").select2({
-  width: '400'
-  });
+$('#eventattendance_user_id').change(function() {
+  characterListUpdate()
 });
+
+$('#eventattendance_registrationtype').change(function() {
+  formValidation()
+});
+
+function characterListUpdate() {
+  user = $('#eventattendance_user_id :selected').text();
+  options = '<option value=""></option>' + $(characters).filter(`optgroup[label='${user}']`).html();
+  if (options) {
+    $('#eventattendance_character_id').html(options);
+  } else {
+    $('#eventattendance_character_id').empty();
+  }
+}
+
+function formValidation() {
+  var registrationtype = $('#eventattendance_registrationtype option:selected').text()
+  if (registrationtype == 'Player') {
+    document.getElementById('eventattendance_character').selectedIndex = -1
+    $('#eventattendance_character').show()
+  }  else {
+    document.getElementById('eventattendance_character_id').selectedIndex = -1
+    $('#eventattendance_character').hide()
+  }
+}

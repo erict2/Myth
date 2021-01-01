@@ -1,4 +1,4 @@
-<% if !Setting.sheets_locked %>
+<% if !sheetsLocked %>
   <%= link_to 'Add Skill', new_player_character_characterskill_path(character_id: @character.id), remote: true %>
 <% end %>
 <table border = 1>
@@ -12,7 +12,7 @@
     <th>Description</th>
     <th></th>
 </tr>
-<% @character.characterskills.select("skill_id, max(aquiredate) as aquiredate").group("skill_id").each do |characterskill| %>
+<% @character.characterskills.select("skill_id, max(acquiredate) as acquiredate").group("skill_id").each do |characterskill| %>
     <tr>
       <td><%= characterskill.skill.name %></td>
       <td><%= @character.characterskills.select("skill_id").group("skill_id").count[characterskill.skill_id] %></td>
@@ -23,20 +23,18 @@
       <td><%= characterskill.skill.description %> </td>
       <td>
       <%=
-        if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > characterskill.aquiredate)
-          link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete do 
-            fa_icon "trash" 
-           end
-        elsif characterskill.skill.tier == 0
-           # Do nothing. You cant refund Tier 0
-        elsif current_user.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) < characterskill.skill.tier * 25
-          # Do nothing. You cant afford this
-        else
-          link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: 'Doing this will cost you ' + (characterskill.skill.tier * 25).to_s + ' exp. This is irreversible.' } do 
-            fa_icon "trash" 
+        if(canRefundSkill(@character, characterskill))
+          refundprice = refundPrice(@character, characterskill)
+          if (refundprice == 0)
+            link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete do 
+              fa_icon "trash" 
+             end
+          else
+            link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: 'Doing this will cost you ' + refundprice.to_s + ' exp. This is irreversible.' } do 
+              fa_icon "trash" 
+            end
           end
         end
-
       %>
       </td>
     </tr>
@@ -47,13 +45,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="characterSkillModalLabel">Add Experience</h5>
+        <h5 class="modal-title" id="characterSkillModalLabel">Add Skill</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div> 
-      <div class="modal-body">
+      <div class="modal-body" id="skillModalBody">
       </div>
     </div>
   </div>
-</div>
+  </div>

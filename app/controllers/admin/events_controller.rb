@@ -3,6 +3,10 @@ class Admin::EventsController < AdminController
     @events = Event.all
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
     @event = Event.new
     @event.levelingevent = true
@@ -13,6 +17,9 @@ class Admin::EventsController < AdminController
 
   def edit
     @event = Event.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update

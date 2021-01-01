@@ -1,0 +1,34 @@
+$('#professionModalBody').html("<%= escape_javascript( render partial: 'player/modals/addprofession' ) %>")
+$(document).ready(function(){
+  var freeprofession = "<%= @freeprofessions %>"
+  $('#characterProfessionModal').modal('show');
+  professions = $('#characterprofession_profession_id').html();
+  professionListUpdate()
+  $('#professiongroup').change(function() {
+    professionListUpdate()
+  });
+
+  $('#profForm').submit(function() {
+    if (freeprofession == 'true') {
+      return;
+    } else if ($('#characterprofession_profession_id :selected').text().startsWith('Novice')) {
+      return confirm('Are you sure? Doing so will cost 100 exp');
+    } else if ($('#characterprofession_profession_id :selected').text().startsWith('Journeyman')) {
+      return confirm('Are you sure? Doing so will cost 200 exp');
+    } else if ($('#characterprofession_profession_id :selected').text().startsWith('Master')) {
+      return confirm('Are you sure? Doing so will cost 300 exp');
+    }
+  })
+});
+
+function professionListUpdate() {
+  professiongroup = $('#professiongroup :selected').text();
+  options = $(professions).filter(`optgroup[label='${professiongroup}']`).html();
+  if (options) {
+    $('#characterprofession_profession_id').html(options);
+  } else {
+    $('#characterprofession_profession_id').empty();
+  }
+}
+
+

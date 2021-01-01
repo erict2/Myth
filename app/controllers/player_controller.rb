@@ -5,5 +5,4 @@ class PlayerController < ApplicationController
       
   end
 
-
 end

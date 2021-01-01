@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_170705) do
+ActiveRecord::Schema.define(version: 2020_12_31_162706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "characterclasses", force: :cascade do |t|
     t.string "name", null: false
-    t.string "description", null: false
     t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,6 +29,16 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["characterclass_id"], name: "index_characterclassskillgroups_on_characterclass_id"
     t.index ["skillgroup_id"], name: "index_characterclassskillgroups_on_skillgroup_id"
+  end
+
+  create_table "characterprofessions", force: :cascade do |t|
+    t.bigint "profession_id", null: false
+    t.bigint "character_id", null: false
+    t.date "acquiredate", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_characterprofessions_on_character_id"
+    t.index ["profession_id"], name: "index_characterprofessions_on_profession_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -60,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.string "details"
     t.bigint "skill_id", null: false
     t.bigint "character_id", null: false
-    t.date "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
+    t.date "acquiredate", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_characterskills_on_character_id"
@@ -69,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
 
   create_table "deities", force: :cascade do |t|
     t.string "name", null: false
-    t.string "description", null: false
     t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -77,9 +85,9 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
 
   create_table "eventattendances", force: :cascade do |t|
     t.bigint "event_id", null: false
-    t.string "registrationtype"
+    t.string "registrationtype", null: false
     t.datetime "registerdate", default: -> { "CURRENT_TIMESTAMP" }
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.bigint "character_id"
     t.string "cabin"
     t.datetime "created_at", precision: 6, null: false
@@ -97,7 +105,6 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.date "startdate", null: false
     t.date "enddate", null: false
     t.string "description", null: false
-    t.integer "castcount", default: 0
     t.integer "atdoorcost", default: 0
     t.integer "earlybirdcost", default: 0
     t.integer "eventexp", default: 300
@@ -109,7 +116,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
 
   create_table "explogs", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.datetime "aquiredate", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "acquiredate", default: -> { "CURRENT_TIMESTAMP" }
     t.string "name", null: false
     t.string "description", null: false
     t.integer "amount", null: false
@@ -134,9 +141,36 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "races", force: :cascade do |t|
+  create_table "professiongroups", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
+    t.boolean "playeravailable", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "professionrequirements", force: :cascade do |t|
+    t.bigint "profession_id", null: false
+    t.bigint "requiredprofession_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profession_id"], name: "index_professionrequirements_on_profession_id"
+    t.index ["requiredprofession_id"], name: "index_professionrequirements_on_requiredprofession_id"
+  end
+
+  create_table "professions", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "rank", null: false
+    t.bigint "professiongroup_id", null: false
+    t.boolean "playeravailable", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["professiongroup_id"], name: "index_professions_on_professiongroup_id"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name", null: false
     t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -168,7 +202,6 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
 
   create_table "skillgroups", force: :cascade do |t|
     t.string "name", null: false
-    t.string "description", null: false
     t.boolean "playeravailable", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -229,6 +262,8 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
 
   add_foreign_key "characterclassskillgroups", "characterclasses"
   add_foreign_key "characterclassskillgroups", "skillgroups"
+  add_foreign_key "characterprofessions", "characters"
+  add_foreign_key "characterprofessions", "professions"
   add_foreign_key "characters", "characterclasses"
   add_foreign_key "characters", "deities"
   add_foreign_key "characters", "guilds"
@@ -242,6 +277,9 @@ ActiveRecord::Schema.define(version: 2020_12_26_170705) do
   add_foreign_key "eventattendances", "users"
   add_foreign_key "explogs", "users"
   add_foreign_key "explogs", "users", column: "grantedby_id"
+  add_foreign_key "professionrequirements", "professions"
+  add_foreign_key "professionrequirements", "professions", column: "requiredprofession_id"
+  add_foreign_key "professions", "professiongroups"
   add_foreign_key "skillrequirements", "skills"
   add_foreign_key "skillrequirements", "skills", column: "requiredskill_id"
   add_foreign_key "skills", "resttypes"

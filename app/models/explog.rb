@@ -3,8 +3,5 @@ class Explog < ApplicationRecord
     
     belongs_to :grantedby, class_name: 'User'
 
-    default_scope { order(aquiredate: :desc) }
-    
-    
-
+    default_scope { order(acquiredate: :desc) }
 end

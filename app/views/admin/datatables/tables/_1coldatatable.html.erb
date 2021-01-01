@@ -1,0 +1,12 @@
+<table border = 1>
+<tr>
+    <th>Name</th>
+    <th>Player Available</th>
+</tr>
+<% datatable.all.each do |datarow| %>
+<tr>
+    <td><%= datarow.name %></td>
+    <td><%= datarow.playeravailable %></td>
+</tr>
+<% end %>
+</table>

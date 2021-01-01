@@ -1,23 +1,14 @@
 <% 
-if (!Setting.sheets_locked) 
-  if ((@character.events.where('startdate <= ? AND eventtype = ? ', Time.now.end_of_day, 'Adventure Weekend').count) < 3) %>
-    <%= link_to 'Edit This Character', edit_player_character_path(@character)%>
-    <hr>
-<% 
-  end
-end %>
+if (canEdit(@character)) %>
+  <%= link_to 'Edit This Character', edit_player_character_path(@character)%>
+  <hr>
+<% end %>
 Name: <%= @character.name %><br>
 
 Level: <%= @character.level %> 
-<% 
-if (!Setting.sheets_locked )
-  if (current_user.explogs.where('aquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
-    if (@character.events.where('startdate <= ? AND startdate > ? AND eventtype = ? ', Time.now.end_of_day, @character.levelupdate, 'Adventure Weekend').count > 0) %>
-      - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
-<% 
-    end
-  end
-end %>
+<% if (canLevel(@character)) %>
+  - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+<% end %>
 <br>
 
 Pronouns: <%= @character.pronouns %><br>
@@ -48,7 +39,10 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
 <hr>
 <ul class="nav nav-tabs" id="charTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="skill-tab" data-toggle="tab" href="#skill" role="tab" aria-controls="skill" aria-selected="true">Skills</a>
+    <a class="nav-link active" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="true">Skills</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="professions-tab" data-toggle="tab" href="#professions" role="tab" aria-controls="class" aria-selected="false">Professions</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="class" aria-selected="false">Events</a>
@@ -56,10 +50,13 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
 </ul>
 
 <div class="tab-content" id="charTabContent">
-  <div class="tab-pane fade show active" id="skill" role="tabpanel" aria-labelledby="skill-tab">
+  <div class="tab-pane fade show active" id="skills" role="tabpanel" aria-labelledby="skills-tab">
     <%= render partial: 'player/characters/tabs/skills' %>
   </div>
+  <div class="tab-pane fade" id="professions" role="tabpanel" aria-labelledby="professions-tab">
+    <%= render partial: 'player/characters/tabs/professions' %>
+  </div>
   <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-  <%= render partial: 'player/characters/tabs/events' %>
-</div>
+    <%= render partial: 'player/characters/tabs/events' %>
+  </div>
 </div>

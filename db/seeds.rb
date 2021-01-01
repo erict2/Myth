@@ -28,149 +28,120 @@ end
 
 puts 'Starting Character Classes'
 characterclass = Characterclass.find_or_initialize_by(name: 'Alchemist')
-characterclass.description = 'Alchemist'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Artificer')
-characterclass.description = 'Artificer'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Bard')
-characterclass.description = 'Bard'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Cleric')
-characterclass.description = 'Cleric'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Druid')
-characterclass.description = 'Druid'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Fighter')
-characterclass.description = 'Fighter'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Paladin')
-characterclass.description = 'Paladin'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Ranger')
-characterclass.description = 'Ranger'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Rogue')
-characterclass.description = 'Rogue'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Runesmith')
-characterclass.description = 'Runesmith'
 characterclass.playeravailable = true
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Wizard')
-characterclass.description = 'Wizard'
 characterclass.playeravailable = true
 characterclass.save!
 
 puts 'Starting Deities'
 deity = Deity.find_or_initialize_by(name: 'Adara')
-deity.description = 'Adara'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Amitel')
-deity.description = 'Amitel'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Dedrot')
-deity.description = 'Dedrot'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Enoon')
-deity.description = 'Enoon'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ixbus')
-deity.description = 'Ixbus'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Naenya')
-deity.description = 'Naenya'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ororo')
-deity.description = 'Ororo'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ryknos')
-deity.description = 'Ryknos'
 deity.playeravailable = true
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Scandelen')
-deity.description = 'Scandelen'
 deity.playeravailable = true
 deity.save!
 
 puts 'Starting Races'
 race = Race.find_or_initialize_by(name: 'Dale Elf')
-race.description = 'Dale Elf'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Dwarf')
-race.description = 'Dwarf'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Goblin')
-race.description = 'Goblin'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Half Elf')
-race.description = 'Half Elf'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'High Elf')
-race.description = 'High Elf'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Human')
-race.description = 'Human'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Suhk')
-race.description = 'Suhk'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Wildren')
-race.description = 'Wildren'
 race.playeravailable = true
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Tengu')
-race.description = 'Tengu'
 race.playeravailable = false
 race.save!
 
@@ -254,92 +225,74 @@ skilldelivery.save!
 
 puts 'Starting Skill Groups'
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
-skillgroup.description = 'Basic Open Skills'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
-skillgroup.description = 'Basic Defense Skills'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Shadow')
-skillgroup.description = 'Shadow'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Weapon')
-skillgroup.description = 'Weapon'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
-skillgroup.description = 'Healing / Utility'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
-skillgroup.description = 'Defensive Magic'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
-skillgroup.description = 'Offensive Magic'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Alchemist')
-skillgroup.description = 'Alchemist'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Artificer')
-skillgroup.description = 'Artificer'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Bard')
-skillgroup.description = 'Bard'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Cleric')
-skillgroup.description = 'Cleric'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Druid')
-skillgroup.description = 'Druid'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Fighter')
-skillgroup.description = 'Fighter'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Paladin')
-skillgroup.description = 'Paladin'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Ranger')
-skillgroup.description = 'Ranger'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Rogue')
-skillgroup.description = 'Rogue'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Runesmith')
-skillgroup.description = 'Runesmith'
 skillgroup.playeravailable = true
 skillgroup.save!
 
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Wizard')
-skillgroup.description = 'Wizard'
 skillgroup.playeravailable = true
 skillgroup.save!
 
@@ -470,7 +423,7 @@ skill.maxpurchase = 1
 skill.target = 'Unconscious/Bleeding Out Body'
 skill.prop = nil
 skill.incant = 'Diagnose - <How many Hit Points do you have? / Are you Poisoned? / What is your poison count currently at? / How long before you bleed out? / Are you Dead?>'
-skill.description = 'Target: Unconscious/Bleeding Out Body. RP: Checking the targets Vitals. "Diagnose - <How many Hit Points do you have? / Are you Poisoned? / What is your poison count currently at? / How long before you bleed out? / Are you Dead?>'
+skill.description = 'Target: Unconscious/Bleeding Out Body. RP: check-ing the targets Vitals. "Diagnose - <How many Hit Points do you have? / Are you Poisoned? / What is your poison count currently at? / How long before you bleed out? / Are you Dead?>'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Literacy')
@@ -591,7 +544,7 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Medium" category.'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'), requiredskill: Skill.find_or_initialize_by(name: 'Light Armor Proficiency')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'), requiredskill: Skill.find_by(name: 'Light Armor Proficiency')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Shield')
 skill.tier = 2
@@ -619,7 +572,7 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Heavy" category.'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Heavy Armor Proficiency'), requiredskill: Skill.find_or_initialize_by(name: 'Medium Armor Proficiency')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Heavy Armor Proficiency'), requiredskill: Skill.find_by(name: 'Medium Armor Proficiency')).save!
 
 skill = Skill.find_or_initialize_by(name: 'First Aid')
 skill.tier = 3
@@ -699,7 +652,7 @@ skill.incant = 'Crit, Damage 2'
 skill.description = 'Target: From Behind. "Crit, Damage 2"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 2'), requiredskill: Skill.find_or_initialize_by(name: 'Sneak Attack')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 2'), requiredskill: Skill.find_by(name: 'Sneak Attack')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Silencing Strike')
 skill.tier = 2
@@ -740,7 +693,7 @@ skill.incant = 'Crit, Damage 3'
 skill.description = 'Target: From Behind. "Crit, Damage 3"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 3'), requiredskill: Skill.find_or_initialize_by(name: 'Sneak Attack 2')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 3'), requiredskill: Skill.find_by(name: 'Sneak Attack 2')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Pick Locks')
 skill.tier = 3
@@ -846,7 +799,7 @@ skill.incant = 'Damage 3'
 skill.description = 'Weapon - Short Rest - "Damage 3."'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 3'), requiredskill: Skill.find_or_initialize_by(name: 'Slash 2')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 3'), requiredskill: Skill.find_by(name: 'Slash 2')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Strong Grip')
 skill.tier = 2
@@ -900,7 +853,7 @@ skill.incant = 'Damage 4'
 skill.description = 'Weapon - Short Rest - "Damage 4"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 4'), requiredskill: Skill.find_or_initialize_by(name: 'Slash 3')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 4'), requiredskill: Skill.find_by(name: 'Slash 3')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Pierce')
 skill.tier = 3
@@ -1641,12 +1594,12 @@ skill.incant = 'Through Wood, Damage Four.'
 skill.description = 'Packet - Short Rest - "Through Wood, Damage Four."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: "Alchemist's Fire")
+puts('Starting Alchemist')
 
+skill = Skill.find_or_initialize_by(name: "Alchemist's Fire", skillgroup: Skillgroup.find_by(name: 'Alchemist'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
 skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
@@ -1655,11 +1608,10 @@ skill.incant = 'Fire. Damage 1.'
 skill.description = 'Prop Required: Potion/Bomb Coreless Thrown Weapon or Packet - "Fire. Damage 1."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Combine Potions')
+skill = Skill.find_or_initialize_by(name: 'Combine Potions', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Between Events')
 skill.skilldelivery = nil
-skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
 skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
@@ -1668,11 +1620,10 @@ skill.incant = nil
 skill.description = 'You may take two potions and have them combined into a single bottle. The imbiber would then receive the effect of both potions when drunk. These potions cannot be further combined.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Hurl Potion')
+skill = Skill.find_or_initialize_by(name: 'Hurl Potion', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
 skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
@@ -1681,11 +1632,10 @@ skill.incant = nil
 skill.description = 'You may deliver a potion by packet instead of roleplaying drinking the potion as normal. State the effects of the potion and then throw the Packet at your target.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Identify Potion')
+skill = Skill.find_or_initialize_by(name: 'Identify Potion', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
 skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
@@ -1694,11 +1644,10 @@ skill.incant = nil
 skill.description = 'You may open up potions and look at the tag without needing to use it.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Novice Alchemy')
+skill = Skill.find_or_initialize_by(name: 'Novice Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.resttype = Resttype.find_by(name: 'Crafting')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
-skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
 skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
@@ -1707,11 +1656,10 @@ skill.incant = nil
 skill.description = 'You may Craft Novice Alchemy Recipes.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Sensitive Palate')
+skill = Skill.find_or_initialize_by(name: 'Sensitive Palate', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
 skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
@@ -1720,11 +1668,10 @@ skill.incant = nil
 skill.description = 'When you consume a potion that grants you a Heal effect, you may add one to the number of Hit Points restored.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Steady Hand')
+skill = Skill.find_or_initialize_by(name: 'Steady Hand', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = Skillgroup.find_by(name: 'Alchemist')
 skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
@@ -1733,10 +1680,559 @@ skill.incant = nil
 skill.description = 'You do not ruin your potions if attacked while trying to consume them, but cannot consume them while being attacked.'
 skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Journeyman Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Journeyman Alchemy Recipes.'
+skill.save!
 
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Journeyman Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Novice Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
 
+skill = Skill.find_or_initialize_by(name: 'Lesser Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = 'A Stylized Flask or Bottle'
+skill.incant = nil
+skill.description = 'You may turn in a Novice Potion at Check-In that you are putting into your Flask. You may use that Potion once per Short Rest for the Event.'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Personal Stash', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you consume a novice or journeyman potion, you may immediately give the tag to another individual to share the effect.'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Refined Palate', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you receive a numerical bonus from potions, you may add an additional one to that number.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Refined Palate', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Sensitive Palate', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Residue', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you miss a target using a Powder or Potion, you may immediately throw that same effect a second time using another packet.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Resist Poison', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Resist a Poison Effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Resist Potion', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'You may resist the effects of one non-poison potion. State "Resist" after reading the potion tag.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Toxic', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Poison, 60 seconds.'
+skill.description = 'When searched, you may expend this skill to call: "Poison, 60 seconds."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Toxic', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Resist Poison', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Augment Potion', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may double all numerical effects of a potion you consume.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Derive Contents', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in a single potion with your crafting form and learn it\'s recipes if you have the skills required to make it.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Endless Decanter', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = 'Stylized Flask or Bottle'
+skill.incant = nil
+skill.description = 'You may Packet Chain a Potion stored in your Lesser or Greater Alchemist\'s Flask.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Endless Decanter', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Lesser Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Enhance Metabolism', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you consume a potion with more than one effect, you may choose to ignore all the negative effects and gain all beneficial effects.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Enhance Metabolism', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Refined Palate', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Greater Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = 'A Stylized Flask or Bottle'
+skill.incant = nil
+skill.description = 'You may turn in a Journeyman Potion at Check-In that you are putting into your Flask. You may use that Potion once per Long Rest.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Greater Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Lesser Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Master Alchemy Recipes.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Journeyman Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Poison Immunity', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'No Effect'
+skill.description = '"No Effect" a Poison Effect'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Poison Immunity', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Resist Poison', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Waste Not, Want Not', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you craft two identical items, you produce an additional one'
+skill.save!
+
+puts('Starting Artificer')
+
+skill = Skill.find_or_initialize_by(name: 'Artisan\'s Devotion', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may purchase an additional Profession skill each game.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Avoid Trap', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'You may state, "Resist" if you trigger a trap. Triggered area of effect traps can still affect anyone who doesn’t use Avoid Trap.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Breakdown', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in yellow-stickered items, and a crafting form to gain some of the materials used in its construction at the following check-in.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Identify', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in a yellowstickered item to learn the properties of the object. Curses are not revealed with this skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Novice Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Novice Enchanting Recipes.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Novice Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Novice Tinkering Recipes. Once per event, you may use this skill to craft a Novice Recipe regardless of profession requirements. All other costs must be paid as normal.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Recharge', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'RP: 5 minutes recharging an item. You may expend one silver piece for a Short Rest charge or one gold piece for a Long Rest charge. You may turn this coin in to the tavern keeper.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Surge', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When using an item that allows you to deliver an effect via Packet, you may instead Burst that effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Disable Device', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Dispel Charges for the Event'
+skill.description = 'RP: 1 minute working on a yellow stickered item: "Dispel Charges for the Event." Place a yellow sticker with an X on the item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Efficiency', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may expend this skill, instead of spending a Short Rest Charge in an item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Empower Item', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you have an item attuned to yourself, you may double a numerical effect produced by that item. You may only have one yellowstickered item empowered at any given time. You may change the empowered item at check-in.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Interchangeable Parts', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When crafting a recipe, you may substitute a single component for another component that is the same tier.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Journeyman Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Journeyman Enchanting Recipes.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Journeyman Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Novice Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Journeyman Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Journeyman Tinkering Recipes. Once per event, you may use this skill to craft a Journeyman Recipe regardless of profession requirements. All other costs must be paid as normal.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Journeyman Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Novice Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Recalibrate', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you miss a packet delivered effect from an item, you may immediately reuse it.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Use Magic Device', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may ignore class, race, and level restrictions when having items attuned to you.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Greater Efficiency', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may expend this skill, instead of spending a Long Rest Charge in an item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Master Enchanting Recipes.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Journeyman Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Master Tinkering Recipes. Once per event, you may use this skill to craft a Master Recipe regardless of profession requirements. All other costs must be paid as normal.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Journeyman Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Permanency', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When crafting an item, you may expend three gold pieces or 300 XP for Novice items, six gold pieces or 600 XP for Journeyman items, or ten gold pieces or 1000 XP for Master items. If you pay this cost, the item will become permanent and will no longer require upkeep. This does not include facilities or items made by an architect.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Permanency', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Master Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Permanency', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Master Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Reverse Engineer', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in a single yellow-stickered item and a crafting form, to destroy the thing and learn its recipe provided you possess the appropriate skills to craft the item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Salvo', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When using an item that allows you to deliver an effect via Packet, you may instead Packet Chain that effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Soul of the Artificer', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You gain two extra item slots.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Waste Not, Want Not', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you craft two identical items, you produce an additional one.'
+skill.save!
+
+puts('Starting Bard')
 
 skill = Skill.find_or_initialize_by(name: 'Favored Foe')
 skill.tier = 4
@@ -1764,7 +2260,994 @@ skill.incant = nil
 skill.description = 'Self Only - Armament Required: Chosen Weapon Style. (One-Handed, Two-Handed, ranged, sword and shield, or two weapons) "Restore a tier 1-3 weapon or shadow skill."'
 skill.save!
 
+puts 'Starting Profession Groups'
+pg = Professiongroup.find_or_initialize_by(name: 'Collector')
+pg.description = 'Collector Professions are used during games to gather resources from fallen creatures or specific areas. Using Collection Professions on NPC’s does not cost Labor. You must roleplay collecting the resource from the NPC for 30 seconds before calling the skill. Some areas may require a certain amount of Labor or roleplaying to gather a resource from them.'
+pg.playeravailable = true
+pg.save!
 
+pg = Professiongroup.find_or_initialize_by(name: 'Gathering')
+pg.description = 'Gathering Professions are used only during check-in, where you may spend Labor in exchange for components at a rate listed on your Profession cost sheet.'
+pg.playeravailable = true
+pg.save!
+
+pg = Professiongroup.find_or_initialize_by(name: 'Refining')
+pg.description = 'Refining Professions allow you to take resources collected by Gathering Professions and refine them into ingredients suitable for use by the Crafting Professions. These refinements may have additional applications and are made during gameplay or at Checkout.'
+pg.playeravailable = true
+pg.save!
+
+pg = Professiongroup.find_or_initialize_by(name: 'Crafting')
+pg.description = 'Crafting Professions are used during the event or at Checkout. Crafting a recipe requires you to have a physical copy of the recipe, the associated skill, the components listed, and any other special restrictions that may need to be met on your recipe card. With every crafting profession you learn, you receive a random starting recipe, and you will discover more through experimenting with your craft, adventuring, learning from others, or purchasing from merchants.'
+pg.playeravailable = true
+pg.save!
+
+pg = Professiongroup.find_or_initialize_by(name: 'Enhancement')
+pg.description = 'Enhancement Professions serve as a supplemental set of abilities that assist in improving various interactions within the game world by providing additional actions or information.'
+pg.playeravailable = true
+pg.save!
+
+puts 'Starting Professions'
+
+profession = Profession.find_or_initialize_by(name: 'Novice Coalescer')
+profession.description = 'You may state "Novice Coalescing" when searching a creature for a chance to find a Rank 1 Gem.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Coalescer')
+profession.description = 'You may state "Journeyman Coalescing" when searching a creature for a chance to find a Rank 2 Gem.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Coalescer'),
+  requiredprofession: Profession.find_by(name: 'Novice Coalescer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Coalescer')
+profession.description = 'You may state "Master Coalescing" when searching a creature for a chance to find a Rank 3 Gem.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Coalescer'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Coalescer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Excavator')
+profession.description = 'You may state “Novice Excavating” when searching a creature for a chance to find a Rank 1 Ore.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Excavator')
+profession.description = 'You may state “Journeyman Excavating” when searching a creature for a chance to find a Rank 2 Ore.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Excavator'),
+  requiredprofession: Profession.find_by(name: 'Novice Excavator')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Excavator')
+profession.description = 'You may state “Master Excavating” when searching a creature for a chance to find a Rank 3 Ore.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Excavator'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Excavator')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Harvester')
+profession.description = 'You may state “Novice Harvesting” when searching a creature for a chance to find a Rank 1 Fruit or Flower.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Harvester')
+profession.description = 'You may state “Journeyman Harvesting” when searching a creature for a chance to find a Rank 2 Fruit or Flower.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Harvester'),
+  requiredprofession: Profession.find_by(name: 'Novice Harvester')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Harvester')
+profession.description = 'You may state “Master Harvesting” when searching a creature for a chance to find a Rank 3 Fruit or Flower.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Harvester'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Harvester')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Logger')
+profession.description = 'You may state “Novice Logging” when searching a creature for a chance to find a Rank 1 Wood.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Logger')
+profession.description = 'You may state “Journeyman Logging” when searching a creature for a chance to find a Rank 2 Wood.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Logger'),
+  requiredprofession: Profession.find_by(name: 'Novice Logger')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Logger')
+profession.description = 'You may state “Master Logging” when searching a creature for a chance to find a Rank 3 Wood.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Logger'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Logger')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Skinner')
+profession.description = 'You may state “Novice Skinning” when searching a creature for a chance to find a Rank 1 hide, animal, insect, or part.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Skinner')
+profession.description = 'You may state “Journeyman Skinning” when searching a creature for a chance to find a Rank 3 hide, animal, insect, or part.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Skinner'),
+  requiredprofession: Profession.find_by(name: 'Novice Skinner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Skinner')
+profession.description = 'You may state “Master Skinning” when searching a creature for a chance to find a Rank 3 leather, animal, insect, or part.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Collector')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Skinner'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Skinner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Farmer')
+profession.description = 'You may spend 1 Labor at check-in to get 1 Produce or 1 Random Rank 1 Fruit or Flower.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Farmer')
+profession.description = 'You may spend 4 Labor at check-in to get 1 Random Rank 2 Fruit or Flower.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Farmer'),
+  requiredprofession: Profession.find_by(name: 'Novice Farmer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Farmer')
+profession.description = 'You may spend 8 Labor at check-in to get 1 Random Rank 3 Fruit or Flower.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Farmer'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Farmer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Hunter')
+profession.description = 'You may spend 1 Labor at check-in to get 1 Random Rank 1 Hide, Animal, Insect or Part.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Hunter')
+profession.description = 'You may spend 4 Labor at check-in to get 1 Random Rank 2 Hide, Animal, Insect or Part.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Hunter'),
+  requiredprofession: Profession.find_by(name: 'Novice Hunter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Hunter')
+profession.description = 'You may spend 8 Labor at check-in to get a single Random Rank 3 Hide, Animal, Insect or Part.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Hunter'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Hunter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Lumberjack')
+profession.description = 'You may spend 1 Labor at check-in to get 1 Raw Wood.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Lumberjack')
+profession.description = 'You may spend 4 Labor at check-in to get 1 Random Rank 2 Wood.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Lumberjack'),
+  requiredprofession: Profession.find_by(name: 'Novice Lumberjack')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Lumberjack')
+profession.description = 'You may spend 8 Labor at check-in to get 1 Random Rank 3 Wood.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Lumberjack'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Lumberjack')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Miner')
+profession.description = 'You may spend 1 Labor at check-in to get 1 Raw Glass or 1 Random Rank 1 Ore.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Miner')
+profession.description = 'You may spend 4 Labor at check-in to get 1 Random Rank 2 Ore.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Miner'),
+  requiredprofession: Profession.find_by(name: 'Novice Miner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Miner')
+profession.description = 'You may spend 8 Labor at check-in to get1 Random Rank 3 Ore.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Miner'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Miner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Panner')
+profession.description = 'You may spend 1 Labor at check-in to get 1 Random Lesser Gem.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Panner')
+profession.description = 'You may spend 4 Labor at check-in to get 1 Random Raw Gem.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Panner'),
+  requiredprofession: Profession.find_by(name: 'Novice Panner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Panner')
+profession.description = 'You may spend 8 Labor at check-in to get 1 Random Gem Cluster.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Gathering')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Panner'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Panner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Butcher')
+profession.description = 'You may spend 1 Labor to turn any 1 Animal Component into 1 Meat.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Butcher')
+profession.description = 'You may spend 2 Labor to turn any 2 Animal Components into 1 Fat.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Butcher'),
+  requiredprofession: Profession.find_by(name: 'Novice Butcher')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Butcher')
+profession.description = 'You may spend 3 Labor to turn any 3 Animal Components into 1 Vitriol.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Butcher'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Butcher')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Carpenter')
+profession.description = 'You may spend 1 Labor to turn any 1 Raw Wood into 1 Lumber.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Carpenter')
+profession.description = 'You may spend 4 Labor to turn any 1 Ironwood into 1 Heartwood.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Carpenter'),
+  requiredprofession: Profession.find_by(name: 'Novice Carpenter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Carpenter')
+profession.description = 'You may spend 8 Labor to turn any 1 Wood and 1 Crushed Gem into 1 Inlaid Wood of the appropriate type.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Carpenter'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Carpenter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Gemcutter')
+profession.description = 'You may spend 1 Labor to turn 1 Lesser Gem into 1 Cabochon Gem of the same Gem type.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Gemcutter')
+profession.description = 'You may spend 4 Labor to turn 1 Raw Gem into 1 Round Gem of the same type.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Gemcutter'),
+  requiredprofession: Profession.find_by(name: 'Novice Gemcutter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Gemcutter')
+profession.description = 'You may spend 8 Labor to turn 1 Gem Cluster into 1 Trilliant Gem of the same Gem type.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Gemcutter'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Gemcutter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Glassmaker')
+profession.description = 'Building Required: Forge. You may spend 1 Labor along with 1 Raw Glass and 1 Charcoal to produce 1 Refined Glass.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Glassmaker')
+profession.description = 'Building Required: Forge. You may spend 4 Labor along with 1 Raw Glass and 1 Lead to produce 1 Crystal.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Glassmaker'),
+  requiredprofession: Profession.find_by(name: 'Novice Glassmaker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Glassmaker')
+profession.description = 'Building Required: Forge. You may spend 8 Labor along with 1 Crystal and 1 Powdered Gem to produce 1 Infused Crystal of the appropriate type.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Glassmaker'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Glassmaker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Papermaker')
+profession.description = 'You may spend 1 Labor to turn 1 Raw Wood or Produce into 1 Parchment. Parchment Special Use: Turn in 1 Parchment after 10 Minutes of Roleplaying to produce a copy of a Novice Recipe you possess.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Papermaker')
+profession.description = 'You may spend 4 Labor to turn 1 Ironwood or Rank 2 Flower into 1 Vellum. Vellum Special Use: Turn in 1 Vellum after 10 Minutes of Roleplaying to produce a copy of a Journeyman Recipe you possess.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Papermaker'),
+  requiredprofession: Profession.find_by(name: 'Novice Papermaker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Papermaker')
+profession.description = 'You may spend 8 Labor to turn 1 Rank 3 Wood or Flower into 1 Aetherslip. Aetherslip Special Use: Turn in 1 Aetherslip after 10 Minutes of Roleplaying to produce a copy of a Master Recipe you possess.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Papermaker'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Papermaker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Smelter')
+profession.description = 'Building Required: Forge. You may spend 1 Labor and 2+ X Wood to produce X Charcoal.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Smelter')
+profession.description = 'Building Required: Forge. You may spend 4 Labor and 1 Charcoal and 1 Iron ore to produce 1 Steel Ore.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Smelter'),
+  requiredprofession: Profession.find_by(name: 'Novice Smelter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Smelter')
+profession.description = 'Building Required: Forge. You may spend 8 Labor along with 1 Ore and 1 Powered Gem to produce 1 Infused Ore of the appropriate type.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Smelter'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Smelter')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Tanner')
+profession.description = 'You may spend 1 Labor to turn 1 Hide into 1 Leather.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Tanner')
+profession.description = 'You may spend 4 Labor to turn 1 Leather and 1 Fat into 1 Hardened Leather.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Tanner'),
+  requiredprofession: Profession.find_by(name: 'Novice Tanner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Tanner')
+profession.description = 'You may spend 8 Labor to turn 1 Fey Skin into 1 Fey Leather.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Tanner'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Tanner')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Weaver')
+profession.description = 'You may spend 1 Labor to turn 2 Produce into 1 Linen.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Weaver')
+profession.description = 'You may spend 4 Labor to turn 2 Orbweavers into 1 Silk.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Weaver'),
+  requiredprofession: Profession.find_by(name: 'Novice Weaver')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Weaver')
+profession.description = 'You may spend 8 Labor to turn 1 Dreamtendril, 1 Pearl, and 1 Kemzutaten Caterpillar into 1 Dreamcloth.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Refining')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Weaver'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Weaver')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Architect')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Architect')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Architect'),
+  requiredprofession: Profession.find_by(name: 'Novice Architect')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Architect')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Architect'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Architect')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Blacksmith')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Blacksmith')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Blacksmith'),
+  requiredprofession: Profession.find_by(name: 'Novice Blacksmith')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Blacksmith')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Blacksmith'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Blacksmith')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Brewer')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Brewer')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Brewer'),
+  requiredprofession: Profession.find_by(name: 'Novice Brewer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Brewer')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Brewer'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Brewer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Chef')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Chef')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Chef'),
+  requiredprofession: Profession.find_by(name: 'Novice Chef')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Chef')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Chef'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Chef')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Glassblower')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Glassblower')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Glassblower'),
+  requiredprofession: Profession.find_by(name: 'Novice Glassblower')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Glassblower')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Glassblower'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Glassblower')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Lapidary')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Lapidary')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Lapidary'),
+  requiredprofession: Profession.find_by(name: 'Novice Lapidary')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Lapidary')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Lapidary'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Lapidary')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Leatherworker')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Leatherworker')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Leatherworker'),
+  requiredprofession: Profession.find_by(name: 'Novice Leatherworker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Leatherworker')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Leatherworker'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Leatherworker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Tailor')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Tailor')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Tailor'),
+  requiredprofession: Profession.find_by(name: 'Novice Tailor')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Tailor')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Tailor'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Tailor')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Trapmaker')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Trapmaker')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Trapmaker'),
+  requiredprofession: Profession.find_by(name: 'Novice Trapmaker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Trapmaker')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Trapmaker'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Trapmaker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Woodworker')
+profession.description = ''
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Woodworker')
+profession.description = ''
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Woodworker'),
+  requiredprofession: Profession.find_by(name: 'Novice Woodworker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Woodworker')
+profession.description = ''
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Crafting')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Woodworker'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Woodworker')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Appraiser')
+profession.description = 'At check-in, you will receive a list of the general prices of often traded goods. The list will be updated from game to game as estimates fluctuate based on the in-game economy and plot.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Appraiser')
+profession.description = 'At check-in, you will receive a list of the general prices of rare goods. The list will be updated from game to game as estimates fluctuate based on the in-game economy and plot.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Appraiser'),
+  requiredprofession: Profession.find_by(name: 'Novice Appraiser')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Appraiser')
+profession.description = 'You will receive information on how to decipher the value code on trade goods that possess such a code.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Appraiser'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Appraiser')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Laborer')
+profession.description = 'You gain an additional 4 points of Labor.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Laborer')
+profession.description = 'You gain an additional 4 points of Labor.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Laborer'),
+  requiredprofession: Profession.find_by(name: 'Novice Laborer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Laborer')
+profession.description = 'You gain an additional 4 points of Labor.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Laborer'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Laborer')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Novice Mender')
+profession.description = 'Building Required: Forge. You may spend 5 minutes and 1 Ore, Leather, or Wood of the appropriate type based on the item to either: Restore 1 Armor to all locations of that Armor, or Repair a Broken Weapon/Shield.'
+profession.rank = 'Novice'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+profession = Profession.find_or_initialize_by(name: 'Journeyman Mender')
+profession.description = 'Building Required: Forge. You may spend 5 minutes and 1 Ore, Leather, or Wood of the appropriate type based on the item to either: Restore 2 Armor to all Locations of that Armor, or Repair a Broken Weapon/Shield.'
+profession.rank = 'Journeyman'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Journeyman Mender'),
+  requiredprofession: Profession.find_by(name: 'Novice Mender')
+).save!
+
+profession = Profession.find_or_initialize_by(name: 'Master Mender')
+profession.description = 'Building Required: Forge. You may spend 5 minutes and 1 Ore, Leather, or Wood of the appropriate type based on the item to either: Restore 3 Armor to all Locations of that Armor, or Repair a Broken Weapon/Shield.'
+profession.rank = 'Master'
+profession.professiongroup = Professiongroup.find_by(name: 'Enhancement')
+profession.playeravailable = true
+profession.save!
+
+Professionrequirement.find_or_initialize_by(
+  profession: Profession.find_by(name: 'Master Mender'),
+  requiredprofession: Profession.find_by(name: 'Journeyman Mender')
+).save!
 
 puts ('Adding Previous Events')
 
@@ -1777,7 +3260,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1790,7 +3273,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1804,7 +3287,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1818,7 +3301,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1831,7 +3314,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1844,7 +3327,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1858,7 +3341,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1871,7 +3354,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1884,7 +3367,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1897,7 +3380,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1910,7 +3393,7 @@ event.description = ''
 event.atdoorcost = 90
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1923,7 +3406,7 @@ event.description = ''
 event.atdoorcost = 100
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1936,7 +3419,7 @@ event.description = ''
 event.atdoorcost = 100
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1949,7 +3432,7 @@ event.description = ''
 event.atdoorcost = 100
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1962,7 +3445,7 @@ event.description = ''
 event.atdoorcost = 100
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
@@ -1975,6 +3458,6 @@ event.description = ''
 event.atdoorcost = 100
 event.earlybirdcost = 75
 event.eventexp = 300
-event.eventexp = 100
+event.feedbackexp = 100
 event.levelingevent = true
 event.save!
