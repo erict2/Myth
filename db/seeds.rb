@@ -186,6 +186,11 @@ resttype.description = 'This skill may be used as often as the necessary materia
 resttype.playeravailable = true
 resttype.save!
 
+resttype = Resttype.find_or_initialize_by(name: 'Special')
+resttype.description = 'This will vary based on the character'
+resttype.playeravailable = true
+resttype.save!
+
 puts 'Starting Skill Delivery'
 
 skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Crafting')
@@ -2234,6 +2239,1075 @@ skill.save!
 
 puts('Starting Bard')
 
+skill = Skill.find_or_initialize_by(name: 'Toxic', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Poison, 60 seconds.'
+skill.description = 'When searched, you may expend this skill to call: "Poison, 60 seconds."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Toxic', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Resist Poison', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Augment Potion', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may double all numerical effects of a potion you consume.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Derive Contents', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in a single potion with your crafting form and learn it\'s recipes if you have the skills required to make it.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Endless Decanter', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = 'Stylized Flask or Bottle'
+skill.incant = nil
+skill.description = 'You may Packet Chain a Potion stored in your Lesser or Greater Alchemist\'s Flask.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Endless Decanter', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Lesser Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Enhance Metabolism', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you consume a potion with more than one effect, you may choose to ignore all the negative effects and gain all beneficial effects.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Enhance Metabolism', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Refined Palate', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Greater Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = 'A Stylized Flask or Bottle'
+skill.incant = nil
+skill.description = 'You may turn in a Journeyman Potion at Check-In that you are putting into your Flask. You may use that Potion once per Long Rest.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Greater Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Lesser Alchemist Flask', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Master Alchemy Recipes.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Journeyman Alchemy', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Poison Immunity', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'No Effect'
+skill.description = '"No Effect" a Poison Effect'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Poison Immunity', skillgroup: Skillgroup.find_by(name: 'Alchemist')),
+  requiredskill: Skill.find_by(name: 'Resist Poison', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Waste Not, Want Not', skillgroup: Skillgroup.find_by(name: 'Alchemist'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you craft two identical items, you produce an additional one'
+skill.save!
+
+puts('Starting Artificer')
+
+skill = Skill.find_or_initialize_by(name: 'Artisan\'s Devotion', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may purchase an additional Profession skill each game.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Avoid Trap', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'You may state, "Resist" if you trigger a trap. Triggered area of effect traps can still affect anyone who doesn\'t use Avoid Trap.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Breakdown', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in yellow-stickered items, and a crafting form to gain some of the materials used in its construction at the following check-in.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Identify', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in a yellowstickered item to learn the properties of the object. Curses are not revealed with this skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Novice Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Novice Enchanting Recipes.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Novice Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Novice Tinkering Recipes. Once per event, you may use this skill to craft a Novice Recipe regardless of profession requirements. All other costs must be paid as normal.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Recharge', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'RP: 5 minutes recharging an item. You may expend one silver piece for a Short Rest charge or one gold piece for a Long Rest charge. You may turn this coin in to the tavern keeper.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Surge', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When using an item that allows you to deliver an effect via Packet, you may instead Burst that effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Disable Device', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Dispel Charges for the Event'
+skill.description = 'RP: 1 minute working on a yellow stickered item: "Dispel Charges for the Event." Place a yellow sticker with an X on the item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Efficiency', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may expend this skill, instead of spending a Short Rest Charge in an item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Empower Item', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you have an item attuned to yourself, you may double a numerical effect produced by that item. You may only have one yellowstickered item empowered at any given time. You may change the empowered item at check-in.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Interchangeable Parts', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When crafting a recipe, you may substitute a single component for another component that is the same tier.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Journeyman Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Journeyman Enchanting Recipes.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Journeyman Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Novice Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Journeyman Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Craft Journeyman Tinkering Recipes. Once per event, you may use this skill to craft a Journeyman Recipe regardless of profession requirements. All other costs must be paid as normal.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Journeyman Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Novice Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Recalibrate', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you miss a packet delivered effect from an item, you may immediately reuse it.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Use Magic Device', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may ignore class, race, and level restrictions when having items attuned to you.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Greater Efficiency', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may expend this skill, instead of spending a Long Rest Charge in an item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Master Enchanting Recipes.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Journeyman Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Master Tinkering Recipes. Once per event, you may use this skill to craft a Master Recipe regardless of profession requirements. All other costs must be paid as normal.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Journeyman Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Permanency', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When crafting an item, you may expend three gold pieces or 300 XP for Novice items, six gold pieces or 600 XP for Journeyman items, or ten gold pieces or 1000 XP for Master items. If you pay this cost, the item will become permanent and will no longer require upkeep. This does not include facilities or items made by an architect.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Permanency', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Master Tinkering', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Permanency', skillgroup: Skillgroup.find_by(name: 'Artificer')),
+  requiredskill: Skill.find_by(name: 'Master Enchanting', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Reverse Engineer', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in a single yellow-stickered item and a crafting form, to destroy the thing and learn its recipe provided you possess the appropriate skills to craft the item.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Salvo', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When using an item that allows you to deliver an effect via Packet, you may instead Packet Chain that effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Soul of the Artificer', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You gain two extra item slots.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Waste Not, Want Not', skillgroup: Skillgroup.find_by(name: 'Artificer'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you craft two identical items, you produce an additional one.'
+skill.save!
+
+puts('Starting Bard')
+
+skill = Skill.find_or_initialize_by(name: 'Battlefield Ballad', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'While I perform, my Patrons Resist Shatter and Disarm'
+skill.description = 'RP: Continued Performance. State "While I perform, my Patrons Resist Shatter and Disarm."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Bolstering Ballad (Movement)', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'To my Patrons, Bestow one temporary armor point'
+skill.description = 'RP: One minute Performing. State "To my Patrons, Bestow one temporary armor point."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cantata of Courage', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'While I perform, my Patrons Resist Fear and Paralysis.'
+skill.description = 'RP: Continue Performance. State "While I perform, my Patrons Resist Fear and Paralysis."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Increased Patronage', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = '+2 Patrons. Bards start the game with 2 Patrons.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Mending Madrigal (Movement)', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'To my Patrons, I heal you up to 5 Hit Points'
+skill.description = 'RP: One minute of performing. "To my Patrons, I heal you up to 5 Hit Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Revelry', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" Waylay or Silence while Performing.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Waylay', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'From behind'
+skill.prop = nil
+skill.incant = 'Waylay'
+skill.description = 'Weapon - Short Rest - Armament: Dagger, Target: From behind. "Waylay."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Well Connected', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Check-in - At check-in, you may collect a list of current event rumors. The number of rumors you receive may vary.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Arcane Air (Movement)', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'To my Patrons – Through Arcane, Bestow enchant weapon. State \'Air\' on your next swing'
+skill.description = 'RP: One minute of performing. State "To my Patrons – Through Arcane, Bestow enchant weapon. State \'Air\' on your next swing."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Armored Aria', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Gain +2 Temporary Hit Points when you use a skill that targets "My Patrons."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Footman\'s Finale (Movement)', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance.'
+skill.description = 'RP: One minute of performing. State, "To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Knife Juggler', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may attempt to catch or swat aside thrown weapons with your hands. If you manage to catch the weapon, you may immediately throw it back.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Knife Juggler', skillgroup: Skillgroup.find_by(name: 'Bard')),
+  requiredskill: Skill.find_by(name: 'Thrown Weapon', skillgroup: Skillgroup.find_by(name: 'Weapon'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Nimble Dancer', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'While you are performing, you are immune to pin, snare, and slow spells. State "Resist" if you are hit with one of these effects.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Shielding Shanty', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'RP: Continued Performance. While I perform, my Patrons Resist uncalled missile attacks.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Solo Act', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'RP: Continued Performance. "While I perform. Sanctuary."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Spare the Dying', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'While I perform, my Patrons pause their death count. You may choose to go to Dedrot\'s Realm at any time'
+skill.description = 'RP: Continued Performance. State "While I perform, my Patrons pause their death count. You may choose to go to Dedrot\'s Realm at any time."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Aspiring Composer', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may grant your patrons the benefit of two bardic performances instead of one. When performing a Bardic Performance in this way, you cannot add a movement to your Performance.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Countersong', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'RP: Continued Performance. While I perform, my Patrons Resist [Keyword of your choice].'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Countersong', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, Damage 2'
+skill.description = 'Packet Chain - "Through Air, Damage 2"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Diplomat', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By my Voice, Through Mind, Pacify.'
+skill.description = 'By my Voice, Through Mind, Pacify.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Protection Chorus', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'While I perform, my patrons gain Sanctuary until you move or use skills. State "Shell" to all weapon or spell attacks"'
+skill.description = 'RP: Continued Performance. "While I perform, my patrons gain Sanctuary until you move or use skills. State "Shell" to all weapon or spell attacks."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Rondo of Respite (Movement)', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'I restore one expended Long Rest skill'
+skill.description = 'RP: One minute of performing. State "I restore one expended Long Rest skill."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Second Wind Sonata (Movement)', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'To my Patrons, restore your Short Rest skills'
+skill.description = 'RP: One minute of performing. State "To my Patrons, restore your Short Rest skills."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Spell Juggler', skillgroup: Skillgroup.find_by(name: 'Bard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'If you catch a spell packet, state, "Resist," recite the spell’s incantation, and immediately throw the spell packet. You must recite the original incantation correctly, or this spell fails.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Spell Juggler', skillgroup: Skillgroup.find_by(name: 'Bard')),
+  requiredskill: Skill.find_by(name: 'Knife Juggler', skillgroup: Skillgroup.find_by(name: 'Bard'))
+).save!
+
+puts('Starting Cleric')
+
+skill = Skill.find_or_initialize_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Special')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Consult the Dedicated to a Deity section in the rulebook for the benefits received based on your deity. This skill also allows you to replace the words Life or Spirit with the name of your god. You may do this in all of the spells you know of these alignments.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cure Disease', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I cure you of all diseases'
+skill.description = '"Through Life, I cure you of all diseases."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cure Poison', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I cure you of all poisons'
+skill.description = '"Through Life, I cure you of all poisons."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Blast', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Burst cast any Mind, Life, or Spirit spell you know that is not a "Touch" spell.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Blessing', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Corpse'
+skill.prop = nil
+skill.incant = 'Through Spirit, I grant you the divine blessing of <Your Deity>. Inform the barrister in Dedrot’s Realm of your blessing'
+skill.description = '"Through Spirit, I grant you the divine blessing of <Your Deity>. Inform the barrister in Dedrot’s Realm of your blessing."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Blessing', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Between Events')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may ask your deity a single question, you will receive an answer at the following Check-In. The more closely the question aligns with your deity’s purview, the more information you will be provided with.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Repair Wounds', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I heal you 5 Hit Points'
+skill.description = 'Through Life, I heal you 5 Hit Points.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Tongues', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By my voice, through mind, we speak the same language for five minutes'
+skill.description = '"By my voice, through mind, we speak the same language for five minutes."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Armor of Faith', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = 'Holy Symbol'
+skill.incant = 'Through Spirit, Bestow three Temporary Armor'
+skill.description = 'Prop Required: Holy Symbol. "Through Spirit, Bestow three Temporary Armor."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Detect Life', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = 'Holy Symbol'
+skill.incant = 'By My Voice, Through Life, if you are bleeding out tell me your bleed out count'
+skill.description = 'Prop: Holy Symbol "By My Voice, Through Life, if you are bleeding out tell me your bleed out count."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Disciple of Life', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Whenever you cast a healing effect on someone, you also heal that amount. This ability does not work for Empathic Healing.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Inspiration', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Special')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Consult the Dedicated to a Deity section in the rulebook for the benefits received based on your deity.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric')),
+  requiredskill: Skill.find_by(name: 'Divine Inspiration', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Poison Shield', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, Bestow "Resist" poison'
+skill.description = '"Through Life, Bestow "Resist" poison."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Self-Sacrifice', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I take any diseases or poison onto myself'
+skill.description = '"Through Life, I take any diseases or poison onto myself." You must know what ails the target before you can cast this spell on them. If you take on poison, you need to know where their poison count currently stands and take over from there. You cannot already have the same affliction you are taking. Afflictions received by this spell cannot be resisted or mitigated in any way.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Smite Undead', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Spirit, Damage 10 to Undead'
+skill.description = '"Through Spirit, Damage 10 to Undead."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Voice of the Divine', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Voice Cast any Heal effect spell you know that is not a "Touch" spell instead of how it is normally delivered. This skill also allows you to replace the words Mind, Life, or Spirit with the name of your god. You may do this in all of the spells you know of these alignments.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Authority', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Special')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Consult the Dedicated to a Deity section in the rulebook for the benefits received based on your deity.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Intervention', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = 'Holy Symbol'
+skill.incant = nil
+skill.description = 'At the end of your bleed out count, you awaken with one Hit Point rather than bleeding out and dying. Maimed limbs still require healing to restore them. The Execute skill negates this ability.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Divine Intervention', skillgroup: Skillgroup.find_by(name: 'Cleric')),
+  requiredskill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Shroud', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Through Life, Sanctuary'
+skill.description = '"Through Life, Sanctuary."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Final Judgement', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Corpse Only'
+skill.prop = nil
+skill.incant = 'Through Spirit, Bestow Final Judgement. Inform the barrister in Dedrot’s Realm of your curse'
+skill.description = '"Through Spirit, Bestow Final Judgement. Inform the barrister in Dedrot’s Realm of your curse."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Font of Miracles', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Packet Chain - You may Packet Chain any Mind, Life, or Spirit spell you know that is not a "Touch" spell.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Remove Curse', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, Dispel Curse'
+skill.description = '"Through Life, Dispel Curse."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Restore Life', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Corpse Only'
+skill.prop = nil
+skill.incant = 'Through Life, Cure death and heal all Hit Points'
+skill.description = '"Through Life, Cure death and heal all Hit Points." This ability will bring a character who is dead (but not yet a spirit) back to life.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Split Healing', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'By touch, you may heal two separate people with a healing spell that restores a set amount of Hit Points. This ability does not include any spell that says "all Hit Points."'
+skill.save!
+
+
+
+
+
+
+
+
+
+
+
+
 skill = Skill.find_or_initialize_by(name: 'Favored Foe')
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
@@ -2262,7 +3336,7 @@ skill.save!
 
 puts 'Starting Profession Groups'
 pg = Professiongroup.find_or_initialize_by(name: 'Collector')
-pg.description = 'Collector Professions are used during games to gather resources from fallen creatures or specific areas. Using Collection Professions on NPC’s does not cost Labor. You must roleplay collecting the resource from the NPC for 30 seconds before calling the skill. Some areas may require a certain amount of Labor or roleplaying to gather a resource from them.'
+pg.description = 'Collector Professions are used during games to gather resources from fallen creatures or specific areas. Using Collection Professions on NPC\'s does not cost Labor. You must roleplay collecting the resource from the NPC for 30 seconds before calling the skill. Some areas may require a certain amount of Labor or roleplaying to gather a resource from them.'
 pg.playeravailable = true
 pg.save!
 
@@ -2320,14 +3394,14 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Novice Excavator')
-profession.description = 'You may state “Novice Excavating” when searching a creature for a chance to find a Rank 1 Ore.'
+profession.description = 'You may state "Novice Excavating" when searching a creature for a chance to find a Rank 1 Ore.'
 profession.rank = 'Novice'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
 profession.save!
 
 profession = Profession.find_or_initialize_by(name: 'Journeyman Excavator')
-profession.description = 'You may state “Journeyman Excavating” when searching a creature for a chance to find a Rank 2 Ore.'
+profession.description = 'You may state "Journeyman Excavating" when searching a creature for a chance to find a Rank 2 Ore.'
 profession.rank = 'Journeyman'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
@@ -2339,7 +3413,7 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Master Excavator')
-profession.description = 'You may state “Master Excavating” when searching a creature for a chance to find a Rank 3 Ore.'
+profession.description = 'You may state "Master Excavating" when searching a creature for a chance to find a Rank 3 Ore.'
 profession.rank = 'Master'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
@@ -2351,14 +3425,14 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Novice Harvester')
-profession.description = 'You may state “Novice Harvesting” when searching a creature for a chance to find a Rank 1 Fruit or Flower.'
+profession.description = 'You may state "Novice Harvesting" when searching a creature for a chance to find a Rank 1 Fruit or Flower.'
 profession.rank = 'Novice'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
 profession.save!
 
 profession = Profession.find_or_initialize_by(name: 'Journeyman Harvester')
-profession.description = 'You may state “Journeyman Harvesting” when searching a creature for a chance to find a Rank 2 Fruit or Flower.'
+profession.description = 'You may state "Journeyman Harvesting" when searching a creature for a chance to find a Rank 2 Fruit or Flower.'
 profession.rank = 'Journeyman'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
@@ -2370,7 +3444,7 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Master Harvester')
-profession.description = 'You may state “Master Harvesting” when searching a creature for a chance to find a Rank 3 Fruit or Flower.'
+profession.description = 'You may state "Master Harvesting" when searching a creature for a chance to find a Rank 3 Fruit or Flower.'
 profession.rank = 'Master'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
@@ -2382,14 +3456,14 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Novice Logger')
-profession.description = 'You may state “Novice Logging” when searching a creature for a chance to find a Rank 1 Wood.'
+profession.description = 'You may state "Novice Logging" when searching a creature for a chance to find a Rank 1 Wood.'
 profession.rank = 'Novice'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
 profession.save!
 
 profession = Profession.find_or_initialize_by(name: 'Journeyman Logger')
-profession.description = 'You may state “Journeyman Logging” when searching a creature for a chance to find a Rank 2 Wood.'
+profession.description = 'You may state "Journeyman Logging" when searching a creature for a chance to find a Rank 2 Wood.'
 profession.rank = 'Journeyman'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
@@ -2401,7 +3475,7 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Master Logger')
-profession.description = 'You may state “Master Logging” when searching a creature for a chance to find a Rank 3 Wood.'
+profession.description = 'You may state "Master Logging" when searching a creature for a chance to find a Rank 3 Wood.'
 profession.rank = 'Master'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
@@ -2413,14 +3487,14 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Novice Skinner')
-profession.description = 'You may state “Novice Skinning” when searching a creature for a chance to find a Rank 1 hide, animal, insect, or part.'
+profession.description = 'You may state "Novice Skinning" when searching a creature for a chance to find a Rank 1 hide, animal, insect, or part.'
 profession.rank = 'Novice'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
 profession.save!
 
 profession = Profession.find_or_initialize_by(name: 'Journeyman Skinner')
-profession.description = 'You may state “Journeyman Skinning” when searching a creature for a chance to find a Rank 3 hide, animal, insect, or part.'
+profession.description = 'You may state "Journeyman Skinning" when searching a creature for a chance to find a Rank 3 hide, animal, insect, or part.'
 profession.rank = 'Journeyman'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
@@ -2432,7 +3506,7 @@ Professionrequirement.find_or_initialize_by(
 ).save!
 
 profession = Profession.find_or_initialize_by(name: 'Master Skinner')
-profession.description = 'You may state “Master Skinning” when searching a creature for a chance to find a Rank 3 leather, animal, insect, or part.'
+profession.description = 'You may state "Master Skinning" when searching a creature for a chance to find a Rank 3 leather, animal, insect, or part.'
 profession.rank = 'Master'
 profession.professiongroup = Professiongroup.find_by(name: 'Collector')
 profession.playeravailable = true
