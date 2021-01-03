@@ -12,8 +12,8 @@
     <th>Description</th>
     <th></th>
 </tr>
-<% @character.characterskills.select("skill_id, max(acquiredate) as acquiredate").group("skill_id").each do |characterskill| %>
-    <tr>
+<% @character.characterskills.select("skill_id, skills.tier, skills.name, max(acquiredate) as acquiredate").joins('INNER JOIN skills ON skills.id = characterskills.skill_id').group("skill_id, skills.tier, skills.name").order('tier, name asc').each do |characterskill| %>
+  <tr>
       <td><%= characterskill.skill.name %></td>
       <td><%= @character.characterskills.select("skill_id").group("skill_id").count[characterskill.skill_id] %></td>
       <td><%= characterskill.skill.tier %></td>
