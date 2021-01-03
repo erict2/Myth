@@ -83,7 +83,7 @@ class Player::CharacterskillsController < PlayerController
   
   private
   def addskill_params
-    params.require(:characterskill).permit(:skill_id, :character_id, :favoredfoe)
+    params.require(:characterskill).permit(:skill_id, :character_id, :favoredfoe, :alignmentfocus)
   end
 
   def check_character_user

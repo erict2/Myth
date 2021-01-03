@@ -6,6 +6,9 @@
     <div id='favoredfoe'>
       <%= f.select :favoredfoe, options_for_select(@favoredfoes), label: 'Favored Foe' %>
     </div>
+    <div id='alignmentfocus'>
+      <%= f.select :alignmentfocus, [ 'Arcane', 'Air', 'Earth', 'Fire', 'Water', 'Wood', 'Spirit', 'Mind' ], label: 'Alignment Focus' %>
+    </div>
     <%= f.text_field :acquiredate, label: 'Acquire Date: (YYYY-MM-DD)'%>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>

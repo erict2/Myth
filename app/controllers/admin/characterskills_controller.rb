@@ -69,7 +69,7 @@ class Admin::CharacterskillsController < AdminController
   
   private
   def addskill_params
-    params.require(:characterskill).permit(:skill_id, :character_id, :favoredfoe, :weaponspec, :acquiredate)
+    params.require(:characterskill).permit(:skill_id, :character_id, :favoredfoe, :alignmentfocus, :acquiredate)
   end
 
 end

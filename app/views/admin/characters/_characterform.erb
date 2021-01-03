@@ -16,7 +16,7 @@
   <%= f.text_field :name, :required => true %>
   <%= f.select :pronouns, [ 'He/Him', 'She/Her','They/Them' ] %>
   
-  <%= f.collection_select :race_id, Race.all, :id, :name %>
+  <%= f.collection_select :race_id, Race.all, :id, :name, :required => true %>
 
   <%= f.collection_select :characterclass_id, Characterclass.all, :id, :name, label: 'Class' %>
 
@@ -26,8 +26,8 @@
 
 
 
-  <%= f.collection_select :deity_id, Deity.all, :id, :name, :include_blank => true %>
-  <%= f.select :level,  [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ] %>
+  <%= f.collection_select :deity_id, Deity.all, :id, :name, :required => true %>
+  <%= f.select :level,  [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ], :required => true %>
   <%= f.submit 'Save Character' %>
   <%= link_to 'Cancel', yield(:backurl) %>
 </p>
@@ -35,8 +35,9 @@
 
 <script>
 $(document).ready(function(){
+  
+  var deitylist = $('#character_deity_id').html();
   formValidation()
-  console.log('Test')
   $('#character_characterclass_id').change(function() {
     formValidation()
     });
@@ -53,20 +54,11 @@ function formValidation() {
     $("#character_totem").prop('required',false);
   }
 
-  if (characterclass == 'Cleric') {
-    $("#character_deity_id").prop('required',true);
-    $("#character_deity_id").prop('include_blank',false);
-    console.log('Shits required')
+  if (characterclass == 'Cleric' || characterclass == 'Paladin') {
+    $('#character_deity_id').html(deitylist);
   }  else {
-    $("#character_deity_id").prop('required',false);
+    $('#character_deity_id').html('<option value=""></option>' +  deitylist);
   }
-
-  if (characterclass == 'Paladin') {
-    $("#character_deity_id").prop('required',true);
-  }  else {
-    $("#character_deity_id").prop('required',false);
-  }
-  
 }
 });
 </script>

@@ -35,6 +35,9 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
 <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
   Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
 <% end %>
+<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus'))).count > 0  %> 
+  Alignment Focus:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus')).pluck('details').join(',') %> <br>
+<% end %>
 
 <hr>
 <ul class="nav nav-tabs" id="charTab" role="tablist">

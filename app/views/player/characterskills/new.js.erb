@@ -15,20 +15,30 @@ $(document).ready(function(){
   });
 
   $('#skillgroup').change(function() {
-  skillListUpdate()
+    skillListUpdate()
+    formValidation()
   });
 
 });
 
 function formValidation() {
-  var characterclass = $('#characterskill_skill_id option:selected').text()
+  var characterskill = $('#characterskill_skill_id option:selected').text()
   
-  if (characterclass == 'Favored Foe') {
+  if (characterskill == 'Favored Foe') {
     $('#favoredfoe').show()
+    document.getElementById("characterskill_favoredfoe").required = true;
   }  else {
     document.getElementById('characterskill_favoredfoe').selectedIndex = -1
     $('#favoredfoe').hide()
   }
+  if (characterskill == 'Alignment Focus') {
+    $('#alignmentfocus').show()
+    document.getElementById("characterskill_alignmentfocus").required = true;
+  }  else {
+    document.getElementById('characterskill_alignmentfocus').selectedIndex = -1
+    $('#alignmentfocus').hide()
+  }
+
 }
 
 function skillListUpdate() {

@@ -32,34 +32,30 @@
 
 <script>
 $(document).ready(function(){
+  
+  var deitylist = $('#character_deity_id').html();
   formValidation()
-  console.log('Test')
   $('#character_characterclass_id').change(function() {
     formValidation()
     });
 
 function formValidation() {
   var characterclass = $('#character_characterclass_id option:selected').text()
-  console.log(characterclass)
+  
   if (characterclass == 'Druid') {
     $('#totemselect').show()
+    $("#character_totem").prop('required',true);
   }  else {
     document.getElementById('character_totem').selectedIndex = -1
     $('#totemselect').hide()
+    $("#character_totem").prop('required',false);
   }
 
-  if (characterclass == 'Cleric') {
-    $("#character_deity_id").prop('required',true);
+  if (characterclass == 'Cleric' || characterclass == 'Paladin') {
+    $('#character_deity_id').html(deitylist);
   }  else {
-    $("#character_deity_id").prop('required',false);
+    $('#character_deity_id').html('<option value=""></option>' +  deitylist);
   }
-
-  if (characterclass == 'Paladin') {
-    $("#character_deity_id").prop('required',true);
-  }  else {
-    $("#character_deity_id").prop('required',false);
-  }
-  
 }
 });
 </script>
