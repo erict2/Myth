@@ -53,11 +53,8 @@ class Admin::CharacterskillsController < AdminController
     @characterskill = Characterskill.new(addskill_params)
     @character = Character.find_by(id: params[:character_id])
 
-    if @characterskill.save!
-      redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
-    else
-      redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
-    end
+    @characterskill.save!
+    redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
   end
 
   def destroy
@@ -65,6 +62,7 @@ class Admin::CharacterskillsController < AdminController
     @character = Character.find_by(id: params[:character_id])
 
     @characterskill.destroy 
+    redirect_to admin_user_character_path(user_id: params[:user_id], id: params[:character_id])
   end
   
   private

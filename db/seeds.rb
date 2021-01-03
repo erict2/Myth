@@ -6877,27 +6877,3 @@ event.eventexp = 300
 event.feedbackexp = 100
 event.levelingevent = true
 event.save!
-
-puts('One Time Scripts')
-
-sr = Skillrequirement.find_by(
-  skill: Skill.find_by(name: 'Divine Inspiration', skillgroup: Skillgroup.find_by(name: 'Cleric')),
-  requiredskill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
-)
-if(!sr.nil?)
-  sr.destroy
-end
-
-sr = Skillrequirement.find_by(
-  skill: Skill.find_by(name: 'Divine Intervention', skillgroup: Skillgroup.find_by(name: 'Cleric'))
-)
-if(!sr.nil?)
-  sr.destroy
-end
-
-sr = Skillrequirement.find_by(
-  skill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
-)
-if(!sr.nil?)
-  sr.destroy
-end
