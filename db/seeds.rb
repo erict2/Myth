@@ -419,7 +419,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = 'Bandages'
-skill.incant = 'Pause your bleed out count until I remove my hands.'
+skill.incant = 'Pause your bleed out count until I remove my hands'
 skill.description = 'Prop Required: Bandages. RP: Continuously administering first aid with both hands. "Pause your bleed out count until I remove my hands." This skill will end if you remove your hands, use any other skills, or take damage.'
 skill.save!
 
@@ -458,7 +458,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = 'Self - Rope Bindings Only.'
 skill.prop = nil
-skill.incant = 'Cure Binds.'
+skill.incant = 'Cure Binds'
 skill.description = 'Self Only - Target: Rope Bindings Only. RP: Five minutes of struggling to get free. "Cure Binds."'
 skill.save!
 
@@ -471,7 +471,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = 'Unconscious or Immobile Persons Torso.'
 skill.prop = 'Weapon or Packet'
-skill.incant = 'I execute you 1.I execute you 2. I execute you 3.'
+skill.incant = 'I execute you 1.I execute you 2. I execute you 3'
 skill.description = 'Target: Unconscious or Immobile Persons Torso. "I execute you 1.I execute you 2. I execute you 3.". If you execute something with an enchanted weapon or spell, state the element it is of. For example: "Air execute 1, Air execute 2, Air execute 3"'
 skill.save!
 
@@ -657,7 +657,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'From Behind'
 skill.prop = nil
-skill.incant = 'Rapid Search 1, Rapid Search 2, Rapid Search 3.'
+skill.incant = 'Rapid Search 1, Rapid Search 2, Rapid Search 3'
 skill.description = '"Rapid Search 1, Rapid Search 2, Rapid Search 3." The target must immediately turn over anything of value not protected by skills, spells, or items.'
 skill.save!
 
@@ -685,7 +685,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Torso'
 skill.prop = nil
-skill.incant = 'Silence, 1 Minute.'
+skill.incant = 'Silence, 1 Minute'
 skill.description = 'Target: Torso "Silence, 1 Minute."'
 skill.save!
 
@@ -926,7 +926,7 @@ skill.maxpurchase = 10
 skill.target = 'Arm\'s Reach'
 skill.prop = nil
 skill.incant = 'Prone'
-skill.description = 'Packet - Short Rest - "Prone." The target must be close to arms reach'
+skill.description = '"Prone." The target must be close to arms reach'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Bark Skin')
@@ -938,8 +938,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow one temporary Armor Point.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow one temporary Armor Point."'
+skill.incant = 'Through Earth, Bestow one temporary Armor Point'
+skill.description = '"Through Earth, Bestow one temporary Armor Point."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Iron Will')
@@ -951,8 +951,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, Bestow Resist Mind.'
-skill.description = 'Packet - Short Rest - "Through Mind, Bestow Resist Mind."'
+skill.incant = 'Through Mind, Bestow Resist Mind'
+skill.description = '"Through Mind, Bestow Resist Mind."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Arcane Shield')
@@ -964,8 +964,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Arcane.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Arcane."'
+skill.incant = 'Through Wood, Bestow Resist Arcane'
+skill.description = '"Through Wood, Bestow Resist Arcane."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor EarthShield')
@@ -977,8 +977,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Earth.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Earth."'
+skill.incant = 'Through Wood, Bestow Resist Earth'
+skill.description = '"Through Wood, Bestow Resist Earth."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Shield - Resist Missile')
@@ -990,8 +990,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Earth.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow Resist Missile."'
+skill.incant = 'Through Wood, Bestow Resist Earth'
+skill.description = '"Through Earth, Bestow Resist Missile."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Repel Undead')
@@ -1003,8 +1003,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Fear to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Fear to Undead."'
+skill.incant = 'Through Spirit, Fear to Undead'
+skill.description = '"Through Spirit, Fear to Undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Water Shield')
@@ -1016,8 +1016,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Water.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Water."'
+skill.incant = 'Through Wood, Bestow Resist Water'
+skill.description = '"Through Wood, Bestow Resist Water."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Air Shield')
@@ -1029,8 +1029,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Air.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Air."'
+skill.incant = 'Through Wood, Bestow Resist Air'
+skill.description = '"Through Wood, Bestow Resist Air."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Pacify')
@@ -1042,8 +1042,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, pacify, one minute.'
-skill.description = 'Packet - Short Rest - "Through Mind, pacify, one minute."'
+skill.incant = 'Through Mind, pacify, one minute'
+skill.description = '"Through Mind, pacify, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Slow')
@@ -1055,8 +1055,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, Slow, one minute.'
-skill.description = 'Packet - Short Rest - "Through Air, Slow, one minute."'
+skill.incant = 'Through Air, Slow, one minute'
+skill.description = '"Through Air, Slow, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Slow Undead')
@@ -1068,8 +1068,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Slow to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Slow to Undead."'
+skill.incant = 'Through Spirit, Slow to Undead'
+skill.description = '"Through Spirit, Slow to Undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Spin')
@@ -1079,10 +1079,11 @@ skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
 skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
 skill.playeravailable = true
 skill.maxpurchase = 10
-skill.target = 'Undead'
+skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, spin in place five times.'
-skill.description = 'Packet - Short Rest - "Through Air, spin in place five times."'
+skill.incant = 'Through Air, spin in place five times'
+skill.description = '"Through Air, spin in place five times."'
+skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Command: Ignore')
 skill.tier = 3
@@ -1093,8 +1094,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Mind, Ignore me, one minute.'
-skill.description = 'Packet - Short Rest - "Through Mind, Ignore me, one minute." If the caster strikes the target, this spell is broken.'
+skill.incant = 'Through Mind, Ignore me, one minute'
+skill.description = '"Through Mind, Ignore me, one minute." If the caster strikes the target, this spell is broken.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Command: Flee')
@@ -1106,8 +1107,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Mind, fear, one minute.'
-skill.description = 'Packet - Short Rest - "Through Mind, fear, one minute."'
+skill.incant = 'Through Mind, fear, one minute'
+skill.description = '"Through Mind, fear, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Fire Shield')
@@ -1119,8 +1120,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Fire.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Fire."'
+skill.incant = 'Through Wood, Bestow Resist Fire'
+skill.description = '"Through Wood, Bestow Resist Fire."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Pin')
@@ -1132,8 +1133,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air – I pin your left/ right foot to the ground, one minute.'
-skill.description = 'Packet - Short Rest - "Through Air – I pin your left/ right foot to the ground, one minute."'
+skill.incant = 'Through Air – I pin your left/ right foot to the ground, one minute'
+skill.description = '"Through Air – I pin your left/ right foot to the ground, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Snare to Undead')
@@ -1145,8 +1146,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Snare to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Snare to Undead."'
+skill.incant = 'Through Spirit, Snare to Undead'
+skill.description = '"Through Spirit, Snare to Undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Weakness')
@@ -1158,8 +1159,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water, Weakness, one minute.'
-skill.description = 'Packet - Short Rest - "Through Water, Weakness, one minute."'
+skill.incant = 'Through Water, Weakness, one minute'
+skill.description = '"Through Water, Weakness, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Alarm')
@@ -1172,7 +1173,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
-skill.description = 'Packet - Short Rest - "Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
+skill.description = '"Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Awaken')
@@ -1184,8 +1185,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water – Cure Waylay and Sleep.'
-skill.description = 'Packet - Short Rest - "Through Water – Cure Waylay and Sleep.'
+skill.incant = 'Through Water – Cure Waylay and Sleep'
+skill.description = '"Through Water – Cure Waylay and Sleep.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Carry Companion')
@@ -1197,8 +1198,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow you may be carried at full speed, 30 seconds.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow you may be carried at full speed, 30 seconds." This spell allows a person (Follow contact rules. Do not physically carry) to be carried and move at full speed for 30 seconds.'
+skill.incant = 'Through Earth, Bestow you may be carried at full speed, 30 seconds'
+skill.description = '"Through Earth, Bestow you may be carried at full speed, 30 seconds." This spell allows a person (Follow contact rules. Do not physically carry) to be carried and move at full speed for 30 seconds.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cure Minor Wounds')
@@ -1210,8 +1211,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, I heal you one Hit Point.'
-skill.description = 'Packet - Short Rest - "Through Life, I heal you one Hit Point."'
+skill.incant = 'Through Life, I heal you one Hit Point'
+skill.description = '"Through Life, I heal you one Hit Point."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flame Blade')
@@ -1223,8 +1224,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing.'
-skill.description = 'Packet - Short Rest - "Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing."'
+skill.incant = 'Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing'
+skill.description = '"Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Sanctify Corpse')
@@ -1236,8 +1237,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Corpse'
 skill.prop = nil
-skill.incant = 'Through Life - I prevent this body from being raised as undead.'
-skill.description = 'Packet - Short Rest - "Through Life - I prevent this body from being raised as undead."'
+skill.incant = 'Through Life - I prevent this body from being raised as undead'
+skill.description = '"Through Life - I prevent this body from being raised as undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cure Light Wounds')
@@ -1249,8 +1250,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, I heal you two Hit Points.'
-skill.description = 'Packet - Short Rest - "Through Life, I heal you two Hit Points."'
+skill.incant = 'Through Life, I heal you two Hit Points'
+skill.description = '"Through Life, I heal you two Hit Points."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Delay Poison')
@@ -1262,8 +1263,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow, I stop your poison countdown for 5 minutes.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow, I stop your poison countdown for 5 minutes."'
+skill.incant = 'Through Earth, Bestow, I stop your poison countdown for 5 minutes'
+skill.description = '"Through Earth, Bestow, I stop your poison countdown for 5 minutes."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Blessed Weapon')
@@ -1275,8 +1276,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing."'
+skill.incant = 'Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing'
+skill.description = '"Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Enhance Weapon')
@@ -1288,8 +1289,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack."'
+skill.incant = 'Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack'
+skill.description = '"Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Magic Weapon')
@@ -1301,8 +1302,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing.'
-skill.description = 'Packet - Short Rest - "Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing."'
+skill.incant = 'Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing'
+skill.description = '"Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Frostbrand')
@@ -1315,7 +1316,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = '"Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
-skill.description = 'Packet - Short Rest - "Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
+skill.description = '"Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Free Action')
@@ -1328,7 +1329,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Arcane, <Pin, Snare, or Bind>'
-skill.description = 'Packet - Short Rest - "Through Arcane, <Pin, Snare, or Bind>"'
+skill.description = '"Through Arcane, <Pin, Snare, or Bind>"'
 
 skill = Skill.find_or_initialize_by(name: 'Empower')
 skill.tier = 3
@@ -1339,8 +1340,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack."'
+skill.incant = 'Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack'
+skill.description = '"Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Hope\'s Blessing')
@@ -1352,8 +1353,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, Restore a Tier 1-3 Shadow or Weapon Skill.'
-skill.description = 'Packet - Short Rest - "Through Life, Restore a Tier 1-3 Shadow or Weapon Skill."'
+skill.incant = 'Through Life, Restore a Tier 1-3 Shadow or Weapon Skill'
+skill.description = '"Through Life, Restore a Tier 1-3 Shadow or Weapon Skill."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Dissipate Corpse')
@@ -1365,8 +1366,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Corpse'
 skill.prop = nil
-skill.incant = 'Through Water, I end your death count immediately.'
-skill.description = 'Packet - Short Rest - "Through Water, I end your death count immediately."'
+skill.incant = 'Through Water, I end your death count immediately'
+skill.description = '"Through Water, I end your death count immediately."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cure Moderate Wounds')
@@ -1378,8 +1379,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, I heal you three Hit Points.'
-skill.description = 'Packet - Short Rest - "Through Life, I heal you three Hit Points."'
+skill.incant = 'Through Life, I heal you three Hit Points'
+skill.description = '"Through Life, I heal you three Hit Points."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Transfer Skill')
@@ -1392,7 +1393,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\''
-skill.description = 'Packet - Short Rest - "Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\'" This spell allows you to expend a Short Rest skill you know so someone else can use it. You may not use the skill you transfer for the remainder of the event, nor can it be transferred again. You cannot cast this spell by voice, burst, or chained. You may only have a single transferred skill on you at a time.'
+skill.description = '"Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\'" This spell allows you to expend a Short Rest skill you know so someone else can use it. You may not use the skill you transfer for the remainder of the event, nor can it be transferred again. You cannot cast this spell by voice, burst, or chained. You may only have a single transferred skill on you at a time.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Arcane Blast')
@@ -1404,8 +1405,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Arcane, Damage Two."'
+skill.incant = 'Through Arcane, Damage Two'
+skill.description = '"Through Arcane, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Windburn')
@@ -1417,8 +1418,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Air, Damage Two."'
+skill.incant = 'Through Air, Damage Two'
+skill.description = '"Through Air, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Magic Stone')
@@ -1430,8 +1431,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Earth, Damage Two."'
+skill.incant = 'Through Earth, Damage Two'
+skill.description = '"Through Earth, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flare')
@@ -1443,8 +1444,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Fire, Damage Two."'
+skill.incant = 'Through Fire, Damage Two'
+skill.description = '"Through Fire, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Frostbite')
@@ -1456,8 +1457,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Water, Damage Two."'
+skill.incant = 'Through Water, Damage Two'
+skill.description = '"Through Water, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Spirit Bolt')
@@ -1469,8 +1470,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Spirit, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Damage Two."'
+skill.incant = 'Through Spirit, Damage Two'
+skill.description = '"Through Spirit, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Arcane Storm')
@@ -1482,8 +1483,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Arcane, Damage Three."'
+skill.incant = 'Through Arcane Damage Three'
+skill.description = '"Through Arcane, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cold Snap')
@@ -1495,8 +1496,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Water, Damage Three."'
+skill.incant = 'Through Water, Damage Three'
+skill.description = '"Through Water, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Fire Bolt')
@@ -1508,8 +1509,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = '"Through Fire, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Fire, Damage Three."'
+skill.incant = '"Through Fire, Damage Three'
+skill.description = '"Through Fire, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Rock Fall')
@@ -1521,8 +1522,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Earth, Damage Three."'
+skill.incant = 'Through Earth, Damage Three'
+skill.description = '"Through Earth, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Migraine')
@@ -1534,8 +1535,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Mind, Damage Three."'
+skill.incant = 'Through Mind, Damage Three'
+skill.description = '"Through Mind, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flame Wave')
@@ -1547,8 +1548,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Fire, Damage Four."'
+skill.incant = 'Through Fire, Damage Four'
+skill.description = '"Through Fire, Damage Four."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Break Limb')
@@ -1560,8 +1561,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Maim \'Left/Right Arm/Leg\'.'
-skill.description = 'Packet - Short Rest - "Through Fire, Maim \'Left/Right Arm/Leg\'"'
+skill.incant = 'Through Fire, Maim \'Left/Right Arm/Leg\''
+skill.description = '"Through Fire, Maim \'Left/Right Arm/Leg\'"'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flay Mind')
@@ -1573,8 +1574,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Mind, Damage Four."'
+skill.incant = 'Through Mind, Damage Four'
+skill.description = '"Through Mind, Damage Four."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Bash Undead')
@@ -1586,8 +1587,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Damage Five to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Damage Five to Undead."'
+skill.incant = 'Through Spirit, Damage Five to Undead'
+skill.description = '"Through Spirit, Damage Five to Undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Lighting Bolt')
@@ -1599,8 +1600,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Air, Damage Four."'
+skill.incant = 'Through Air, Damage Four'
+skill.description = '"Through Air, Damage Four."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flay Mind')
@@ -1612,8 +1613,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Wood, Damage Four."'
+skill.incant = 'Through Wood, Damage Four'
+skill.description = '"Through Wood, Damage Four."'
 skill.save!
 
 puts('Starting Alchemist')
@@ -1626,7 +1627,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = 'Potion/Bomb Coreless Thrown Weapon or Packet'
-skill.incant = 'Fire. Damage 1.'
+skill.incant = 'Fire. Damage 1'
 skill.description = 'Prop Required: Potion/Bomb Coreless Thrown Weapon or Packet - "Fire. Damage 1."'
 skill.save!
 
@@ -1804,7 +1805,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil
-skill.incant = 'Poison, 60 seconds.'
+skill.incant = 'Poison, 60 seconds'
 skill.description = 'When searched, you may expend this skill to call: "Poison, 60 seconds."'
 skill.save!
 
@@ -2264,7 +2265,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil
-skill.incant = 'Poison, 60 seconds.'
+skill.incant = 'Poison, 60 seconds'
 skill.description = 'When searched, you may expend this skill to call: "Poison, 60 seconds."'
 skill.save!
 
@@ -2748,7 +2749,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
-skill.incant = 'While I perform, my Patrons Resist Fear and Paralysis.'
+skill.incant = 'While I perform, my Patrons Resist Fear and Paralysis'
 skill.description = 'RP: Continue Performance. State "While I perform, my Patrons Resist Fear and Paralysis."'
 skill.save!
 
@@ -2844,7 +2845,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance.'
+skill.incant = 'To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance'
 skill.description = 'RP: One minute of performing. State, "To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance.'
 skill.save!
 
@@ -2957,7 +2958,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'By my Voice, Through Mind, Pacify.'
+skill.incant = 'By my Voice, Through Mind, Pacify'
 skill.description = 'By my Voice, Through Mind, Pacify.'
 skill.save!
 
@@ -3493,7 +3494,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, Bestow "Resist" poison.'
+skill.incant = 'Through Life, Bestow "Resist" poison'
 skill.description = '"Through Life, Bestow "Resist" poison".'
 skill.save!
 
@@ -5233,7 +5234,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Bestow Four Temporary Armor Points.'
+skill.incant = 'Bestow Four Temporary Armor Points'
 skill.description = '"Bestow Four Temporary Armor Points."'
 skill.save!
 
@@ -5534,7 +5535,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil 
-skill.incant = 'Through wood, shell against magic, five minutes.'
+skill.incant = 'Through wood, shell against magic, five minutes'
 skill.description = '"Through wood, shell against magic, five minutes." State, "Shell" to all Through effects. The shell breaks if you take weapon damage, engage in combat, or cast a spell.'
 skill.save!
 
@@ -6879,7 +6880,7 @@ event.save!
 
 puts('One Time Scripts')
 
-sr = Skillrequirement.find_or_initialize_by(
+sr = Skillrequirement.find_by(
   skill: Skill.find_by(name: 'Divine Inspiration', skillgroup: Skillgroup.find_by(name: 'Cleric')),
   requiredskill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
 )
@@ -6887,8 +6888,15 @@ if(!sr.nil?)
   sr.destroy
 end
 
-sr = Skillrequirement.find_or_initialize_by(
+sr = Skillrequirement.find_by(
   skill: Skill.find_by(name: 'Divine Intervention', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+)
+if(!sr.nil?)
+  sr.destroy
+end
+
+sr = Skillrequirement.find_by(
+  skill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
 )
 if(!sr.nil?)
   sr.destroy
