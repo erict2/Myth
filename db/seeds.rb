@@ -3587,7 +3587,7 @@ Skillrequirement.find_or_initialize_by(
   requiredskill: Skill.find_by(name: 'Totemic Gift', skillgroup: Skillgroup.find_by(name: 'Druid'))
 ).save!
 
-skill = Skill.find_or_initialize_by(name: 'Totemic Blessing', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill = Skill.find_or_initialize_by(name: 'Totemic Protection', skillgroup: Skillgroup.find_by(name: 'Druid'))
 skill.tier = 6
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
