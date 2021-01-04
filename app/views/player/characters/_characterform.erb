@@ -23,7 +23,7 @@
   </div>
 
 
-  <%= f.collection_select :deity_id, Deity.where('playeravailable = true').all, :id, :name, :include_blank => true %>
+  <%= f.collection_select :deity_id, Deity.where('playeravailable = true').all, :id, :name %>
   
   <%= f.submit 'Save Character' %>
   <%= link_to 'Cancel', yield(:backurl) %>
