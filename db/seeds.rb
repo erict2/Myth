@@ -795,7 +795,7 @@ skill.incant = 'Damage 2'
 skill.description = 'Weapon - Short Rest - "Damage 2."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Slash 2')
+skill = Skill.find_or_initialize_by(name: 'Disarm')
 skill.tier = 2
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
