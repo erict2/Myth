@@ -3797,8 +3797,8 @@ skill.description = 'When you expend the Parry skill, you immediately gain use o
 skill.save!
 
 Skillrequirement.find_or_initialize_by(
-  skill: Skill.find_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+  skill: Skill.find_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Whirlwind Attack', skillgroup: Skillgroup.find_by(name: 'Fighter'))
@@ -6877,3 +6877,13 @@ event.eventexp = 300
 event.feedbackexp = 100
 event.levelingevent = true
 event.save!
+
+puts('One Time Scripts')
+
+sr = Skillrequirement.find_by(
+  skill: Skill.find_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+)
+if(!sr.nil?)
+  sr.destroy
+end
