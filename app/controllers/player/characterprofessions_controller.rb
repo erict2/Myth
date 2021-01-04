@@ -32,7 +32,7 @@ class Player::CharacterprofessionsController < PlayerController
         if @character.professions.where(name: profession.name).count >= 1
           next
         end
-        if availableexp < getExpCost(profession)
+        if ((availableexp < getExpCost(profession)) and !@freeprofessions)
           next
         end
 
