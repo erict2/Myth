@@ -29,6 +29,7 @@ function formValidation() {
     document.getElementById("characterskill_favoredfoe").required = true;
   }  else {
     document.getElementById('characterskill_favoredfoe').selectedIndex = -1
+    document.getElementById("characterskill_favoredfoe").required = false;
     $('#favoredfoe').hide()
   }
   if (characterskill == 'Alignment Focus') {
@@ -36,6 +37,7 @@ function formValidation() {
     document.getElementById("characterskill_alignmentfocus").required = true;
   }  else {
     document.getElementById('characterskill_alignmentfocus').selectedIndex = -1
+    document.getElementById("characterskill_alignmentfocus").required = false;
     $('#alignmentfocus').hide()
   }
 
