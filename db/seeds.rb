@@ -137,6 +137,10 @@ race = Race.find_or_initialize_by(name: 'Suhk')
 race.playeravailable = true
 race.save!
 
+race = Race.find_or_initialize_by(name: 'Deep Elf')
+race.playeravailable = true
+race.save!
+
 race = Race.find_or_initialize_by(name: 'Wildren')
 race.playeravailable = true
 race.save!
@@ -1602,9 +1606,10 @@ skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Air, Damage Four'
 skill.description = '"Through Air, Damage Four."'
+skill.name = 'Lightning Bolt'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Flay Mind')
+skill = Skill.find_or_initialize_by(name: 'Sliver')
 skill.tier = 3
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
