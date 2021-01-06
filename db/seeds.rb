@@ -1595,7 +1595,7 @@ skill.incant = 'Through Spirit, Damage Five to Undead'
 skill.description = '"Through Spirit, Damage Five to Undead."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Lighting Bolt')
+skill = Skill.find_or_initialize_by(name: 'Lightning Bolt')
 skill.tier = 3
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
@@ -1606,7 +1606,6 @@ skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Air, Damage Four'
 skill.description = '"Through Air, Damage Four."'
-skill.name = 'Lightning Bolt'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Sliver')
