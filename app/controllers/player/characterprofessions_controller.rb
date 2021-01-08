@@ -72,16 +72,14 @@ class Player::CharacterprofessionsController < PlayerController
     @characterprofession = Characterprofession.order('acquiredate desc, id desc').find_by(profession_id: params[:id], character_id: params[:character_id])
     @character = Character.find_by(id: params[:character_id])
 
-    if !(@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > @characterprofession.acquiredate)
-      @explog = Explog.find_by(
-        user_id: @character.user_id,
-        name: 'Profession Purchase',
-        description: 'Purchased "' + @characterprofession.profession.name + '" for "' + @character.name + '"',
-        amount: getExpCost(@characterprofession.profession) * -1
-        )
-      if !(@explog.nil?)
-        @explog.destroy
-      end
+    @explog = Explog.find_by(
+      user_id: @character.user_id,
+      name: 'Profession Purchase',
+      description: 'Purchased "' + @characterprofession.profession.name + '" for "' + @character.name + '"',
+      amount: getExpCost(@characterprofession.profession) * -1
+    )
+    if !(@explog.nil?)
+      @explog.destroy
     end
     @characterprofession.destroy
     redirect_to player_character_path( id: params[:character_id])

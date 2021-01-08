@@ -89,6 +89,7 @@ module CharactersHelper
   def canRefundProfession(character, characterprofession)
     last_played_event = lastPlayedEvent(character)
     events_played = character.events.where('startdate < ?', Time.now).count
+    starter_professions = character.characterprofessions.order('characterprofessions.acquiredate asc').first(2)
 
     characterprofession.profession.professionrequirements.each do |profreq|
       if (character.professions.exists?(id: profreq.profession_id))
@@ -97,10 +98,13 @@ module CharactersHelper
       end
     end
 
-    if (@character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count < 3)
-      #Character has not yet played 3 games
-      return true
-    elsif last_played_event < characterprofession.acquiredate
+    character.characterprofessions.order('characterprofessions.acquiredate asc').first(2).each do |starter_prof|
+      if starter_prof.profession_id == characterprofession.profession_id && character.characterprofessions.count > 2
+        return false 
+      end
+    end
+
+    if last_played_event < characterprofession.acquiredate
       #Profession has never been used
       return true
     end
