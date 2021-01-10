@@ -1334,6 +1334,7 @@ skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Arcane, <Pin, Snare, or Bind>'
 skill.description = '"Through Arcane, <Pin, Snare, or Bind>"'
+skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Empower')
 skill.tier = 3
