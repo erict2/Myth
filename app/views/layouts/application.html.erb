@@ -19,10 +19,15 @@
           <nav class="col-2", id='sidebarMenu'>
             <%= render 'layouts/leftmenu' %>
           </nav>
-        <% end %>
-        <main class="col-10", id='mainContent'>
+          <main class="col-10", id='mainContent'>
+            <%= yield %>
+          </main>
+        <% else %>
+        
+        <main class="col-12", id='mainContent'>
           <%= yield %>
         </main>
+        <% end %>
       </div>
     </div>
 
