@@ -16,11 +16,11 @@
     <div class="container-fluid", id='pageContent'>
       <div class="row">
         <% if session[:character] %>
-          <nav class="col-1 d-block sidebar collapse", id='sidebarMenu'>
+          <nav class="col-2", id='sidebarMenu'>
             <%= render 'layouts/leftmenu' %>
           </nav>
         <% end %>
-        <main class="col-11", id='mainContent'>
+        <main class="col-10", id='mainContent'>
           <%= yield %>
         </main>
       </div>
