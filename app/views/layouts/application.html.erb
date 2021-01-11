@@ -6,25 +6,27 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>  
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark p-0 shadow">
       <%= render 'layouts/topmenu' %>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid", id='pageContent'>
       <div class="row">
-        <% if user_signed_in? %>
-          <nav id="sidebarMenu" class="col-1 d-block bg-light sidebar collapse">
+        <% if session[:character] %>
+          <nav class="col-1 d-block sidebar collapse", id='sidebarMenu'>
             <%= render 'layouts/leftmenu' %>
           </nav>
         <% end %>
-        <main class="col-11">
+        <main class="col-11", id='mainContent'>
           <%= yield %>
         </main>
       </div>
     </div>
+
+    <%= render partial: 'pages/modals/changecharacter' %>
   </body>
   
 </html>

@@ -1,8 +1,47 @@
 <div class="position-sticky pt-2">
-  Name <br>
-  My House <br>
-  My Guild <br>
-  Market <br>
-  Something <br>
-  
- </div>
+  <% @character = Character.find_by(id: session[:character], user_id: current_user) %>
+
+  <%= link_to player_character_path(@character) do %>
+    <div class='sideLink'>
+      <%= image_tag("leftmenu/profile.png", :size => '25x25') %>
+      <%= @character.name %>
+    </div>
+  <% end %>
+  <%= link_to player_character_path(@character) do %>
+    <div class='sideLink'>
+      <%= image_tag("leftmenu/journal.png", :size => '25x25') %>
+      Journal
+    </div>
+  <% end %>
+  <%= link_to player_character_path(@character) do %>
+    <div class='sideLink'>
+      <%= image_tag("leftmenu/bank.png", :size => '25x25') %>
+      Bank
+    </div>
+  <% end %>
+  <%= link_to player_character_path(@character) do %>
+    <div class='sideLink'>
+      <%= image_tag("leftmenu/events.png", :size => '25x25') %>
+      Events
+    </div>
+  <% end %>
+  <%= link_to player_character_path(@character) do %>
+    <div class='sideLink'>
+      <%= image_tag("leftmenu/courier.png", :size => '25x25') %>
+      Courier
+    </div>
+  <% end %>
+  <%= link_to player_character_path(@character) do %>
+    <div class='sideLink'>
+      <%= image_tag("leftmenu/house.png", :size => '25x25') %>
+      House
+    </div>
+  <% end %>
+  <%= link_to player_character_path(@character) do %>
+    <div class='sideLink'>
+      <%= image_tag("leftmenu/guild.png", :size => '25x25') %>
+      Guild
+    </div>
+  <% end %>
+    
+</div>
