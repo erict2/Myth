@@ -3,14 +3,19 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :character do
-    get :changecharacter
-    post :changecharacter
+    
+    
     get :getcharacter
   end
   
   namespace :player do
     get :explog
-    resources :eventattendances
+    get :events
+    get :changecharacter
+    post :changecharacter
+    get :changeeventcharacter
+    post :changeeventcharacter
+
     resources :characters do
       post :levelup
       resources :characterskills

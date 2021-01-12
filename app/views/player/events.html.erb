@@ -1,4 +1,5 @@
-<table border = 1>
+<table class="table table-striped table-bordered table-sm mt-5">
+<thead class = 'thead-dark'>
 <tr>
     <th>Name</th>
     <th>Description</th>
@@ -6,6 +7,8 @@
     <th>Going As</th>
     <th>Character</th>
 </tr>
+</thead>
+<tbody>
 <% current_user.eventattendances.joins(:event).order('startdate desc').each do |eventattendance| %>
     <tr>
       <td><%= eventattendance.event.name %></td>
@@ -17,27 +20,17 @@
         <%= if (eventattendance.character && eventattendance.event.startdate < Time.now) then
           eventattendance.character.name 
         elsif (eventattendance.character && eventattendance.event.startdate > Time.now and eventattendance.registrationtype == 'Player') then
-          link_to eventattendance.character.name, edit_player_eventattendance_path(eventattendance), remote: true
+          link_to eventattendance.character.name, player_changeeventcharacter_path(:eventattendance_id => eventattendance.id), remote: true
         elsif (eventattendance.event.startdate > Time.now and eventattendance.registrationtype == 'Player') then
-          link_to 'Assign Character', edit_player_eventattendance_path(eventattendance), remote: true
+          link_to 'Assign Character',player_changeeventcharacter_path(:eventattendance_id => eventattendance.id), remote: true
         end
    
          %></td>
     </tr>
   <% end %>
-  </table>
+  </tbody>
+</table>
 
-<div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addCharacterModalLabel">Add Character To Event</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> 
-      <div class="modal-body">
-      </div>
-    </div>
-  </div>
+<div id='changeEventCharacterDiv'>
+  <%= render partial: '/modals/changeeventcharacter' %>
 </div>

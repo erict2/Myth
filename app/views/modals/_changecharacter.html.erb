@@ -9,7 +9,7 @@
       </div> 
       <div class="modal-body">
       
-      <%= bootstrap_form_for :changecharacter, url: character_changecharacter_path do |f| %>
+      <%= bootstrap_form_for :changecharacter, url: player_changecharacter_path do |f| %>
         <div class="row">
           <div class="col-12">
             <%= f.collection_select :character_id, current_user.characters, :id, :name, :selected => session[:character], hide_label: true, class: 'm-auto align-self-center' %>
