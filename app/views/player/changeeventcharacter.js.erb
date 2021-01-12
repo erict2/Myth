@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  $('#changeEventCharacterDiv').html("<%= escape_javascript( render partial: '/modals/changeeventcharacter' ) %>")
+  $('#changeEventCharacterDiv').html("<%= escape_javascript( render partial: 'player/modals/changeeventcharacter' ) %>")
   $('#changeEventCharacterModal').modal('show');
 
   characterDetails()
