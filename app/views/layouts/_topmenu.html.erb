@@ -23,17 +23,14 @@
           </div>
         <% end %>
       <% end %>
-
       <% if user_signed_in? %>
         <div class='nav-item dropdown'>
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to changecharacter_index_path, remote: true, :class => 'dropdown-item' do %>
-              <% if (current_user.characters.count == 0) %>
-                Create Character
-              <% else %>
-                Change Character
-              <% end %>
+            <% if (current_user.characters.count == 0) %>
+              <%= link_to 'Create Character', new_player_character_path, :class => 'dropdown-item' %>
+            <% else %>
+              <%= link_to 'Change Character', character_changecharacter_path, remote: true, :class => 'dropdown-item' %>
             <% end %>
             <%= link_to 'EXP Log', edit_user_registration_path, :class => 'dropdown-item' %>
             <%= link_to 'Events', edit_user_registration_path, :class => 'dropdown-item' %>

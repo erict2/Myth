@@ -1,0 +1,34 @@
+$(document).ready(function(){
+  
+  $('#changeCharacterModal').modal('show');
+  characterDetails()
+  $('#changecharacter_character_id').change(function() {
+    characterDetails()
+  });
+});
+
+function characterDetails() {
+  var character = document.getElementById('changecharacter_character_id').value
+
+  $.ajax({
+    url: '/character/getcharacter',
+    type: 'GET',
+    dataType: 'json',
+    data: { 'character_id' : character},
+    success: function(data){
+      
+      console.log(data)
+      console.log()
+      $('#characterlevel').html(data.all_data.character.level)
+
+      if (data.all_data.deity == null) {
+        document.getElementById('deitytoken').style.visibility = 'hidden';
+      } else {
+        document.getElementById('deitytoken').src = '/images/deitytoken/'+data.all_data.deity.name+'.gif'
+        document.getElementById('deitytoken').style.visibility = 'visible';
+      }
+      document.getElementById('classtoken').src = '/images/classtoken/'+data.all_data.characterclass.name+'.png'
+    }
+  })
+  
+}

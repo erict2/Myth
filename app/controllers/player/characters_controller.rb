@@ -73,7 +73,6 @@ class Player::CharactersController < PlayerController
     redirect_to player_character_path(@character)
   end
 
-
   private
 
   def character_params

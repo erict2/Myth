@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root "pages#index"
   devise_for :users
 
-  resources :changecharacter
+  namespace :character do
+    get :changecharacter
+    post :changecharacter
+    get :getcharacter
+  end
+  
   namespace :player do
     resources :eventattendances
     resources :characters do
