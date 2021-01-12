@@ -31,8 +31,10 @@ function classValidation() {
     })
     document.getElementById('classtoken').src = classTokenFileName
     document.getElementById('classtoken').style.visibility = 'visible';
+    document.getElementById('classtoken').title = characterclass;
   } else {
     document.getElementById('classtoken').style.visibility = 'hidden';
+    document.getElementById('classtoken').title = '';
     $('#ClassDesc').html('')
   }
 
@@ -68,8 +70,10 @@ function deityValidation() {
     })
     document.getElementById('deitytoken').src = deityTokenFileName
     document.getElementById('deitytoken').style.visibility = 'visible';
+    document.getElementById('deitytoken').title = deity;
   } else {
     document.getElementById('deitytoken').style.visibility = 'hidden';
+    document.getElementById('deitytoken').title = '';
     $('#DeityDesc').html('')
   }
   

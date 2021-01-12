@@ -16,18 +16,19 @@ function characterDetails() {
     dataType: 'json',
     data: { 'character_id' : character},
     success: function(data){
-      
-      console.log(data)
-      console.log()
       $('#characterlevel').html(data.all_data.character.level)
+      document.getElementById('classtoken').src = '/images/classtoken/'+data.all_data.characterclass.name+'.png'
+      document.getElementById('classtoken').title = data.all_data.characterclass.name;
 
       if (data.all_data.deity == null) {
         document.getElementById('deitytoken').style.visibility = 'hidden';
+        document.getElementById('deitytoken').title = '';
       } else {
         document.getElementById('deitytoken').src = '/images/deitytoken/'+data.all_data.deity.name+'.gif'
         document.getElementById('deitytoken').style.visibility = 'visible';
+        document.getElementById('deitytoken').title = data.all_data.deity.name;
       }
-      document.getElementById('classtoken').src = '/images/classtoken/'+data.all_data.characterclass.name+'.png'
+      
     }
   })
   
