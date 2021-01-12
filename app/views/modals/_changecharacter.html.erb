@@ -14,7 +14,8 @@
           <div class="col-12">
             <%= f.collection_select :character_id, current_user.characters, :id, :name, :selected => session[:character], hide_label: true, class: 'm-auto align-self-center' %>
           </div>
-        
+        </div>
+        <div class="row">
           <div class="col-4">
             <img id= 'classtoken' height= '100' width= '100'/>
           </div>
@@ -25,12 +26,19 @@
             <img id= 'deitytoken' height= '100' width= '100'/>
           </div>
         </div>
-
-          <br><br>
-          <%= f.submit 'Load Character' %>
-          <% end %>
-
-      </div>
+        <div class="row pt-4">
+          <div class="col-6">
+          <%= f.submit 'Load Character', class: "btn btn-primary float-left" %>
+      <% end %>
+          </div>
+  
+          <div class="col-6">
+            <% if (current_user.charactercount > current_user.characters.count) %>
+              <%= button_to "New Character", new_player_character_path, method: :get, class: "btn btn-secondary float-right" %>
+            <% end %>
+          </div>
+        </div>
+      
     </div>
   </div>
 </div>
