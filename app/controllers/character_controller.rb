@@ -4,20 +4,19 @@ class CharacterController < ApplicationController
 
   def changecharacter
     if request.post?
-      #handle posts
+      @changedcharacter = Character.find(changecharacter_params[:character_id])
+      current_user.last_character = @changedcharacter.id
+      session[:character] = @changedcharacter.id
+      current_user.save!
+
+      redirect_to root_path
     else
-      #handle gets
+      #handle gets. Do nothing
     end
 
   end
 
   def getcharacter
-    puts('taco')
-    puts('taco')
-    puts('taco')
-    puts('taco')
-    puts('taco')
-
     @character = Character.find(params[:character_id])
     @deity = @character.deity
     @characterclass = @character.characterclass
@@ -28,5 +27,9 @@ class CharacterController < ApplicationController
   
   end
 
+  private
 
+  def changecharacter_params
+    params.require(:changecharacter).permit(:character_id)
+  end
 end
