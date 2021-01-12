@@ -6,7 +6,7 @@
 html, body, .container, .row, .tabbable{height:100%}
 
 body { 
-  background-image: url(paperbackground.jpg);
+  background-image: url(woodbackground.jpg);
 }
 
 #pageContent {
@@ -14,17 +14,18 @@ body {
   padding-right: 3%;
   padding-bottom: 3%;
   height: 90%;
+  
 }
 
 #mainContent {
-  background-color: white
+  background-image: url(parchmentbackground.jpg);
+  
 }
 
 #sidebarMenu {
-
+  background-image: url(parchmentbackground.jpg);
   padding-top: 3%;
   border-top-left-radius: 30px;
-  background-color: white;
   width: 100px;
 
   .sideLink {
