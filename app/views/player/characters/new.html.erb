@@ -1,3 +1,58 @@
-<% provide(:url, player_characters_path) %>
-<% provide(:backurl, player_characters_path) %>
-<%= render 'player/characters/characterform' %>
+<%= javascript_pack_tag 'charactercreation' %>
+<%= bootstrap_form_with(model: @character, url: player_characters_path, local: true) do |f| %>
+
+  <% if @character.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:
+    </h2>
+      <ul>
+        <% @character.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  </div>
+  <% end %>
+
+    <div>
+    <div class="row characterCreateForm">
+        <div class="col-6 my-2">
+          <%= f.text_field :name, :required => true, placeholder: 'Character Name', hide_label: true %>
+        </div>
+        <div class="col-6 my-2 p-auto">
+          <%= f.select :pronouns, [ 'He/Him', 'She/Her','They/Them' ], {prompt: 'Pronouns', hide_label: true }, required: true %>
+        </div>
+      </div><div class="row", id='raceRow'>
+        <div class="col-2 my-4 p-auto  align-middle">
+          <%= f.collection_select :race_id, @race, :id, :name, {prompt: 'Race', hide_label: true }, required: true  %>
+        </div>
+        <div class="col-10" id='RaceDescDiv'>
+          <span id='RaceDesc'></span>
+        </div>
+    </div><div class="row characterCreateForm", id='classRow'>
+        <div class="col-2 my-5 p-auto align-middle ">
+          <%= f.collection_select :characterclass_id, @characterclass, :id, :name, {prompt: 'Class', hide_label: true }, required: true  %>
+        <div id='totemselect'>
+          <%= f.select :totem, [ 'Bear', 'Lizard', 'Rat', 'Raven', 'Snake', 'Spider', 'Wolf' ], {prompt: 'Totem', hide_label: true } %>
+        </div> 
+        </div>
+        <div class="col-10 align-self-center",  id='ClassDescDiv'>
+          <img class='pull-left' id= 'classtoken' height= '100' width= '100'/>
+          <span id='ClassDesc'></span>
+        </div>
+      </div><div class="row characterCreateForm", id='deityRow'>
+        <div class="col-2 my-2 align-self-center ">
+          <%= f.collection_select :deity_id, @deity, :id, :name, {prompt: 'Deity', hide_label: true }  %>
+        </div>
+        <div class="col-10 align-self-center",  id='DeityDescDiv'>
+          <img class='pull-left' id= 'deitytoken' height= '100' width= '100'/>
+          <span id='DeityDesc'></span>
+         </div>
+    </div>
+  </div>
+    <br><br>
+    <%= f.submit 'Save Character' %>
+    <%= link_to 'Cancel', root_path %>
+  </p>
+  <% end %>
+  

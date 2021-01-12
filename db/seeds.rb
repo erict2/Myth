@@ -29,120 +29,149 @@ end
 puts 'Starting Character Classes'
 characterclass = Characterclass.find_or_initialize_by(name: 'Alchemist')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Tales handed down to each generation say the Sukh created the art of Alchemy. The masters of this art sought to transmute lead into gold. Most alchemists are nothing more than hedge mages seeking to sap the power of nature. Others are more renowned in the service of powerful lords or kings.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Artificer')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The Artificer is the ultimate tinkerer and engineer, but that is only the beginning. They use their understanding of the workings of Alchemy, Magic, and Blacksmithing and fuse these into creations, whether wondrous or mundane. One part explorer, one part artist, and one part mad genius, theirs is the path of creation and experimentation.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Bard')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'A good Bard can be the backbone of an adventuring party, inspiring courage and protection from the sidelines that can turn the tide of a battle. Adventure is where Bards find their muse to inspire their poetry and song - whether real or embellished. The more they perform, the more famous they seem to become.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Cleric')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Divine magic is said to be the power of the gods that flows through the world. Clerics are the vessels able to tap into that power and perform incredible feats and miracles. The most devout can harness this potent energy as a reward for their unquestioning faith. With it, they can help or harm as their deity so wishes.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Druid')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'They are the guardians of the wilds who acquire mystical powers from nature and their deity. The druids seek forest tranquility to commune with nature and become closer to their deity. Many druids remain neutral with the battles fought by others, allowing nature to take its course. The well-being of the forest is vital to druids who understand the need for a balance between nature and men'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Fighter')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Each of the scars of battle tells a story etched by the weapons that created them. Nobody understands this more than Fighters. These elite warriors are well versed in the art of weaponry and martial arts. Anyone can swing a sword or hide behind a shield. Only a real Fighter has solved the riddle of steel and uses it to master battle.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Paladin')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The noble Paladin is a watchful hero and a sword for truth. They are heroes sworn to protect the meek and downtrodden. Paladins focus on different aspects of their cause based on the will of the gods. Although most paladins are devoted to good gods, their power comes from a commitment to justice rather than from the gods themselves.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Ranger')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Some believe their homes are safe, thanks to the efforts of the town guard. Those who call the forest home understand that Rangers are often the first line of defense. These silent soldiers protect the outskirts of civilization from the monsters and villains that plague the wood. Rangers are masters of stealth and camouflage, ambushing prey as silently as possible. There are things that go bump in the night and Rangers are the ones who bump back.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Rogue')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The masters of the shadows walk silently among us as passersby in the streets of nearly every major town and city in Hyraeth. Many are the epitome of their trade working for a local thieves\' guild or crime family as thugs, burglars, and even assassins. But not all rogues spend their lives in the shadows. Some choose to use their highly-trained skills to help others as locksmiths, spies, and in other jobs where stealth and discretion are essential skills.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Runesmith')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'As a lost art, you could once count the number of practicing Runesmiths in Hyreath on one hand. Working with family or close friends, the modern Runesmith carries on the craft through practices handed down by timeless tradition. Runesmiths work their magic by binding runes with various objects to create enchanted items.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Wizard')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The life of a wizard is anything but typical as you explore "the weave" of magic that permeates all things. You are one of the elite few who can tap into the unseen energies of the world and convert them into something useful.'
 characterclass.save!
 
 puts 'Starting Deities'
 deity = Deity.find_or_initialize_by(name: 'Adara')
 deity.playeravailable = true
+deity.shortdescription = 'Adara is the goddess of justice and fairness. Her followers represent the inner light of Hyraeth, earning all that she rewards through their devotions and tenets. Adara promises her followers their day in the sun, lighting the way towards glory, triumph, and truth.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Amitel')
 deity.playeravailable = true
+deity.shortdescription = 'Amitel is studious and reflective. He seeks to discover the secrets of the Arcane — the tenuous magic that permeates our world, and that gave birth to him. Prone to talking to himself and suddenly shouting out revelations, Amitel bends Arcane energy to his will.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Dedrot')
 deity.playeravailable = true
+deity.shortdescription = 'Dedrot is the guardian of the dead represented by the number five for the Five Fingers of Dedrot. Despite what some may believe, Dedrot has the highest disdain for necromancy. The grander Temples consider Dedrot to be without gender and refer to the deity with neutral pronouns. Some races are known to depict or refer to Dedrot otherwise. Dale Elves describe Dedrot as a man and Enoon\'s counterpart. Among the Sukh, the deity\'s gender varies based on your caravan.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Enoon')
 deity.playeravailable = true
+deity.shortdescription = 'All nature is a gift from Enoon, from lush forests and wilds of wonder to the succulents and vegetation of The Scorched Wastes. Ororo provides water, but Enoon gives life to the rivers and streams and other elemental habitats. Enoon is life but remains neutral in the affairs of living things.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ixbus')
 deity.playeravailable = true
+deity.shortdescription = 'Ixbus is competitive, ambitious, and intelligent, but also takes great joy in spreading gifts to their followers. The devout show their homage in many different ways, but most will have a shrine in their homes and a representation of Ixbus in their workplace. The pious toss a coin into a well to catch the attention of Ixbus, hoping that the prayer will be heard.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Naenya')
 deity.playeravailable = true
+deity.shortdescription = 'Naenya holds the sword to her sister\'s scales. She, too, is a goddess of justice. While Adara seeks to learn the truth, Naenya is there to carry out the sentence. It would be easy to dismiss Naenya as a cruel goddess; however, she tempers judgment with mercy, beyond the cold dictates of the law. Naenya is the goddess of a different kind of truth. The truth within the heart and mind, hidden below the surface and learned through intuition rather than objectivity.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ororo')
 deity.playeravailable = true
+deity.shortdescription = 'At the creation of the world, Ororo was born, sleeping beneath the ocean. In his dreams, he shaped the realms over the millennia. When other gods first laid their feet upon his land, Ororo awoke, furious that others had used his creation. Enoon, the goddess of Nature, greeted him warmly and invited him to delight in their work. In that instant, he quieted his rage for the moment. However, his legendary anger remained very much a part of him.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ryknos')
 deity.playeravailable = true
+deity.shortdescription = 'May look at war with distaste, but to the followers of Ryknos, it is a means to an end. Some believe that Naenya, one of the twin goddesses, created Ryknos to prevent everlasting peace from upsetting the natural balance of life in Hyraeth.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Scandelen')
 deity.playeravailable = true
+deity.shortdescription = 'Every festival, every work of art, and every song is a supplication to Scandelen. They dissolve rivalries between the other deities, by merely telling jokes or playing pranks upon them: their faithful follow this example. Revelry is their universal bond, and when it comes to appreciating life at the moment, their followers not only practice this but encourage others to do so as well, finding beauty and joy in all things.'
 deity.save!
 
 puts 'Starting Races'
 race = Race.find_or_initialize_by(name: 'Dale Elf')
 race.playeravailable = true
+race.shortdescription = 'The Dale Elves (Dale\'el) are elves who had become tired of High Elven society\'s pomp and circumstance. Their division began with a scholarly expedition into the untouched wilds of the Pale Lands. It was there they met the Wildren with whom they cultivated a connection with the forest after decades of devotion and study. The Dale\'el have become passionate defenders of the wild, seeking enlightenment through nature\'s balance.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Dwarf')
 race.playeravailable = true
+race.shortdescription = 'Dwarves are spirited people from the mountain kingdoms. With a strong will and thick skin, Dwarves believe all are worthy of respect - until it has been lost. They currently struggle with the Goblins, whom many clan elders claim are traitors and blood sworn enemies. But much of the history has been lost, and many young Dwarves have begun to move past these lingering fears.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Goblin')
 race.playeravailable = true
+race.shortdescription = 'Goblins are a new race to the realm and a tragic one at that. Forged to be creatures of war by a group of malicious sorcerers, they were slaves without homes, used as soldiers and slave labor. Despite being born of pure hate, Goblins eventually became impassioned and revolted against The Masters.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Half Elf')
 race.playeravailable = true
+race.shortdescription = 'While Half-Elves will always have the ears that reflect their Elven heritage, they are children torn by two worlds who belong to neither. How they are accepted and raised is entirely dependent on their family and Elven heritage. Sometimes embittered or cynical, Half-Elves are often willing to take risks others wouldn\'t in bids of heroism or redemption. They sometimes have an explicit disregard for their safety. Some say if a Half-Elf isn\'t in trouble, they\'re not having fun.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'High Elf')
 race.playeravailable = true
+race.shortdescription = 'High Elves (Eldar\'el) are the oldest of the Elven clans and often consider themselves the role models of Hyraeth. Most live in the sprawling city of Madrona, though many will travel for various studies. Bound by the strict, ancient laws of the Council, High Elves must balance their thirst for knowledge with the desire to impress and flourish in society. Once they were obsessed with the Fey, now history, science, magic, language and culture, art, music, dancing, poetry, and storytelling are just a few of the pursuits that define their lifestyle and make their people famous.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Human')
 race.playeravailable = true
+race.shortdescription = 'Humans are one of the most versatile of the races in Hyraeth and by far the most ambitious. They are unpredictable at best and have varying customs, morals, and prefereces based on where they have chosen to settle.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Suhk')
 race.playeravailable = true
+race.shortdescription = 'Whether they are trading wares in a market or wandering Hyraeth, the nomadic, cat-like Sukh are proud traders who appreciate the sun on their backs and the sand between their toes. Sukh balance their fierce loyalty with their sometimes troublesome curiosity, with a tendency to test the waters to see what will happen. Their people run the elaborate trading routes which circle the continent of Wayland and bring goods to all its people.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Deep Elf')
 race.playeravailable = true
+race.shortdescription = 'The Deep Elves (Dep\'el) live in vast underground cities built in the underworld\'s tunnels and caves. They are renegades of polite Elven society having fled their brethren long ago. The Dep\'el are often referred to as Dark Elves as they shun daylight. This aversion to the sun is said to be their curse.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Wildren')
 race.playeravailable = true
+race.shortdescription = 'With antlers or horns, goat-like legs, and sometimes even a deer tail, Wildren are descendants of fey-creatures that left the faery realm long ago. They spend most of their time in the forest, dwelling in hidden familial tribes. Their priority is the protection and well-being of the forest, and so long as they feel other races treat the Wilds with respect, they give them kindness in turn. Legend has it that when a Wildren gives its first cry, the first spring leaves of a tree reach the sun.'
 race.save!
 
 race = Race.find_or_initialize_by(name: 'Tengu')

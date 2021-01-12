@@ -1,4 +1,5 @@
 class ChangecharacterController < ApplicationController
+  before_action :authenticate_user!
   before_action :check_character_user
 
   def index

@@ -31,7 +31,9 @@
       </div>
     </div>
 
-    <%= render partial: 'pages/modals/changecharacter' %>
+    <% if user_signed_in? %>
+      <%= render partial: 'pages/modals/changecharacter' %>
+    <% end %>
   </body>
   
 </html>

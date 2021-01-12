@@ -28,4 +28,14 @@ Rails.application.routes.draw do
       resources :eventattendances
     end
   end
+
+  resources :characterclass do
+    get :getcharacterclass
+  end
+  resources :deity do
+    get :getdeity
+  end
+  resources :race do
+    get :getrace
+  end
 end

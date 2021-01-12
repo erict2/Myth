@@ -9,6 +9,15 @@ class Player::CharactersController < PlayerController
 
   def new
     @character = Character.new
+    if current_user.usertype = 'Admin'
+      @race = Race.all
+      @characterclass = Characterclass.all
+      @deity = Deity.all
+    else
+      @race = Race.all.where('playeravailable = true')
+      @characterclass = Characterclass.all.where('playeravailable = true')
+      @deity = Deity.all.where('playeravailable = true')
+    end
   end
 
   def create
