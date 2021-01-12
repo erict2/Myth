@@ -5,14 +5,10 @@ class PlayerController < ApplicationController
       
   end
 
-  def getcharacter
-    @character = Character.find(params[:character_id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @character }
-    end
+  def explog
 
   end
+
+
 
 end

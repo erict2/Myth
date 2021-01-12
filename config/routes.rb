@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   
   namespace :player do
+    get :explog
     resources :eventattendances
     resources :characters do
       post :levelup
