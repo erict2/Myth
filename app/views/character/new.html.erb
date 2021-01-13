@@ -1,5 +1,5 @@
 <%= javascript_pack_tag 'charactercreation' %>
-<%= bootstrap_form_with(model: @character, url: player_characters_path, local: true) do |f| %>
+<%= bootstrap_form_with(model: @character, url: character_index_path, local: true) do |f| %>
 
   <% if @character.errors.any? %>
   <div id="error_explanation">

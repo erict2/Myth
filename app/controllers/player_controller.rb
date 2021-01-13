@@ -25,6 +25,8 @@ class PlayerController < ApplicationController
 
   end
 
+  private
+
   def changecharacter_params
     params.require(:changecharacter).permit(:character_id)
   end

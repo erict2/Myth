@@ -20,6 +20,18 @@ class CharacterController < ApplicationController
     end
   end
 
+  def create
+    @character = Character.new(character_params)
+    @character.user_id = current_user.id
+
+    if @character.save!
+      current_user.last_character = @character.id
+      session[:character] = @character.id
+      current_user.save!
+      redirect_to character_index_path
+    end
+  end
+
   def edit
     @character = Character.find(session[:character])
 

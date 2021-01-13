@@ -34,7 +34,7 @@
   
           <div class="col-6">
             <% if (current_user.charactercount > current_user.characters.count) %>
-              <%= button_to "New Character", new_player_character_path, method: :get, class: "btn btn-secondary float-right" %>
+              <%= button_to "New Character", new_character_path, method: :get, class: "btn btn-secondary float-right" %>
             <% end %>
           </div>
         </div>

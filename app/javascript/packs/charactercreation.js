@@ -21,7 +21,7 @@ function classValidation() {
   var characterclass = $('#character_characterclass_id option:selected').text()
   var classTokenFileName = '/images/classtoken/'+characterclass+'.png'
 
-  if (document.getElementById("character_characterclass_id").selectedIndex > 0) {
+  if (characterclass != 'Class') {
     $.ajax({
       url: '/characterclass/' + document.getElementById('character_characterclass_id').value + '/getcharacterclass',
       type: 'GET',
