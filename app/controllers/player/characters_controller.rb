@@ -32,43 +32,6 @@ class Player::CharactersController < PlayerController
     @exptolevel = helpers.expToLevel(@character)
     
   end
-
-  def edit
-    @character = Character.find(params[:id])
-    
-  end
-
-  def update
-    @character = Character.find(params[:id])
-    if @character.update(character_params)
-      redirect_to player_character_path(@character)
-    else
-      render 'edit'
-    end
-  end
-
-  def levelup
-    @character = Character.find(params[:character_id])
-    @exptolevel = helpers.expToLevel(@character)
-    
-    if (current_user.explogs.where('acquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
-      @character.level = @character.level + 1
-      @character.levelupdate = Time.now
-
-      @explog = Explog.new
-      @explog.user_id = @character.user_id
-      @explog.name = 'Level Up'
-      @explog.acquiredate = Time.now
-      @explog.description = 'Leveled "' + @character.name + '" to ' + @character.level.to_s
-      @explog.amount = @exptolevel * -1
-      @explog.grantedby_id = current_user.id
-
-      @explog.save!
-      @character.save!
-    end
-    redirect_to player_character_path(@character)
-  end
-
   private
 
   def character_params

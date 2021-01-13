@@ -18,13 +18,13 @@
 
   <% if canLevel(@character) %>
     <div class='sideSubLink'>
-      <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+      <%= link_to link_to 'Level Up', character_levelup_path, data: { confirm: 'Leveling up will cost ' + expToLevel(@character).to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
     </div>
   <% end %>
 
   <% if canEdit(@character) %>
     <div class='sideSubLink'>
-      <%= link_to link_to 'Train Skills', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+      <%= link_to link_to 'Train Skills', character_levelup_path, data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
     </div>
   <% end %>
 

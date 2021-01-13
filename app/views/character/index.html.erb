@@ -1,9 +1,6 @@
 Name: <%= @character.name %><br>
 
 Level: <%= @character.level %> 
-<% if (canLevel(@character)) %>
-  - <%= link_to link_to 'Level Up', player_character_levelup_path(character_id: @character.id), data: { confirm: 'Leveling up will cost ' + @exptolevel.to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
-<% end %>
 <br>
 
 Pronouns: <%= @character.pronouns %><br>

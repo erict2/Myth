@@ -45,6 +45,29 @@ class CharacterController < ApplicationController
     @character = Character.find(session[:character])
 
   end
+
+  def levelup
+    @character = Character.find(session[:character])
+    @exptolevel = helpers.expToLevel(@character)
+    
+    if (current_user.explogs.where('acquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
+      @character.level = @character.level + 1
+      @character.levelupdate = Time.now
+
+      @explog = Explog.new
+      @explog.user_id = @character.user_id
+      @explog.name = 'Level Up'
+      @explog.acquiredate = Time.now
+      @explog.description = 'Leveled "' + @character.name + '" to ' + @character.level.to_s
+      @explog.amount = @exptolevel * -1
+      @explog.grantedby_id = current_user.id
+
+      @explog.save!
+      @character.save!
+    end
+    redirect_to character_index_path
+  end
+
   def getcharacter
     @character = Character.find(params[:character_id])
     @deity = @character.deity
@@ -70,8 +93,8 @@ class CharacterController < ApplicationController
   end
 
   def check_character_user
-    if (current_user.id != Character.find(params[:id]).user_id)
-      redirect_to player_characters_path
+    if (current_user.id != Character.find(session[:character]).user_id)
+      redirect_to root_path
       return true
     end
     false

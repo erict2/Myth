@@ -5,18 +5,18 @@ Rails.application.routes.draw do
   namespace :character do 
     get :getcharacter
     get :events
+    post :levelup
   end
   
   resources :character
+
   namespace :player do
     get :explog
     get :events
     post :changecharacter
     get :changeeventcharacter
     post :changeeventcharacter
-
     resources :characters do
-      post :levelup
       resources :characterskills
       resources :characterprofessions
     end
