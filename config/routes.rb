@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   root "pages#index"
   devise_for :users
 
-  resources :character do    
+  namespace :character do 
     get :getcharacter
     get :events
   end
+  
+  resources :character
   namespace :player do
     get :explog
     get :events

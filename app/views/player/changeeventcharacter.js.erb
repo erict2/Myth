@@ -13,9 +13,10 @@ function characterDetails() {
   var character = document.getElementById('characterattendance_character_id').value
 
   $.ajax({
-    url: '/character/' + character + '/getcharacter',
+    url: '/character/getcharacter',
     type: 'GET',
     dataType: 'json',
+    data: { 'character_id' : character},
     success: function(data){
       $('#characterlevel').html(data.all_data.character.level)
       document.getElementById('classtoken').src = '/images/classtoken/'+data.all_data.characterclass.name+'.png'
