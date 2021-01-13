@@ -3,10 +3,6 @@ class Player::CharactersController < PlayerController
   before_action :check_character_user, only: [:show, :edit, :update]
   before_action :check_sheets_locked, only: [:edit, :update]
 
-  def index
-    
-  end
-
   def new
     @character = Character.new
     if current_user.usertype = 'Admin'

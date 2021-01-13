@@ -47,9 +47,6 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
   <li class="nav-item">
     <a class="nav-link" id="professions-tab" data-toggle="tab" href="#professions" role="tab" aria-controls="class" aria-selected="false">Professions</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="class" aria-selected="false">Events</a>
-  </li>
 </ul>
 
 <div class="tab-content" id="charTabContent">
@@ -58,8 +55,5 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
   </div>
   <div class="tab-pane fade" id="professions" role="tabpanel" aria-labelledby="professions-tab">
     <%= render partial: 'player/characters/tabs/professions' %>
-  </div>
-  <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-    <%= render partial: 'player/characters/tabs/events' %>
   </div>
 </div>
