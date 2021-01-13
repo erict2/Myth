@@ -34,6 +34,13 @@ class CharacterController < ApplicationController
     end
   end
 
+  def update
+    @character = Character.find(params[:id])
+    if @character.update(character_params)
+      redirect_to character_index_path
+    end
+  end
+
   def events
     @character = Character.find(session[:character])
 
@@ -49,6 +56,10 @@ class CharacterController < ApplicationController
   end
 
   private
+
+  def character_params
+    params.require(:character).permit(:name, :pronouns, :deity_id, :race_id, :characterclass_id, :totem)
+  end
 
   def check_character_count
     if (current_user.charactercount <= current_user.characters.count)
