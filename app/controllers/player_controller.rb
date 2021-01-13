@@ -2,16 +2,12 @@ class PlayerController < ApplicationController
   before_action :authenticate_user!
 
   def changecharacter
-    if request.post?
       @changedcharacter = Character.find(changecharacter_params[:character_id])
       current_user.last_character = @changedcharacter.id
       session[:character] = @changedcharacter.id
       current_user.save!
 
       redirect_to root_path
-    else
-      #handle gets. Do nothing
-    end
 
   end
 

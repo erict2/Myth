@@ -1,7 +1,8 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function() {
   classValidation()
   deityValidation()
   raceValidation()
+  
 
   $('#character_characterclass_id').change(function() {
     classValidation()

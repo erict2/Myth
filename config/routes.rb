@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   namespace :player do
     get :explog
     get :events
-    get :changecharacter
     post :changecharacter
     get :changeeventcharacter
     post :changeeventcharacter

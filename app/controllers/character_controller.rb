@@ -5,8 +5,33 @@ class CharacterController < ApplicationController
 
   def index
     @character = Character.find(session[:character])
-    @exptolevel = helpers.expToLevel(@character)
-    
+  end
+
+  def new
+    @character = Character.new
+    if current_user.usertype = 'Admin'
+      @race = Race.all
+      @characterclass = Characterclass.all
+      @deity = Deity.all
+    else
+      @race = Race.all.where('playeravailable = true')
+      @characterclass = Characterclass.all.where('playeravailable = true')
+      @deity = Deity.all.where('playeravailable = true')
+    end
+  end
+
+  def edit
+    @character = Character.find(session[:character])
+
+    if current_user.usertype = 'Admin'
+      @race = Race.all
+      @characterclass = Characterclass.all
+      @deity = Deity.all
+    else
+      @race = Race.all.where('playeravailable = true')
+      @characterclass = Characterclass.all.where('playeravailable = true')
+      @deity = Deity.all.where('playeravailable = true')
+    end
   end
 
   def events
