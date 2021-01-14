@@ -27,7 +27,7 @@
     </div>
   <% end %>
 
-  <% if canEdit(@character) %>
+  <% if canBuyProfession(@character) %>
     <div class='sideSubLink'>
       <%= link_to link_to 'Learn Profession', character_learnprofession_path, remote: true %>
     </div>
@@ -40,7 +40,7 @@
 
 
   <div class='sideLink'>
-    <%= link_to player_character_path(@character) do %>
+    <%= link_to character_index_path do %>
       <div>
         <%= image_tag("leftmenu/journal.png") %>
         Journal
@@ -48,7 +48,7 @@
     <% end %>
   </div>
   <div class='sideLink'>
-    <%= link_to player_character_path(@character) do %>
+    <%= link_to character_index_path do %>
       <div>
         <%= image_tag("leftmenu/bank.png") %>
         Bank
@@ -64,7 +64,7 @@
     <% end %>
   </div>
   <div class='sideLink'>
-    <%= link_to player_character_path(@character) do %>
+    <%= link_to character_index_path do %>
       <div>
         <%= image_tag("leftmenu/courier.png") %>
         Courier
@@ -72,7 +72,7 @@
     <% end %>
   </div>
   <div class='sideLink'>
-    <%= link_to player_character_path(@character) do %>
+    <%= link_to character_index_path do %>
       <div>
         <%= image_tag("leftmenu/house.png") %>
         House
@@ -80,7 +80,7 @@
     <% end %>
   </div>
   <div class='sideLink'>
-    <%= link_to player_character_path(@character) do %>
+    <%= link_to character_index_path do %>
       <div>
         <%= image_tag("leftmenu/guild.png") %>
         Guild

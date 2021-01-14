@@ -1,6 +1,3 @@
-<% if (canBuyProfession(@character)) %>
-  <%= link_to 'Add Profession', new_player_character_characterprofession_path(character_id: @character.id), remote: true %>
-<% end %>
 <table border = 1>
 <tr>
     <th>Name</th>
@@ -16,7 +13,7 @@
       <td>
         <%=
           if(canRefundProfession(@character, characterprofession))
-              link_to player_character_characterprofession_path(character_id: @character.id, id: characterprofession.profession_id), method: :delete, data: { confirm: 'Are you sure?' } do 
+              link_to character_removeprofession_path(profession_id: characterprofession.profession_id), method: :post, data: { confirm: 'Are you sure?' } do 
                 fa_icon "trash" 
             end
           end

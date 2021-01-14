@@ -149,7 +149,22 @@ class CharacterController < ApplicationController
 
   def learnprofession
     if request.post?
-      
+      @characterprofession = Characterprofession.new(addprof_params)
+      @character = Character.find(session[:character])
+      @characterprofession.character_id = session[:character]
+      if @characterprofession.save!
+        if (@character.characterprofessions.count > 2)
+          @explog = Explog.new
+          @explog.user_id = @character.user_id
+          @explog.name = 'Profession Purchase'
+          @explog.acquiredate = @characterprofession.acquiredate
+          @explog.description = 'Purchased "' + @characterprofession.profession.name + '" for "' + @character.name + '"'
+          @explog.amount = profession_exp_cost(@characterprofession.profession) * -1
+          @explog.grantedby_id = current_user.id
+          @explog.save!
+        end
+        redirect_to character_index_path(:anchor => 'professions')
+      end
     else
       @characterprofession = Characterprofession.new
       @character = Character.find(session[:character])
@@ -198,6 +213,23 @@ class CharacterController < ApplicationController
     end
   end
 
+  def removeprofession
+    @characterprofession = Characterprofession.order('acquiredate desc, id desc').find_by(profession_id: params[:profession_id], character_id: session[:character])
+    @character = Character.find(session[:character])
+
+    @explog = Explog.find_by(
+      user_id: @character.user_id,
+      name: 'Profession Purchase',
+      description: 'Purchased "' + @characterprofession.profession.name + '" for "' + @character.name + '"',
+      amount: profession_exp_cost(@characterprofession.profession) * -1
+    )
+    if !(@explog.nil?)
+      @explog.destroy
+    end
+    @characterprofession.destroy
+    redirect_to character_index_path
+  end
+
   private
 
   def character_params
@@ -206,6 +238,10 @@ class CharacterController < ApplicationController
 
   def addskill_params
     params.require(:characterskill).permit(:skill_id, :favoredfoe, :alignmentfocus)
+  end
+
+  def addprof_params
+    params.require(:characterprofession).permit(:profession_id)
   end
 
   def check_character_count

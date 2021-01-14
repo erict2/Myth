@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post :removeskill
     get :learnprofession
     post :learnprofession
+    post :removeprofession
   end
   
   resources :character
@@ -22,9 +23,6 @@ Rails.application.routes.draw do
     post :changecharacter
     get :changeeventcharacter
     post :changeeventcharacter
-    resources :characters do
-      resources :characterprofessions
-    end
   end
 
   namespace :admin do
