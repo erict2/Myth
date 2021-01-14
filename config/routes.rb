@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     get :changeeventcharacter
     post :changeeventcharacter
     resources :characters do
-      resources :characterskills
       resources :characterprofessions
     end
   end
