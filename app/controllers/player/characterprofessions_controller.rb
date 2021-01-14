@@ -2,52 +2,6 @@ class Player::CharacterprofessionsController < PlayerController
   before_action :check_character_user
   before_action :check_sheets_locked
 
-  def new
-    @characterprofession = Characterprofession.new
-    @character = Character.find_by(id: params[:character_id])
-    @freeprofessions = false
-    availableexp = current_user.explogs.where('acquiredate <= ? ', Time.now.end_of_day ).sum(:amount)
-    
-    @availableprofessions = []
-    @availablegroups = []
-
-    Professiongroup.where('playeravailable = true').each do |professiongroup|
-      professionlist = []
-      professiongroup.professions.where('playeravailable = true').each do |profession|
-        if ((@character.professions.where("name like 'Novice%'").count < 2) and (!profession.name.start_with?('Novice')))
-          @freeprofessions = true
-          next
-        end
-        if Professionrequirement.exists?(profession: profession.id)
-          canpurchase = true
-          Professionrequirement.where(profession: profession.id).each do |r|
-            if !@character.professions.exists?(id: r.requiredprofession_id)
-              canpurchase = false
-            end
-          end
-          if !canpurchase
-            next
-          end
-        end
-        if @character.professions.where(name: profession.name).count >= 1
-          next
-        end
-        if ((availableexp < getExpCost(profession)) and !@freeprofessions)
-          next
-        end
-
-
-        professionlist.push([profession.name, profession.id]) 
-      end
-      if (!professionlist.empty?)
-        @availableprofessions.push([professiongroup.name, professionlist])
-        @availablegroups.push(professiongroup.name)
-      end
-    end
-    respond_to do |format|
-      format.js
-    end
-  end
 
   def create
     @characterprofession = Characterprofession.new(addprof_params)

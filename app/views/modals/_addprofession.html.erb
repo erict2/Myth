@@ -1,4 +1,4 @@
-<div class="modal-body">
+<div class="modal-body" id="professionModalBody">
 <%= select_tag :professiongroup, options_for_select(@availablegroups) %>
   <%= bootstrap_form_with(id: 'profForm', model: @characterprofession, url: player_character_characterprofessions_path(character_id: @character.id)) do |f| %>
     <%= f.hidden_field :character_id, value: @character.id  %>
@@ -7,4 +7,3 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>
 </div>
- 

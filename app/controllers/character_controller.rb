@@ -1,7 +1,7 @@
 class CharacterController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_character_user, only: [:edit, :update]
-  before_action :check_sheets_locked, only: [:edit, :update]
+  before_action :check_character_user, only: [:edit, :update, :trainskill, :trainprofession]
+  before_action :check_sheets_locked, only: [:edit, :update, :trainskill, :trainprofession]
 
   def index
     @character = Character.find(session[:character])
@@ -90,6 +90,87 @@ class CharacterController < ApplicationController
     end
   end
 
+  def trainskill
+    if request.post?
+      
+    else
+      @characterskill = Characterskill.new
+
+      @character = Character.find(session[:character])
+      @favoredfoes = [ 'Beasts', 'Constructs', 'Elementals', 'Monstrous Humanoids', 'Plants', 'Undead' ] - @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details')
+      @availableskills = []
+      @availablegroups = []
+  
+      @character.characterclass.skillgroups.where('skillgroups.playeravailable = true').each do |skillgroup|
+        skilllist = []
+        
+        @character.characterclass.skills.where('skills.playeravailable = true and skills.skillgroup_id = ?', skillgroup.id).each do |skill|
+          if (can_purchase_skill(@character, skill))
+            skilllist.push([skill.name, skill.id]) 
+          end
+        end
+        if (!skilllist.empty?)
+          @availableskills.push([skillgroup.name, skilllist])
+          @availablegroups.push(skillgroup.name)
+        end
+      end
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def learnprofession
+    if request.post?
+      
+    else
+      @characterprofession = Characterprofession.new
+      @character = Character.find(session[:character])
+      @freeprofessions = false
+      availableexp = current_user.explogs.where('acquiredate <= ? ', Time.now.end_of_day ).sum(:amount)
+      
+      @availableprofessions = []
+      @availablegroups = []
+  
+      Professiongroup.where('playeravailable = true').each do |professiongroup|
+        professionlist = []
+        professiongroup.professions.where('playeravailable = true').each do |profession|
+          if ((@character.professions.where("name like 'Novice%'").count < 2) and (!profession.name.start_with?('Novice')))
+            @freeprofessions = true
+            next
+          end
+          if Professionrequirement.exists?(profession: profession.id)
+            canpurchase = true
+            Professionrequirement.where(profession: profession.id).each do |r|
+              if !@character.professions.exists?(id: r.requiredprofession_id)
+                canpurchase = false
+              end
+            end
+            if !canpurchase
+              next
+            end
+          end
+          if @character.professions.where(name: profession.name).count >= 1
+            next
+          end
+          if ((availableexp < profession_exp_cost(profession)) and !@freeprofessions)
+            next
+          end
+  
+  
+          professionlist.push([profession.name, profession.id]) 
+        end
+        if (!professionlist.empty?)
+          @availableprofessions.push([professiongroup.name, professionlist])
+          @availablegroups.push(professiongroup.name)
+        end
+      end
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
   private
 
   def character_params
@@ -118,6 +199,37 @@ class CharacterController < ApplicationController
       return true
     end
     false
+  end
+
+  def can_purchase_skill(character, skill)
+    if Skillrequirement.exists?(skill: skill.id)
+      Skillrequirement.where(skill: skill.id).each do |r|
+        if !@character.skills.exists?(id: r.requiredskill_id)
+          return false
+        end
+      end
+    end
+    if @character.skills.where(name: skill.name).count >= skill.maxpurchase
+      return false
+    elsif skill.tier > (((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10)) / 10
+      return false
+    elsif ((skill.tier == 5) and (@character.skills.where('tier = 4').count < 2))
+      return false
+    elsif ((skill.tier == 6) and ((@character.skills.where('tier = 4').count < 3) or (@character.skills.where('tier = 5').count < 2)))
+      return false
+    end
+    return true
+  end
+
+  def profession_exp_cost(profession)
+    if (profession.name.start_with?('Novice'))
+      return 100
+    elsif (profession.name.start_with?('Journeyman'))
+      return 200
+    elsif (profession.name.start_with?('Master'))
+      return 300
+    end
+
   end
 
 

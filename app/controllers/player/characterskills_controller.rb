@@ -2,32 +2,6 @@ class Player::CharacterskillsController < PlayerController
   before_action :check_character_user
   before_action :check_sheets_locked
 
-  def new
-    @characterskill = Characterskill.new
-
-    @character = Character.find_by(id: params[:character_id])
-    @favoredfoes = [ 'Beasts', 'Constructs', 'Elementals', 'Monstrous Humanoids', 'Plants', 'Undead' ] - @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details')
-    @availableskills = []
-    @availablegroups = []
-
-    @character.characterclass.skillgroups.where('skillgroups.playeravailable = true').each do |skillgroup|
-      skilllist = []
-      
-      @character.characterclass.skills.where('skills.playeravailable = true and skills.skillgroup_id = ?', skillgroup.id).each do |skill|
-        if (can_purchase(@character, skill))
-          skilllist.push([skill.name, skill.id]) 
-        end
-      end
-      if (!skilllist.empty?)
-        @availableskills.push([skillgroup.name, skilllist])
-        @availablegroups.push(skillgroup.name)
-      end
-    end
-    respond_to do |format|
-      format.js
-    end
-  end
-
   def create    
     @characterskill = Characterskill.new(addskill_params)
     @character = Character.find_by(id: params[:character_id])
@@ -81,24 +55,6 @@ class Player::CharacterskillsController < PlayerController
     false
   end
 
-  def can_purchase(character, skill)
-    if Skillrequirement.exists?(skill: skill.id)
-      Skillrequirement.where(skill: skill.id).each do |r|
-        if !@character.skills.exists?(id: r.requiredskill_id)
-          return false
-        end
-      end
-    end
-    if @character.skills.where(name: skill.name).count >= skill.maxpurchase
-      return false
-    elsif skill.tier > (((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10)) / 10
-      return false
-    elsif ((skill.tier == 5) and (@character.skills.where('tier = 4').count < 2))
-      return false
-    elsif ((skill.tier == 6) and ((@character.skills.where('tier = 4').count < 3) or (@character.skills.where('tier = 5').count < 2)))
-      return false
-    end
-    return true
-  end
+  
 
 end

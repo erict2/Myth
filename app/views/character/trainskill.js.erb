@@ -1,25 +1,24 @@
-$('#skillModalBody').html("<%= escape_javascript( render partial: 'player/modals/addskill' ) %>")
-$(document).ready(function(){
-  $('#characterSkillModal').modal('show');
-  skills = $('#characterskill_skill_id').html();
-  
-  formValidation()
-  
-  $("#characterskill_skill_id").select2({
-  width: '400',
-  height: '1000'
-  });
+$('#skillModalBody').html("<%= escape_javascript( render partial: 'modals/addskill' ) %>")
+$('#characterSkillModal').modal('show');
 
-  $('#characterskill_skill_id').change(function() {
-    formValidation()
-  });
+skills = $('#characterskill_skill_id').html();
+skillListUpdate()
+formValidation()
 
-  $('#skillgroup').change(function() {
-    skillListUpdate()
-    formValidation()
-  });
-
+$("#characterskill_skill_id").select2({
+width: '400',
+height: '1000'
 });
+
+$('#characterskill_skill_id').change(function() {
+  formValidation()
+});
+
+$('#skillgroup').change(function() {
+  skillListUpdate()
+  formValidation()
+});
+
 
 function formValidation() {
   var characterskill = $('#characterskill_skill_id option:selected').text()

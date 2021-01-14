@@ -1,5 +1,5 @@
-<div class="modal-body">
-<%= select_tag :skillgroup, options_for_select(@availablegroups) %>
+<div class="modal-body" id="skillModalBody">
+  <%= select_tag :skillgroup, options_for_select(@availablegroups) %>
   <%= bootstrap_form_with(model: @characterskill, url: player_character_characterskills_path(character_id: @character.id)) do |f| %>
     <%= f.hidden_field :character_id, value: @character.id  %>
     <%= f.select :skill_id,   grouped_options_for_select(@availableskills), hide_label: true %>

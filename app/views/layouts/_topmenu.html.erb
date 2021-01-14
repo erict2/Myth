@@ -27,7 +27,7 @@
             <% if (current_user.characters.count == 0) %>
               <%= link_to 'Create Character', new_player_character_path, :class => 'dropdown-item' %>
             <% else %>
-              <%= link_to "Change Character", "#changeCharacterModal", :class => 'dropdown-item', "data-toggle" => "modal" %>
+              <%= link_to "Change Character", "#changeCharacterModal", :class => 'dropdown-item', "data-toggle" => "modal", 'data-target' => '#changeCharacterModal' %>
             <% end %>
             <%= link_to 'EXP Log', player_explog_path, :class => 'dropdown-item' %>
             <%= link_to 'Events', player_events_path, :class => 'dropdown-item' %>

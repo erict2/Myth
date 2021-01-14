@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     get :getcharacter
     get :events
     post :levelup
+    get :availableskills
+    get :trainskill
+    post :trainskill
+    get :learnprofession
+    post :learnprofession
   end
   
   resources :character
