@@ -127,6 +127,26 @@ class CharacterController < ApplicationController
     end
   end
 
+  def removeskill
+    @characterskill = Characterskill.order('acquiredate desc, id desc').find_by(skill_id: params[:skill_id], character_id: session[:character])
+    @character = Character.find(session[:character])
+
+    if (@character.events.where('startdate < ?', Time.now).maximum(:startdate).nil?) || !(@character.events.where('startdate < ?', Time.now).maximum(:startdate) > @characterskill.acquiredate)
+      @characterskill.destroy
+    else
+      @explog = Explog.new
+      @explog.user_id = @character.user_id
+      @explog.name = 'Skill Refund'
+      @explog.acquiredate = Time.now
+      @explog.description = 'Refunded "' + @characterskill.skill.name + '" for "' + @character.name + '"'
+      @explog.amount = @characterskill.skill.tier * -25
+      @explog.grantedby_id = current_user.id
+      @explog.save!
+      @characterskill.destroy
+    end  
+    redirect_to character_index_path
+  end
+
   def learnprofession
     if request.post?
       

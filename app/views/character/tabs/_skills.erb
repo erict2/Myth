@@ -1,6 +1,3 @@
-<% if !sheetsLocked %>
-  <%= link_to 'Add Skill', new_player_character_characterskill_path(character_id: @character.id), remote: true %>
-<% end %>
 <table border = 1>
 <tr>
     <th>Name</th>
@@ -26,11 +23,11 @@
         if(canRefundSkill(@character, characterskill))
           refundprice = refundPrice(@character, characterskill)
           if (refundprice == 0)
-            link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete do 
+            link_to character_removeskill_path(skill_id: characterskill.skill_id), method: :post do 
               fa_icon "trash" 
              end
           else
-            link_to player_character_characterskill_path(character_id: @character.id, id: characterskill.skill_id), method: :delete, data: { confirm: 'Doing this will cost you ' + refundprice.to_s + ' exp. This is irreversible.' } do 
+            link_to character_removeskill_path(skill_id: characterskill.skill_id), method: :post, data: { confirm: 'Doing this will cost you ' + refundprice.to_s + ' exp. This is irreversible.' } do 
               fa_icon "trash" 
             end
           end

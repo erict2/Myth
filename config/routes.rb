@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get :availableskills
     get :trainskill
     post :trainskill
+    post :removeskill
     get :learnprofession
     post :learnprofession
   end
