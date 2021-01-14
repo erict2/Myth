@@ -92,6 +92,13 @@ class CharacterController < ApplicationController
 
   def trainskill
     if request.post?
+      @characterskill = Characterskill.new(addskill_params)
+      @character = Character.find(session[:character])
+      @characterskill.character_id = session[:character]
+      if can_purchase_skill(@character, @characterskill.skill)
+        @characterskill.save!
+      end
+      redirect_to character_index_path
       
     else
       @characterskill = Characterskill.new
@@ -175,6 +182,10 @@ class CharacterController < ApplicationController
 
   def character_params
     params.require(:character).permit(:name, :pronouns, :deity_id, :race_id, :characterclass_id, :totem)
+  end
+
+  def addskill_params
+    params.require(:characterskill).permit(:skill_id, :favoredfoe, :alignmentfocus)
   end
 
   def check_character_count
