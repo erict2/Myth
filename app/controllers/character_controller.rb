@@ -253,11 +253,13 @@ class CharacterController < ApplicationController
   end
 
   def check_character_user
-    if (current_user.id != Character.find(session[:character]).user_id and current_user.usertype != 'Admin')
-      redirect_to root_path
-      return true
+    if (session[:character])
+      if (current_user.id != Character.find(session[:character]).user_id and current_user.usertype != 'Admin')
+        redirect_to root_path
+        return true
+      end
+      false
     end
-    false
   end
 
   def check_sheets_locked

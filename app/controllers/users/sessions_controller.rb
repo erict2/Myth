@@ -10,15 +10,17 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    if current_user.last_character.nil?
-      if !current_user.characters.first.nil?
-        session[:character] = current_user.characters.first.id
-        current_user.last_character = session[:character]
-        current_user.save!
+    if user_signed_in?
+      if current_user.last_character.nil?
+        if !current_user.characters.first.nil?
+          session[:character] = current_user.characters.first.id
+          current_user.last_character = session[:character]
+          current_user.save!
+        end
+        
+      else
+        session[:character] = current_user.last_character
       end
-      
-    else
-      session[:character] = current_user.last_character
     end
     super
   end
