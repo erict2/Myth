@@ -1,6 +1,6 @@
 class CharacterController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_character_user, only: [:edit, :update, :trainskill, :trainprofession]
+  before_action :check_character_user
   before_action :check_sheets_locked, only: [:edit, :update, :trainskill, :trainprofession]
 
   def index
@@ -237,7 +237,7 @@ class CharacterController < ApplicationController
   end
 
   def addskill_params
-    params.require(:characterskill).permit(:skill_id, :favoredfoe, :alignmentfocus)
+    params.require(:characterskill).permit(:skill_id, :favoredfoe, :alignmentfocus, :acquiredate)
   end
 
   def addprof_params
@@ -253,7 +253,7 @@ class CharacterController < ApplicationController
   end
 
   def check_character_user
-    if (current_user.id != Character.find(session[:character]).user_id)
+    if (current_user.id != Character.find(session[:character]).user_id and current_user.usertype != 'Admin')
       redirect_to root_path
       return true
     end
@@ -261,7 +261,7 @@ class CharacterController < ApplicationController
   end
 
   def check_sheets_locked
-    if (helpers.sheetsLocked)
+    if (helpers.sheetsLocked and current_user.usertype != 'Admin')
       redirect_to player_characters_path
       return true
     end

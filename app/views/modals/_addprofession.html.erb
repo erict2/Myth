@@ -2,6 +2,9 @@
 <%= select_tag :professiongroup, options_for_select(@availablegroups) %>
   <%= bootstrap_form_for :characterprofession, url: character_learnprofession_path, id: 'profForm' do |f| %>
     <%= f.select :profession_id, grouped_options_for_select(@availableprofessions), hide_label: true %>
+    <%= if current_user.usertype == 'Admin' 
+      f.text_field :acquiredate, label: 'Acquire Date: (YYYY-MM-DD)'
+    end %>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>

@@ -22,7 +22,7 @@
       <%=
         if(canRefundSkill(@character, characterskill))
           refundprice = refundPrice(@character, characterskill)
-          if (refundprice == 0)
+          if (refundprice == 0 and current_user.usertype != 'Admin')
             link_to character_removeskill_path(skill_id: characterskill.skill_id), method: :post do 
               fa_icon "trash" 
              end

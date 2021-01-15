@@ -1,15 +1,25 @@
 <%= link_to 'Add Exp', new_admin_user_explog_path(user_id: @user.id), remote: true %>
-<table border = 1>
-<tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Acquire Date</th>
-    <th>Amount</th>
-    <th>Granted By</th>
-    <th></th>
-</tr>
-<% @user.explogs.each do |explog| %>
+
+<table class="table table-striped table-bordered table-sm">
+  <thead class = 'thead-dark'>
     <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Acquire Date</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Granted By</th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.explogs.each do |explog| %>
+      <% if (explog.acquiredate > Time.now) %>
+        <tr class = 'table-secondary'>
+      <% elsif (explog.amount < 0) %>
+        <tr class = 'table-danger'>
+      <% else %>
+        <tr class = 'table-success'>
+    <% end %>
       <td><%= link_to explog.name, edit_admin_user_explog_path(user_id: @user.id, id: explog.id), remote: true %></td>
       <td><%= explog.description %></td>
       <td><%= explog.acquiredate.to_date %></td>
@@ -22,7 +32,8 @@
       </td>
     </tr>
   <% end %>
-  </table>
+  </tbody>
+</table>
 
 <div class="modal fade" id="expModal" tabindex="-1" role="dialog" aria-labelledby="expModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -1,5 +1,5 @@
 <div class="position-sticky pt-2">
-  <% @character = Character.find_by(id: session[:character], user_id: current_user) %>
+  <% @character = Character.find_by(id: session[:character]) %>
 
   <div class='sideLink'>
     <%= link_to character_index_path do %>

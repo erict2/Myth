@@ -3,7 +3,7 @@ $('#characterSkillModal').modal('show');
 
 skills = $('#characterskill_skill_id').html();
 skillListUpdate()
-formValidation()
+skillListValidation()
 
 $("#characterskill_skill_id").select2({
 width: '400',
@@ -11,16 +11,16 @@ height: '1000'
 });
 
 $('#characterskill_skill_id').change(function() {
-  formValidation()
+  skillListValidation()
 });
 
 $('#skillgroup').change(function() {
   skillListUpdate()
-  formValidation()
+  skillListValidation()
 });
 
 
-function formValidation() {
+function skillListValidation() {
   var characterskill = $('#characterskill_skill_id option:selected').text()
   
   if (characterskill == 'Favored Foe') {

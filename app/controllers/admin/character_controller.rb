@@ -1,4 +1,4 @@
-class Admin::CharactersController < AdminController
+class Admin::CharacterController < AdminController
   def index
     @characters = Character.all
     @users = User.all
@@ -16,38 +16,29 @@ class Admin::CharactersController < AdminController
 
   def create
     @character = Character.new(character_params)
-    @character.user_id = params[:user_id]
 
-    if @character.save!
-      redirect_to admin_user_path(params[:user_id])
-    else
-      render 'new'
-    end
+    @character.save!
+    redirect_to admin_user_path(@character.user_id)
   end
 
   def edit
     @character = Character.find(params[:id])
 
-
- end
+  end
 
   def update
     @character = Character.find(params[:id])
 
-    if @character.update(character_params)
-      redirect_to admin_user_character_path(@character)
-    else
-      render 'edit'
-    end
+    @character.update(character_params)
+    redirect_to admin_user_character_path(@character)
+    
   end
 
-  def destroy
-    @character = Character.find(params[:id])
-    @character.destroy
-  
-    redirect_to admin_user_path(params[:user_id])
+  def loginas
+    session[:character] = params[:character_id]
+    redirect_to root_path
   end
-  
+
   private
 
   def character_params

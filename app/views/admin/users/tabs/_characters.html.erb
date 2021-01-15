@@ -1,4 +1,4 @@
-<%= link_to 'Add a Character', new_admin_user_character_path(@user) %>
+<%= link_to 'Add a Character', new_admin_character_path(:user_id => @user.id) %>
 <table border = 1>
 <tr>
     <th>Name</th>
@@ -10,7 +10,7 @@
 </tr>
 <% @user.characters.each do |character| %>
     <tr>
-      <td><%= link_to character.name, admin_user_character_path(user_id: character.user_id, id: character.id) %></td>
+      <td><%= link_to character.name, admin_character_path(id: character.id) %></td>
       <td><%= character.level %></td>
       <td><%= character.characterclass.name %></td>
       <td><%= character.race.name %></td>

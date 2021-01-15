@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "pages#index"
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   namespace :character do 
     get :getcharacter
@@ -27,19 +29,20 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :settings
+    resources :character do
+      get :loginas
+    end
+    resources :datatables
     resources :users do
       get :reset
       get :confirm
       resources :explogs
-      resources :characters do
-        resources :characterskills
-        resources :characterprofessions
-      end
     end
-    resources :datatables
+    
     resources :events do
       resources :eventattendances
     end
+    
   end
 
   resources :characterclass do

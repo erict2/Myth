@@ -1,6 +1,6 @@
 module CharactersHelper
   def canEdit(character)
-    if (!sheetsLocked()) 
+    if (!sheetsLocked() or current_user.usertype == 'Admin') 
       if (Setting.allow_global_reroll) 
         return true
       elsif (@character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count) < 1
@@ -24,7 +24,7 @@ module CharactersHelper
   end
 
   def canBuyProfession(character)
-    if (!sheetsLocked())
+    if (!sheetsLocked() or current_user.usertype == 'Admin')
       last_played_event = lastPlayedEvent(character)
       events_played = character.events.where('startdate < ? and levelingevent = ?', Time.now, true).count
       max_profession_date = character.characterprofessions.maximum('acquiredate')
@@ -62,6 +62,8 @@ module CharactersHelper
       return false
     elsif ((characterskill.skill.tier == 5) and (character.skills.where('tier = 5').count <= 2) and (character.skills.where('tier = 6').count >= 1))
       #Required as part of Tier 6 pyramid
+    elsif (current_user.usertype == 'Admin')
+      return true
     elsif (@character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count < 3)
       #Character has not yet played 3 games
       return true
@@ -91,8 +93,13 @@ module CharactersHelper
 
     character.characterprofessions.order('characterprofessions.acquiredate asc').first(2).each do |starter_prof|
       if starter_prof.profession_id == characterprofession.profession_id && character.characterprofessions.count > 2
+        # We own more than the novice professions
         return false 
       end
+    end
+
+    if  current_user.usertype == 'Admin'
+      return true
     end
 
     if last_played_event < characterprofession.acquiredate
@@ -103,7 +110,9 @@ module CharactersHelper
 
   def refundPrice(character, characterskill)
     last_played_event = lastPlayedEvent(character)
-    if (@character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count < 3)
+    if current_user.usertype == 'Admin'
+      return 0
+    elsif (@character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count < 3)
       #Character has not yet played 3 games
       return 0
     elsif last_played_event < characterskill.acquiredate

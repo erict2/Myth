@@ -1,21 +1,19 @@
-$(document).on('turbolinks:load', function() {
+classValidation()
+deityValidation()
+raceValidation()
+
+$('#character_characterclass_id').change(function() {
   classValidation()
-  deityValidation()
-  raceValidation()
-  
-
-  $('#character_characterclass_id').change(function() {
-    classValidation()
-  });
-
-  $('#character_deity_id').change(function() {
-    deityValidation()
-  });
-
-  $('#character_race_id').change(function() {
-    raceValidation()
-  });
 });
+
+$('#character_deity_id').change(function() {
+  deityValidation()
+});
+
+$('#character_race_id').change(function() {
+  raceValidation()
+});
+  
   
 function classValidation() {
   var characterclass = $('#character_characterclass_id option:selected').text()
