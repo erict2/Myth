@@ -47,10 +47,11 @@ class CharacterController < ApplicationController
   end
 
   def update
+    
     @character = Character.find(params[:id])
-    if @character.update(character_params)
-      redirect_to character_index_path
-    end
+    @character.update(character_params)
+    redirect_to root_path
+
   end
 
   def events
