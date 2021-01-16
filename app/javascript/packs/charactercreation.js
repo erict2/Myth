@@ -1,24 +1,23 @@
-classValidation()
-deityValidation()
-raceValidation()
-
-$('#character_characterclass_id').change(function() {
+document.addEventListener("turbolinks:load", function() {
   classValidation()
-});
-
-$('#character_deity_id').change(function() {
   deityValidation()
-});
-
-$('#character_race_id').change(function() {
   raceValidation()
+  $('#character_characterclass_id').change(function() {
+    classValidation()
+  });
+
+  $('#character_deity_id').change(function() {
+    deityValidation()
+  });
+
+  $('#character_race_id').change(function() {
+    raceValidation()
+  });
 });
-  
   
 function classValidation() {
   var characterclass = $('#character_characterclass_id option:selected').text()
   var classTokenFileName = '/images/classtoken/'+characterclass+'.png'
-
   if (characterclass != 'Class') {
     $.ajax({
       url: '/characterclass/' + document.getElementById('character_characterclass_id').value + '/getcharacterclass',

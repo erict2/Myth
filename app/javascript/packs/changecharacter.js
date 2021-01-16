@@ -8,7 +8,6 @@ $(document).on('turbolinks:load', function() {
 
 function characterDetails() {
   var character = document.getElementById('changecharacter_character_id').value
-
   $.ajax({
     url: '/character/getcharacter',
     type: 'GET',

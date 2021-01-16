@@ -1,37 +1,52 @@
-Name: <%= @character.name %><br>
+<div class="container col-12" id="characterprofile">
+  <div class="row">
+    <div class="col-2">
+      <img src='images/Untitled.png' class='pull-left' width= '100%'/>
+    </div>
+    <div class="col-10">
+      <div class="progress position-relative" id="levelbar" style="height: 25px;">
+        <div class="progress-bar bg-info" role="progressbar" style="width: <%= percentToLevel(@character) %>%" aria-valuenow="<%= current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) %>" aria-valuemin="0" aria-valuemax="<%= expToLevel(@character) %>">
+          <span class="justify-content-center d-flex position-absolute w-100 text-dark font-weight-bold"><%= current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) %> of <%= expToLevel(@character) %> XP to Level <%= @character.level + 1%> </span>
+        </div>
+      </div>
+      <div class="progress position-relative" id="cpbar" style="height: 25px;">
+        <div class="progress-bar bg-success" role="progressbar" style="width: <%= percentOfCP(@character) %>%" aria-valuenow="<%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %>" aria-valuemin="0" aria-valuemax="<%= (@character.level * 50) + 50 %>">
+          <span class="justify-content-center d-flex position-absolute w-100 text-dark font-weight-bold"><%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %> of <%= (@character.level * 50) + 50 %> CP </span>
+        </div>
+      </div>
+      Name: <%= @character.name %><br>
+      Pronouns: <%= @character.pronouns %><br>
+      Level: <%= @character.level %> <br>
 
-Level: <%= @character.level %> 
-<br>
 
-Pronouns: <%= @character.pronouns %><br>
+      
 
-Race: <%= @character.race.name %><br>
+      Race: <%= @character.race.name %><br>
 
-Class: <%= @character.characterclass.name %><br>
+      Class: <%= @character.characterclass.name %><br>
 
-<% if (@character.totem) %>
-  Totem: <%= @character.totem  %><br>
-<% end %>
+      <% if (@character.totem) %>
+        Totem: <%= @character.totem  %><br>
+      <% end %>
 
-Deity: <%= if(@character.deity) then @character.deity.name end %><br>
+      Deity: <%= if(@character.deity) then @character.deity.name end %><br>
 
-House: <%= if(@character.house_id) then @character.house.name end %><br>
+      House: <%= if(@character.house_id) then @character.house.name end %><br>
 
-Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
+      Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
 
-<br>
-Total CP: <%= (@character.level * 50) + 50 %><br>
+      <br>
+      <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
+        Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
+      <% end %>
+      <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus'))).count > 0  %> 
+        Alignment Focus:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus')).pluck('details').join(',') %> <br>
+      <% end %>
+    </div>
+  </div>
+  <br>
+</div>
 
-Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %><br><br>
-
-<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
-  Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
-<% end %>
-<% if (@character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus'))).count > 0  %> 
-  Alignment Focus:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus')).pluck('details').join(',') %> <br>
-<% end %>
-
-<hr>
 <ul class="nav nav-tabs" id="charTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="true">Skills</a>
@@ -49,3 +64,5 @@ Available CP: <%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier)
     <%= render partial: 'character/tabs/professions' %>
   </div>
 </div>
+
+

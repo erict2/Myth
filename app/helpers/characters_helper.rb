@@ -13,7 +13,7 @@ module CharactersHelper
     if (!sheetsLocked())
       last_played_event = lastPlayedEvent(character)
       events_played = character.events.where('startdate < ? and levelingevent = ?', Time.now, true).count
-      if (current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) > expToLevel(character))
+      if (character.current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) > expToLevel(character))
         if (last_played_event > character.levelupdate)
           return true
         elsif ((!Setting.one_level_per_game) and (events_played >= character.level))
@@ -73,7 +73,7 @@ module CharactersHelper
     elsif characterskill.skill.tier == 0
       #Skill has been used and is tier 0
       return false
-    elsif current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) < characterskill.skill.tier * 25
+    elsif character.current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) < characterskill.skill.tier * 25
       #Player can afford skill
       return true
     end
@@ -158,5 +158,17 @@ module CharactersHelper
       return 1
     end
   end
+
+  def percentToLevel(character)
+    totalXP = (character.user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount).to_f).to_f
+      return totalXP / expToLevel(character).to_f * 100.0
+  end
+
+  def percentOfCP(character)
+    totalCP = ((@character.level * 50) + 50).to_f
+    currentCP = (totalCP - (@character.skills.sum(:tier) * 10)).to_f
+
+    return currentCP / totalCP * 100.0
+end
   
 end
