@@ -166,7 +166,7 @@ module CharactersHelper
 
   def percentOfCP(character)
     totalCP = ((@character.level * 50) + 50).to_f
-    currentCP = (totalCP - (@character.skills.sum(:tier) * 10)).to_f
+    currentCP = ((@character.skills.sum(:tier) * 10)).to_f
 
     return currentCP / totalCP * 100.0
 end

@@ -1,7 +1,36 @@
 <div class="container col-12" id="characterprofile">
   <div class="row">
-    <div class="col-2">
-      <img src='images/Untitled.png' class='pull-left' width= '100%'/>
+    <div class="col-2" id='profilecard'>
+      <div id ='profilecardimage'>
+        <%= image_tag "profile/profileCardTop.png" %>
+      </div>
+      <div id = 'profilecardmiddle'>
+        <%= image_tag "profile/profileCardMiddle.png" %>
+        <div id = 'profilecardname'>
+          <svg viewBox="0 0 140 20">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+              <%= if !@character.alias.empty?
+                @character.alias
+              else
+                @character.name.partition(" ").first 
+              end %>
+            </text>
+          </svg>
+        </div>
+      </div>
+      <div id = 'profilecardmiddle'>
+        <%= image_tag "profile/profileCardBottom.png" %>
+        <div id = 'profilecarddetails'>
+          <svg viewBox="0 0 140 20">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+              <%= @character.race.name %> <%= @character.characterclass.name %>
+            </text>
+          </svg>
+        </div>
+      </div>
+    
+      
+    
     </div>
     <div class="col-10">
       <div class="progress position-relative" id="levelbar" style="height: 25px;">
@@ -11,37 +40,32 @@
       </div>
       <div class="progress position-relative" id="cpbar" style="height: 25px;">
         <div class="progress-bar bg-success" role="progressbar" style="width: <%= percentOfCP(@character) %>%" aria-valuenow="<%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %>" aria-valuemin="0" aria-valuemax="<%= (@character.level * 50) + 50 %>">
-          <span class="justify-content-center d-flex position-absolute w-100 text-dark font-weight-bold"><%= ((@character.level * 50) + 50) - (@character.skills.sum(:tier) * 10) %> of <%= (@character.level * 50) + 50 %> CP </span>
+          <span class="justify-content-center d-flex position-absolute w-100 text-dark font-weight-bold"><%= (@character.skills.sum(:tier) * 10) %> of <%= (@character.level * 50) + 50 %> CP spent</span>
         </div>
       </div>
-      Name: <%= @character.name %><br>
-      Pronouns: <%= @character.pronouns %><br>
-      Level: <%= @character.level %> <br>
+      <div id='profiledata'>
+        <center><h2 id='name'><%= @character.name %></h2><span id='pronouns' class="small text-muted">(<%= @character.pronouns %>)</span><br></center>
+        <h4> <%= @character.race.name %> <%= @character.characterclass.name %></h4>
+        <b>Level:</b> <%= @character.level %><br>
+        <% if (!@character.totem.nil? and !@character.totem.empty?) %>
+          <b>Totem:</b> <%= @character.totem  %><br>
+        <% end %>
 
-
-      
-
-      Race: <%= @character.race.name %><br>
-
-      Class: <%= @character.characterclass.name %><br>
-
-      <% if (!@character.totem.empty?) %>
-        Totem: <%= @character.totem  %><br>
-      <% end %>
-
-      Deity: <%= if(@character.deity) then @character.deity.name end %><br>
-
-      House: <%= if(@character.house_id) then @character.house.name end %><br>
-
-      Guild: <%= if(@character.guild_id) then @character.guild.name end %><br>
-
-      <br>
-      <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
-        Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
-      <% end %>
-      <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus'))).count > 0  %> 
-        Alignment Focus:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus')).pluck('details').join(',') %> <br>
-      <% end %>
+        <b>Deity:</b> <%= if(@character.deity) then @character.deity.name end %><br>
+        <% if(@character.house_id) %>
+          <b>House:</b> <%= @character.house.name %> <br>
+        <% end %>
+        <% if(@character.guild_id) %>
+          <b>Guild:</b> <%= @character.guild.name  %><br>
+        <% end %>
+        <br>
+        <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe'))).count > 0  %>
+          Favored Foe:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details').join(',') %> <br>
+        <% end %>
+        <% if (@character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus'))).count > 0  %> 
+          Alignment Focus:  <%= @character.characterskills.where(skill: Skill.find_by(name: 'Alignment Focus')).pluck('details').join(',') %> <br>
+        <% end %>
+      </div>
     </div>
   </div>
   <br>

@@ -68,11 +68,48 @@ body {
   .sideLink:hover, .sideSubLink:hover {
     background: rgba(75, 75, 75, 0.25)
   }
-
-
- 
-  
-
-
 }
 
+#characterprofile {
+  #profilecard {
+    img {
+      display: block;
+      width:100%;
+    }
+    #profilecardmiddle {
+      position: relative;
+    }
+    #profilecardname {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 100%;
+      font-weight: bold;
+      font-family: 'Copperplate Gothic Light';
+    }
+
+    #profilecardbottom {
+      position: relative;
+    }
+    #profilecarddetails {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      top: 0px;
+      width: 80%;
+      font-weight: bold;
+      font-family: 'Copperplate Gothic Light';
+    }
+  }
+  #profiledata {
+    color: black;
+    font-family: 'Copperplate Gothic Light';
+    #name {
+      display: inline-block;
+      font-weight: bold;
+    }
+    #pronouns {
+      margin-left: 10px;
+    }
+  }
+}
