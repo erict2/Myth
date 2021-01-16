@@ -113,3 +113,24 @@ body {
     }
   }
 }
+
+#profiletabbar {
+  
+  a{
+    background-color: #6c757d;
+    color: black;
+    font-weight: bold;
+    font-family: 'Copperplate Gothic Light';
+    font-size: 16px;
+    border: 0px;
+  }
+  a.active{
+    background-color:#343a40!important;
+    border: 1px!important;
+    color: white;
+  }
+  .nav-tabs {
+    border-bottom: 1px solid#343a40
+  }
+
+}
