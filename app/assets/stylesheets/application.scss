@@ -3,23 +3,21 @@
 @import 'font-awesome';
 @import 'select2/dist/css/select2';
 
-html, body, .container, .row, .tabbable{height:100%}
-
 body { 
   background-image: url(woodbackground.jpg);
+  height: 100vh;
 }
 
 #pageContent {
+  color: grey;
   padding-left: 3%;
   padding-right: 3%;
   padding-bottom: 3%;
-  height: 90%;
-  
 }
 
 #mainContent {
   background-image: url(parchmentbackground.jpg);
-  
+  height: 85vh;
 }
 
 #sidebarMenu {
@@ -27,6 +25,7 @@ body {
   padding-top: 3%;
   border-top-left-radius: 30px;
   width: 100px;
+  height: 85vh;
 
   .sideLink {
     padding: 0px;
