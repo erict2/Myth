@@ -1,5 +1,4 @@
-$(document).on('turbolinks:load', function() {
-  
+$(document ).ready(function() {
   characterDetails()
   $('#changecharacter_character_id').change(function() {
     characterDetails()
