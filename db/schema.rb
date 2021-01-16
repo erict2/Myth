@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_12_014225) do
+ActiveRecord::Schema.define(version: 2021_01_15_014225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_01_12_014225) do
     t.bigint "guild_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "alias"
     t.index ["characterclass_id"], name: "index_characters_on_characterclass_id"
     t.index ["deity_id"], name: "index_characters_on_deity_id"
     t.index ["guild_id"], name: "index_characters_on_guild_id"

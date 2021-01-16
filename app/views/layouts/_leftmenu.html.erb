@@ -5,7 +5,14 @@
     <%= link_to character_index_path do %>
       <div>
         <%= image_tag("leftmenu/profile.png") %>
-        <span id='name'><%= @character.name.partition(" ").first %></span>
+        <span id='name'><%= 
+          if !@character.alias.nil?
+            @character.alias
+          else
+            @character.name.partition(" ").first 
+          end
+        
+        %></span>
       </div>
     <% end %>
   </div>
