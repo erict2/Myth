@@ -8,4 +8,5 @@ module PagesHelper
       return true
     end
   end
+  
 end

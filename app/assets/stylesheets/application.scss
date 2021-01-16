@@ -8,6 +8,16 @@ body {
   height: 100vh;
 }
 
+
+#gamedate {
+  color: black;
+  font-family: 'Copperplate Gothic Light';
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+
 #pageContent {
   color: grey;
   padding-left: 3%;
@@ -22,7 +32,6 @@ body {
 
 #sidebarMenu {
   background-image: url(parchmentbackground.jpg);
-  padding-top: 3%;
   border-top-left-radius: 30px;
   width: 100px;
   height: 85vh;

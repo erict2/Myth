@@ -19,6 +19,11 @@
       <div class="row">
         <% if session[:character] %>
           <nav class="col-2", id='sidebarMenu'>
+
+            <div id = 'gamedate'>
+              <%= Time.now.day %> day in <%= getGameMonth(Time.now.month) %><br>
+              Year <%= Time.now.year - 1300 %>
+            </div>
             <%= render 'layouts/leftmenu' %>
           </nav>
           <main class="col-10", id='mainContent'>
