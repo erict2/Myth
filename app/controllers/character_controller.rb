@@ -99,7 +99,7 @@ class CharacterController < ApplicationController
       if can_purchase_skill(@character, @characterskill.skill)
         @characterskill.save!
       end
-      redirect_to character_index_path
+      redirect_to character_index_path(:anchor => 'skills')
       
     else
       @characterskill = Characterskill.new
@@ -178,8 +178,10 @@ class CharacterController < ApplicationController
       Professiongroup.where('playeravailable = true').each do |professiongroup|
         professionlist = []
         professiongroup.professions.where('playeravailable = true').each do |profession|
-          if ((@character.professions.where("name like 'Novice%'").count < 2) and (!profession.name.start_with?('Novice')))
+          if (@character.professions.where("name like 'Novice%'").count < 2)
             @freeprofessions = true
+          end
+          if (@freeprofessions and (!profession.name.start_with?('Novice')))
             next
           end
           if Professionrequirement.exists?(profession: profession.id)
@@ -199,8 +201,6 @@ class CharacterController < ApplicationController
           if ((availableexp < profession_exp_cost(profession)) and !@freeprofessions)
             next
           end
-  
-  
           professionlist.push([profession.name, profession.id]) 
         end
         if (!professionlist.empty?)

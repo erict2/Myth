@@ -13,7 +13,7 @@ module CharactersHelper
     if (!sheetsLocked())
       last_played_event = lastPlayedEvent(character)
       events_played = character.events.where('startdate < ? and levelingevent = ?', Time.now, true).count
-      if (character.current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) > expToLevel(character))
+      if (character.user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) > expToLevel(character))
         if (last_played_event > character.levelupdate)
           return true
         elsif ((!Setting.one_level_per_game) and (events_played >= character.level))
@@ -73,7 +73,7 @@ module CharactersHelper
     elsif characterskill.skill.tier == 0
       #Skill has been used and is tier 0
       return false
-    elsif character.current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) < characterskill.skill.tier * 25
+    elsif character.user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) < characterskill.skill.tier * 25
       #Player can afford skill
       return true
     end
