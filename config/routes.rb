@@ -54,4 +54,10 @@ Rails.application.routes.draw do
   resources :race do
     get :getrace
   end
+  resources :skill do
+    get :getskill
+  end
+  resources :profession do
+    get :getprofession
+  end
 end

@@ -11,6 +11,46 @@
     <%= if current_user.usertype == 'Admin' 
       f.text_field :acquiredate, label: 'Acquire Date: (YYYY-MM-DD)'
     end %>
+    <hr>
+    <div id='addskillmodalskilldetails'>
+      <div class="row">
+        <div class="col-8" id='skillnamecell'>
+          <span id='modalskillname'>Skill Name</span>
+        </div>
+        <div class="col-4" id='skilltiercell'>
+          <span id='modalskilltier'>Skill Tier</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <span id='modalskillresttype'>Test Type</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          
+          
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div id='modalskilldelivery'>Delivery</div>
+          <div id='modalskilltarget'>Target</div>
+          <div id='modalskillprop'>Prop</div>
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-12">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <span id='modalskilldescription'>Description</span>
+        </div>
+      </div>
+    </div>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>

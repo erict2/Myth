@@ -5,7 +5,7 @@
 
 body { 
   background-image: url(woodbackground.jpg);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 
@@ -27,14 +27,14 @@ body {
 
 #mainContent {
   background-image: url(parchmentbackground.jpg);
-  height: 85vh;
+  min-height: 85vh;
 }
 
 #sidebarMenu {
   background-image: url(parchmentbackground.jpg);
   border-top-left-radius: 30px;
   width: 100px;
-  height: 85vh;
+  min-height: 85vh;
 
   .sideLink {
     padding: 0px;
@@ -122,6 +122,22 @@ body {
     }
   }
 }
+
+#addskillmodalskilldetails {
+  color: black;
+  font-family: 'Copperplate Gothic Light';
+  font-size: 12px;
+  #skillnamecell {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  #skilltiercell {
+    font-size: 10px;
+    text-align: right;
+  }
+}
+
+
 
 #profiletabbar {
   a{

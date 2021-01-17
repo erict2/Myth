@@ -40,14 +40,51 @@ function skillListValidation() {
     $('#alignmentfocus').hide()
   }
 
+  $.ajax({
+      url: '/skill/' + document.getElementById('characterskill_skill_id').value + '/getskill',
+      type: 'GET',
+      dataType: 'json',
+      success: function(data){
+        $('#modalskillname').html(data.all_data.skill.name)
+        $('#modalskilltier').html('Tier ' + data.all_data.skill.tier)
+        $('#modalskillresttype').html(data.all_data.resttype.name)
+        $('#modalskilldescription').html('<b>Description:</b> ' + data.all_data.skill.description)
+
+        if (data.all_data.skilldelivery == null) {
+          document.getElementById('modalskilltarget').style.display  = 'none';
+          $('#modalskilltarget').html('')
+        } else {
+          $('#modalskilltarget').html('<b>Delivery:</b> ' + data.all_data.skilldelivery.name)
+          document.getElementById('modalskilltarget').style.display  = 'block';
+        }
+
+        if (data.all_data.skill.target == null) {
+          document.getElementById('modalskilltarget').style.display  = 'none';
+          $('#modalskilltarget').html('')
+        } else {
+          $('#modalskilltarget').html('<b>Target:</b> ' + data.all_data.skill.target)
+          document.getElementById('modalskilltarget').style.display  = 'block';
+        }
+
+        if (data.all_data.skill.prop == null) {
+          document.getElementById('modalskillprop').style.display  = 'none';
+          $('#modalskillprop').html('')
+        } else {
+          $('#modalskillprop').html('<b>Prop:</b> ' + data.all_data.skill.prop)
+          document.getElementById('modalskillprop').style.display  = 'block';
+        }
+
+
+      }
+    })
 }
 
 function skillListUpdate() {
-skillgroup = $('#skillgroup :selected').text();
-options = $(skills).filter(`optgroup[label='${skillgroup}']`).html();
-if (options) {
-  $('#characterskill_skill_id').html(options);
-} else {
-  $('#characterskill_skill_id').empty();
-}
+  skillgroup = $('#skillgroup :selected').text();
+  options = $(skills).filter(`optgroup[label='${skillgroup}']`).html();
+  if (options) {
+    $('#characterskill_skill_id').html(options);
+  } else {
+    $('#characterskill_skill_id').empty();
+  }
 }
