@@ -16,18 +16,27 @@ class ApplicationController < ActionController::Base
     end
 
     def check_character_session
-      if user_signed_in?
-        if session[:character].nil?
-          if current_user.last_character.nil?
-            if !current_user.characters.first.nil?
-              session[:character] = current_user.characters.first.id
-              current_user.last_character = session[:character]
-              current_user.save!
-            end
-          else
-            session[:character] = current_user.last_character
-          end
-        end
+      if !user_signed_in?
+        puts('test1')
+        session.delete(:character)
+      elsif session[:character].nil? and !current_user.last_character.nil?
+        puts('test2')
+        session[:character] = current_user.last_character
+      elsif session[:character].nil? and !current_user.characters.first.nil?
+        puts('test3')
+        session[:character] = current_user.characters.first.id
+        current_user.last_character = session[:character]
+        current_user.save!
       end
+
+      if session[:character] and Character.find(session[:character]).nil?
+        puts('t1')
+        session.delete(:character)
+      elsif session[:character] and (current_user.id != Character.find(session[:character]).user_id and current_user.usertype != 'Admin')
+        puts('t2')
+          session.delete(:character)
+      end
+      
+      @character = Character.find_by(id: session[:character])
     end
 end

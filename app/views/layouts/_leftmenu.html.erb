@@ -6,10 +6,10 @@
       <div>
         <%= image_tag("leftmenu/profile.png") %>
         <span id='name'>
-          <%= if !@character.alias.empty?
-              @character.alias
-            else
-              @character.name.partition(" ").first 
+          <%= if @character.alias.present?
+                  @character.alias
+              else
+                @character.name.partition(" ").first 
             end %>
         </span>
       </div>
