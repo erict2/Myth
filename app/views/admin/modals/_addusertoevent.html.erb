@@ -1,5 +1,5 @@
 <div class="modal-body">
-  <%= bootstrap_form_with(model: @eventattendance, url: pathurl) do |f| %>
+  <%= bootstrap_form_with(model: @eventattendance, url: pathurl, local: true) do |f| %>
     <%= f.hidden_field :event_id, value: @event.id  %>
     <%= f.collection_select :user_id, @users, :id, :email, hide_label: true %>
     <%= f.select :registrationtype, ['Player', 'Cast', 'Staff'], hide_label: true  %>

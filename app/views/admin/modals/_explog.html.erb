@@ -1,5 +1,5 @@
 <div class="modal-body">
-  <%= bootstrap_form_with(model: @explog, url: pathurl) do |f| %>
+  <%= bootstrap_form_with(model: @explog, url: pathurl, local: true) do |f| %>
     <%= f.select :name, [
       'Adjustment', 'Donation', 'Event', 'Feedback Letter', 'Level Up', 'Profession Purchase', 
       'Referral', 'Season Pass', 'Skill Refund',  'Go Big Bonus', 'Setup/Take Down', 'Volunteer' 
