@@ -9,4 +9,18 @@ module PagesHelper
     end
   end
   
+  def checkActiveTab(type, tabName)
+    if params[:tab].nil?
+      requestedTab = 'skills'
+    else
+      requestedTab = params[:tab]
+    end
+    if (tabName == requestedTab and type == 'link')
+      return 'active'
+    end
+    if (tabName == requestedTab and type == 'content')
+      return 'show active'
+    end
+  end
+
 end

@@ -99,7 +99,7 @@ class CharacterController < ApplicationController
       if can_purchase_skill(@character, @characterskill.skill)
         @characterskill.save!
       end
-      redirect_to character_index_path(:anchor => 'skills')
+      redirect_to character_index_path({tab: 'skills'})
       
     else
       @characterskill = Characterskill.new
@@ -145,7 +145,7 @@ class CharacterController < ApplicationController
       @explog.save!
       @characterskill.destroy
     end  
-    redirect_to character_index_path
+    redirect_to character_index_path({tab: 'skills'})
   end
 
   def learnprofession
@@ -164,7 +164,7 @@ class CharacterController < ApplicationController
           @explog.grantedby_id = current_user.id
           @explog.save!
         end
-        redirect_to character_index_path(:anchor => 'professions')
+        redirect_to character_index_path({tab: 'professions'})
       end
     else
       @characterprofession = Characterprofession.new
@@ -228,7 +228,7 @@ class CharacterController < ApplicationController
       @explog.destroy
     end
     @characterprofession.destroy
-    redirect_to character_index_path
+    redirect_to character_index_path({tab: 'professions'})
   end
 
   private
