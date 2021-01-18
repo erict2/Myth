@@ -17,7 +17,7 @@ $(document ).ready(function() {
   
 function classValidation() {
   var characterclass = $('#character_characterclass_id option:selected').text()
-  var classTokenFileName = '/images/classtoken/'+characterclass+'.png'
+  var classTokenFileName = '/images/classtoken/' + characterclass.downcase + '.png'
   if (characterclass != 'Class') {
     $.ajax({
       url: '/characterclass/' + document.getElementById('character_characterclass_id').value + '/getcharacterclass',
@@ -55,7 +55,7 @@ function classValidation() {
 
 function deityValidation() {
   var deity = $('#character_deity_id option:selected').text()
-  var deityTokenFileName = '/images/deitytoken/'+deity+'.gif'
+  var deityTokenFileName = '/images/deitytoken/' + deity.downcase + '.gif'
 
   if (document.getElementById("character_deity_id").selectedIndex > 0) {
     $.ajax({
