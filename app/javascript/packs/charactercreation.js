@@ -4,6 +4,7 @@ $(document ).ready(function() {
   raceValidation()
   $('#character_characterclass_id').change(function() {
     classValidation()
+    deityValidation()
   });
 
   $('#character_deity_id').change(function() {
@@ -16,8 +17,9 @@ $(document ).ready(function() {
 });
   
 function classValidation() {
+  var firstdeityoption = $('#character_deity_id').find("option:first-child").text()
   var characterclass = $('#character_characterclass_id option:selected').text()
-  var classTokenFileName = '/images/classtoken/'+characterclass+'.png'
+  var classTokenFileName = '/images/classtoken/' + characterclass.toLowerCase() + '.png'
   if (characterclass != 'Class') {
     $.ajax({
       url: '/characterclass/' + document.getElementById('character_characterclass_id').value + '/getcharacterclass',
@@ -47,17 +49,23 @@ function classValidation() {
 
   if (characterclass == 'Cleric' || characterclass == 'Paladin') {
     $("#character_deity_id").prop('required',true);
+    if (firstdeityoption == 'Deity') {
+      $('#character_deity_id').find("option:first-child").remove();
+    }
   }  else {
     $("#character_deity_id").prop('required',false);
+    if (firstdeityoption != 'Deity') {
+      $("#character_deity_id").prepend("<option value='' selected='Deity'>Deity</option>");
+    }
+    
   }
   
 }
 
 function deityValidation() {
   var deity = $('#character_deity_id option:selected').text()
-  var deityTokenFileName = '/images/deitytoken/'+deity+'.gif'
-
-  if (document.getElementById("character_deity_id").selectedIndex > 0) {
+  var deityTokenFileName = '/images/deitytoken/' + deity.toLowerCase() + '.gif'
+  if (deity != 'Deity') {
     $.ajax({
       url: '/deity/' + document.getElementById('character_deity_id').value + '/getdeity',
       type: 'GET',

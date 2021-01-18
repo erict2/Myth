@@ -63,7 +63,7 @@ class CharacterController < ApplicationController
     @character = Character.find(session[:character])
     @exptolevel = helpers.expToLevel(@character)
     
-    if (current_user.explogs.where('acquiredate <= ? ', Time.now.end_of_day ).sum(:amount) > @exptolevel)
+    if (helpers.canLevel(@character))
       @character.level = @character.level + 1
       @character.levelupdate = Time.now
 

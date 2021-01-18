@@ -13,7 +13,7 @@ module CharactersHelper
     if (!sheetsLocked())
       last_played_event = lastPlayedEvent(character)
       events_played = character.events.where('startdate < ? and levelingevent = ?', Time.now, true).count
-      if (character.user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) > expToLevel(character))
+      if (character.user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) >= expToLevel(character))
         if (last_played_event > character.levelupdate)
           return true
         elsif ((!Setting.one_level_per_game) and (events_played >= character.level))
