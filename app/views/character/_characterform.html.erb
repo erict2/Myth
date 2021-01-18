@@ -33,7 +33,7 @@
   </div>
   <div class="row characterCreateForm", id='deityRow'>
     <div class="col-2 my-2 align-self-center ">
-      <%= f.collection_select :deity_id, @deity, :id, :name, {prompt: 'Deity', hide_label: true }  %>
+      <%= f.collection_select :deity_id, @deity, :id, :name, {hide_label: true }  %>
     </div>
     <div class="col-10 align-self-center",  id='DeityDescDiv'>
       <img class='pull-left' id= 'deitytoken' height= '100' width= '100'/>
