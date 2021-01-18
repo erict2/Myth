@@ -152,7 +152,7 @@ module CharactersHelper
   def profsPerEvent(character)
     if character.skills.exists?(name: "Artisan's Devotion")
       return 2
-    elsif character.skills.exists?(name: "Channel Divinity") and character.deity.name = 'Ixbus'
+    elsif character.skills.exists?(name: "Channel Divinity") and character.deity.name == 'Ixbus'
       return 2
     else
       return 1
