@@ -7,9 +7,9 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  <%= f.text_field :firstname, autocomplete: "given-name", label: 'First Name' %>
-  <%= f.text_field :lastname, autocomplete: "family-name", label: 'Last Name' %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+  <%= f.text_field :firstname, autocomplete: "given-name", label: 'First Name', required: true %>
+  <%= f.text_field :lastname, autocomplete: "family-name", label: 'Last Name', required: true %>
 
   <%= f.password_field :current_password, autocomplete: "current-password", label: 'Current Password' %>
   <p class = 'text-info'><i>We need your current password to confirm your changes</i> </p>
