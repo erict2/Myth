@@ -128,56 +128,6 @@ deity.playeravailable = true
 deity.shortdescription = 'Every festival, every work of art, and every song is a supplication to Scandelen. They dissolve rivalries between the other deities, by merely telling jokes or playing pranks upon them: their faithful follow this example. Revelry is their universal bond, and when it comes to appreciating life at the moment, their followers not only practice this but encourage others to do so as well, finding beauty and joy in all things.'
 deity.save!
 
-puts 'Starting Races'
-race = Race.find_or_initialize_by(name: 'Dale Elf')
-race.playeravailable = true
-race.shortdescription = 'The Dale Elves (Dale\'el) are elves who had become tired of High Elven society\'s pomp and circumstance. Their division began with a scholarly expedition into the untouched wilds of the Pale Lands. It was there they met the Wildren with whom they cultivated a connection with the forest after decades of devotion and study. The Dale\'el have become passionate defenders of the wild, seeking enlightenment through nature\'s balance.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Dwarf')
-race.playeravailable = true
-race.shortdescription = 'Dwarves are spirited people from the mountain kingdoms. With a strong will and thick skin, Dwarves believe all are worthy of respect - until it has been lost. They currently struggle with the Goblins, whom many clan elders claim are traitors and blood sworn enemies. But much of the history has been lost, and many young Dwarves have begun to move past these lingering fears.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Goblin')
-race.playeravailable = true
-race.shortdescription = 'Goblins are a new race to the realm and a tragic one at that. Forged to be creatures of war by a group of malicious sorcerers, they were slaves without homes, used as soldiers and slave labor. Despite being born of pure hate, Goblins eventually became impassioned and revolted against The Masters.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Half Elf')
-race.playeravailable = true
-race.shortdescription = 'While Half-Elves will always have the ears that reflect their Elven heritage, they are children torn by two worlds who belong to neither. How they are accepted and raised is entirely dependent on their family and Elven heritage. Sometimes embittered or cynical, Half-Elves are often willing to take risks others wouldn\'t in bids of heroism or redemption. They sometimes have an explicit disregard for their safety. Some say if a Half-Elf isn\'t in trouble, they\'re not having fun.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'High Elf')
-race.playeravailable = true
-race.shortdescription = 'High Elves (Eldar\'el) are the oldest of the Elven clans and often consider themselves the role models of Hyraeth. Most live in the sprawling city of Madrona, though many will travel for various studies. Bound by the strict, ancient laws of the Council, High Elves must balance their thirst for knowledge with the desire to impress and flourish in society. Once they were obsessed with the Fey, now history, science, magic, language and culture, art, music, dancing, poetry, and storytelling are just a few of the pursuits that define their lifestyle and make their people famous.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Human')
-race.playeravailable = true
-race.shortdescription = 'Humans are one of the most versatile of the races in Hyraeth and by far the most ambitious. They are unpredictable at best and have varying customs, morals, and prefereces based on where they have chosen to settle.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Suhk')
-race.playeravailable = true
-race.shortdescription = 'Whether they are trading wares in a market or wandering Hyraeth, the nomadic, cat-like Sukh are proud traders who appreciate the sun on their backs and the sand between their toes. Sukh balance their fierce loyalty with their sometimes troublesome curiosity, with a tendency to test the waters to see what will happen. Their people run the elaborate trading routes which circle the continent of Wayland and bring goods to all its people.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Deep Elf')
-race.playeravailable = true
-race.shortdescription = 'The Deep Elves (Dep\'el) live in vast underground cities built in the underworld\'s tunnels and caves. They are renegades of polite Elven society having fled their brethren long ago. The Dep\'el are often referred to as Dark Elves as they shun daylight. This aversion to the sun is said to be their curse.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Wildren')
-race.playeravailable = true
-race.shortdescription = 'With antlers or horns, goat-like legs, and sometimes even a deer tail, Wildren are descendants of fey-creatures that left the faery realm long ago. They spend most of their time in the forest, dwelling in hidden familial tribes. Their priority is the protection and well-being of the forest, and so long as they feel other races treat the Wilds with respect, they give them kindness in turn. Legend has it that when a Wildren gives its first cry, the first spring leaves of a tree reach the sun.'
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Tengu')
-race.playeravailable = false
-race.save!
-
 puts 'Starting Rest Types'
 resttype = Resttype.find_or_initialize_by(name: 'Permanent')
 resttype.description = 'Skill may be used as often as you can fulfill the requirements for use or is always active.'
@@ -1361,8 +1311,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane, <Pin, Snare, or Bind>'
-skill.description = '"Through Arcane, <Pin, Snare, or Bind>"'
+skill.incant = 'Through Arcane, < Pin, Snare, or Bind >'
+skill.description = '"Through Arcane, < Pin, Snare, or Bind >"'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Empower')
@@ -3544,7 +3494,7 @@ skill.incant = nil
 skill.description = 'Deep Woods Only. "Resist" to Pin, Snare, and Slow.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Poison Shield', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill = Skill.find_or_initialize_by(name: 'Pestilence', skillgroup: Skillgroup.find_by(name: 'Druid'))
 skill.tier = 6
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
