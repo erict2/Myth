@@ -1,4 +1,5 @@
-<table border = 1>
+<table class="table table-hover table-bordered table-sm">
+<thead class="thead-dark">
 <tr>
     <th>Name</th>
     <th>Tier</th>
@@ -8,8 +9,9 @@
     <th>Description</th>
     <th>Player Available</th>
 </tr>
+</thead>
 <% @skill.all.each do |datarow| %>
-<tr>
+<tr class="table-light">
     <td><%= datarow.name %></td>
     <td><%= datarow.tier %></td>
     <td><%= datarow.skillgroup.name %></td>

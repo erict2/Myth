@@ -1,10 +1,12 @@
-<table border = 1>
+<table class="table table-hover table-bordered table-sm">
+<thead class="thead-dark">
 <tr>
     <th>Name</th>
     <th>Player Available</th>
 </tr>
+</thead>
 <% datatable.all.each do |datarow| %>
-<tr>
+<tr class="table-light">
     <td><%= datarow.name %></td>
     <td><%= datarow.playeravailable %></td>
 </tr>

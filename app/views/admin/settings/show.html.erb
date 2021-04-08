@@ -34,7 +34,7 @@
     <div class="col-sm">
       <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Game Reset</h5>
+    <h5 class="card-title text-danger">Game Reset</h5>
     <p class="card-text">This section opens the gates for everyone to recreate their characters</p>
     <%= f.check_box :allow_global_reroll, checked: Setting.allow_global_reroll?, label: 'Allow anybody to edit their character name/class/race' %>
     <%= f.check_box :one_level_per_game, checked: Setting.one_level_per_game?, label: 'Only allow one level/profession after each leveling game' %>
