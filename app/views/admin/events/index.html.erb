@@ -1,8 +1,13 @@
-<%= link_to 'Register New Event', new_admin_event_path, remote: true %>
+<div class="container col-11">
+<div class="pagetitle">Event List</div>
+<div class="pagesubtitle" >A List of All Events -- Past, Present, & Future</div>
+
+<%= link_to 'Register New Event', new_admin_event_path, remote: true, class: "btn btn-success" %>
 
 <hr>
-<table border = 1>
-<tr>
+<table class="table table-hover table-bordered table-sm">
+ <thead class="thead-dark">
+ <tr>
   <th>Name</th>
   <th>Type</th>
   <th>Start Date</th>
@@ -12,8 +17,10 @@
   <th>Cast Count</th>
   <th></th>
 </tr>
+</thead>
 <% @events.all.each do |event| %>
-<tr>
+<tr >
+<tr class="table-light">
   <td><%= link_to event.name, admin_event_path(event) %></td>
   <td><%= event.eventtype %></td>
   <td><%= event.startdate %></td>
