@@ -2,13 +2,17 @@
 <div class="pagetitle">User List</div>
 <div class="pagesubtitle" >A List of all Players and NPCs</div>
 
+<p><strong>Total Members:</strong> <%= @users.all.count %></p>
+<p><strong>Total Players:</strong> <%= @users.group(:usertype).count %></p>
+<p><strong>Total Players:</strong> <%= @users.all.count %></p>
+
 <table class="table table-hover table-bordered table-sm">
  <thead class="thead-dark">
  <tr>
     <th>Name</th>
     <th>Email Address</th>
     <th>Type</th>
-    <th></th>
+    <th class ="text-center">Edit</th>
 </tr>
   </thead>
 
@@ -19,8 +23,8 @@
     <td>
     <%= link_to user.lastname + ', ' + user.firstname, admin_user_path(user) %></td>
     <td><%= user.email %></td>
-    <td><%= user.usertype %></td>
-    <td>
+    <td>Edit</td>
+    <td class ="text-center"> 
         <%= link_to edit_admin_user_path(user), remote: true do 
             fa_icon "edit"
         end
