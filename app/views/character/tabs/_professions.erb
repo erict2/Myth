@@ -9,8 +9,8 @@
   </thead>
   <tbody>
     <% @character.characterprofessions.each do |characterprofession| %>
-      <tr>
-        <td><%= characterprofession.profession.name %></td>
+      <tr class="table-light">
+        <td ><%= characterprofession.profession.name %></td>
         <td><%= characterprofession.profession.rank %></td>
         <td><%= characterprofession.profession.description %></td>
         <td>
