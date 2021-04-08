@@ -3,8 +3,8 @@
 <div class="pagesubtitle" >A List of all Players and NPCs</div>
 
 <p><strong>Total Members:</strong> <%= @users.all.count %></p>
-<p><strong>Total Players:</strong> <%= @users.group(:usertype).count %></p>
-<p><strong>Total Players:</strong> <%= @users.all.count %></p>
+<p><strong>Member Breakdown:</strong> <%= @users.group(:usertype).count %></p>
+
 
 <table class="table table-hover table-bordered table-sm">
  <thead class="thead-dark">
