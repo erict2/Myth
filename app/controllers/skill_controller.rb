@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SkillController < ApplicationController
   before_action :authenticate_user!
 
@@ -7,7 +9,7 @@ class SkillController < ApplicationController
     @skilldelivery = @skill.skilldelivery
 
     respond_to do |format|
-      format.json { render json: {all_data: {skill: @skill, resttype: @resttype, skilldelivery: @skilldelivery}}}
+      format.json { render json: { all_data: { skill: @skill, resttype: @resttype, skilldelivery: @skilldelivery } } }
     end
   end
 end

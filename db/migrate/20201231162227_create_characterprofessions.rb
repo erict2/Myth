@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCharacterprofessions < ActiveRecord::Migration[6.0]
   def change
     create_table :characterprofessions do |t|

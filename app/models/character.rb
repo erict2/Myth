@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Character < ApplicationRecord
   has_many :characterskills
   has_many :skills, through: :characterskills
   has_many :characterprofessions
   has_many :professions, through: :characterprofessions
   has_many :professiongroups, through: :professions
-  
+
   belongs_to :user
   has_many :eventattendances
   has_many :events, through: :eventattendances
@@ -18,15 +20,13 @@ class Character < ApplicationRecord
   after_update :check_class
 
   def check_class
-    if (saved_change_to_characterclass_id?)
-      self.characterskills.each do |charskill|
-        if charskill.skill.tier >= 4
-          charskill.destroy
-        end
+    if saved_change_to_characterclass_id?
+      characterskills.each do |charskill|
+        charskill.destroy if charskill.skill.tier >= 4
       end
-      if (self.characterclass.name != 'Druid')
+      if characterclass.name != 'Druid'
         self.totem = nil
-        self.save!
+        save!
       end
     end
   end
