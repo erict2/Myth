@@ -1,23 +1,17 @@
-<div class="pagetitle">Event List</div>
-<div class="pagesubtitle" >A list of all events -- past, present and future</div>
-
-<%= link_to 'Register New Event', new_admin_event_path, remote: true, class:"btn btn-success" %>
+<%= link_to 'Register New Event', new_admin_event_path, remote: true %>
 
 <hr>
-<table class="table table-bordered table-sm table-hover mt-2">
-<thead class="thead-dark">
+<table border = 1>
 <tr>
   <th>Name</th>
   <th>Type</th>
   <th>Start Date</th>
   <th>End Date</th>
-  <th>Players</th>
-  <th>Staff</th>
-  <th>NPCs</th>
-  <th>Edit</th>
+  <th>Player Count</th>
+  <th>Staff Count</th>
+  <th>Cast Count</th>
+  <th></th>
 </tr>
-</thead>
-
 <% @events.all.each do |event| %>
 <tr>
   <td><%= link_to event.name, admin_event_path(event) %></td>
