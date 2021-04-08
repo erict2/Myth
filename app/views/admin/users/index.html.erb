@@ -1,11 +1,13 @@
+<div class="pagetitle">User List</div>
+<div class="pagesubtitle" >A List of Our Players and NPCs</div>
 
-<h1>User List</h1>
-<table border = 1>
+<table class="table table-bordered table-sm table-hover mt-2">
+<thead class="thead-dark">
 <tr>
     <th>Name</th>
     <th>Email Address</th>
     <th>Type</th>
-    <th></th>
+    <th>Edit</th>
 </tr>
 <% @users.all.each do |user| %>
 <tr>
