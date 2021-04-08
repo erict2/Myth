@@ -1,0 +1,43 @@
+.navbar {
+  background-color: black !important;
+}
+
+.nav-link {
+  color: black !important;
+  font-size: 1.25em;
+}
+
+.nav-link2 {
+  color: white !important;
+  font-size: 1.25em;
+}
+
+.nav-highlight {
+  color: yellow !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  background: radial-gradient(circle, #ffffff 0%, #ff9900 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: animatedGradient 2s infinite ease;
+  animation-direction: alternate;
+
+}
+
+@keyframes animatedGradient {
+  from {
+    background-size: 100%;
+  }
+
+  to {
+    background-size: 250%;
+  }
+}

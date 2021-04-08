@@ -1,14 +1,19 @@
+<div class="container col-11">
+<div class="pagetitle">User List</div>
+<div class="pagesubtitle" >A List of all Players and NPCs</div>
 
-<h1>User List</h1>
-<table border = 1>
-<tr>
+<table class="table table-hover table-bordered table-sm">
+ <thead class="thead-dark">
+ <tr>
     <th>Name</th>
     <th>Email Address</th>
     <th>Type</th>
     <th></th>
 </tr>
+  </thead>
+
 <% @users.all.each do |user| %>
-<tr>
+<tr class="table-light">
     <td>
     <%= link_to user.firstname + ' ' + user.lastname, admin_user_path(user) %></td>
     <td><%= user.email %></td>
@@ -39,4 +44,4 @@
   </div>
 </div>
 
-  
+  </div>
