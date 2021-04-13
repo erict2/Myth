@@ -28,6 +28,19 @@ unless User.where(email: 'eric@ctfaire.com').exists?
   user.save!
 end
 
+unless User.where(email: 'rachelp@rachel.com').exists?
+  user = User.new(
+    firstname: 'Rachel',
+    lastname: 'Prue',
+    usertype: 'Player',
+    email: 'rachelp@rachel.com',
+    password: '123456',
+    password_confirmation: '123456'
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
 puts 'Starting Character Classes'
 characterclass = Characterclass.find_or_initialize_by(name: 'Alchemist')
 characterclass.playeravailable = true
