@@ -11,7 +11,6 @@
  <thead class="thead-dark">
 <tr>
   <th>User Name</th>
-
   <th>Type</th>
   <th>Reg Date</th>
   <th>Cabin</th>
@@ -21,12 +20,13 @@
   <th></th>
 </tr>
 </thead>
+
+
 <% @event.eventattendances.each do |eventattendance| %>
   <tr class="table-light">
     <td><%=  %>
-      <%= link_to eventattendance.user.firstname + ' ' + eventattendance.user.lastname,  edit_admin_event_eventattendance_path(event_id: @event.id, id: eventattendance.id), remote: true %>
+      <%= link_to eventattendance.user.lastname + ', ' + eventattendance.user.firstname,  edit_admin_event_eventattendance_path(event_id: @event.id, id: eventattendance.id), remote: true %>
     </td>
-
     <td><%= eventattendance.registrationtype %></td>
     <td><%= eventattendance.registerdate.to_date %></td>
     <td><%= eventattendance.cabin %></td>
