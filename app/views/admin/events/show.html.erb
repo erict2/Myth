@@ -23,7 +23,7 @@
 </tr>
 </thead>
 <% @event.eventattendances.each do |eventattendance| %>
-  <tr>
+  <tr class="table-light">
     <td><%=  %>
       <%= link_to eventattendance.user.firstname + ' ' + eventattendance.user.lastname,  edit_admin_event_eventattendance_path(event_id: @event.id, id: eventattendance.id), remote: true %>
     </td>
