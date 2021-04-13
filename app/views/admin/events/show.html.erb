@@ -17,14 +17,14 @@
   <th>Character</th>
   <th>Level</th>
   <th>Class</th>
-  <th></th>
+  <th>Edit</th>
 </tr>
 </thead>
 
 
 <% @event.eventattendances.each do |eventattendance| %>
   <tr class="table-light">
-    <td><%=  %>
+    <td>
       <%= link_to eventattendance.user.lastname + ', ' + eventattendance.user.firstname,  edit_admin_event_eventattendance_path(event_id: @event.id, id: eventattendance.id), remote: true %>
     </td>
     <td><%= eventattendance.registrationtype %></td>
