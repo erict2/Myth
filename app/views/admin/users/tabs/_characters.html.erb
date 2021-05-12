@@ -1,5 +1,6 @@
-<%= link_to 'Add a Character', new_admin_character_path(:user_id => @user.id) %>
-<table border = 1>
+<%= link_to 'Add a Character', new_admin_character_path(:user_id => @user.id), class: "btn btn-success btn-sm my-2" %>
+<table class="table table-hover table-bordered table-sm">
+ <thead class="thead-dark">
 <tr>
     <th>Name</th>
     <th>Level</th>
@@ -8,8 +9,9 @@
     <th>Deity</th>
     <th>Status</th>
 </tr>
+</thead>
 <% @user.characters.each do |character| %>
-    <tr>
+    <tr class="table-light">
       <td><%= link_to character.name, admin_character_path(id: character.id) %></td>
       <td><%= character.level %></td>
       <td><%= character.characterclass.name %></td>

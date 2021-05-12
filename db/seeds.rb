@@ -1,26 +1,41 @@
+# frozen_string_literal: true
+
 puts 'Initial Users'
 
-if !User.where(:email => 'andrew.warzocha@gmail.com').exists?
+unless User.where(email: 'andrew.warzocha@gmail.com').exists?
   user = User.new(
-    :firstname => 'Andrew',
-    :lastname => 'Warzocha',
-    :usertype => 'Admin',
-    :email => "andrew.warzocha@gmail.com",
-    :password => "123456",
-    :password_confirmation => "123456"
+    firstname: 'Andrew',
+    lastname: 'Warzocha',
+    usertype: 'Admin',
+    email: 'andrew.warzocha@gmail.com',
+    password: '123456',
+    password_confirmation: '123456'
   )
   user.skip_confirmation!
   user.save!
 end
 
-if !User.where(:email => 'eric@ctfaire.com').exists?
+unless User.where(email: 'eric@ctfaire.com').exists?
   user = User.new(
-    :firstname => 'Eric',
-    :lastname => 'Tetreault',
-    :usertype => 'Admin',
-    :email => "eric@ctfaire.com",
-    :password => "123456",
-    :password_confirmation => "123456"
+    firstname: 'Eric',
+    lastname: 'Tetreault',
+    usertype: 'Admin',
+    email: 'eric@ctfaire.com',
+    password: '123456',
+    password_confirmation: '123456'
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
+unless User.where(email: 'rachelp@rachel.com').exists?
+  user = User.new(
+    firstname: 'Rachel',
+    lastname: 'Prue',
+    usertype: 'Player',
+    email: 'rachelp@rachel.com',
+    password: '123456',
+    password_confirmation: '123456'
   )
   user.skip_confirmation!
   user.save!
@@ -291,104 +306,280 @@ skillgroup.save!
 
 puts 'Starting Class Skill Groups'
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Alchemist')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Alchemist')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Artificer')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Artificer')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Bard')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Bard')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Cleric')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Cleric')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Druid')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Druid')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Fighter')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Fighter')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Paladin')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Paladin')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Ranger')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Ranger')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Rogue')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Rogue')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Runesmith')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Runesmith')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Wizard')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Wizard')
+).save!
 
 puts 'Starting Skills'
 
@@ -549,7 +740,8 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Medium" category.'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'), requiredskill: Skill.find_by(name: 'Light Armor Proficiency')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'),
+                                       requiredskill: Skill.find_by(name: 'Light Armor Proficiency')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Shield')
 skill.tier = 2
@@ -577,7 +769,8 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Heavy" category.'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Heavy Armor Proficiency'), requiredskill: Skill.find_by(name: 'Medium Armor Proficiency')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Heavy Armor Proficiency'),
+                                       requiredskill: Skill.find_by(name: 'Medium Armor Proficiency')).save!
 
 skill = Skill.find_or_initialize_by(name: 'First Aid')
 skill.tier = 3
@@ -657,7 +850,8 @@ skill.incant = 'Crit, Damage 2'
 skill.description = 'Target: From Behind. "Crit, Damage 2"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 2'), requiredskill: Skill.find_by(name: 'Sneak Attack')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 2'),
+                                       requiredskill: Skill.find_by(name: 'Sneak Attack')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Silencing Strike')
 skill.tier = 2
@@ -698,7 +892,8 @@ skill.incant = 'Crit, Damage 3'
 skill.description = 'Target: From Behind. "Crit, Damage 3"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 3'), requiredskill: Skill.find_by(name: 'Sneak Attack 2')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 3'),
+                                       requiredskill: Skill.find_by(name: 'Sneak Attack 2')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Pick Locks')
 skill.tier = 3
@@ -804,7 +999,8 @@ skill.incant = 'Damage 3'
 skill.description = 'Weapon - Short Rest - "Damage 3."'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 3'), requiredskill: Skill.find_by(name: 'Slash 2')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 3'),
+                                       requiredskill: Skill.find_by(name: 'Slash 2')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Strong Grip')
 skill.tier = 2
@@ -858,7 +1054,8 @@ skill.incant = 'Damage 4'
 skill.description = 'Weapon - Short Rest - "Damage 4"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 4'), requiredskill: Skill.find_by(name: 'Slash 3')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 4'),
+                                       requiredskill: Skill.find_by(name: 'Slash 3')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Pierce')
 skill.tier = 3
@@ -3741,7 +3938,8 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Light Armor Proficiency', skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Startle', skillgroup: Skillgroup.find_by(name: 'Fighter'))
@@ -3797,7 +3995,8 @@ skill.incant = nil
 skill.description = 'You may chain any Tier 1-3 Melee Skill.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - One-Handed', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - One-Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 5
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
@@ -3809,7 +4008,8 @@ skill.incant = nil
 skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Two-Handed', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Two-Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 5
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
@@ -3821,7 +4021,8 @@ skill.incant = nil
 skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Ranged', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Ranged',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 5
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
@@ -3833,7 +4034,8 @@ skill.incant = nil
 skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Sword and Shield', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Sword and Shield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 5
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
@@ -3845,7 +4047,8 @@ skill.incant = nil
 skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Dual Wield', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Dual Wield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 5
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
@@ -3903,7 +4106,8 @@ Skillrequirement.find_or_initialize_by(
   requiredskill: Skill.find_by(name: 'Diehard', skillgroup: Skillgroup.find_by(name: 'Fighter'))
 ).save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - One Handed', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - One Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 6
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
@@ -3917,10 +4121,12 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Weapon Mastery - One Handed', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Weapon Specialization - One-Handed', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - One-Handed',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
 ).save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Two Handed', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Two Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 6
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
@@ -3934,7 +4140,8 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Weapon Mastery - Two Handed', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Weapon Specialization - Two-Handed', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - Two-Handed',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Ranged', skillgroup: Skillgroup.find_by(name: 'Fighter'))
@@ -3954,7 +4161,8 @@ Skillrequirement.find_or_initialize_by(
   requiredskill: Skill.find_by(name: 'Weapon Specialization - Ranged', skillgroup: Skillgroup.find_by(name: 'Fighter'))
 ).save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Sword and Shield', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Sword and Shield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 6
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
@@ -3968,10 +4176,12 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Weapon Mastery - Sword and Shield', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Weapon Specialization - Sword and Shield', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - Sword and Shield',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
 ).save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Dual Wield', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Dual Wield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 6
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
@@ -3985,7 +4195,8 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Weapon Mastery - Dual Wield', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Weapon Specialization - Dual Wield', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - Dual Wield',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Action Surge', skillgroup: Skillgroup.find_by(name: 'Fighter'))
@@ -4214,7 +4425,8 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Paladin')),
-  requiredskill: Skill.find_by(name: 'Light Armor Proficiency', skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Divine Blessing', skillgroup: Skillgroup.find_by(name: 'Paladin'))
@@ -4261,7 +4473,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, I take any diseases or poison onto myself' 
+skill.incant = 'Through Life, I take any diseases or poison onto myself'
 skill.description = '"Through Life, I take any diseases or poison onto myself." You must know what ails the target before you can cast this spell on them. If you take on poison, you need to know where the target\'s poison count currently stands and take over from there. You cannot already have the affliction you are taking. You cannot resist ailments received by this spell or mitigate them in any way.'
 skill.save!
 
@@ -4515,7 +4727,8 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Ranger')),
-  requiredskill: Skill.find_by(name: 'Light Armor Proficiency', skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Herbal Antidote', skillgroup: Skillgroup.find_by(name: 'Ranger'))
@@ -4572,7 +4785,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'By voice, through mind, Pacify' 
+skill.incant = 'By voice, through mind, Pacify'
 skill.description = 'Location: Place of Power area ONLY. "By voice, through mind, Pacify."'
 skill.save!
 
@@ -4596,7 +4809,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, Snare, One minute' 
+skill.incant = 'Through Air, Snare, One minute'
 skill.description = '"Through Air, Snare, One minute."'
 skill.save!
 
@@ -5178,7 +5391,8 @@ skill.save!
 
 Skillrequirement.find_or_initialize_by(
   skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Runesmith')),
-  requiredskill: Skill.find_by(name: 'Light Armor Proficiency', skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Journeyman Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
@@ -5359,14 +5573,13 @@ skill.incant = nil
 skill.description = 'Long Rest - Building Required: Forge. "Shell All," while you are actively engaging in crafting roleplay at the Forge.'
 skill.save!
 
-
 puts 'Starting Wizard'
 
-skill = Skill.find_or_initialize_by(name: 'Alignment Focus', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Alignment Focus', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Permanent') 
-skill.skilldelivery = nil 
-skill.playeravailable = true 
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
@@ -5374,23 +5587,23 @@ skill.incant = nil
 skill.description = 'You may cast any spell Through <arcane, air, earth, fire, water, wood, spirit, or mind> instead of its normal alignment. When you purchase this skill, you must select the alignment you will use going forward. Once selected, this choice may not be changed.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Arcane Barrage', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Arcane Barrage', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
-skill.skilldelivery = Skilldelivery.find_by(name: 'Burst ') 
-skill.playeravailable = true 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst ')
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = nil
-skill.description = 'You may cast any single spell that does damage as a Burst effect. State "Burst," and the incant of the spell. Ex. Magic Missile "Through Arcane, Damage 1.' 
+skill.description = 'You may cast any single spell that does damage as a Burst effect. State "Burst," and the incant of the spell. Ex. Magic Missile "Through Arcane, Damage 1.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Command (Silence)', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Command (Silence)', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Short Rest') 
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet ')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
@@ -5398,23 +5611,23 @@ skill.incant = 'Through Mind, Silence, one minute'
 skill.description = '"Through Mind, Silence, one minute."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Glass Cannon', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Glass Cannon', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Burst ')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Arcane, Damage <Hit Point x 3>'
-skill.description = 'You may convert your Hit Points into a single Arcane attack. Each Hit Point increases the damage by 3. If you expend all your Hit Points in this manner, the total damage doubles, but you immediately drop to the ground with the Death effect and become a spirit on your way to Dedrot\'s Realm. "Through Arcane, Damage <Hit Point x 3>."' 
+skill.description = 'You may convert your Hit Points into a single Arcane attack. Each Hit Point increases the damage by 3. If you expend all your Hit Points in this manner, the total damage doubles, but you immediately drop to the ground with the Death effect and become a spirit on your way to Dedrot\'s Realm. "Through Arcane, Damage <Hit Point x 3>."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Identify', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Identify', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Between Events') 
+skill.resttype = Resttype.find_by(name: 'Between Events')
 skill.skilldelivery = nil
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
@@ -5422,11 +5635,11 @@ skill.incant = nil
 skill.description = 'You may turn in a yellow- stickered item to learn the properties of the object. Curses are not revealed with this skill.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Magic Missile', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Magic Missile', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Permanent') 
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet ')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
@@ -5434,11 +5647,11 @@ skill.incant = 'Through Arcane, Damage 1'
 skill.description = 'Through Arcane, Damage 1'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Personal Spell Shield', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Personal Spell Shield', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = nil
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
@@ -5446,11 +5659,11 @@ skill.incant = 'Resist'
 skill.description = '"Resist" a Through effect.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Shatter', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Shatter', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 4
-skill.resttype = Resttype.find_by(name: 'Short Rest') 
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
@@ -5458,11 +5671,11 @@ skill.incant = 'Through Fire - I shatter the <weapon or shield> in your right/le
 skill.description = '"Through Fire - I shatter the <weapon or shield> in your right/left hand."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Alignment Specialization', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Alignment Specialization', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 5
-skill.resttype = Resttype.find_by(name: 'Short Rest') 
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
@@ -5475,11 +5688,11 @@ Skillrequirement.find_or_initialize_by(
   requiredskill: Skill.find_by(name: 'Alignment Focus', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 ).save!
 
-skill = Skill.find_or_initialize_by(name: 'Empowered Spellbook', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Empowered Spellbook', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 5
-skill.resttype = Resttype.find_by(name: 'Permanent') 
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = 'Your spellbook must be boffer-style, made entirely of foam. It may be no larger than 9" wide and 12" tall'
@@ -5487,83 +5700,84 @@ skill.incant = nil
 skill.description = 'With no weapons on your person and using both hands, you may use your spellbook to block incoming damage-causing "Through" packet effects from enemies, state "Resist," and immediately restore one of your tier 1-3 expended spells.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Mage Armor', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Mage Armor', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 5
-skill.resttype = Resttype.find_by(name: 'Short Rest') 
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
-skill.prop = nil 
+skill.prop = nil
 skill.incant = 'Through Earth, Bestow four Temporary Armor Points'
 skill.description = '"Through Earth, Bestow four Temporary Armor Points."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Meteor Swarm ', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Meteor Swarm ', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 5
-skill.resttype = Resttype.find_by(name: 'Short Rest') 
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
-skill.prop = nil 
+skill.prop = nil
 skill.incant = 'Through Arcane, Damage Three'
 skill.description = '"Through Arcane, Damage Three"'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Minor Globe of Invulnerability', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Minor Globe of Invulnerability',
+                                    skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 5
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = nil
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
-skill.prop = nil 
+skill.prop = nil
 skill.incant = 'Through wood, shell against magic, five minutes'
 skill.description = '"Through wood, shell against magic, five minutes." State, "Shell" to all Through effects. The shell breaks if you take weapon damage, engage in combat, or cast a spell.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Scrying', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
-skill.tier = 5 
-skill.resttype = Resttype.find_by(name: 'Between Events') 
+skill = Skill.find_or_initialize_by(name: 'Scrying', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Between Events')
 skill.skilldelivery = nil
-skill.playeravailable = true 
-skill.maxpurchase = 10 
-skill.target = nil 
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
 skill.prop = 'Something connected to the person, place, or object '
 skill.incant = nil
 skill.description = 'You may ask a single question concerning a person, place, or object. The more focused your question regarding that person, place, or object, the more information you will receive at the following check-in.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Stone Skin', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
-skill.tier = 5 
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill = Skill.find_or_initialize_by(name: 'Stone Skin', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = nil
-skill.playeravailable = true 
-skill.maxpurchase = 10 
+skill.playeravailable = true
+skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil
 skill.incant = 'Through Earth, Stone Skin'
 skill.description = '"Through Earth, Stone Skin." Shell to all uncalled damage. State "Shell." Duration 5 minutes.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Power Word Sleep', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
-skill.tier = 5 
-skill.resttype = Resttype.find_by(name: 'Short Rest') 
+skill = Skill.find_or_initialize_by(name: 'Power Word Sleep', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.playeravailable = true 
-skill.maxpurchase = 10 
+skill.playeravailable = true
+skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil
 skill.incant = 'Through Mind, Sleep'
 skill.description = '"Through Mind, Sleep."'
 skill.save
 
-skill = Skill.find_or_initialize_by(name: 'Alignment Mastery', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Alignment Mastery', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Permanent') 
+skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
@@ -5576,47 +5790,47 @@ Skillrequirement.find_or_initialize_by(
   requiredskill: Skill.find_by(name: 'Alignment Specialization', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 ).save!
 
-skill = Skill.find_or_initialize_by(name: 'Chained Offense', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Chained Offense', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
-skill.target = nil 
+skill.target = nil
 skill.prop = nil
 skill.incant = nil
 skill.description = 'You may cast any single spell that does damage as a Packet Chain effect.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Counterspell', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Counterspell', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
-skill.target = nil 
+skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Arcane, Bestow Resist a Through-based effect'
 skill.description = '"Through Arcane, Bestow Resist a Through-based effect"'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Dispel Magic', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Dispel Magic', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
-skill.target = nil 
+skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Arcane, Dispel all'
 skill.description = '"Through Arcane, Dispel all"'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Elemental Outburst', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Elemental Outburst', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
@@ -5624,11 +5838,11 @@ skill.incant = 'Through <Earth, Fire, Water, Air, Wood>, Damage 10'
 skill.description = '"Through <Earth, Fire, Water, Air, Wood>, Damage 10." After casting this spell, you take four damage of the same type. You may not resist this damage in any way.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Power Word (Kill)', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Power Word (Kill)', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
@@ -5636,11 +5850,11 @@ skill.incant = 'Through Spirit, Death'
 skill.description = '"Through Spirit, Death."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Shatter Storm', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Shatter Storm', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Long Rest') 
+skill.resttype = Resttype.find_by(name: 'Long Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
@@ -5648,11 +5862,11 @@ skill.incant = 'Through Fire, I shatter the <shield/weapon> in your <left/right>
 skill.description = 'Packet Chain - "Through Fire, I shatter the <shield/weapon> in your <left/right> hand."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Spell Penetration', skillgroup: Skillgroup.find_by(name: 'Wizard')) 
+skill = Skill.find_or_initialize_by(name: 'Spell Penetration', skillgroup: Skillgroup.find_by(name: 'Wizard'))
 skill.tier = 6
-skill.resttype = Resttype.find_by(name: 'Short Rest') 
+skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
-skill.playeravailable = true 
+skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
@@ -6649,7 +6863,7 @@ Professionrequirement.find_or_initialize_by(
   requiredprofession: Profession.find_by(name: 'Journeyman Mender')
 ).save!
 
-puts ('Adding Previous Events')
+puts('Adding Previous Events')
 
 event = Event.find_or_initialize_by(name: 'Adventure Weekend - OCT 2018')
 event.eventtype = 'Adventure Weekend'
@@ -6677,7 +6891,6 @@ event.feedbackexp = 100
 event.levelingevent = true
 event.save!
 
-
 event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAY 2019')
 event.eventtype = 'Adventure Weekend'
 event.location = '326 Taft Pond Rd, Pomfret, CT'
@@ -6690,7 +6903,6 @@ event.eventexp = 300
 event.feedbackexp = 100
 event.levelingevent = true
 event.save!
-
 
 event = Event.find_or_initialize_by(name: 'Adventure Weekend - AUG 2019')
 event.eventtype = 'Adventure Weekend'
@@ -6730,7 +6942,6 @@ event.eventexp = 300
 event.feedbackexp = 100
 event.levelingevent = true
 event.save!
-
 
 event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAR 2020')
 event.eventtype = 'Adventure Weekend - Go Big'
@@ -6868,6 +7079,4 @@ sr = Skillrequirement.find_by(
   skill: Skill.find_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter')),
   requiredskill: Skill.find_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter'))
 )
-if(!sr.nil?)
-  sr.destroy
-end
+sr&.destroy

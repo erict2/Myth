@@ -1,12 +1,19 @@
+<div class="container col-11">
+<div class="pagetitle">XP Log</div>
+<div class="pagesubtitle" >A Record of Experience Earned</div>
 
-<p>
-  Total Available EXP: <%= current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) %>
-</p>
+<div class="container">
+  <div class="row bg-light">
+    <div class="col-sm">
+      Total Available EXP: <%= current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) %>
+    </div>
+    <div class="col-sm">
+      Total Earned EXP: <%= current_user.explogs.where('amount > 0').sum(:amount) %>
+    </div>
+  </div>
+</div>
 
-<p>
-  Total Earned EXP: <%= current_user.explogs.where('amount > 0').sum(:amount) %>
-</p>
-<table class="table table-striped table-bordered table-sm">
+<table class="table table-hover table-bordered table-sm">
   <thead class = 'thead-dark'>
     <tr>
         <th scope="col">Name</th>
@@ -35,3 +42,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

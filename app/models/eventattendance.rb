@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Eventattendance < ApplicationRecord
   belongs_to :event
   belongs_to :user
@@ -10,12 +12,9 @@ class Eventattendance < ApplicationRecord
   after_update :check_registration
 
   def check_registration
-    if (saved_change_to_registrationtype?)
-      if (self.registrationtype != 'Player')
-        self.character_id = nil
-        self.save!
-      end
+    if saved_change_to_registrationtype? && registrationtype != 'Player'
+      self.character_id = nil
+      save!
     end
   end
-
 end
