@@ -6866,39 +6866,3 @@ Professionrequirement.find_or_initialize_by(
 
 
 puts('One Time Scripts')
-
-sr = Skillrequirement.find_by(
-  skill: Skill.find_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter'))
-)
-sr&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAR 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAY 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - AUG 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - OCT 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - NOV 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAR 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAY 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - AUG 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - SEP 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - NOV 2021')
-event&.destroy
