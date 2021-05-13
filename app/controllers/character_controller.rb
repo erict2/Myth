@@ -53,12 +53,10 @@ class CharacterController < ApplicationController
     @oldname = @character.name
     @character.update(character_params)
 
-    Explog.where(:user_id => @character.user_id, :name => 'Profession Purchase', :description.matches("Purchased % for \"#{@oldname}\"").each do |explog|
+    Explog.where("user_id = ? AND name = ? and description like ?", @character.user_id, 'Profession Purchase', "Purchased % for \"#{@oldname}\"" ).each do |explog|
       explog.description = explog.description.sub(@oldname, @character.name)
       explog.save!
     end
-   
-
     redirect_to root_path
   end
 

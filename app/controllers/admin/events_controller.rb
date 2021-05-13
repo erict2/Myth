@@ -27,8 +27,12 @@ module Admin
 
     def update
       @event = Event.find(params[:id])
-
+      @oldname = @event.name
       if @event.update(updateevent_params)
+        Explog.where("name = ? AND description like ?", 'Event', "Exp for attending Event \"#{@oldname}\" as a %").each do |explog|
+          explog.description = explog.description.sub(@oldname, @event.name)
+          explog.save!
+        end
         redirect_to admin_events_path
       else
         render 'edit'
