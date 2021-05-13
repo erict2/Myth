@@ -53,8 +53,8 @@ class CharacterController < ApplicationController
     @oldname = @character.name
     @character.update(character_params)
 
-    Explog.where(:user_id => @character.user_id, :name => 'Profession Purchase', :description => "Purchased \"#{@characterprofession.profession.name}\" for \"#{@oldname}\"").each do |explog|
-      explog.description = "Purchased \"#{@characterprofession.profession.name}\" for \"#{@character.name}\""
+    Explog.where(:user_id => @character.user_id, :name => 'Profession Purchase', :description.matches("Purchased % for \"#{@oldname}\"").each do |explog|
+      explog.description.sub(@oldname, @character.name)
       explog.save!
     end
    
