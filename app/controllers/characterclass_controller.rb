@@ -5,8 +5,6 @@ class CharacterclassController < ApplicationController
 
   def getcharacterclass
     @characterclass = Characterclass.find_by(id: params[:characterclass_id])
-    puts(params[:characterclass_id])
-    puts(@characterclass)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @characterclass }
