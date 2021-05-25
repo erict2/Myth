@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDescriptionFields < ActiveRecord::Migration[6.0]
   def change
     add_column :races, :shortdescription, :string

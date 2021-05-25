@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "pages#index"
+  root 'pages#index'
   devise_for :users
 
-  namespace :character do 
+  namespace :character do
     get :getcharacter
     get :events
     post :levelup
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
     post :removeprofession
     get :comingsoon
   end
-  
+
   resources :character
 
   namespace :player do
@@ -37,7 +39,7 @@ Rails.application.routes.draw do
       get :confirm
       resources :explogs
     end
-    
+
     resources :events do
       resources :eventattendances
     end

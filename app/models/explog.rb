@@ -1,7 +1,9 @@
-class Explog < ApplicationRecord
-    belongs_to :user
-    
-    belongs_to :grantedby, class_name: 'User'
+# frozen_string_literal: true
 
-    default_scope { order(acquiredate: :desc) }
+class Explog < ApplicationRecord
+  belongs_to :user
+
+  belongs_to :grantedby, class_name: 'User'
+
+  default_scope { order(acquiredate: :desc) }
 end

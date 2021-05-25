@@ -1,5 +1,7 @@
-class Race < ApplicationRecord
-    has_many :characters
+# frozen_string_literal: true
 
-    default_scope { order(name: :asc) }
+class Race < ApplicationRecord
+  has_many :characters
+
+  default_scope { order(name: :asc) }
 end

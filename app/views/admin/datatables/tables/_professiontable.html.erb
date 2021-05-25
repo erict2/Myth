@@ -1,4 +1,5 @@
-<table border = 1>
+<table class="table table-hover table-bordered table-sm">
+<thead class="thead-dark">
 <tr>
     <th>Name</th>
     <th>Group</th>
@@ -6,8 +7,9 @@
     <th>Description</th>
     <th>Player Available</th>
 </tr>
+</thead>
 <% @profession.all.each do |datarow| %>
-<tr>
+<tr class="table-light">
     <td><%= datarow.name %></td>
     <td><%= datarow.professiongroup.name %></td>
     <td><%= datarow.rank %></td>

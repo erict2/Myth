@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RaceController < ApplicationController
   before_action :authenticate_user!
 
@@ -19,16 +21,13 @@ class RaceController < ApplicationController
   def update
     @race = Race.find(params[:id])
     @race.update(raceparams)
-    redirect_to admin_datatables_path({tab: 'race'})
-
+    redirect_to admin_datatables_path({ tab: 'race' })
   end
 
   private
 
   def check_admin
-    if current_user.usertype != 'Admin'
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.usertype != 'Admin'
   end
 
   def raceparams

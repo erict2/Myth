@@ -1,54 +1,64 @@
-class Admin::EventsController < AdminController
-  def index
-    @events = Event.all
-  end
+# frozen_string_literal: true
 
-  def show
-    @event = Event.find(params[:id])
-  end
-
-  def new
-    @event = Event.new
-    @event.levelingevent = true
-    respond_to do |format|
-      format.js
+module Admin
+  class EventsController < AdminController
+    def index
+      @events = Event.all
     end
-  end
 
-  def edit
-    @event = Event.find(params[:id])
-    respond_to do |format|
-      format.js
+    def show
+      @event = Event.find(params[:id])
     end
-  end
 
-  def update
-    @event = Event.find(params[:id])
-
-    if @event.update(updateevent_params)
-      redirect_to admin_events_path
-    else
-      render 'edit'
+    def new
+      @event = Event.new
+      @event.levelingevent = true
+      respond_to do |format|
+        format.js
+      end
     end
-  end
 
-  def create
-    @event = Event.new(addevent_params)
+    def edit
+      @event = Event.find(params[:id])
+      respond_to do |format|
+        format.js
+      end
+    end
 
-    if @event.save
+    def update
+      @event = Event.find(params[:id])
+      @oldname = @event.name
+      if @event.update(updateevent_params)
+        Explog.where("name = ? AND description like ?", 'Event', "Exp for attending Event \"#{@oldname}\" as a %").each do |explog|
+          explog.description = explog.description.sub(@oldname, @event.name)
+          explog.save!
+        end
         redirect_to admin_events_path
-    else
+      else
+        render 'edit'
+      end
+    end
+
+    def create
+      @event = Event.new(addevent_params)
+
+      if @event.save
         redirect_to admin_events_path
+      else
+        redirect_to admin_events_path
+      end
+    end
+
+    private
+
+    def addevent_params
+      params.require(:event).permit(:name, :description, :startdate, :enddate, :eventtype, :levelingevent, :location,
+                                    :earlybirdcost, :atdoorcost, :eventexp, :feedbackexp)
+    end
+
+    def updateevent_params
+      params.require(:event).permit(:name, :description, :startdate, :enddate, :eventtype, :levelingevent, :location,
+                                    :earlybirdcost, :atdoorcost, :eventexp, :feedbackexp, :castcount)
     end
   end
-
-  private
-  def addevent_params
-    params.require(:event).permit(:name, :description, :startdate, :enddate, :eventtype, :levelingevent, :location, :earlybirdcost, :atdoorcost, :eventexp, :feedbackexp)
-  end
-
-  def updateevent_params
-    params.require(:event).permit(:name, :description, :startdate, :enddate, :eventtype, :levelingevent, :location, :earlybirdcost, :atdoorcost, :eventexp, :feedbackexp, :castcount)
-  end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Profession < ApplicationRecord
   belongs_to :professiongroup
   has_many :characterprofessions

@@ -1,4 +1,4 @@
-<table class="table table-striped table-bordered table-sm mt-2">
+<table class="table table-hover table-bordered table-sm">
   <thead class = 'thead-dark'>
     <tr>
         <th>Name</th>
@@ -8,7 +8,7 @@
   </thead>
   <tbody>
     <% Race.all.each do |racerecord| %>
-      <tr>
+      <tr class="table-light">
         <td><%= link_to racerecord.name, edit_race_path(racerecord), remote: true %>
         </td>
         <td><%= racerecord.shortdescription %></td>

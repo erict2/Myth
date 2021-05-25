@@ -1,8 +1,10 @@
-class Characterclass < ApplicationRecord
-    has_many :characters
-    has_many :characterclassskillgroup
-    has_many :skillgroups, through: :characterclassskillgroup
-    has_many :skills, through: :skillgroups
+# frozen_string_literal: true
 
-    default_scope { order(name: :asc) }
+class Characterclass < ApplicationRecord
+  has_many :characters
+  has_many :characterclassskillgroup
+  has_many :skillgroups, through: :characterclassskillgroup
+  has_many :skills, through: :skillgroups
+
+  default_scope { order(name: :asc) }
 end
