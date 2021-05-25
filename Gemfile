@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 # Bootstrap makes things pretty
-gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'bootstrap_form', '~> 4.0', require: false
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'sprockets-rails', require: 'sprockets/railtie'
