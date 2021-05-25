@@ -7,7 +7,7 @@ ruby '2.7.2'
 
 # Bootstrap makes things pretty
 gem 'bootstrap'
-gem 'bootstrap_form', '~> 4.0', require: false
+gem 'bootstrap_form', '~> 4.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
