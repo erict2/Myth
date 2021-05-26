@@ -86,6 +86,19 @@ class CharacterController < ApplicationController
     redirect_to character_index_path
   end
 
+  def changephoto
+    @character = Character.find(session[:character])
+    if request.post?
+      @character.photo.attach(params[:characterphoto])
+      redirect_to character_index_path()
+    else
+
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
   def getcharacter
     @character = Character.find(params[:character_id])
     @deity = @character.deity
@@ -232,7 +245,7 @@ class CharacterController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :pronouns, :deity_id, :race_id, :characterclass_id, :totem, :alias)
+    params.require(:character).permit(:name, :pronouns, :deity_id, :race_id, :characterclass_id, :totem, :alias, :characterphoto)
   end
 
   def addskill_params

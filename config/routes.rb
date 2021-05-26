@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get :availableskills
     get :trainskill
     post :trainskill
+    get :changephoto
+    post :changephoto
     post :removeskill
     get :learnprofession
     post :learnprofession
