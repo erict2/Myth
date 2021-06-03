@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateEventattendances < ActiveRecord::Migration[6.0]
   def change
     create_table :eventattendances do |t|
@@ -9,6 +11,6 @@ class CreateEventattendances < ActiveRecord::Migration[6.0]
       t.string :cabin
       t.timestamps
     end
-    add_index :eventattendances, [:character_id, :event_id], :unique => true
+    add_index :eventattendances, %i[character_id event_id], unique: true
   end
 end

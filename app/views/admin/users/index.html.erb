@@ -1,19 +1,38 @@
+<div class="container col-11">
+<div class="pagetitle">User List</div>
+<div class="pagesubtitle" >A List of all Players and NPCs</div>
 
-<h1>User List</h1>
-<table border = 1>
-<tr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <strong>Total Members:</strong> <%= @users.all.count %>
+    </div>
+    <div class="col-sm">
+      <strong>Member Breakdown:</strong> <%= @users.group(:usertype).count %>
+    </div>
+
+  </div>
+</div>
+
+<table class="table table-hover table-bordered table-sm">
+ <thead class="thead-dark">
+ <tr>
     <th>Name</th>
     <th>Email Address</th>
     <th>Type</th>
-    <th></th>
+    <th class ="text-center">Edit</th>
 </tr>
-<% @users.all.each do |user| %>
-<tr>
+  </thead>
+
+<% @users.all.order(:lastname).each do |user| %>
+
+
+<tr class="table-light">
     <td>
-    <%= link_to user.firstname + ' ' + user.lastname, admin_user_path(user) %></td>
+    <%= link_to user.lastname + ', ' + user.firstname, admin_user_path(user) %></td>
     <td><%= user.email %></td>
     <td><%= user.usertype %></td>
-    <td>
+    <td class ="text-center"> 
         <%= link_to edit_admin_user_path(user), remote: true do 
             fa_icon "edit"
         end
@@ -39,4 +58,4 @@
   </div>
 </div>
 
-  
+  </div>

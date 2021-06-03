@@ -7,12 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: mythdb_development
+  database: larpdb_development
 
 test:
   <<: *default
-  database: mythdb_test
+  database: larpdb_test
 
 production:
   <<: *default
-  database: mythdb_production
+  database: larpdb_production

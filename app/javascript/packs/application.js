@@ -1,7 +1,8 @@
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require('jquery')
+
 import 'bootstrap'
 import 'select2'
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;

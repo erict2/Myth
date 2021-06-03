@@ -1,0 +1,45 @@
+<div class="container col-11">
+<div class="pagetitle">XP Log</div>
+<div class="pagesubtitle" >A Record of Experience Earned</div>
+
+<div class="container">
+  <div class="row bg-light">
+    <div class="col-sm">
+      Total Available EXP: <%= current_user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) %>
+    </div>
+    <div class="col-sm">
+      Total Earned EXP: <%= current_user.explogs.where('amount > 0').sum(:amount) %>
+    </div>
+  </div>
+</div>
+
+<table class="table table-hover table-bordered table-sm">
+  <thead class = 'thead-dark'>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Acquire Date</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Granted By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.explogs.each do |explog| %>
+      <% if (explog.acquiredate > Time.now) %>
+        <tr class = 'table-secondary'>
+      <% elsif (explog.amount < 0) %>
+        <tr class = 'table-danger'>
+      <% else %>
+        <tr class = 'table-success'>
+      <% end %>
+      
+        <td><%= explog.name %></td>
+        <td><%= explog.description %></td>
+        <td><%= explog.acquiredate.to_date %></td>
+        <td><%= explog.amount %></td>
+        <td><%= explog.grantedby.firstname + ' ' + explog.grantedby.lastname%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,26 +1,41 @@
+# frozen_string_literal: true
+
 puts 'Initial Users'
 
-if !User.where(:email => 'andrew.warzocha@gmail.com').exists?
+unless User.where(email: 'andrew.warzocha@gmail.com').exists?
   user = User.new(
-    :firstname => 'Andrew',
-    :lastname => 'Warzocha',
-    :usertype => 'Admin',
-    :email => "andrew.warzocha@gmail.com",
-    :password => "123456",
-    :password_confirmation => "123456"
+    firstname: 'Andrew',
+    lastname: 'Warzocha',
+    usertype: 'Admin',
+    email: 'andrew.warzocha@gmail.com',
+    password: '123456',
+    password_confirmation: '123456'
   )
   user.skip_confirmation!
   user.save!
 end
 
-if !User.where(:email => 'eric@ctfaire.com').exists?
+unless User.where(email: 'eric@ctfaire.com').exists?
   user = User.new(
-    :firstname => 'Eric',
-    :lastname => 'Tetreault',
-    :usertype => 'Admin',
-    :email => "eric@ctfaire.com",
-    :password => "123456",
-    :password_confirmation => "123456"
+    firstname: 'Eric',
+    lastname: 'Tetreault',
+    usertype: 'Admin',
+    email: 'eric@ctfaire.com',
+    password: '123456',
+    password_confirmation: '123456'
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
+unless User.where(email: 'rachelp@rachel.com').exists?
+  user = User.new(
+    firstname: 'Rachel',
+    lastname: 'Prue',
+    usertype: 'Player',
+    email: 'rachelp@rachel.com',
+    password: '123456',
+    password_confirmation: '123456'
   )
   user.skip_confirmation!
   user.save!
@@ -29,121 +44,104 @@ end
 puts 'Starting Character Classes'
 characterclass = Characterclass.find_or_initialize_by(name: 'Alchemist')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Tales handed down to each generation say the Sukh created the art of Alchemy. The masters of this art sought to transmute lead into gold. Most alchemists are nothing more than hedge mages seeking to sap the power of nature. Others are more renowned in the service of powerful lords or kings.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Artificer')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The Artificer is the ultimate tinkerer and engineer, but that is only the beginning. They use their understanding of the workings of Alchemy, Magic, and Blacksmithing and fuse these into creations, whether wondrous or mundane. One part explorer, one part artist, and one part mad genius, theirs is the path of creation and experimentation.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Bard')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'A good Bard can be the backbone of an adventuring party, inspiring courage and protection from the sidelines that can turn the tide of a battle. Adventure is where Bards find their muse to inspire their poetry and song - whether real or embellished. The more they perform, the more famous they seem to become.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Cleric')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Divine magic is said to be the power of the gods that flows through the world. Clerics are the vessels able to tap into that power and perform incredible feats and miracles. The most devout can harness this potent energy as a reward for their unquestioning faith. With it, they can help or harm as their deity so wishes.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Druid')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'They are the guardians of the wilds who acquire mystical powers from nature and their deity. The druids seek forest tranquility to commune with nature and become closer to their deity. Many druids remain neutral with the battles fought by others, allowing nature to take its course. The well-being of the forest is vital to druids who understand the need for a balance between nature and men'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Fighter')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Each of the scars of battle tells a story etched by the weapons that created them. Nobody understands this more than Fighters. These elite warriors are well versed in the art of weaponry and martial arts. Anyone can swing a sword or hide behind a shield. Only a real Fighter has solved the riddle of steel and uses it to master battle.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Paladin')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The noble Paladin is a watchful hero and a sword for truth. They are heroes sworn to protect the meek and downtrodden. Paladins focus on different aspects of their cause based on the will of the gods. Although most paladins are devoted to good gods, their power comes from a commitment to justice rather than from the gods themselves.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Ranger')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'Some believe their homes are safe, thanks to the efforts of the town guard. Those who call the forest home understand that Rangers are often the first line of defense. These silent soldiers protect the outskirts of civilization from the monsters and villains that plague the wood. Rangers are masters of stealth and camouflage, ambushing prey as silently as possible. There are things that go bump in the night and Rangers are the ones who bump back.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Rogue')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The masters of the shadows walk silently among us as passersby in the streets of nearly every major town and city in Hyraeth. Many are the epitome of their trade working for a local thieves\' guild or crime family as thugs, burglars, and even assassins. But not all rogues spend their lives in the shadows. Some choose to use their highly-trained skills to help others as locksmiths, spies, and in other jobs where stealth and discretion are essential skills.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Runesmith')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'As a lost art, you could once count the number of practicing Runesmiths in Hyreath on one hand. Working with family or close friends, the modern Runesmith carries on the craft through practices handed down by timeless tradition. Runesmiths work their magic by binding runes with various objects to create enchanted items.'
 characterclass.save!
 
 characterclass = Characterclass.find_or_initialize_by(name: 'Wizard')
 characterclass.playeravailable = true
+characterclass.shortdescription = 'The life of a wizard is anything but typical as you explore "the weave" of magic that permeates all things. You are one of the elite few who can tap into the unseen energies of the world and convert them into something useful.'
 characterclass.save!
 
 puts 'Starting Deities'
 deity = Deity.find_or_initialize_by(name: 'Adara')
 deity.playeravailable = true
+deity.shortdescription = 'Adara is the goddess of justice and fairness. Her followers represent the inner light of Hyraeth, earning all that she rewards through their devotions and tenets. Adara promises her followers their day in the sun, lighting the way towards glory, triumph, and truth.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Amitel')
 deity.playeravailable = true
+deity.shortdescription = 'Amitel is studious and reflective. He seeks to discover the secrets of the Arcane — the tenuous magic that permeates our world, and that gave birth to him. Prone to talking to himself and suddenly shouting out revelations, Amitel bends Arcane energy to his will.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Dedrot')
 deity.playeravailable = true
+deity.shortdescription = 'Dedrot is the guardian of the dead represented by the number five for the Five Fingers of Dedrot. Despite what some may believe, Dedrot has the highest disdain for necromancy. The grander Temples consider Dedrot to be without gender and refer to the deity with neutral pronouns. Some races are known to depict or refer to Dedrot otherwise. Dale Elves describe Dedrot as a man and Enoon\'s counterpart. Among the Sukh, the deity\'s gender varies based on your caravan.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Enoon')
 deity.playeravailable = true
+deity.shortdescription = 'All nature is a gift from Enoon, from lush forests and wilds of wonder to the succulents and vegetation of The Scorched Wastes. Ororo provides water, but Enoon gives life to the rivers and streams and other elemental habitats. Enoon is life but remains neutral in the affairs of living things.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ixbus')
 deity.playeravailable = true
+deity.shortdescription = 'Ixbus is competitive, ambitious, and intelligent, but also takes great joy in spreading gifts to their followers. The devout show their homage in many different ways, but most will have a shrine in their homes and a representation of Ixbus in their workplace. The pious toss a coin into a well to catch the attention of Ixbus, hoping that the prayer will be heard.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Naenya')
 deity.playeravailable = true
+deity.shortdescription = 'Naenya holds the sword to her sister\'s scales. She, too, is a goddess of justice. While Adara seeks to learn the truth, Naenya is there to carry out the sentence. It would be easy to dismiss Naenya as a cruel goddess; however, she tempers judgment with mercy, beyond the cold dictates of the law. Naenya is the goddess of a different kind of truth. The truth within the heart and mind, hidden below the surface and learned through intuition rather than objectivity.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ororo')
 deity.playeravailable = true
+deity.shortdescription = 'At the creation of the world, Ororo was born, sleeping beneath the ocean. In his dreams, he shaped the realms over the millennia. When other gods first laid their feet upon his land, Ororo awoke, furious that others had used his creation. Enoon, the goddess of Nature, greeted him warmly and invited him to delight in their work. In that instant, he quieted his rage for the moment. However, his legendary anger remained very much a part of him.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Ryknos')
 deity.playeravailable = true
+deity.shortdescription = 'May look at war with distaste, but to the followers of Ryknos, it is a means to an end. Some believe that Naenya, one of the twin goddesses, created Ryknos to prevent everlasting peace from upsetting the natural balance of life in Hyraeth.'
 deity.save!
 
 deity = Deity.find_or_initialize_by(name: 'Scandelen')
 deity.playeravailable = true
+deity.shortdescription = 'Every festival, every work of art, and every song is a supplication to Scandelen. They dissolve rivalries between the other deities, by merely telling jokes or playing pranks upon them: their faithful follow this example. Revelry is their universal bond, and when it comes to appreciating life at the moment, their followers not only practice this but encourage others to do so as well, finding beauty and joy in all things.'
 deity.save!
-
-puts 'Starting Races'
-race = Race.find_or_initialize_by(name: 'Dale Elf')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Dwarf')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Goblin')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Half Elf')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'High Elf')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Human')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Suhk')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Wildren')
-race.playeravailable = true
-race.save!
-
-race = Race.find_or_initialize_by(name: 'Tengu')
-race.playeravailable = false
-race.save!
 
 puts 'Starting Rest Types'
 resttype = Resttype.find_or_initialize_by(name: 'Permanent')
@@ -228,6 +226,11 @@ skilldelivery.description = 'Skill must be delivered with a weapon.'
 skilldelivery.playeravailable = true
 skilldelivery.save!
 
+skilldelivery = Skilldelivery.find_or_initialize_by(name: 'Aura')
+skilldelivery.description = 'You must be a designated Benefactor and be within 10 ft. of the person granting this ability and be conscious to receive the effect. Some Auras may have exceptions.'
+skilldelivery.playeravailable = true
+skilldelivery.save!
+
 puts 'Starting Skill Groups'
 skillgroup = Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
 skillgroup.playeravailable = true
@@ -303,104 +306,280 @@ skillgroup.save!
 
 puts 'Starting Class Skill Groups'
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Alchemist')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Alchemist'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Alchemist')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Artificer')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Artificer'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Artificer')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Bard')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Bard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Bard')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Cleric')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Cleric'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Cleric')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Druid')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Druid'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Druid')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Fighter')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Fighter'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Fighter')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Paladin')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Paladin'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Paladin')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Ranger')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Ranger'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Ranger')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Rogue')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Rogue'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Rogue')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Runesmith')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Runesmith'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Runesmith')
+).save!
 
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')).save!
-characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Wizard')).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Open Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Basic Defense Skills')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Shadow')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Weapon')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Healing / Utility')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Defensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Offensive Magic')
+).save!
+characterclassskillgroup = Characterclassskillgroup.find_or_initialize_by(
+  characterclass: Characterclass.find_by(name: 'Wizard'), skillgroup: Skillgroup.find_or_initialize_by(name: 'Wizard')
+).save!
 
 puts 'Starting Skills'
 
@@ -414,7 +593,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = 'Bandages'
-skill.incant = 'Pause your bleed out count until I remove my hands.'
+skill.incant = 'Pause your bleed out count until I remove my hands'
 skill.description = 'Prop Required: Bandages. RP: Continuously administering first aid with both hands. "Pause your bleed out count until I remove my hands." This skill will end if you remove your hands, use any other skills, or take damage.'
 skill.save!
 
@@ -453,7 +632,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = 'Self - Rope Bindings Only.'
 skill.prop = nil
-skill.incant = 'Cure Binds.'
+skill.incant = 'Cure Binds'
 skill.description = 'Self Only - Target: Rope Bindings Only. RP: Five minutes of struggling to get free. "Cure Binds."'
 skill.save!
 
@@ -466,7 +645,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = 'Unconscious or Immobile Persons Torso.'
 skill.prop = 'Weapon or Packet'
-skill.incant = 'I execute you 1.I execute you 2. I execute you 3.'
+skill.incant = 'I execute you 1.I execute you 2. I execute you 3'
 skill.description = 'Target: Unconscious or Immobile Persons Torso. "I execute you 1.I execute you 2. I execute you 3.". If you execute something with an enchanted weapon or spell, state the element it is of. For example: "Air execute 1, Air execute 2, Air execute 3"'
 skill.save!
 
@@ -498,9 +677,21 @@ skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Repair')
 skill.tier = 0
-
 skill.resttype = Resttype.find_by(name: 'Permanent')
-skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.skilldelivery = nil
+skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Weapon or Armor'
+skill.prop = nil
+skill.incant = 'Restore 1 point of Armor'
+skill.description = 'Resource Needed: Two Iron Ore or Two Leather Scrap per use on metal armor or leather/ fur armor respectively. Location Specific: Forge. Target: Weapon or Armor. RP: 10 minutes repairing armor or fixing a weapon. "Restore 1 point of Armor."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Unskilled Weapon Usage')
+skill.tier = 0
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
 skill.skillgroup = Skillgroup.find_by(name: 'Basic Open Skills')
 skill.playeravailable = true
 skill.maxpurchase = 1
@@ -549,7 +740,8 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Medium" category.'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'), requiredskill: Skill.find_by(name: 'Light Armor Proficiency')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Medium Armor Proficiency'),
+                                       requiredskill: Skill.find_by(name: 'Light Armor Proficiency')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Shield')
 skill.tier = 2
@@ -577,7 +769,8 @@ skill.incant = nil
 skill.description = 'You may wear armor that falls under the "Heavy" category.'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Heavy Armor Proficiency'), requiredskill: Skill.find_by(name: 'Medium Armor Proficiency')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Heavy Armor Proficiency'),
+                                       requiredskill: Skill.find_by(name: 'Medium Armor Proficiency')).save!
 
 skill = Skill.find_or_initialize_by(name: 'First Aid')
 skill.tier = 3
@@ -640,7 +833,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'From Behind'
 skill.prop = nil
-skill.incant = 'Rapid Search 1, Rapid Search 2, Rapid Search 3.'
+skill.incant = 'Rapid Search 1, Rapid Search 2, Rapid Search 3'
 skill.description = '"Rapid Search 1, Rapid Search 2, Rapid Search 3." The target must immediately turn over anything of value not protected by skills, spells, or items.'
 skill.save!
 
@@ -657,7 +850,8 @@ skill.incant = 'Crit, Damage 2'
 skill.description = 'Target: From Behind. "Crit, Damage 2"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 2'), requiredskill: Skill.find_by(name: 'Sneak Attack')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 2'),
+                                       requiredskill: Skill.find_by(name: 'Sneak Attack')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Silencing Strike')
 skill.tier = 2
@@ -668,7 +862,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Torso'
 skill.prop = nil
-skill.incant = 'Silence, 1 Minute.'
+skill.incant = 'Silence, 1 Minute'
 skill.description = 'Target: Torso "Silence, 1 Minute."'
 skill.save!
 
@@ -698,7 +892,8 @@ skill.incant = 'Crit, Damage 3'
 skill.description = 'Target: From Behind. "Crit, Damage 3"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 3'), requiredskill: Skill.find_by(name: 'Sneak Attack 2')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Sneak Attack 3'),
+                                       requiredskill: Skill.find_by(name: 'Sneak Attack 2')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Pick Locks')
 skill.tier = 3
@@ -778,7 +973,7 @@ skill.incant = 'Damage 2'
 skill.description = 'Weapon - Short Rest - "Damage 2."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Slash 2')
+skill = Skill.find_or_initialize_by(name: 'Disarm')
 skill.tier = 2
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
@@ -804,7 +999,8 @@ skill.incant = 'Damage 3'
 skill.description = 'Weapon - Short Rest - "Damage 3."'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 3'), requiredskill: Skill.find_by(name: 'Slash 2')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 3'),
+                                       requiredskill: Skill.find_by(name: 'Slash 2')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Strong Grip')
 skill.tier = 2
@@ -858,7 +1054,8 @@ skill.incant = 'Damage 4'
 skill.description = 'Weapon - Short Rest - "Damage 4"'
 skill.save!
 
-Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 4'), requiredskill: Skill.find_by(name: 'Slash 3')).save!
+Skillrequirement.find_or_initialize_by(skill: Skill.find_by(name: 'Slash 4'),
+                                       requiredskill: Skill.find_by(name: 'Slash 3')).save!
 
 skill = Skill.find_or_initialize_by(name: 'Pierce')
 skill.tier = 3
@@ -909,7 +1106,7 @@ skill.maxpurchase = 10
 skill.target = 'Arm\'s Reach'
 skill.prop = nil
 skill.incant = 'Prone'
-skill.description = 'Packet - Short Rest - "Prone." The target must be close to arms reach'
+skill.description = '"Prone." The target must be close to arms reach'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Bark Skin')
@@ -921,8 +1118,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow one temporary Armor Point.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow one temporary Armor Point."'
+skill.incant = 'Through Earth, Bestow one temporary Armor Point'
+skill.description = '"Through Earth, Bestow one temporary Armor Point."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Iron Will')
@@ -934,8 +1131,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, Bestow Resist Mind.'
-skill.description = 'Packet - Short Rest - "Through Mind, Bestow Resist Mind."'
+skill.incant = 'Through Mind, Bestow Resist Mind'
+skill.description = '"Through Mind, Bestow Resist Mind."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Arcane Shield')
@@ -947,8 +1144,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Arcane.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Arcane."'
+skill.incant = 'Through Wood, Bestow Resist Arcane'
+skill.description = '"Through Wood, Bestow Resist Arcane."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor EarthShield')
@@ -960,8 +1157,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Earth.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Earth."'
+skill.incant = 'Through Wood, Bestow Resist Earth'
+skill.description = '"Through Wood, Bestow Resist Earth."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Shield - Resist Missile')
@@ -973,8 +1170,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Earth.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow Resist Missile."'
+skill.incant = 'Through Wood, Bestow Resist Earth'
+skill.description = '"Through Earth, Bestow Resist Missile."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Repel Undead')
@@ -986,8 +1183,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Fear to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Fear to Undead."'
+skill.incant = 'Through Spirit, Fear to Undead'
+skill.description = '"Through Spirit, Fear to Undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Water Shield')
@@ -999,8 +1196,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Water.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Water."'
+skill.incant = 'Through Wood, Bestow Resist Water'
+skill.description = '"Through Wood, Bestow Resist Water."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Air Shield')
@@ -1012,8 +1209,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Air.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Air."'
+skill.incant = 'Through Wood, Bestow Resist Air'
+skill.description = '"Through Wood, Bestow Resist Air."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Pacify')
@@ -1025,8 +1222,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, pacify, one minute.'
-skill.description = 'Packet - Short Rest - "Through Mind, pacify, one minute."'
+skill.incant = 'Through Mind, pacify, one minute'
+skill.description = '"Through Mind, pacify, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Slow')
@@ -1038,8 +1235,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, Slow, one minute.'
-skill.description = 'Packet - Short Rest - "Through Air, Slow, one minute."'
+skill.incant = 'Through Air, Slow, one minute'
+skill.description = '"Through Air, Slow, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Slow Undead')
@@ -1051,8 +1248,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Slow to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Slow to Undead."'
+skill.incant = 'Through Spirit, Slow to Undead'
+skill.description = '"Through Spirit, Slow to Undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Spin')
@@ -1062,10 +1259,11 @@ skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
 skill.skillgroup = Skillgroup.find_by(name: 'Defensive Magic')
 skill.playeravailable = true
 skill.maxpurchase = 10
-skill.target = 'Undead'
+skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, spin in place five times.'
-skill.description = 'Packet - Short Rest - "Through Air, spin in place five times."'
+skill.incant = 'Through Air, spin in place five times'
+skill.description = '"Through Air, spin in place five times."'
+skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Command: Ignore')
 skill.tier = 3
@@ -1076,8 +1274,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Mind, Ignore me, one minute.'
-skill.description = 'Packet - Short Rest - "Through Mind, Ignore me, one minute." If the caster strikes the target, this spell is broken.'
+skill.incant = 'Through Mind, Ignore me, one minute'
+skill.description = '"Through Mind, Ignore me, one minute." If the caster strikes the target, this spell is broken.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Command: Flee')
@@ -1089,8 +1287,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Mind, fear, one minute.'
-skill.description = 'Packet - Short Rest - "Through Mind, fear, one minute."'
+skill.incant = 'Through Mind, fear, one minute'
+skill.description = '"Through Mind, fear, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Minor Fire Shield')
@@ -1102,8 +1300,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Bestow Resist Fire.'
-skill.description = 'Packet - Short Rest - "Through Wood, Bestow Resist Fire."'
+skill.incant = 'Through Wood, Bestow Resist Fire'
+skill.description = '"Through Wood, Bestow Resist Fire."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Pin')
@@ -1115,8 +1313,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air – I pin your left/ right foot to the ground, one minute.'
-skill.description = 'Packet - Short Rest - "Through Air – I pin your left/ right foot to the ground, one minute."'
+skill.incant = 'Through Air – I pin your left/ right foot to the ground, one minute'
+skill.description = '"Through Air – I pin your left/ right foot to the ground, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Snare to Undead')
@@ -1128,8 +1326,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Snare to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Snare to Undead."'
+skill.incant = 'Through Spirit, Snare to Undead'
+skill.description = '"Through Spirit, Snare to Undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Weakness')
@@ -1141,8 +1339,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water, Weakness, one minute.'
-skill.description = 'Packet - Short Rest - "Through Water, Weakness, one minute."'
+skill.incant = 'Through Water, Weakness, one minute'
+skill.description = '"Through Water, Weakness, one minute."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Alarm')
@@ -1155,7 +1353,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
-skill.description = 'Packet - Short Rest - "Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
+skill.description = '"Through Air, Bestow Alarm. If you are killed or knocked unconscious before your next Short Rest, you may shout \'Help! Over here!\' for 10 seconds'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Awaken')
@@ -1167,8 +1365,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water – Cure Waylay and Sleep.'
-skill.description = 'Packet - Short Rest - "Through Water – Cure Waylay and Sleep.'
+skill.incant = 'Through Water – Cure Waylay and Sleep'
+skill.description = '"Through Water – Cure Waylay and Sleep.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Carry Companion')
@@ -1180,8 +1378,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow you may be carried at full speed, 30 seconds.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow you may be carried at full speed, 30 seconds." This spell allows a person (Follow contact rules. Do not physically carry) to be carried and move at full speed for 30 seconds.'
+skill.incant = 'Through Earth, Bestow you may be carried at full speed, 30 seconds'
+skill.description = '"Through Earth, Bestow you may be carried at full speed, 30 seconds." This spell allows a person (Follow contact rules. Do not physically carry) to be carried and move at full speed for 30 seconds.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cure Minor Wounds')
@@ -1193,8 +1391,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, I heal you one Hit Point.'
-skill.description = 'Packet - Short Rest - "Through Life, I heal you one Hit Point."'
+skill.incant = 'Through Life, I heal you one Hit Point'
+skill.description = '"Through Life, I heal you one Hit Point."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flame Blade')
@@ -1206,8 +1404,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing.'
-skill.description = 'Packet - Short Rest - "Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing."'
+skill.incant = 'Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing'
+skill.description = '"Through Fire, Bestow enchant weapon. State \'Fire\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Sanctify Corpse')
@@ -1219,8 +1417,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Corpse'
 skill.prop = nil
-skill.incant = 'Through Life - I prevent this body from being raised as undead.'
-skill.description = 'Packet - Short Rest - "Through Life - I prevent this body from being raised as undead."'
+skill.incant = 'Through Life - I prevent this body from being raised as undead'
+skill.description = '"Through Life - I prevent this body from being raised as undead."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cure Light Wounds')
@@ -1232,8 +1430,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, I heal you two Hit Points.'
-skill.description = 'Packet - Short Rest - "Through Life, I heal you two Hit Points."'
+skill.incant = 'Through Life, I heal you two Hit Points'
+skill.description = '"Through Life, I heal you two Hit Points."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Delay Poison')
@@ -1245,8 +1443,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow, I stop your poison countdown for 5 minutes.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow, I stop your poison countdown for 5 minutes."'
+skill.incant = 'Through Earth, Bestow, I stop your poison countdown for 5 minutes'
+skill.description = '"Through Earth, Bestow, I stop your poison countdown for 5 minutes."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Blessed Weapon')
@@ -1258,8 +1456,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing."'
+skill.incant = 'Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing'
+skill.description = '"Through Spirit, Bestow enchant weapon, state \'Spirit\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Enhance Weapon')
@@ -1271,8 +1469,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack.'
-skill.description = 'Packet - Short Rest - "Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack."'
+skill.incant = 'Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack'
+skill.description = '"Through Earth, Bestow Enchant Weapon. State Damage Two on your next attack."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Magic Weapon')
@@ -1284,8 +1482,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing.'
-skill.description = 'Packet - Short Rest - "Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing."'
+skill.incant = 'Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing'
+skill.description = '"Through Arcane, Bestow enchant weapon, state \'Arcane\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Frostbrand')
@@ -1298,7 +1496,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = '"Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
-skill.description = 'Packet - Short Rest - "Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
+skill.description = '"Through Water, Bestow enchant weapon, state \'Water\' on your next swing."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Free Action')
@@ -1310,8 +1508,9 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane, <Pin, Snare, or Bind>'
-skill.description = 'Packet - Short Rest - "Through Arcane, <Pin, Snare, or Bind>"'
+skill.incant = 'Through Arcane, < Pin, Snare, or Bind >'
+skill.description = '"Through Arcane, < Pin, Snare, or Bind >"'
+skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Empower')
 skill.tier = 3
@@ -1322,8 +1521,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack."'
+skill.incant = 'Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack'
+skill.description = '"Through Spirit, Bestow Enchant Weapon, State \'Spirit, Damage Two\' on your next attack."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Hope\'s Blessing')
@@ -1335,8 +1534,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, Restore a Tier 1-3 Shadow or Weapon Skill.'
-skill.description = 'Packet - Short Rest - "Through Life, Restore a Tier 1-3 Shadow or Weapon Skill."'
+skill.incant = 'Through Life, Restore a Tier 1-3 Shadow or Weapon Skill'
+skill.description = '"Through Life, Restore a Tier 1-3 Shadow or Weapon Skill."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Dissipate Corpse')
@@ -1348,8 +1547,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Corpse'
 skill.prop = nil
-skill.incant = 'Through Water, I end your death count immediately.'
-skill.description = 'Packet - Short Rest - "Through Water, I end your death count immediately."'
+skill.incant = 'Through Water, I end your death count immediately'
+skill.description = '"Through Water, I end your death count immediately."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cure Moderate Wounds')
@@ -1361,8 +1560,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Life, I heal you three Hit Points.'
-skill.description = 'Packet - Short Rest - "Through Life, I heal you three Hit Points."'
+skill.incant = 'Through Life, I heal you three Hit Points'
+skill.description = '"Through Life, I heal you three Hit Points."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Transfer Skill')
@@ -1375,7 +1574,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\''
-skill.description = 'Packet - Short Rest - "Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\'" This spell allows you to expend a Short Rest skill you know so someone else can use it. You may not use the skill you transfer for the remainder of the event, nor can it be transferred again. You cannot cast this spell by voice, burst, or chained. You may only have a single transferred skill on you at a time.'
+skill.description = '"Through Water, I Bestow this Short Rest skill to you, \'State Skill Name and Call.\'" This spell allows you to expend a Short Rest skill you know so someone else can use it. You may not use the skill you transfer for the remainder of the event, nor can it be transferred again. You cannot cast this spell by voice, burst, or chained. You may only have a single transferred skill on you at a time.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Arcane Blast')
@@ -1387,8 +1586,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Arcane, Damage Two."'
+skill.incant = 'Through Arcane, Damage Two'
+skill.description = '"Through Arcane, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Windburn')
@@ -1400,8 +1599,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Air, Damage Two."'
+skill.incant = 'Through Air, Damage Two'
+skill.description = '"Through Air, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Magic Stone')
@@ -1413,8 +1612,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Earth, Damage Two."'
+skill.incant = 'Through Earth, Damage Two'
+skill.description = '"Through Earth, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flare')
@@ -1426,8 +1625,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Fire, Damage Two."'
+skill.incant = 'Through Fire, Damage Two'
+skill.description = '"Through Fire, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Frostbite')
@@ -1439,8 +1638,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Water, Damage Two."'
+skill.incant = 'Through Water, Damage Two'
+skill.description = '"Through Water, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Spirit Bolt')
@@ -1452,8 +1651,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Spirit, Damage Two.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Damage Two."'
+skill.incant = 'Through Spirit, Damage Two'
+skill.description = '"Through Spirit, Damage Two."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Arcane Storm')
@@ -1465,8 +1664,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Arcane Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Arcane, Damage Three."'
+skill.incant = 'Through Arcane Damage Three'
+skill.description = '"Through Arcane, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Cold Snap')
@@ -1478,8 +1677,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Water, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Water, Damage Three."'
+skill.incant = 'Through Water, Damage Three'
+skill.description = '"Through Water, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Fire Bolt')
@@ -1491,8 +1690,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = '"Through Fire, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Fire, Damage Three."'
+skill.incant = '"Through Fire, Damage Three'
+skill.description = '"Through Fire, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Rock Fall')
@@ -1504,8 +1703,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Earth, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Earth, Damage Three."'
+skill.incant = 'Through Earth, Damage Three'
+skill.description = '"Through Earth, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Migraine')
@@ -1517,8 +1716,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, Damage Three.'
-skill.description = 'Packet - Short Rest - "Through Mind, Damage Three."'
+skill.incant = 'Through Mind, Damage Three'
+skill.description = '"Through Mind, Damage Three."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flame Wave')
@@ -1530,8 +1729,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Fire, Damage Four."'
+skill.incant = 'Through Fire, Damage Four'
+skill.description = '"Through Fire, Damage Four."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Break Limb')
@@ -1543,8 +1742,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Fire, Maim \'Left/Right Arm/Leg\'.'
-skill.description = 'Packet - Short Rest - "Through Fire, Maim \'Left/Right Arm/Leg\'"'
+skill.incant = 'Through Fire, Maim \'Left/Right Arm/Leg\''
+skill.description = '"Through Fire, Maim \'Left/Right Arm/Leg\'"'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Flay Mind')
@@ -1556,8 +1755,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Mind, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Mind, Damage Four."'
+skill.incant = 'Through Mind, Damage Four'
+skill.description = '"Through Mind, Damage Four."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Bash Undead')
@@ -1569,11 +1768,11 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Undead'
 skill.prop = nil
-skill.incant = 'Through Spirit, Damage Five to Undead.'
-skill.description = 'Packet - Short Rest - "Through Spirit, Damage Five to Undead."'
+skill.incant = 'Through Spirit, Damage Five to Undead'
+skill.description = '"Through Spirit, Damage Five to Undead."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Lighting Bolt')
+skill = Skill.find_or_initialize_by(name: 'Lightning Bolt')
 skill.tier = 3
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
@@ -1582,11 +1781,11 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Air, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Air, Damage Four."'
+skill.incant = 'Through Air, Damage Four'
+skill.description = '"Through Air, Damage Four."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Flay Mind')
+skill = Skill.find_or_initialize_by(name: 'Sliver')
 skill.tier = 3
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
@@ -1595,8 +1794,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'Through Wood, Damage Four.'
-skill.description = 'Packet - Short Rest - "Through Wood, Damage Four."'
+skill.incant = 'Through Wood, Damage Four'
+skill.description = '"Through Wood, Damage Four."'
 skill.save!
 
 puts('Starting Alchemist')
@@ -1609,7 +1808,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = 'Potion/Bomb Coreless Thrown Weapon or Packet'
-skill.incant = 'Fire. Damage 1.'
+skill.incant = 'Fire. Damage 1'
 skill.description = 'Prop Required: Potion/Bomb Coreless Thrown Weapon or Packet - "Fire. Damage 1."'
 skill.save!
 
@@ -1787,7 +1986,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil
-skill.incant = 'Poison, 60 seconds.'
+skill.incant = 'Poison, 60 seconds'
 skill.description = 'When searched, you may expend this skill to call: "Poison, 60 seconds."'
 skill.save!
 
@@ -1940,7 +2139,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Resist'
-skill.description = 'You may state, "Resist" if you trigger a trap. Triggered area of effect traps can still affect anyone who doesn’t use Avoid Trap.'
+skill.description = 'You may state, "Resist" if you trigger a trap. Triggered area of effect traps can still affect anyone who doesn\'t use Avoid Trap.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Breakdown', skillgroup: Skillgroup.find_by(name: 'Artificer'))
@@ -2247,7 +2446,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil
-skill.incant = 'Poison, 60 seconds.'
+skill.incant = 'Poison, 60 seconds'
 skill.description = 'When searched, you may expend this skill to call: "Poison, 60 seconds."'
 skill.save!
 
@@ -2731,7 +2930,7 @@ skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
 skill.prop = nil
-skill.incant = 'While I perform, my Patrons Resist Fear and Paralysis.'
+skill.incant = 'While I perform, my Patrons Resist Fear and Paralysis'
 skill.description = 'RP: Continue Performance. State "While I perform, my Patrons Resist Fear and Paralysis."'
 skill.save!
 
@@ -2827,7 +3026,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance.'
+skill.incant = 'To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance'
 skill.description = 'RP: One minute of performing. State, "To my patrons, I Bestow you \'Damage X\' on your next swing" X is equal to the number of Patrons currently benefiting from your Bardic Performance.'
 skill.save!
 
@@ -2940,7 +3139,7 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
-skill.incant = 'By my Voice, Through Mind, Pacify.'
+skill.incant = 'By my Voice, Through Mind, Pacify'
 skill.description = 'By my Voice, Through Mind, Pacify.'
 skill.save!
 
@@ -2989,7 +3188,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = 'Resist'
-skill.description = 'If you catch a spell packet, state, "Resist," recite the spell’s incantation, and immediately throw the spell packet. You must recite the original incantation correctly, or this spell fails.'
+skill.description = 'If you catch a spell packet, state, "Resist," recite the spell\'s incantation, and immediately throw the spell packet. You must recite the original incantation correctly, or this spell fails.'
 skill.save!
 
 Skillrequirement.find_or_initialize_by(
@@ -3055,11 +3254,11 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Corpse'
 skill.prop = nil
-skill.incant = 'Through Spirit, I grant you the divine blessing of <Your Deity>. Inform the barrister in Dedrot’s Realm of your blessing'
-skill.description = '"Through Spirit, I grant you the divine blessing of <Your Deity>. Inform the barrister in Dedrot’s Realm of your blessing."'
+skill.incant = 'Through Spirit, I grant you the divine blessing of <Your Deity>. Inform the barrister in Dedrot\'s Realm of your blessing'
+skill.description = '"Through Spirit, I grant you the divine blessing of <Your Deity>. Inform the barrister in Dedrot\'s Realm of your blessing."'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Divine Blessing', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+skill = Skill.find_or_initialize_by(name: 'Oracle', skillgroup: Skillgroup.find_by(name: 'Cleric'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Between Events')
 skill.skilldelivery = Skilldelivery.find_by(name: 'Between Events')
@@ -3068,7 +3267,7 @@ skill.maxpurchase = 10
 skill.target = nil
 skill.prop = nil
 skill.incant = nil
-skill.description = 'You may ask your deity a single question, you will receive an answer at the following Check-In. The more closely the question aligns with your deity’s purview, the more information you will be provided with.'
+skill.description = 'You may ask your deity a single question, you will receive an answer at the following Check-In. The more closely the question aligns with your deity\'s purview, the more information you will be provided with.'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Repair Wounds', skillgroup: Skillgroup.find_by(name: 'Cleric'))
@@ -3144,8 +3343,8 @@ skill.description = 'Consult the Dedicated to a Deity section in the rulebook fo
 skill.save!
 
 Skillrequirement.find_or_initialize_by(
-  skill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric')),
-  requiredskill: Skill.find_by(name: 'Divine Inspiration', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+  skill: Skill.find_by(name: 'Divine Inspiration', skillgroup: Skillgroup.find_by(name: 'Cleric')),
+  requiredskill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
 ).save!
 
 skill = Skill.find_or_initialize_by(name: 'Poison Shield', skillgroup: Skillgroup.find_by(name: 'Cleric'))
@@ -3208,6 +3407,11 @@ skill.incant = nil
 skill.description = 'Consult the Dedicated to a Deity section in the rulebook for the benefits received based on your deity.'
 skill.save!
 
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Divine Authority', skillgroup: Skillgroup.find_by(name: 'Cleric')),
+  requiredskill: Skill.find_by(name: 'Divine Inspiration', skillgroup: Skillgroup.find_by(name: 'Cleric'))
+).save!
+
 skill = Skill.find_or_initialize_by(name: 'Divine Intervention', skillgroup: Skillgroup.find_by(name: 'Cleric'))
 skill.tier = 6
 skill.resttype = Resttype.find_by(name: 'Long Rest')
@@ -3219,11 +3423,6 @@ skill.prop = 'Holy Symbol'
 skill.incant = nil
 skill.description = 'At the end of your bleed out count, you awaken with one Hit Point rather than bleeding out and dying. Maimed limbs still require healing to restore them. The Execute skill negates this ability.'
 skill.save!
-
-Skillrequirement.find_or_initialize_by(
-  skill: Skill.find_by(name: 'Divine Intervention', skillgroup: Skillgroup.find_by(name: 'Cleric')),
-  requiredskill: Skill.find_by(name: 'Channel Divinity', skillgroup: Skillgroup.find_by(name: 'Cleric'))
-).save!
 
 skill = Skill.find_or_initialize_by(name: 'Divine Shroud', skillgroup: Skillgroup.find_by(name: 'Cleric'))
 skill.tier = 6
@@ -3245,8 +3444,8 @@ skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Corpse Only'
 skill.prop = nil
-skill.incant = 'Through Spirit, Bestow Final Judgement. Inform the barrister in Dedrot’s Realm of your curse'
-skill.description = '"Through Spirit, Bestow Final Judgement. Inform the barrister in Dedrot’s Realm of your curse."'
+skill.incant = 'Through Spirit, Bestow Final Judgement. Inform the barrister in Dedrot\'s Realm of your curse'
+skill.description = '"Through Spirit, Bestow Final Judgement. Inform the barrister in Dedrot\'s Realm of your curse."'
 skill.save!
 
 skill = Skill.find_or_initialize_by(name: 'Font of Miracles', skillgroup: Skillgroup.find_by(name: 'Cleric'))
@@ -3297,22 +3496,332 @@ skill.incant = nil
 skill.description = 'By touch, you may heal two separate people with a healing spell that restores a set amount of Hit Points. This ability does not include any spell that says "all Hit Points."'
 skill.save!
 
+puts('Starting Druid')
 
+skill = Skill.find_or_initialize_by(name: 'Bind', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, I bind your arms to your side for five minutes'
+skill.description = '"Through Air, I bind your arms to your side for five minutes."'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Cure Disease', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I cure you of all diseases'
+skill.description = '"Through Life, I cure you of all diseases."'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Cure Poison', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I cure you of all poisons'
+skill.description = '"Through Life, I cure you of all poisons."'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Elemental Echo', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Burst cast a single spell you know that possesses the Cure or Bestow
+Keyword.'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Nature\'s Remedy', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Heal 5 Hit Points'
+skill.description = 'Deep Woods Only. RP: 1 minute looking for suitable herbs. "Heal 5 Hit Points."'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Tongues', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By Voice, through Mind, we speak the same language for five minutes'
+skill.description = '"By Voice, through Mind, we speak the same language for five minutes."'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Totemic Gift', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Special')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Consult the Totem Chart for your specific benefit.'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Snare', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, Snare five minutes'
+skill.description = '"Through Air, Snare five minutes."'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Drink of the Lifeblood', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you successfully Execute a non-Humanoid, Heal 1 to self.'
+skill.save!
 
+skill = Skill.find_or_initialize_by(name: 'Elemental Shield', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" an effect that is elementally aligned (Water, Fire, Earth, Air, or Wood).'
+skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Favored Foe')
+skill = Skill.find_or_initialize_by(name: 'Mending Vines', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Through Earth, I Repair your <weapon/shield>, for the Battle."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Mending Vines', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By Voice, Through mind, pacify to beasts, 1 minute'
+skill.description = '"By Voice, Through mind, pacify to beasts, 1 minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Nature\'s Blight', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, Disease'
+skill.description = '"Through Life, Disease."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Nature\'s Voice', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may cast a single spell you know by voice that possesses the Cure or Bestow'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Poison Shield', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, Bestow "Resist" poison'
+skill.description = '"Through Life, Bestow "Resist" poison".'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Woodland Stride', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Deep Woods Only. "Resist" to Pin, Snare, and Slow.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Pestilence', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, Weakness'
+skill.description = '"Through Life, Weakness."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Petrify', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Earth, paralyze, 1 minute'
+skill.description = '"Through Earth, paralyze, 1 minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Spell Penetration', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may immediately recast the same spell at a target that just resisted it.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'State of Stone', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Through Earth, Sanctuary'
+skill.description = '"Through Earth, Sanctuary."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Sting', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, Poison 60 Seconds'
+skill.description = '"Through Life, Poison 60 Seconds!"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Totemic Blessing', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Special')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Consult the Totem Chart for your specific benefit'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Totemic Blessing', skillgroup: Skillgroup.find_by(name: 'Druid')),
+  requiredskill: Skill.find_by(name: 'Totemic Gift', skillgroup: Skillgroup.find_by(name: 'Druid'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Totemic Protection', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = 'Totem'
+skill.incant = nil
+skill.description = 'As long as your Druidic Totem is visibly worn, at the end of a Short Rest, you gain 4 Temporary Armor.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Wild Echo', skillgroup: Skillgroup.find_by(name: 'Druid'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may Packet Chain a single spell that possesses the Cure or Bestow'
+skill.save!
+
+puts('Starting Fighter')
+
+skill = Skill.find_or_initialize_by(name: 'Chilling Blow', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Fear'
+skill.description = '"Fear."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Diehard', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'While in Bleedout only - "Resist" "Death" for the next five minutes.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Permanent')
 skill.skilldelivery = nil
-skill.skillgroup = Skillgroup.find_by(name: 'Fighter')
 skill.playeravailable = true
 skill.maxpurchase = 1
 skill.target = nil
@@ -3321,17 +3830,2048 @@ skill.incant = nil
 skill.description = 'Weapon or Shield. You can choose one type of enemy as a foe you specialize in battling. Once selected, you can not change your Favored Foe type. You may state "Resist" to a called melee weapon skill from this foe type.'
 skill.save!
 
-skill = Skill.find_or_initialize_by(name: 'Weapon Specialization')
+skill = Skill.find_or_initialize_by(name: 'Fearless', skillgroup: Skillgroup.find_by(name: 'Fighter'))
 skill.tier = 4
 skill.resttype = Resttype.find_by(name: 'Short Rest')
 skill.skilldelivery = nil
-skill.skillgroup = Skillgroup.find_by(name: 'Fighter')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" Fear'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Melee Weapon or Shield. "Resist," a weapon delivered attack.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Shatter', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Weapon or Shield'
+skill.prop = nil
+skill.incant = 'Shatter'
+skill.description = 'Target: Weapon or Shield. "Shatter."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slash 5', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Damage 5'
+skill.description = '"Damage 5"'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Slash 5', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Slash 4', skillgroup: Skillgroup.find_by(name: 'Weapon'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Deadly Aim', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may deliver weapon-delivered Skills with packets instead.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Brawler', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Prone'
+skill.description = 'Packet Chain, "Prone."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Brawler', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Deadly Aim', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Crushing Blow', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Weakness'
+skill.description = '"Weakness"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When your armor is at full points, it provides three additional Armor Points over its standard value. Prerequisite: Arms, Legs, and Torso protected.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Startle', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By my Voice, Disengage'
+skill.description = '"By my Voice, Disengage."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Juggernaut', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Cure Paralyze'
+skill.description = '"Cure Paralyze." This ability can be used when paralyzed.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Damage 4'
+skill.description = 'When you expend the Parry skill, you immediately gain use of "Damage 4" on the opponent whose attack you Parried.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Whirlwind Attack', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may chain any Tier 1-3 Melee Skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - One-Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Two-Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Ranged',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Sword and Shield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Specialization - Dual Wield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Restore a tier 1-3 weapon or shadow skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slay', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Death'
+skill.description = '"Death."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Cleave', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you successfully use the skill Slay, you may immediately gain one additional use of Slay to use on an opponent within 5 feet. If not used within 10 seconds, the extra Slay is lost.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Cleave', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Slay', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Defiance', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may crawl and talk while in your bleed out count.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Defiance', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Diehard', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - One Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament: Chosen Weapons. While wielding your weapon Specialization style, you may call "Resist" to Disarm and Shatter.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Weapon Mastery - One Handed', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - One-Handed',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Two Handed',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament: Chosen Weapons. While wielding your weapon Specialization style, you may call "Resist" to Disarm and Shatter.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Weapon Mastery - Two Handed', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - Two-Handed',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Ranged', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament: Chosen Weapons. While wielding your weapon Specialization style, you may call "Resist" to Disarm and Shatter.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Weapon Mastery - Ranged', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - Ranged', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Sword and Shield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament: Chosen Weapons. While wielding your weapon Specialization style, you may call "Resist" to Disarm and Shatter.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Weapon Mastery - Sword and Shield', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - Sword and Shield',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Weapon Mastery - Dual Wield',
+                                    skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament: Chosen Weapons. While wielding your weapon Specialization style, you may call "Resist" to Disarm and Shatter.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Weapon Mastery - Dual Wield', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Weapon Specialization - Dual Wield',
+                               skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Action Surge', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'This skill allows you to use any skill for a second time after successful use. You must perform the second use within 10 seconds, or you lose the Action Surge.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Dual Strike', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Armament: Two Weapons - You can use one offensive melee skill against two different opponents as long as you strike them at the same time with both weapons.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Marked for Death', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'I mark you as my enemy'
+skill.description = 'State "I mark you as my enemy" to your opponent. During this battle, you may Parry (as per the skill) all called weapon attacks made by your target. You may not use this skill with Riposte.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Studied Foe', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'If your Favored Foe uses a spell, excluding Final Death, you may state "Resist."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Studied Foe', skillgroup: Skillgroup.find_by(name: 'Fighter')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Fighter'))
+).save!
+
+puts 'Starting Paladin'
+
+skill = Skill.find_or_initialize_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Special')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You gain the tier 4 ability based on your deity from Dedicated to a Deity section of the rulebook.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Aura of Cleansing', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Aura')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Aura')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = '"Resist" Disease.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Aura of Cleansing', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Aura of Courage', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Aura')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Aura')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = '"Resist" Fear."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Aura of Courage', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Benefactors', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = '+2 Benefactor. Paladins begin the game with two Benefactors.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Empathic Healing', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through water, I heal you <number of Hit Points>'
+skill.description = '"Through water, I heal you <number of Hit Points>." This spell allows you to transfer your Hit Points to a single target. If you give away all of your Hit Points, you immediately go to Dedrot\'s Realm.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Repair Wounds', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I heal you 5 Hit Points'
+skill.description = '"Through Life, I heal you 5 Hit Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slash 5', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Resttype.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Damage 5'
+skill.description = '"Damage 5"'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Slash 5', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Slash 4', skillgroup: Skillgroup.find_by(name: 'Weapon'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Smite', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Resttype.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Death to Undead'
+skill.description = '"Death to Undead"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Armor of Faith', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = 'Holy Symbol'
+skill.incant = 'Through Spirit, Bestow 3 Temporary Armor'
+skill.description = 'Prop Required: Holy Symbol. "Through Spirit, Bestow 3 Temporary Armor."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Aura of Strength', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Aura')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Aura')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Increase all called damage by +1.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Aura of Strength', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Aura of Will', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Aura')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Aura')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Resist" Mind.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Aura of Will', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When your armor is at full points, it provides three additional Armor Points over its standard value. Prerequisite: Arms, Legs, and Torso protected.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Blessing', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Corpse Only'
+skill.prop = nil
+skill.incant = 'Through Spirit, I grant you the divine blessing of <Your Deity>. Inform Dedrot\'s Barrister of your blessing'
+skill.description = '"Through Spirit, I grant you the divine blessing of <Your Deity>. Inform Dedrot\'s Barrister of your blessing."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Fortification', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Bestow X temporary Armor'
+skill.description = '"Bestow X temporary Armor" X is equal to your current number of Benefactors.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament Required: Melee Weapon or Shield. "Resist," a weapon delivered attack.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Self-Sacrifice', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, I take any diseases or poison onto myself'
+skill.description = '"Through Life, I take any diseases or poison onto myself." You must know what ails the target before you can cast this spell on them. If you take on poison, you need to know where the target\'s poison count currently stands and take over from there. You cannot already have the affliction you are taking. You cannot resist ailments received by this spell or mitigate them in any way.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Aura of Freedom', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Aura')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Aura')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = '"Resist" to Paralyze.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Aura of Freedom', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Divine Archon', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Special')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You gain the tier 6 ability based on your deity from Dedicated to a Deity section of the rulebook.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Divine Archon', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Dual Auras', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Aura')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'For the battle, your Benefactors may be affected by two of your Auras instead of one.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Dual Auras', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Divine Aura', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Lay on Hands', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Life, heal all Hit Points'
+skill.description = '"Through Life, heal all Hit Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Resolute Shield', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Armament: Shield. For the battle, Choose a spell damage type ( Fire, Air, Water, Earth, Spirit, Mind, Arcane) or Death. Spells of that type that strike your shield may be "Resisted."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slay:', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Death'
+skill.description = '"Death."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slay:', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
 skill.playeravailable = true
 skill.maxpurchase = 10
 skill.target = 'Self'
 skill.prop = nil
 skill.incant = nil
-skill.description = 'Self Only - Armament Required: Chosen Weapon Style. (One-Handed, Two-Handed, ranged, sword and shield, or two weapons) "Restore a tier 1-3 weapon or shadow skill."'
+skill.description = 'When you are dropped to 0 Hit Points by an Undead attacker, you may choose to activate this skill once you have fallen to the ground. You are healed to full Hit Points. After 30 seconds, you will drop back to 0 Hit Points.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Ultimate Sacrifice', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Corpse'
+skill.prop = nil
+skill.incant = 'Through Life, cure death and heal all Hit Points'
+skill.description = '"Through Life, cure death and heal all Hit Points." You then immediately go to Dedrot\'s Realm. You may use this ability on people who have been affected by "Final Death", however, you will take on the Final Death'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Ultimate Sacrifice', skillgroup: Skillgroup.find_by(name: 'Paladin')),
+  requiredskill: Skill.find_by(name: 'Self-Sacrifice', skillgroup: Skillgroup.find_by(name: 'Paladin'))
+).save!
+
+puts('Starting Ranger')
+
+skill = Skill.find_or_initialize_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 6
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Armament - Weapon or Shield. You can choose one type of enemy as a foe you specialize in battling. Once selected, you can not change your Favored Foe type. You may state "Resist" to a called melee skill from this foe type.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Natural Defenses', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Deep Woods Only - "Resist" Disease.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Schelde', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Place of Power')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" any weapon-delivered skill that deals called damage.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Strength of the Hunter', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Place of Power')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Damage 10'
+skill.description = '"Damage 10"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Tactics', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Place of Power')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Favored Foe'
+skill.prop = nil
+skill.incant = 'By my Voice Disengage To <Favored Foe>'
+skill.description = '"By my Voice Disengage To <Favored Foe>."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Tactics', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Vine Wrappings', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Deep Woods Only - "Resist" Shatter or Disarm.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Walk it Off', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Cure all Maims'
+skill.description = 'RP: One minute nursing your wounds. "Cure all Maims."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Waylay', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'From behind'
+skill.prop = nil
+skill.incant = '"Waylay'
+skill.description = 'Armament: Dagger, "Waylay."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Capture', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Place of Power')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Favored Foe'
+skill.prop = nil
+skill.incant = 'Snare to <Favored Foe>, 1 minute'
+skill.description = '"Snare to <Favored Foe>, 1 minute."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Capture', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When your armor is at full points, it provides three additional Armor Points over its standard value. Prerequisite: Arms, Legs, and Torso protected.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Herbal Antidote', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'I cure you of disease and heal you five Hit Points'
+skill.description = 'Deep Woods Only - RP: One minute searching for suitable herbs. "I cure you of disease and heal you five Hit Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Hunter\'s Call', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Favored Foe'
+skill.prop = nil
+skill.incant = 'By Voice, To <Favored Foe> Taunt'
+skill.description = '"By Voice, To <Favored Foe> Taunt."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Hunter\'s Call', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Hunter\'s Mark', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'I mark you as my Prey'
+skill.description = '"I mark you as my Prey" Treat your marked Target as your Favored Foe until your next Short Rest.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Hunter\'s Mark', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Place of Peace', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By voice, through mind, Pacify'
+skill.description = 'Location: Place of Power area ONLY. "By voice, through mind, Pacify."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Predator\'s Presence', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By Voice, through mind, fear'
+skill.description = 'Deep Woods Only "By Voice, through mind, fear."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Snare', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Air, Snare, One minute'
+skill.description = '"Through Air, Snare, One minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Ancient Energy', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = '"Restore" a single Place of Power skill while within 20 feet of a Place of Power'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Enhanced Metabolism', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you consume a potion with more than one effect, you may choose to ignore all the negative effects and gain all beneficial effects.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Hunter\'s Trance', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Favored Foe'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Weapon Chain - You may Chain a Tier 1-3 Weapon or Shadow Skill and deliver it To <Favored Foe>'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Hunter\'s Trance', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Studied Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'If your Favored Foe uses a spell, excluding Final Death, you may state "Resist."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Studied Foe', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Foe Hammer', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Favored Foe'
+skill.prop = nil
+skill.incant = 'Death to <Favored Foe>'
+skill.description = '"Death to <Favored Foe>."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Foe Hammer', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Dual Strike', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Armament: Two Weapons - You can use one melee weapon skill against two different opponents as long as you strike them at the same time using both weapons.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Dual Strike', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Dual Weapons', skillgroup: Skillgroup.find_by(name: 'Weapon'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Retaliate', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Favored Foe'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Every time your Favored Foe strikes you with a melee weapon skill, you can immediately counter with the same skill. You must have Favored Foe. Retaliating does not expend the use of the skill if you possess it.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Retaliate', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Hidden Weakness', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'For the battle, you retain all uses of <Favored Foe> skills that are "Resisted."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Hidden Weakness', skillgroup: Skillgroup.find_by(name: 'Ranger')),
+  requiredskill: Skill.find_by(name: 'Favored Foe', skillgroup: Skillgroup.find_by(name: 'Ranger'))
+).save!
+
+puts('Starting Rogue')
+
+skill = Skill.find_or_initialize_by(name: 'Avoid Trap', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'You may state, "Resist" if you trigger a trap. Triggered area-of-effect traps can still affect anyone who doesn\'t use Avoid Trap.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Backstab', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'From Behind'
+skill.prop = nil
+skill.incant = 'Crit, Damage 6'
+skill.description = 'Target: From Behind. "Crit, Damage 6."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Backstab', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Sneak Attack 3', skillgroup: Skillgroup.find_by(name: 'Shadow'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Greater Hidden Stash', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may have a large clearly-marked pouch no larger than 8" x 10" on your person that is immune to searching. If searched or Rapid Searched, you may inform the searcher they find nothing'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Greater Hidden Stash', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Hidden Stash', skillgroup: Skillgroup.find_by(name: 'Shadow'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Lightning Reflexes', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" Waylay'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Resist Poison', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" Poison'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Deadly Aim', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may deliver weapon-delivered Skills with packets instead.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Waylay', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'From behind'
+skill.prop = nil
+skill.incant = 'Waylay'
+skill.description = 'Armament: Dagger, "Waylay."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Pick Pocket', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may attempt to remove a numbered clothes pin from an NPC. If you are successful, discreetly take the numbered clothespin to the tavernkeep to redeem the spoils of your actions.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Dagger Mastery', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Armament: 2 Daggers. "Resist" Shatter and Disarm.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Dagger Mastery', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Dual Weapons', skillgroup: Skillgroup.find_by(name: 'Weapon'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Startle', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Voice')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'By my Voice, Disengage'
+skill.description = 'By my Voice, Disengage'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Escape Artist', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = nil
+skill.description = 'RP: One minute freeing yourself. You may cure <Bind/Snare/Pin/Paralyze> that was not delivered as a spell'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Knife Juggler', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may attempt to catch or swat aside thrown weapons with your hands. If you manage to catch the weapon, you may immediately throw it back.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Knife Juggler', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Thrown Weapon', skillgroup: Skillgroup.find_by(name: 'Weapon'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Strike', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Paralyze, 1 Minute'
+skill.description = 'Paralyze, 1 Minute.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Strike', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Backstab', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Spell Grounding', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament: Thrown Dagger. "Resist" to a Spell Packet delivered effect. You immediately take a "Disarm" to one of your Thrown Weapons that cannot be mitigated or reduced in any way.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Spell Grounding', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Knife Juggler', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Walk It Off', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Cure all Maims'
+skill.description = 'RP: One minute nursing your wounds. "Cure all Maims."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Venom Mastery', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you use an Oil, you may expend this skill to get a second use of that Oil immediately. If not used before the end of the battle, the other application is lost.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Assassinate', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Crit Death'
+skill.description = 'Armament - Dagger or Ranged Weapon. "Crit Death."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Assassinate', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Backstab', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Blackjack', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'From behind'
+skill.prop = nil
+skill.incant = 'Sleep'
+skill.description = 'Armament: Dagger. "Sleep."'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Blackjack', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Assassinate', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+).save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Blackjack', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Waylay', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Cheat Death', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'At the end of your bleed out count, you awaken with one Hit Points rather than bleeding out and dying.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Disguise', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You can disguise yourself as another player race, a monster, or other creature by putting on the appropriate mask and makeup as required. The Disguise lasts until you remove the mask, prosthetics, or makeup. You supply any costumes, prosthetics, and makeup required for this ability.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Evasion', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" any called damage effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Fan of Knives', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament: Two Throwing Daggers. When you use a skill with one thrown weapon, you may immediately use the same skill with the other thrown weapon. If not used within 10 seconds, the other skill use is lost.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Fan of Knives', skillgroup: Skillgroup.find_by(name: 'Rogue')),
+  requiredskill: Skill.find_by(name: 'Spell Grounding', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Penetrating Strike', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Dispel All'
+skill.description = '"Dispel All"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Slippery Mind', skillgroup: Skillgroup.find_by(name: 'Rogue'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" Mind, Corrupt, or Enslave.'
+skill.save!
+
+puts('Starting Runesmith')
+
+skill = Skill.find_or_initialize_by(name: 'Breakdown', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in yellow-stickered items, and a crafting form to gain some of the materials used in its construction at the following check-in.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Crushing Force', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Limb'
+skill.prop = nil
+skill.incant = 'Crit Maim <Left/Right - Arm/Leg>'
+skill.description = 'Armament : Hammer "Crit Maim <Left/Right - Arm/Leg>."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Field Repairs', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You do not require a Forge to use skills from the Mender Profession.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Inner Fire', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist | Fire Damage 5'
+skill.description = '"Resist" Fire. You may immediately Packet or Weapon Deliver: "Fire Damage 5." Within 10 seconds of calling "Resist," the effect is lost.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Lesser Runic Reserves', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may immediately use any Novice Runecraft Recipe you know on yourself, without materials.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Novice Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Novice Runecraft Recipes'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Strategic Repairs', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When paying an upkeep cost for items, you may upkeep two identical items for their singular upkeep cost.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Better Than New', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When you Repair a full set of Armor (Arms, Legs, Torso) to full, you also "Bestow Two Temporary Armor," to the full armor set.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'When your armor is at full points, it provides three additional Armor Points over its standard value. Prerequisite: Arms, Legs, and Torso protected.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Defense', skillgroup: Skillgroup.find_by(name: 'Runesmith')),
+  requiredskill: Skill.find_by(name: 'Light Armor Proficiency',
+                               skillgroup: Skillgroup.find_by(name: 'Basic Defense Skills'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Journeyman Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Journeyman Runecraft Recipes'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Journeyman Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith')),
+  requiredskill: Skill.find_by(name: 'Novice Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament Required: Melee Weapon or Shield. "Resist" a weapon delivered attack.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Patch Job', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Bestow Four Temporary Armor Points'
+skill.description = '"Bestow Four Temporary Armor Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Runic Guard', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament Required: Shield. For the battle, state "Resist" to any Packet delivered effect that strikes your shield.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Shatter', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Weapon')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Shatter'
+skill.description = 'Target: Weapon or Shield. "Shatter."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Unrelenting Defense', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Disengage'
+skill.description = 'Weapon Chain - "Disengage."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Greater Runic Reserves', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Without materials, you may immediately use any Journeyman or Master Runecraft Recipe you know on yourself.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Indomitable Hammer', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = 'Armament Required: Hammer - "Resist" Disarm and Shatter Effects targeting your Hammer.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Master Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Crafting')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Crafting')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may craft Master Runecraft Recipes'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Master Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith')),
+  requiredskill: Skill.find_by(name: 'Journeyman Runecraft', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Rapid Refit', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Touch')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Restore All Armor'
+skill.description = '"Restore All Armor."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Runic Branding', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Prop Required: A Stylized and Visible Marking. - Runecraft Recipes you are targeted with last until used versus when they would usually expire.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Runic Mastery', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Bestow effects placed upon you from a Runecraft Recipe may be used twice before the Bestow effect is considered used'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Shatter Magic', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Armament Required: Hammer - Long Rest - "Dispel All."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Soul of the Forge', skillgroup: Skillgroup.find_by(name: 'Runesmith'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Long Rest - Building Required: Forge. "Shell All," while you are actively engaging in crafting roleplay at the Forge.'
+skill.save!
+
+puts 'Starting Wizard'
+
+skill = Skill.find_or_initialize_by(name: 'Alignment Focus', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may cast any spell Through <arcane, air, earth, fire, water, wood, spirit, or mind> instead of its normal alignment. When you purchase this skill, you must select the alignment you will use going forward. Once selected, this choice may not be changed.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Arcane Barrage', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst ')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may cast any single spell that does damage as a Burst effect. State "Burst," and the incant of the spell. Ex. Magic Missile "Through Arcane, Damage 1.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Command (Silence)', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet ')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Mind, Silence, one minute'
+skill.description = '"Through Mind, Silence, one minute."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Glass Cannon', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst ')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, Damage <Hit Point x 3>'
+skill.description = 'You may convert your Hit Points into a single Arcane attack. Each Hit Point increases the damage by 3. If you expend all your Hit Points in this manner, the total damage doubles, but you immediately drop to the ground with the Death effect and become a spirit on your way to Dedrot\'s Realm. "Through Arcane, Damage <Hit Point x 3>."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Identify', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may turn in a yellow- stickered item to learn the properties of the object. Curses are not revealed with this skill.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Magic Missile', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet ')
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, Damage 1'
+skill.description = 'Through Arcane, Damage 1'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Personal Spell Shield', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" a Through effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Shatter', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 4
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Fire - I shatter the <weapon or shield> in your right/left hand'
+skill.description = '"Through Fire - I shatter the <weapon or shield> in your right/left hand."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Alignment Specialization', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Resist'
+skill.description = '"Resist" your chosen alignment.'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Alignment Specialization', skillgroup: Skillgroup.find_by(name: 'Wizard')),
+  requiredskill: Skill.find_by(name: 'Alignment Focus', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Empowered Spellbook', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = 'Your spellbook must be boffer-style, made entirely of foam. It may be no larger than 9" wide and 12" tall'
+skill.incant = nil
+skill.description = 'With no weapons on your person and using both hands, you may use your spellbook to block incoming damage-causing "Through" packet effects from enemies, state "Resist," and immediately restore one of your tier 1-3 expended spells.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Mage Armor', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Through Earth, Bestow four Temporary Armor Points'
+skill.description = '"Through Earth, Bestow four Temporary Armor Points."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Meteor Swarm ', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Burst')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, Damage Three'
+skill.description = '"Through Arcane, Damage Three"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Minor Globe of Invulnerability',
+                                    skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Through wood, shell against magic, five minutes'
+skill.description = '"Through wood, shell against magic, five minutes." State, "Shell" to all Through effects. The shell breaks if you take weapon damage, engage in combat, or cast a spell.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Scrying', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Between Events')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = 'Something connected to the person, place, or object '
+skill.incant = nil
+skill.description = 'You may ask a single question concerning a person, place, or object. The more focused your question regarding that person, place, or object, the more information you will receive at the following check-in.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Stone Skin', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Through Earth, Stone Skin'
+skill.description = '"Through Earth, Stone Skin." Shell to all uncalled damage. State "Shell." Duration 5 minutes.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Power Word Sleep', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 5
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = 'Self'
+skill.prop = nil
+skill.incant = 'Through Mind, Sleep'
+skill.description = '"Through Mind, Sleep."'
+skill.save
+
+skill = Skill.find_or_initialize_by(name: 'Alignment Mastery', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Permanent')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 1
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Damage Spells of your chosen alignment that you cast deal +1 damage'
+skill.save!
+
+Skillrequirement.find_or_initialize_by(
+  skill: Skill.find_by(name: 'Alignment Mastery', skillgroup: Skillgroup.find_by(name: 'Wizard')),
+  requiredskill: Skill.find_by(name: 'Alignment Specialization', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+).save!
+
+skill = Skill.find_or_initialize_by(name: 'Chained Offense', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'You may cast any single spell that does damage as a Packet Chain effect.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Counterspell', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, Bestow Resist a Through-based effect'
+skill.description = '"Through Arcane, Bestow Resist a Through-based effect"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Dispel Magic', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Arcane, Dispel all'
+skill.description = '"Through Arcane, Dispel all"'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Elemental Outburst', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through <Earth, Fire, Water, Air, Wood>, Damage 10'
+skill.description = '"Through <Earth, Fire, Water, Air, Wood>, Damage 10." After casting this spell, you take four damage of the same type. You may not resist this damage in any way.'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Power Word (Kill)', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Packet')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Spirit, Death'
+skill.description = '"Through Spirit, Death."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Shatter Storm', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Long Rest')
+skill.skilldelivery = Skilldelivery.find_by(name: 'Chain')
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = 'Through Fire, I shatter the <shield/weapon> in your <left/right> hand'
+skill.description = 'Packet Chain - "Through Fire, I shatter the <shield/weapon> in your <left/right> hand."'
+skill.save!
+
+skill = Skill.find_or_initialize_by(name: 'Spell Penetration', skillgroup: Skillgroup.find_by(name: 'Wizard'))
+skill.tier = 6
+skill.resttype = Resttype.find_by(name: 'Short Rest')
+skill.skilldelivery = nil
+skill.playeravailable = true
+skill.maxpurchase = 10
+skill.target = nil
+skill.prop = nil
+skill.incant = nil
+skill.description = 'Immediately recast a packet spell your target resisted.'
 skill.save!
 
 puts 'Starting Profession Groups'
@@ -4323,215 +6863,6 @@ Professionrequirement.find_or_initialize_by(
   requiredprofession: Profession.find_by(name: 'Journeyman Mender')
 ).save!
 
-puts ('Adding Previous Events')
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - OCT 2018')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2018-10-26'
-event.enddate = '2018-10-28'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - APR 2019')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2019-04-19'
-event.enddate = '2019-04-21'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
 
 
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAY 2019')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2019-05-24'
-event.enddate = '2019-05-26'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - AUG 2019')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2019-08-09'
-event.enddate = '2019-08-11'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - SEP 2019')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2019-09-20'
-event.enddate = '2019-09-22'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - NOV 2019')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2019-11-01'
-event.enddate = '2019-11-03'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAR 2020')
-event.eventtype = 'Adventure Weekend - Go Big'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2020-03-27'
-event.enddate = '2020-03-29'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAY 2020')
-event.eventtype = 'Adventure Weekend - Go Big'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2020-05-22'
-event.enddate = '2020-05-24'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - AUG 2020')
-event.eventtype = 'Adventure Weekend - Go Big'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2020-08-14'
-event.enddate = '2020-08-16'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - OCT 2020')
-event.eventtype = 'Adventure Weekend - Go Big'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2020-10-09'
-event.enddate = '2020-10-11'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - NOV 2020')
-event.eventtype = 'Adventure Weekend - Go Big'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2020-11-06'
-event.enddate = '2020-11-08'
-event.description = ''
-event.atdoorcost = 90
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAR 2021')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2021-03-26'
-event.enddate = '2021-03-28'
-event.description = ''
-event.atdoorcost = 100
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - MAY 2021')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2021-05-07'
-event.enddate = '2021-05-09'
-event.description = ''
-event.atdoorcost = 100
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - AUG 2021')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2021-08-20'
-event.enddate = '2021-08-22'
-event.description = ''
-event.atdoorcost = 100
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - SEP 2021')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2021-09-22'
-event.enddate = '2021-09-26'
-event.description = ''
-event.atdoorcost = 100
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
-
-event = Event.find_or_initialize_by(name: 'Adventure Weekend - NOV 2021')
-event.eventtype = 'Adventure Weekend'
-event.location = '326 Taft Pond Rd, Pomfret, CT'
-event.startdate = '2021-11-05'
-event.enddate = '2021-11-07'
-event.description = ''
-event.atdoorcost = 100
-event.earlybirdcost = 75
-event.eventexp = 300
-event.feedbackexp = 100
-event.levelingevent = true
-event.save!
+puts('One Time Scripts')

@@ -1,8 +1,10 @@
 
-Name: <%= @user.firstname + ' ' + @user.lastname%><br>
-Email Address: <%= @user.email %><br>
-Max Characters: <%= @user.charactercount %><br>
-Experience: <%= @user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) %><br>
+<strong>Name:</strong> <%= @user.firstname + ' ' + @user.lastname%><br>
+<strong>Email Address:</strong> <%= @user.email %><br>
+<strong>Max Characters:</strong> <%= @user.charactercount %><br>
+<strong>Available Experience:</strong> <%= @user.explogs.where('acquiredate <= ? ', Time.now).sum(:amount) %><br>
+<strong>Total Experience:</strong> <%= @user.explogs.where('amount > 0').sum(:amount) %><br>
+
 <hr>
 <ul class="nav nav-tabs" id="charTab" role="tablist">
   <li class="nav-item">

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateExplogs < ActiveRecord::Migration[6.0]
   def change
     create_table :explogs do |t|
@@ -6,7 +8,7 @@ class CreateExplogs < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.string :description, null: false
       t.integer :amount, null: false
-      t.references :grantedby, null: false, foreign_key: {to_table: :users}
+      t.references :grantedby, null: false, foreign_key: { to_table: :users }
       t.timestamps
     end
   end

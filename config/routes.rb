@@ -1,30 +1,63 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "pages#index"
+  root 'pages#index'
   devise_for :users
 
+  namespace :character do
+    get :getcharacter
+    get :events
+    post :levelup
+    get :availableskills
+    get :trainskill
+    post :trainskill
+    post :removeskill
+    get :learnprofession
+    post :learnprofession
+    post :removeprofession
+    get :comingsoon
+  end
+
+  resources :character
+
   namespace :player do
-    resources :eventattendances
-    resources :characters do
-      post :levelup
-      resources :characterskills
-      resources :characterprofessions
-    end
+    get :explog
+    get :events
+    post :changecharacter
+    get :changeeventcharacter
+    post :changeeventcharacter
   end
 
   namespace :admin do
     resource :settings
+    resources :character do
+      get :loginas
+    end
+    resources :datatables
     resources :users do
       get :reset
       get :confirm
       resources :explogs
-      resources :characters do
-        resources :characterskills
-        resources :characterprofessions
-      end
     end
-    resources :datatables
+
     resources :events do
       resources :eventattendances
     end
+  end
+
+  resources :characterclass do
+    get :getcharacterclass
+  end
+  resources :deity do
+    get :getdeity
+  end
+  resources :race do
+    get :getrace
+  end
+  resources :skill do
+    get :getskill
+  end
+  resources :profession do
+    get :getprofession
   end
 end

@@ -1,49 +1,42 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container col-11">
+<div class="pagetitle">Edit Profile</div>
+<div class="pagesubtitle" >Change is Inevitable</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autocomplete: "given-name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autocomplete: "family-name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 <% end %>
 
-<%= link_to "Back", :back %>
+
+<div class="card mx-auto" style="width: 18rem;">
+  <div class="card-body">
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", :readonly => f.object.persisted? %>
+  <%= f.text_field :firstname, autocomplete: "given-name", label: 'First Name' %>
+  <%= f.text_field :lastname, autocomplete: "family-name", label: 'Last Name' %>
+  <%= f.text_field :aliaslastname, autocomplete: "alias-name", label: 'Alias Last Name' %><i>Populate to Hide Real Last Name</i><br/><br/>
+  <%= f.password_field :current_password, autocomplete: "current-password", label: 'Current Password' %>
+  <p class = 'text-info'><i>We need your current password to confirm your changes</i> </p>
+  <hr>
+
+  <div id='change_password', class='d-none bg-light p-2'>
+    <%= f.password_field :password, autocomplete: "new-password", label: 'New Password' %>
+    <p class = 'text-info'><i>Leave blank if you do not want to change it</i><br /></i> </p>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", label: 'Confirm New Password' %>
+  </div>
+  <div class="text-center mb-2"><a onClick="showPassword()", id='change_password_link', class="text-danger">Update Password</a></div>
+  <div class="actions text-center">
+
+    <%= f.submit "Update Profile", class: "btn btn-success" %> <%= link_to "Back", :root, class: "btn btn-primary" %>
+  </div>
+<% end %>
+  </div>
+</div>
+
+<script>
+  function showPassword() {
+    document.getElementById("change_password").classList.remove('d-none');
+    document.getElementById("change_password_link").classList.add('d-none');
+  }
+</script>

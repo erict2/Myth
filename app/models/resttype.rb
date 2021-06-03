@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Resttype < ApplicationRecord
-    has_many :skills
+  has_many :skills
 end

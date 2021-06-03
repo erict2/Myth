@@ -1,0 +1,44 @@
+<div class="modal fade" id="changeCharacterModal" tabindex="-1" role="dialog" aria-labelledby="changeCharacterModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changeCharacterModalLabel">Change Character</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <div class="modal-body">
+      
+      <%= bootstrap_form_for :changecharacter, url: player_changecharacter_path do |f| %>
+        <div class="row">
+          <div class="col-12">
+            <%= f.collection_select :character_id, current_user.characters, :id, :name, :selected => session[:character], hide_label: true, class: 'm-auto align-self-center' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <img id= 'changeCharacterclasstoken' height= '100' width= '100'/>
+          </div>
+          <div class="col-4">
+            <center><span id = 'characterlevel' class = 'display-1'>1</span></center>
+          </div>
+          <div class="col-4">
+            <img id= 'changeCharacterdeitytoken' height= '100' width= '100'/>
+          </div>
+        </div>
+        <div class="row pt-4">
+          <div class="col-6">
+          <%= f.submit 'Load Character', class: "btn btn-primary float-left" %>
+      <% end %>
+          </div>
+  
+          <div class="col-6">
+            <% if (current_user.charactercount > current_user.characters.count) %>
+              <%= button_to "New Character", new_character_path, method: :get, class: "btn btn-secondary float-right" %>
+            <% end %>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>

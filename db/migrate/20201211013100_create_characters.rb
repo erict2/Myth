@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CreateCharacters < ActiveRecord::Migration[6.0]
   def change
     create_table :characters do |t|
       t.string :name, null: false
       t.string :pronouns, null: false
-      t.integer :level, null: false, default: 1 
+      t.integer :level, null: false, default: 1
       t.string :totem, null: true
       t.string :status, default: 'Active'
       t.date :levelupdate, default: -> { 'CURRENT_TIMESTAMP' }

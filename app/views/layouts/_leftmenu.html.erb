@@ -1,0 +1,91 @@
+<div class="position-sticky pt-2">
+  <% @character = Character.find_by(id: session[:character]) %>
+
+  <div class='sideLink'>
+    <%= link_to character_index_path do %>
+      <div>
+        <%= image_tag("leftmenu/profile.png") %>
+        <span id='name'>
+          <%= if @character.alias.present?
+                  @character.alias
+              else
+                @character.name.partition(" ").first 
+            end %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <% if canEdit(@character) %>
+    <div class='sideSubLink'>
+      <%= link_to 'Edit Character', edit_character_path(session[:character]) %>
+    </div>
+  <% end %>
+
+  <% if canLevel(@character) %>
+    <div class='sideSubLink'>
+      <%= link_to 'Level Up', character_levelup_path, data: { confirm: 'Leveling up will cost ' + expToLevel(@character).to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+    </div>
+  <% end %>
+  <% if canEdit(@character) %>
+    <div class='sideSubLink'>
+      <%= link_to 'Train Skill', character_trainskill_path, remote: true %>
+    </div>
+  <% end %>
+
+  <% if canBuyProfession(@character) %>
+    <div class='sideSubLink'>
+      <%= link_to 'Learn Profession', character_learnprofession_path, remote: true %>
+    </div>
+  <% end %>
+  
+  <div class='sideLink'>
+    <%= link_to character_comingsoon_path do %>
+      <div>
+        <%= image_tag("leftmenu/journal.png") %>
+        <s>Journal</s>
+      </div>
+    <% end %>
+  </div>
+  <div class='sideLink'>
+    <%= link_to character_comingsoon_path do %>
+      <div>
+        <%= image_tag("leftmenu/bank.png") %>
+        <s>Bank</s>
+      </div>
+    <% end %>
+  </div>
+  <div class='sideLink'>
+    <%= link_to character_events_path do %>
+      <div>
+        <%= image_tag("leftmenu/events.png") %>
+        Events
+      </div>
+    <% end %>
+  </div>
+  <div class='sideLink'>
+    <%= link_to character_comingsoon_path do %>
+      <div>
+        <%= image_tag("leftmenu/courier.png") %>
+        <s>Courier</s>
+      </div>
+    <% end %>
+  </div>
+  <div class='sideLink'>
+    <%= link_to character_comingsoon_path do %>
+      <div>
+        <%= image_tag("leftmenu/house.png") %>
+        <s>House</s>
+      </div>
+    <% end %>
+  </div>
+  <div class='sideLink'>
+    <%= link_to character_comingsoon_path do %>
+      <div>
+        <%= image_tag("leftmenu/guild.png") %>
+        <s>Guild</s>
+      </div>
+    <% end %>
+  </div>
+    
+</div>

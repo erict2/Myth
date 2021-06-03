@@ -1,0 +1,90 @@
+$('#skillModalBody').html("<%= escape_javascript( render partial: 'modals/addskill' ) %>")
+$('#characterSkillModal').modal('show');
+
+skills = $('#characterskill_skill_id').html();
+skillListUpdate()
+skillListValidation()
+
+$("#characterskill_skill_id").select2({
+width: '400',
+height: '1000'
+});
+
+$('#characterskill_skill_id').change(function() {
+  skillListValidation()
+});
+
+$('#skillgroup').change(function() {
+  skillListUpdate()
+  skillListValidation()
+});
+
+
+function skillListValidation() {
+  var characterskill = $('#characterskill_skill_id option:selected').text()
+  
+  if (characterskill == 'Favored Foe') {
+    $('#favoredfoe').show()
+    document.getElementById("characterskill_favoredfoe").required = true;
+  }  else {
+    document.getElementById('characterskill_favoredfoe').selectedIndex = -1
+    document.getElementById("characterskill_favoredfoe").required = false;
+    $('#favoredfoe').hide()
+  }
+  if (characterskill == 'Alignment Focus') {
+    $('#alignmentfocus').show()
+    document.getElementById("characterskill_alignmentfocus").required = true;
+  }  else {
+    document.getElementById('characterskill_alignmentfocus').selectedIndex = -1
+    document.getElementById("characterskill_alignmentfocus").required = false;
+    $('#alignmentfocus').hide()
+  }
+
+  $.ajax({
+      url: '/skill/' + document.getElementById('characterskill_skill_id').value + '/getskill',
+      type: 'GET',
+      dataType: 'json',
+      success: function(data){
+        $('#modalskillname').html(data.all_data.skill.name)
+        $('#modalskilltier').html('Tier ' + data.all_data.skill.tier)
+        $('#modalskillresttype').html(data.all_data.resttype.name)
+        $('#modalskilldescription').html('<b>Description:</b> ' + data.all_data.skill.description)
+
+        if (data.all_data.skilldelivery == null) {
+          document.getElementById('modalskilltarget').style.display  = 'none';
+          $('#modalskilltarget').html('')
+        } else {
+          $('#modalskilltarget').html('<b>Delivery:</b> ' + data.all_data.skilldelivery.name)
+          document.getElementById('modalskilltarget').style.display  = 'block';
+        }
+
+        if (data.all_data.skill.target == null) {
+          document.getElementById('modalskilltarget').style.display  = 'none';
+          $('#modalskilltarget').html('')
+        } else {
+          $('#modalskilltarget').html('<b>Target:</b> ' + data.all_data.skill.target)
+          document.getElementById('modalskilltarget').style.display  = 'block';
+        }
+
+        if (data.all_data.skill.prop == null) {
+          document.getElementById('modalskillprop').style.display  = 'none';
+          $('#modalskillprop').html('')
+        } else {
+          $('#modalskillprop').html('<b>Prop:</b> ' + data.all_data.skill.prop)
+          document.getElementById('modalskillprop').style.display  = 'block';
+        }
+
+
+      }
+    })
+}
+
+function skillListUpdate() {
+  skillgroup = $('#skillgroup :selected').text();
+  options = $(skills).filter(`optgroup[label='${skillgroup}']`).html();
+  if (options) {
+    $('#characterskill_skill_id').html(options);
+  } else {
+    $('#characterskill_skill_id').empty();
+  }
+}
