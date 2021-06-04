@@ -7,13 +7,7 @@
     <div id = 'eventattendance_character'>
     <%= f.grouped_collection_select :character_id, User.order(:email), :characters, :email, :id, :name, :include_blank => true %>
     </div>
-    <%= f.select :cabin, [ 
-      'Cast Cabin', 'Camping', 'Home', 'American Chestnut', 'Balsam Poplar', 'Douglas Fir', 
-      'Eastern Hemlock', 'Juniper', 'Linden', 'Paper Birch',  'Red Cedar',
-      'Sassafras', 'Scarlet Oak', 'Shagbark Hickory', 'Sugar Maple', 'Sycamore',
-      'Weeping Willow - Left' , 'Weeping Willow - Right', 'White Pine', 'White Spruce'   
-      ], :include_blank => true   %>
-
+    <%= f.collection_select :cabin_id, Cabin.all, :id, :name, {prompt: 'Cabin', :include_blank => true } %>
 
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>

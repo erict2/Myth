@@ -1,0 +1,367 @@
+<div class="container col-11">
+<div class="pagetitle"><%= @event.name %></div>
+<div class="pagesubtitle" ><%= @event.description %></div>
+
+<div class="text-center"><strong>Start Date:</strong> <%= @event.startdate %>  -to-  <strong>End Date:</strong> <%= @event.enddate %></div>
+
+<hr>
+<b>Your Character:  </b><%= @character.name %>  <br>
+<b>Your Cabin:      </b><%= @event.eventattendances.find_by(character_id: @character.id, event_id: @event.id).cabin.name %>      <br>
+
+<div class="container col-12" id = "cabinmap">
+  <div class="row">
+    <div class="col-6" i>
+      <%= image_tag("events/the_glade.jpg") %>
+    </div>
+    <div class="col-6">
+      <%= image_tag("events/the_crossing.jpg") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6" i>
+      <b>Eastern Hemlock</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Eastern Hemlock')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Shagbark Hickory</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Shagbark Hickory')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>American Chestnut</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'American Chestnut')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Sugar Maple</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Sugar Maple')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Scarlet Oak</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Scarlet Oak')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Sassafras</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Sassafras')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Sycamore</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Sycamore')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Douglas Fir</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Douglas Fir')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-6">
+      <b>White Pine</b>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'White Pine')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Paper Birch</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Paper Birch')).each do |cabinassignment| 
+          
+          
+          %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Balsalm Poplar</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Balsalm Poplar')).each do |cabinassignment|
+          puts cabinassignment.event_id
+          puts cabinassignment.user_id
+          puts @event.id
+          puts 'WHAT?!!?!'
+          puts 'WHAT?!!?!'
+          puts 'WHAT?!!?!'
+          puts 'WHAT?!!?!'
+           %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Linden</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Linden')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Red Cedar</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Red Cedar')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>White Spruce</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'White Spruce')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" i>
+      <%= image_tag("events/town_proper.jpg") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <b>Juniper</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Juniper')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Weeping Willow - Left</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Weeping Willow - Left')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Weeping Willow - Right</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Weeping Willow - Right')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Home (Off Site)</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Home')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <b>Camping</b> <br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: Cabin.all.find_by(name: 'Camping')).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+      <hr>
+      The following indivuals have not yet selected a cabin<br>
+      <ul>
+        <%  @event.eventattendances.where(cabin: nil).each do |cabinassignment|  %>
+          <li>
+            <%= if (cabinassignment.character) then 
+              if cabinassignment.character.alias.present?
+                cabinassignment.character.alias
+              else
+                cabinassignment.character.name.partition(" ").first 
+              end
+            else
+              cabinassignment.user.firstname + ' has not yet chosen their character'
+            end
+          %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
