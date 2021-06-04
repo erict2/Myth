@@ -21,7 +21,10 @@ Rails.application.routes.draw do
 
   resources :character
   
-  resources :event
+  resources :event do
+    get :updatecabin
+    patch :updatecabin
+  end
 
   namespace :player do
     get :explog

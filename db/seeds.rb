@@ -6977,13 +6977,6 @@ cabin.location = 'The Crossing'
 cabin.maxplayers = 8
 cabin.save!
 
-cabin = Cabin.find_or_initialize_by(name: 'Tavern')
-cabin.playeravailable = false
-cabin.castavailable = false
-cabin.location = 'Town Proper'
-cabin.maxplayers = -1
-cabin.save!
-
 cabin = Cabin.find_or_initialize_by(name: 'Juniper')
 cabin.playeravailable = false
 cabin.castavailable = false
