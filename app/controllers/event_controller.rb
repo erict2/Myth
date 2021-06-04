@@ -8,6 +8,7 @@ class EventController < ApplicationController
   def show
     @character = Character.find(session[:character])
     @event = Event.find(params[:id])
+    @myeventattendance = @event.eventattendances.find_by(character_id: @character.id, event_id: @event.id)
     cabinlist = {}
 
     @event.eventattendances.where(registrationtype: 'Player').where.not(cabin: nil).each do |eventattendance|
