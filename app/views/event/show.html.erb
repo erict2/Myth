@@ -8,20 +8,15 @@
 <div class="container col-12" id = "cabinmap">
   <div class="row">
     <div class="col-12">
-      <b>Your Character:  </b><%= @character.name %>  <br>
-      <b>Your Cabin:      </b><%= 
+      <b>Your Cabin: </b><%= 
         if @myeventattendance.cabin.present?
           @myeventattendance.cabin.name 
         else
           'None'
         end
-      
-      
       %>
         <% if canUpdateCabin() %>
-        
           <%= link_to 'Update Cabin', event_updatecabin_path(@event), remote: true  %>
-
         <% end %>
       </div>
   </div>
