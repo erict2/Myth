@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   namespace :character do
     get :getcharacter
     get :events
-    
+    get :courier
+    get :viewcourier
+    get :sendcourier
+    post :sendcourier
     post :levelup
     get :availableskills
     get :trainskill
