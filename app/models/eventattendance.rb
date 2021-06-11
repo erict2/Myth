@@ -4,6 +4,7 @@ class Eventattendance < ApplicationRecord
   belongs_to :event
   belongs_to :user
   belongs_to :character, optional: true
+  belongs_to :cabin, optional: true
 
   validates :user, presence: true
   validates :event, presence: true

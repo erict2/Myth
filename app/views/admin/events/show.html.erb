@@ -31,7 +31,7 @@
     </td>
     <td><%= eventattendance.registrationtype %></td>
     <td><%= eventattendance.registerdate.to_date %></td>
-    <td><%= eventattendance.cabin %></td>
+    <td><%= if(eventattendance.cabin) then eventattendance.cabin.name end%></td>
     <td><%= if(eventattendance.character) then eventattendance.character.name end%></td>
     <td><%= if(eventattendance.character) then eventattendance.character.level end%></td>
     <td><%= if(eventattendance.character) then eventattendance.character.characterclass.name end%></td>

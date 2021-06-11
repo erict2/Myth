@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :character do
     get :getcharacter
     get :events
+    
     post :levelup
     get :availableskills
     get :trainskill
@@ -19,6 +20,11 @@ Rails.application.routes.draw do
   end
 
   resources :character
+  
+  resources :event do
+    get :updatecabin
+    patch :updatecabin
+  end
 
   namespace :player do
     get :explog
