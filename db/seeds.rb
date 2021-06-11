@@ -6863,42 +6863,146 @@ Professionrequirement.find_or_initialize_by(
   requiredprofession: Profession.find_by(name: 'Journeyman Mender')
 ).save!
 
+puts 'Cabins'
 
+cabin = Cabin.find_or_initialize_by(name: 'Home')
+cabin.playeravailable = true
+cabin.castavailable = true
+cabin.location = 'Town Proper'
+cabin.maxplayers = -1
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Camping')
+cabin.playeravailable = true
+cabin.castavailable = true
+cabin.location = 'Town Proper'
+cabin.maxplayers = -1
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'American Chestnut')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Douglas Fir')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Eastern Hemlock')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Sassafras')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Scarlet Oak')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Shagbark Hickory')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Sugar Maple')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Sycamore')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Glade'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Balsalm Poplar')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Crossing'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Linden')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Crossing'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Paper Birch')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Crossing'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Red Cedar')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Crossing'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'White Pine')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Crossing'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'White Spruce')
+cabin.playeravailable = true
+cabin.castavailable = false
+cabin.location = 'The Crossing'
+cabin.maxplayers = 8
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Juniper')
+cabin.playeravailable = false
+cabin.castavailable = false
+cabin.location = 'Town Proper'
+cabin.maxplayers = 10
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Weeping Willow - Left')
+cabin.playeravailable = false
+cabin.castavailable = false
+cabin.location = 'Town Proper'
+cabin.maxplayers = 4
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Weeping Willow - Right')
+cabin.playeravailable = false
+cabin.castavailable = false
+cabin.location = 'Town Proper'
+cabin.maxplayers = 6
+cabin.save!
+
+cabin = Cabin.find_or_initialize_by(name: 'Cast Cabin')
+cabin.playeravailable = false
+cabin.castavailable = true
+cabin.location = 'Town Proper'
+cabin.maxplayers = -1
+cabin.save!
 
 puts('One Time Scripts')
-
-sr = Skillrequirement.find_by(
-  skill: Skill.find_by(name: 'Parry', skillgroup: Skillgroup.find_by(name: 'Fighter')),
-  requiredskill: Skill.find_by(name: 'Riposte', skillgroup: Skillgroup.find_by(name: 'Fighter'))
-)
-sr&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAR 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAY 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - AUG 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - OCT 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - NOV 2020')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAR 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - MAY 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - AUG 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - SEP 2021')
-event&.destroy
-
-event = Event.find_by(name: 'Adventure Weekend - NOV 2021')
-event&.destroy

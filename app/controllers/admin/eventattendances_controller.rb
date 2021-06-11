@@ -70,7 +70,7 @@ module Admin
     private
 
     def adduser_params
-      params.require(:eventattendance).permit(:user_id, :event_id, :registrationtype, :character_id, :cabin)
+      params.require(:eventattendance).permit(:user_id, :event_id, :registrationtype, :character_id, :cabin_id)
     end
   end
 end
