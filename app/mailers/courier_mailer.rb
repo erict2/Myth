@@ -1,2 +1,0 @@
-class CourierMailer < ApplicationMailer
-end

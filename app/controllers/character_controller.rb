@@ -73,7 +73,9 @@ class CharacterController < ApplicationController
     if request.post?
       @courier = Courier.new(sendcourier_params)
       @courier.character_id = session[:character]
-      @courier.save!
+      if @courier.save
+        CharacterMailer.with(courier: @courier).send_courier.deliver_later
+      end
       redirect_to character_courier_path
     else
       respond_to do |format|
