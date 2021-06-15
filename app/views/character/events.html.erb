@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @character.events.order('startdate desc').each do |event| %>
+    <% @character.events.order('startdate desc').each do |event| %>
       <tr class="table-light">
         <td>
           <%= link_to event.name, event_path(event.id) %>
@@ -22,5 +22,5 @@
         <td><%= event.enddate %></td>
       </tr>
     <% end %>
-    </tbody>
-  </table>
+  </tbody>
+</table>

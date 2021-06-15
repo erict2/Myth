@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_203700) do
+ActiveRecord::Schema.define(version: 2021_06_11_010432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,17 @@ ActiveRecord::Schema.define(version: 2021_06_03_203700) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_characterskills_on_character_id"
     t.index ["skill_id"], name: "index_characterskills_on_skill_id"
+  end
+
+  create_table "couriers", force: :cascade do |t|
+    t.string "recipient", null: false
+    t.string "destination", null: false
+    t.string "message", null: false
+    t.date "senddate", default: -> { "CURRENT_TIMESTAMP" }
+    t.bigint "character_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_couriers_on_character_id"
   end
 
   create_table "deities", force: :cascade do |t|
@@ -310,6 +321,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_203700) do
   add_foreign_key "characters", "users"
   add_foreign_key "characterskills", "characters"
   add_foreign_key "characterskills", "skills"
+  add_foreign_key "couriers", "characters"
   add_foreign_key "eventattendances", "cabins"
   add_foreign_key "eventattendances", "characters"
   add_foreign_key "eventattendances", "events"
