@@ -1,0 +1,11 @@
+<div class="modal-body" id="sendCourierModalBody">
+  <%= bootstrap_form_with(model: @courier, url: character_sendcourier_path, local: true) do |f| %>
+
+    <%= f.text_field :recipient, :disabled => true%>
+    <%= f.text_field :destination, :disabled => true%>
+    <%= f.text_area :message, :disabled => true %>
+
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+  <% end %>
+</div>
+ 
