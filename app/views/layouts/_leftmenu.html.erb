@@ -17,7 +17,8 @@
   </div>
 
   <div class='sideSubLink'>
-    <%= link_to 'Update Photo', character_changephoto_path, remote: true %>
+    <%= #link_to 'Update Photo', character_changephoto_path, remote: true 
+    %>
   </div>
   <% if canEdit(@character) %>
     <div class='sideSubLink'>
@@ -30,6 +31,7 @@
       <%= link_to 'Level Up', character_levelup_path, data: { confirm: 'Leveling up will cost ' + expToLevel(@character).to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
     </div>
   <% end %>
+
   <% if canEdit(@character) %>
     <div class='sideSubLink'>
       <%= link_to 'Train Skill', character_trainskill_path, remote: true %>
@@ -58,6 +60,7 @@
       </div>
     <% end %>
   </div>
+
   <div class='sideLink'>
     <%= link_to character_events_path do %>
       <div>
@@ -66,6 +69,7 @@
       </div>
     <% end %>
   </div>
+
   <div class='sideLink'>
     <%= link_to character_courier_path do %>
       <div>
@@ -74,6 +78,16 @@
       </div>
     <% end %>
   </div>
+
+  <% if !sheetsLocked %>
+    <div class='sideSubLink'>
+      <%= link_to 'Send Courier', character_sendcourier_path, remote: true %>
+    </div>
+    <div class='sideSubLink'>
+      <%= link_to 'Send Prayer', character_sendprayer_path, remote: true %>
+    </div>
+  <% end %>
+
   <div class='sideLink'>
     <%= link_to character_comingsoon_path do %>
       <div>

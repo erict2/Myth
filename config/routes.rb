@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'pages#index'
+  devise_for :users
+
   namespace :admin do
       resources :settings
       resources :users
@@ -11,42 +14,32 @@ Rails.application.routes.draw do
       resources :eventattendances
       resources :explogs
       resources :cabins
-      
       resources :races
       resources :deities
       resources :characterclasses
-
       resources :skills
       resources :skilldeliveries
       resources :skillgroups
       resources :resttypes
       resources :skillrequirements
-
       resources :characterclassskillgroups, except: :index
       resources :characterprofessions
       resources :characterskills, except: :index
       resources :couriers
-      
-      
-      
-      
       resources :professions
       resources :professiongroups
       resources :professionrequirements
       
-      
-      
-
       root to: "settings#index"
     end
-  root 'pages#index'
-  devise_for :users
 
   namespace :character do
     get :getcharacter
     get :events
     get :courier
     get :viewcourier
+    get :sendprayer
+    post :sendprayer
     get :sendcourier
     post :sendcourier
     post :levelup

@@ -73,8 +73,28 @@ class CharacterController < ApplicationController
     if request.post?
       @courier = Courier.new(sendcourier_params)
       @courier.character_id = session[:character]
+      @courier.couriertype = 'Courier'
+      @courier.skillsused = 0
       if @courier.save
         CharacterMailer.with(courier: @courier).send_courier.deliver_later
+      end
+      redirect_to character_courier_path
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def sendprayer
+    if request.post?
+      @courier = Courier.new(sendcourier_params)
+      @courier.couriertype = 'Prayer'
+      @courier.destination = 'Self'
+      @courier.skillsused = 0
+      @courier.character_id = session[:character]
+      if @courier.save
+        CharacterMailer.with(courier: @courier).send_prayer.deliver_later
       end
       redirect_to character_courier_path
     else
@@ -272,7 +292,7 @@ class CharacterController < ApplicationController
   end
 
   def sendcourier_params
-    params.require(:courier).permit(:recipient, :destination, :message)
+    params.require(:courier).permit(:type, :recipient, :destination, :message, :skillsused)
   end
 
   def check_character_count
