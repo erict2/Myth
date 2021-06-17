@@ -1,6 +1,34 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :settings
+      resources :users
+      resources :cabins
+      resources :characters
+      resources :characterclasses
+      resources :characterclassskillgroups, except: :index
+      resources :characterprofessions
+      resources :characterskills, except: :index
+      resources :couriers
+      resources :deities
+      resources :events
+      resources :eventattendances
+      resources :explogs
+      resources :guilds
+      resources :houses
+      resources :professions
+      resources :professiongroups
+      resources :professionrequirements
+      resources :races
+      resources :resttypes
+      resources :skills
+      resources :skilldeliveries
+      resources :skillgroups
+      resources :skillrequirements
+
+      root to: "settings#index"
+    end
   root 'pages#index'
   devise_for :users
 
