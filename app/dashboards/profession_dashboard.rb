@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class CharacterDashboard < Administrate::BaseDashboard
+class ProfessionDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,31 +8,16 @@ class CharacterDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    characterskills: Field::HasMany,
-    skills: Field::HasMany,
+    professiongroup: Field::BelongsTo,
     characterprofessions: Field::HasMany,
-    professions: Field::HasMany,
-    professiongroups: Field::HasMany,
-    courier: Field::HasMany,
-    user: Field::BelongsTo,
-    eventattendances: Field::HasMany,
-    events: Field::HasMany,
-    race: Field::BelongsTo,
-    characterclass: Field::BelongsTo,
-    deity: Field::BelongsTo,
-    house: Field::BelongsTo,
-    guild: Field::BelongsTo,
+    professionrequirements: Field::HasMany,
     id: Field::Number,
     name: Field::String,
-    pronouns: Field::String,
-    level: Field::Number,
-    totem: Field::String,
-    status: Field::String,
-    levelupdate: Field::Date,
-    createdate: Field::Date,
+    description: Field::String,
+    rank: Field::String,
+    playeravailable: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    alias: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -42,57 +27,34 @@ class CharacterDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     name
-    alias
-    user
-    characterclass
-    race
-    deity
-    level
+    rank
+    professiongroup
+    playeravailable
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    user
     name
-    alias
-    pronouns
-    level
-    race
-    characterclass
-    totem
-    deity
-    house
-    guild
-    status
-    levelupdate
-    createdate
+    rank
+    professiongroup
+    description
+    playeravailable
+    professionrequirements  
+    characterprofessions
     created_at
     updated_at
-    skills
-    characterprofessions
-    professions
-    eventattendances
-    courier
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    user
     name
-    alias
-    pronouns
-    level
-    race
-    characterclass
-    totem
-    deity
-    house
-    guild
-    status
-    skills
+    rank
+    professiongroup
+    description
+    playeravailable
   ].freeze
 
   # COLLECTION_FILTERS
@@ -107,10 +69,10 @@ class CharacterDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how characters are displayed
+  # Overwrite this method to customize how professions are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(character)
-    character.name
+  def display_resource(profession)
+    profession.name
   end
 end

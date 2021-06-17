@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class CharacterDashboard < Administrate::BaseDashboard
+class CourierDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,31 +8,14 @@ class CharacterDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    characterskills: Field::HasMany,
-    skills: Field::HasMany,
-    characterprofessions: Field::HasMany,
-    professions: Field::HasMany,
-    professiongroups: Field::HasMany,
-    courier: Field::HasMany,
-    user: Field::BelongsTo,
-    eventattendances: Field::HasMany,
-    events: Field::HasMany,
-    race: Field::BelongsTo,
-    characterclass: Field::BelongsTo,
-    deity: Field::BelongsTo,
-    house: Field::BelongsTo,
-    guild: Field::BelongsTo,
+    character: Field::BelongsTo,
     id: Field::Number,
-    name: Field::String,
-    pronouns: Field::String,
-    level: Field::Number,
-    totem: Field::String,
-    status: Field::String,
-    levelupdate: Field::Date,
-    createdate: Field::Date,
+    recipient: Field::String,
+    destination: Field::String,
+    message: Field::Text,
+    senddate: Field::Date,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    alias: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -41,58 +24,32 @@ class CharacterDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    name
-    alias
-    user
-    characterclass
-    race
-    deity
-    level
+    character
+    recipient
+    destination
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    user
-    name
-    alias
-    pronouns
-    level
-    race
-    characterclass
-    totem
-    deity
-    house
-    guild
-    status
-    levelupdate
-    createdate
+    character
+    recipient
+    destination
+    message
+    senddate
     created_at
     updated_at
-    skills
-    characterprofessions
-    professions
-    eventattendances
-    courier
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    user
-    name
-    alias
-    pronouns
-    level
-    race
-    characterclass
-    totem
-    deity
-    house
-    guild
-    status
-    skills
+    character
+    recipient
+    destination
+    message
+    senddate
   ].freeze
 
   # COLLECTION_FILTERS
@@ -107,10 +64,10 @@ class CharacterDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how characters are displayed
+  # Overwrite this method to customize how couriers are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(character)
-    character.name
-  end
+  # def display_resource(courier)
+  #   "Courier ##{courier.id}"
+  # end
 end
