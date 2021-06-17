@@ -16,6 +16,9 @@
     <% end %>
   </div>
 
+  <div class='sideSubLink'>
+    <%= link_to 'Update Photo', character_changephoto_path, remote: true %>
+  </div>
   <% if canEdit(@character) %>
     <div class='sideSubLink'>
       <%= link_to 'Edit Character', edit_character_path(session[:character]) %>

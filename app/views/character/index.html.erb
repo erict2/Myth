@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-2" id='profilecard'>
       <div id ='profilecardimage'>
-        <%= image_tag "profile/profileCardTop.png" %>
+        <%= image_tag "profile/profileCardTop.png", id: 'profilecardtop' %>
+        <% if @character.photo.attached? %>
+          <%= image_tag @character.photo, id: 'characterphoto' %>
+          <% end %>
       </div>
       <div id = 'profilecardmiddle'>
         <%= image_tag "profile/profileCardMiddle.png" %>
@@ -28,9 +31,6 @@
           </svg>
         </div>
       </div>
-    
-      
-    
     </div>
     <div class="col-10">
       <div class="progress position-relative" id="levelbar" style="height: 25px;">
