@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_002236) do
+ActiveRecord::Schema.define(version: 2021_06_17_145536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2021_05_26_002236) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "cabins", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "playeravailable", null: false
+    t.boolean "castavailable", null: false
+    t.string "location", null: false
+    t.integer "maxplayers", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "characterclasses", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "playeravailable", null: false
@@ -59,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_002236) do
     t.date "acquiredate", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id", "profession_id"], name: "index_characterprofessions_on_character_id_and_profession_id", unique: true
     t.index ["character_id"], name: "index_characterprofessions_on_character_id"
     t.index ["profession_id"], name: "index_characterprofessions_on_profession_id"
   end
@@ -99,6 +110,17 @@ ActiveRecord::Schema.define(version: 2021_05_26_002236) do
     t.index ["skill_id"], name: "index_characterskills_on_skill_id"
   end
 
+  create_table "couriers", force: :cascade do |t|
+    t.string "recipient", null: false
+    t.string "destination", null: false
+    t.string "message", null: false
+    t.date "senddate", default: -> { "CURRENT_TIMESTAMP" }
+    t.bigint "character_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_couriers_on_character_id"
+  end
+
   create_table "deities", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "playeravailable", null: false
@@ -113,11 +135,12 @@ ActiveRecord::Schema.define(version: 2021_05_26_002236) do
     t.datetime "registerdate", default: -> { "CURRENT_TIMESTAMP" }
     t.bigint "user_id", null: false
     t.bigint "character_id"
-    t.string "cabin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cabin_id"
     t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
     t.index ["character_id"], name: "index_eventattendances_on_character_id"
+    t.index ["event_id", "user_id"], name: "index_eventattendances_on_event_id_and_user_id", unique: true
     t.index ["event_id"], name: "index_eventattendances_on_event_id"
     t.index ["user_id"], name: "index_eventattendances_on_user_id"
   end
@@ -300,6 +323,8 @@ ActiveRecord::Schema.define(version: 2021_05_26_002236) do
   add_foreign_key "characters", "users"
   add_foreign_key "characterskills", "characters"
   add_foreign_key "characterskills", "skills"
+  add_foreign_key "couriers", "characters"
+  add_foreign_key "eventattendances", "cabins"
   add_foreign_key "eventattendances", "characters"
   add_foreign_key "eventattendances", "events"
   add_foreign_key "eventattendances", "users"

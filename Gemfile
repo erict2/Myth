@@ -25,6 +25,8 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 # Use devise for user auth
 gem 'devise'
+# Administrate for easy data tables
+gem "administrate"
 
 # Use Active Storage variant
 gem "aws-sdk-s3", require: false

@@ -4,10 +4,12 @@ class Eventattendance < ApplicationRecord
   belongs_to :event
   belongs_to :user
   belongs_to :character, optional: true
+  belongs_to :cabin, optional: true
 
   validates :user, presence: true
   validates :event, presence: true
   validates :registrationtype, presence: true
+  validates :event, uniqueness: { scope: :user }
 
   after_update :check_registration
 

@@ -6,7 +6,7 @@ class CharacterController < ApplicationController
   before_action :check_sheets_locked, only: %i[edit update trainskill trainprofession]
 
   def index
-    @character = Character.find(session[:character])
+    
   end
 
   def new
@@ -35,8 +35,6 @@ class CharacterController < ApplicationController
   end
 
   def edit
-    @character = Character.find(session[:character])
-
     if current_user.usertype = 'Admin'
       @race = Race.all
       @characterclass = Characterclass.all
@@ -61,11 +59,32 @@ class CharacterController < ApplicationController
   end
 
   def events
-    @character = Character.find(session[:character])
+    
+  end
+
+  def viewcourier
+    @courier = Courier.find(params[:courier_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def sendcourier
+    if request.post?
+      @courier = Courier.new(sendcourier_params)
+      @courier.character_id = session[:character]
+      if @courier.save
+        CharacterMailer.with(courier: @courier).send_courier.deliver_later
+      end
+      redirect_to character_courier_path
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
   def levelup
-    @character = Character.find(session[:character])
     @exptolevel = helpers.expToLevel(@character)
 
     if helpers.canLevel(@character)
@@ -114,7 +133,7 @@ class CharacterController < ApplicationController
   def trainskill
     if request.post?
       @characterskill = Characterskill.new(addskill_params)
-      @character = Character.find(session[:character])
+      
       @characterskill.character_id = session[:character]
       @characterskill.save! if can_purchase_skill(@character, @characterskill.skill)
       redirect_to character_index_path({ tab: 'skills' })
@@ -122,7 +141,7 @@ class CharacterController < ApplicationController
     else
       @characterskill = Characterskill.new
 
-      @character = Character.find(session[:character])
+      
       @favoredfoes = ['Beasts', 'Constructs', 'Elementals', 'Monstrous Humanoids', 'Plants',
                       'Undead'] - @character.characterskills.where(skill: Skill.find_by(name: 'Favored Foe')).pluck('details')
       @availableskills = []
@@ -149,7 +168,6 @@ class CharacterController < ApplicationController
   def removeskill
     @characterskill = Characterskill.order('acquiredate desc, id desc').find_by(skill_id: params[:skill_id],
                                                                                 character_id: session[:character])
-    @character = Character.find(session[:character])
 
     if @character.events.where('startdate < ?',
                                Time.now).maximum(:startdate).nil? || @character.events.where('startdate < ?',
@@ -172,7 +190,6 @@ class CharacterController < ApplicationController
   def learnprofession
     if request.post?
       @characterprofession = Characterprofession.new(addprof_params)
-      @character = Character.find(session[:character])
       @characterprofession.character_id = session[:character]
       if @characterprofession.save!
         if @character.characterprofessions.count > 2
@@ -189,7 +206,6 @@ class CharacterController < ApplicationController
       end
     else
       @characterprofession = Characterprofession.new
-      @character = Character.find(session[:character])
       @freeprofessions = false
       availableexp = current_user.explogs.where('acquiredate <= ? ', Time.now.end_of_day).sum(:amount)
 
@@ -229,7 +245,6 @@ class CharacterController < ApplicationController
     @characterprofession = Characterprofession.order('acquiredate desc, id desc').find_by(
       profession_id: params[:profession_id], character_id: session[:character]
     )
-    @character = Character.find(session[:character])
 
     @explog = Explog.find_by(
       user_id: @character.user_id,
@@ -256,6 +271,10 @@ class CharacterController < ApplicationController
     params.require(:characterprofession).permit(:profession_id)
   end
 
+  def sendcourier_params
+    params.require(:courier).permit(:recipient, :destination, :message)
+  end
+
   def check_character_count
     if current_user.charactercount <= current_user.characters.count
       redirect_to player_characters_path
@@ -270,6 +289,7 @@ class CharacterController < ApplicationController
         redirect_to root_path
         return true
       end
+      @character = Character.find(session[:character])
       false
     end
   end

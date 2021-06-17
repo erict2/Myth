@@ -6,6 +6,7 @@ class Character < ApplicationRecord
   has_many :characterprofessions
   has_many :professions, through: :characterprofessions
   has_many :professiongroups, through: :professions
+  has_many :courier
 
   belongs_to :user
   has_many :eventattendances

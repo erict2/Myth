@@ -15,7 +15,7 @@
  *= require_self
  */
  
- @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 @import 'rails_bootstrap_forms';
 @import 'font-awesome';
 @import 'select2/dist/css/select2';
@@ -36,7 +36,8 @@ body {
 
 
 #pageContent {
-  color: grey;
+  color: black;
+  font-family: 'Copperplate Gothic Light';
   padding-left: 3%;
   padding-right: 3%;
   padding-bottom: 3%;
@@ -155,6 +156,18 @@ body {
     #pronouns {
       margin-left: 10px;
     }
+  }
+}
+
+#cabinmap {
+  img {
+    display: block;
+    width:100%;
+  }
+
+  a:link, a:visited, a:hover, a:active  { 
+    font-weight: bold;
+    font-size: 10px;
   }
 }
 
