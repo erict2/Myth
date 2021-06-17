@@ -18,7 +18,9 @@ class UserDashboard < Administrate::BaseDashboard
     encrypted_password: Field::String,
     firstname: Field::String,
     lastname: Field::String,
-    usertype: Field::String,
+    usertype: Field::Select.with_options(
+      collection: ['Player', 'Cast', 'Admin'],
+    ),
     charactercount: Field::Number,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,

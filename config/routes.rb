@@ -4,28 +4,38 @@ Rails.application.routes.draw do
   namespace :admin do
       resources :settings
       resources :users
-      resources :cabins
       resources :characters
+      resources :events
+      resources :guilds
+      resources :houses
+      resources :eventattendances
+      resources :explogs
+      resources :cabins
+      
+      resources :races
+      resources :deities
       resources :characterclasses
+
+      resources :skills
+      resources :skilldeliveries
+      resources :skillgroups
+      resources :resttypes
+      resources :skillrequirements
+
       resources :characterclassskillgroups, except: :index
       resources :characterprofessions
       resources :characterskills, except: :index
       resources :couriers
-      resources :deities
-      resources :events
-      resources :eventattendances
-      resources :explogs
-      resources :guilds
-      resources :houses
+      
+      
+      
+      
       resources :professions
       resources :professiongroups
       resources :professionrequirements
-      resources :races
-      resources :resttypes
-      resources :skills
-      resources :skilldeliveries
-      resources :skillgroups
-      resources :skillrequirements
+      
+      
+      
 
       root to: "settings#index"
     end

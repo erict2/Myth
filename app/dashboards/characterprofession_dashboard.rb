@@ -24,7 +24,6 @@ class CharacterprofessionDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     profession
     character
-    id
     acquiredate
   ].freeze
 
@@ -33,7 +32,6 @@ class CharacterprofessionDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     profession
     character
-    id
     acquiredate
     created_at
     updated_at

@@ -34,9 +34,9 @@ class EventDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     name
+    eventtype
     startdate
     enddate
-    eventattendances
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

@@ -3,10 +3,19 @@ module Admin
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
-    # def update
-    #   super
-    #   send_foo_updated_email(requested_resource)
-    # end
+    def update
+      @event = Event.find(params[:id])
+      @oldname = @event.name
+      if @event.update(resource_params)
+        Explog.where("name = ? AND description like ?", 'Event', "Exp for attending Event \"#{@oldname}\" as a %").each do |explog|
+          explog.description = explog.description.sub(@oldname, @event.name)
+          explog.amount = @event.eventexp
+          explog.save!
+        end
+      end
+
+      redirect_to admin_event_path
+    end
 
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`

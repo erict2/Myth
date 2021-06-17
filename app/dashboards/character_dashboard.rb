@@ -14,7 +14,10 @@ class CharacterDashboard < Administrate::BaseDashboard
     professions: Field::HasMany,
     professiongroups: Field::HasMany,
     courier: Field::HasMany,
-    user: Field::BelongsTo,
+    user: Field::BelongsTo.with_options(
+      searchable: true,
+      searchable_fields: ['firstname', 'lastname', 'email'],
+    ),
     eventattendances: Field::HasMany,
     events: Field::HasMany,
     race: Field::BelongsTo,
@@ -24,10 +27,16 @@ class CharacterDashboard < Administrate::BaseDashboard
     guild: Field::BelongsTo,
     id: Field::Number,
     name: Field::String,
-    pronouns: Field::String,
+    pronouns: Field::Select.with_options(
+      collection: ['He/Him', 'She/Her','They/Them'],
+    ),
     level: Field::Number,
-    totem: Field::String,
-    status: Field::String,
+    totem: Field::Select.with_options(
+      collection: ['', 'Bear', 'Lizard', 'Rat', 'Raven', 'Snake', 'Spider', 'Wolf'],
+    ),
+    status: Field::Select.with_options(
+      collection: ['Active', 'Deceased'],
+    ),
     levelupdate: Field::Date,
     createdate: Field::Date,
     created_at: Field::DateTime,
@@ -71,7 +80,6 @@ class CharacterDashboard < Administrate::BaseDashboard
     updated_at
     skills
     characterprofessions
-    professions
     eventattendances
     courier
   ].freeze

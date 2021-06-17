@@ -8,12 +8,20 @@ class EventattendanceDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    event: Field::BelongsTo,
-    user: Field::BelongsTo,
+    event: Field::BelongsTo.with_options(
+      searchable: true,
+      searchable_fields: ['name'],
+    ),
+    user: Field::BelongsTo.with_options(
+      searchable: true,
+      searchable_fields: ['firstname', 'lastname', 'email'],
+    ),
     character: Field::BelongsTo,
     cabin: Field::BelongsTo,
     id: Field::Number,
-    registrationtype: Field::String,
+    registrationtype: Field::Select.with_options(
+      collection: ['Player', 'Cast', 'Staff'],
+    ),
     registerdate: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,

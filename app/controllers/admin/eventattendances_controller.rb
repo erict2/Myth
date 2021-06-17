@@ -3,10 +3,49 @@ module Admin
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
-    # def update
-    #   super
-    #   send_foo_updated_email(requested_resource)
-    # end
+    def create
+      @eventattendance = Eventattendance.new(resource_params)
+      @event = Event.find_by(id: @eventattendance.event_id)
+
+      if @eventattendance.save!
+        @explog = Explog.new
+        @explog.user_id = @eventattendance.user_id
+        @explog.name = 'Event'
+        @explog.acquiredate = @event.startdate
+        @explog.description = "Exp for attending Event \"#{@eventattendance.event.name}\" as a #{@eventattendance.registrationtype}"
+        @explog.amount = @event.eventexp
+        @explog.grantedby_id = current_user.id
+        @explog.save!
+      end
+      redirect_to admin_eventattendances_path
+    end
+
+    def update
+      @eventattendance = Eventattendance.find_by(id: params[:id])
+      @event = Event.find_by(id: @eventattendance.event_id)
+      @eventattendance.update(resource_params)
+
+      @explog = Explog.where('acquiredate BETWEEN ? AND ?', @event.startdate.beginning_of_day, @event.startdate.end_of_day).find_by(
+        name: 'Event', user_id: @eventattendance.user_id
+      )
+      if @explog
+        @explog.description = "Exp for attending Event \"#{@eventattendance.event.name}\" as a #{@eventattendance.registrationtype}"
+        @explog.save!
+      end
+      redirect_to admin_eventattendances_path
+    end
+
+    def destroy
+      @eventattendance = Eventattendance.find_by(user_id: params[:user_id], event_id: params[:event_id])
+      @event = Event.find_by(id: params[:event_id])
+      @explog = Explog.where('acquiredate BETWEEN ? AND ?', @event.startdate.beginning_of_day, @event.startdate.end_of_day).find_by(
+        name: 'Event', user_id: @eventattendance.user_id
+      )
+
+      @explog&.destroy
+      @eventattendance.destroy
+      redirect_to admin_eventattendances_path
+    end
 
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`

@@ -12,7 +12,9 @@ class CabinDashboard < Administrate::BaseDashboard
     name: Field::String,
     playeravailable: Field::Boolean,
     castavailable: Field::Boolean,
-    location: Field::String,
+    location: Field::Select.with_options(
+      collection: ['The Glade', 'The Crossing', 'Town Proper'],
+    ),
     maxplayers: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -25,6 +27,7 @@ class CabinDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     name
+    location
     playeravailable
     castavailable
   ].freeze
