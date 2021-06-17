@@ -38,10 +38,12 @@ Rails.application.routes.draw do
     get :events
     get :courier
     get :viewcourier
-    get :sendprayer
-    post :sendprayer
     get :sendcourier
     post :sendcourier
+    get :sendprayer
+    post :sendprayer
+    get :sendoracle
+    post :sendoracle
     post :levelup
     get :availableskills
     get :trainskill

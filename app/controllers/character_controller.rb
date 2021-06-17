@@ -104,6 +104,24 @@ class CharacterController < ApplicationController
     end
   end
 
+  def sendoracle
+    @oraclecount = 5
+    if request.post?
+      @courier = Courier.new(sendcourier_params)
+      @courier.couriertype = 'Oracle'
+      @courier.destination = 'Self'
+      @courier.character_id = session[:character]
+      if @courier.save
+        CharacterMailer.with(courier: @courier).send_oracle.deliver_later
+      end
+      redirect_to character_courier_path
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
   def levelup
     @exptolevel = helpers.expToLevel(@character)
 
