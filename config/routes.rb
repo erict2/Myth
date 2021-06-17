@@ -37,21 +37,6 @@ Rails.application.routes.draw do
     post :changeeventcharacter
   end
 
-  namespace :admin do
-    resources :character do
-      get :loginas
-    end
-    resources :users do
-      get :reset
-      get :confirm
-      resources :explogs
-    end
-
-    resources :events do
-      resources :eventattendances
-    end
-  end
-
   resources :characterclass do
     get :getcharacterclass
   end
