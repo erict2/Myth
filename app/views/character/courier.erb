@@ -5,6 +5,7 @@
 <table class="table table-hover table-bordered table-sm">
  <thead class="thead-dark">
   <tr>
+      <th>Type</th>
       <th>Recipient</th>
       <th>Destination</th>
       <th>Send Date</th>
@@ -14,8 +15,16 @@
   <tbody>
     <% @character.courier.each do |courier| %>
       <tr class="table-light">
+        <td><%= courier.couriertype %></td>
         <td><%= courier.recipient %></td>
-        <td><%= courier.destination %></td>
+        <td> <%= 
+          if courier.couriertype == 'Courier'
+            courier.destination
+          else
+            ''
+          end
+          %>
+        </td>
         <td><%= courier.senddate %></td>
         <td>
           <%= link_to 'Read Message', character_viewcourier_path(courier_id: courier.id), remote: true  %>
