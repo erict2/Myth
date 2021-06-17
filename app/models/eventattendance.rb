@@ -9,7 +9,6 @@ class Eventattendance < ApplicationRecord
   validates :user, presence: true
   validates :event, presence: true
   validates :registrationtype, presence: true
-  validates :event, uniqueness: { scope: :user }
 
   after_update :check_registration
 

@@ -20,8 +20,6 @@ class Character < ApplicationRecord
 
   after_update :check_class
 
-  has_one_attached :photo
-
   def check_class
     if saved_change_to_characterclass_id?
       characterskills.each do |charskill|

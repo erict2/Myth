@@ -1,0 +1,20 @@
+$(document).ready(function(){
+  $('#updateRaceDiv').html("<%= escape_javascript( render partial: 'admin/datatables/modals/race' ) %>")
+  $('#updateRaceDataModal').modal('show');
+
+  var race = <%= @race.id %>; //>
+
+
+  $.ajax({
+    url: '/race/' + race + '/getrace',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data){
+      document.getElementById('race_name').value = data.name
+      document.getElementById('race_shortdescription').value = data.shortdescription
+      document.getElementById('race_playeravailable').value = data.playeravailable;
+    }
+  })
+
+
+});

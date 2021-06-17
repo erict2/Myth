@@ -1,46 +1,50 @@
+# frozen_string_literal: true
+
 module Admin
-  class ExplogsController < Admin::ApplicationController
-    # Overwrite any of the RESTful controller actions to implement custom behavior
-    # For example, you may want to send an email after a foo is updated.
-    #
-    # def update
-    #   super
-    #   send_foo_updated_email(requested_resource)
-    # end
+  class ExplogsController < AdminController
+    def new
+      @explog = Explog.new
+      @user = User.find_by(id: params[:user_id])
+      respond_to do |format|
+        format.js
+      end
+    end
 
-    # Override this method to specify custom lookup behavior.
-    # This will be used to set the resource for the `show`, `edit`, and `update`
-    # actions.
-    #
-    # def find_resource(param)
-    #   Foo.find_by!(slug: param)
-    # end
+    def edit
+      @explog = Explog.find_by(id: params[:id])
+      @user = User.find_by(id: params[:user_id])
+      respond_to do |format|
+        format.js
+      end
+    end
 
-    # The result of this lookup will be available as `requested_resource`
+    def create
+      @explog = Explog.new(exp_params)
+      @explog.user_id = params[:user_id]
+      @explog.grantedby_id = current_user.id
 
-    # Override this if you have certain roles that require a subset
-    # this will be used to set the records shown on the `index` action.
-    #
-    # def scoped_resource
-    #   if current_user.super_admin?
-    #     resource_class
-    #   else
-    #     resource_class.with_less_stuff
-    #   end
-    # end
+      @explog.save!
+      redirect_to admin_user_path(id: params[:user_id])
+    end
 
-    # Override `resource_params` if you want to transform the submitted
-    # data before it's persisted. For example, the following would turn all
-    # empty values into nil values. It uses other APIs such as `resource_class`
-    # and `dashboard`:
-    #
-    # def resource_params
-    #   params.require(resource_class.model_name.param_key).
-    #     permit(dashboard.permitted_attributes).
-    #     transform_values { |value| value == "" ? nil : value }
-    # end
+    def update
+      @explog = Explog.find_by(id: params[:id])
 
-    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
-    # for more information
+      @explog.update!(exp_params)
+      redirect_to admin_user_path(id: params[:user_id])
+    end
+
+    def destroy
+      @explog = Explog.find(params[:id])
+      @explog.destroy
+
+      redirect_to admin_user_path(id: params[:user_id])
+    end
+
+    private
+
+    def exp_params
+      params.require(:explog).permit(:user_id, :name, :acquiredate, :description, :amount)
+    end
   end
 end

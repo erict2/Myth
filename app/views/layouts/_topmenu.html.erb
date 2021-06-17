@@ -8,7 +8,19 @@
   
 
     <div class="navbar-nav ml-auto align-items-end">
-      
+      <% if current_user  %>
+        <% if current_user.usertype == 'Admin' %>
+          <div class='nav-item dropdown'>
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin</a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <%= link_to 'Users', admin_users_path, :class => 'dropdown-item' %>
+              <%= link_to 'Events', admin_events_path, :class => 'dropdown-item' %>
+              <%= link_to 'Game Data', admin_datatables_path, :class => 'dropdown-item' %>
+              <%= link_to 'Game Settings', admin_settings_path, :class => 'dropdown-item' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
       <% if user_signed_in? %>
         <div class='nav-item dropdown'>
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>

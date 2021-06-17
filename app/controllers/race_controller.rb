@@ -18,6 +18,12 @@ class RaceController < ApplicationController
     end
   end
 
+  def update
+    @race = Race.find(params[:id])
+    @race.update(raceparams)
+    redirect_to admin_datatables_path({ tab: 'race' })
+  end
+
   private
 
   def check_admin
