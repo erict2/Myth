@@ -38,11 +38,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resource :settings
     resources :character do
       get :loginas
     end
-    resources :datatables
     resources :users do
       get :reset
       get :confirm
