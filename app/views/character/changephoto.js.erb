@@ -1,7 +1,0 @@
-$('#characterPhotoModalBody').html("<%= escape_javascript( render partial: 'modals/changecharacterphoto' ) %>")
-$('#characterPhotoModal').modal('show');
-
-
-$('.custom-file-input').change(function(){
-  $('.custom-file-label').text(this.value.replace(/^.*[\\\/]/, ''));
-});

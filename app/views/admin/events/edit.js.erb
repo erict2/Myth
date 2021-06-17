@@ -1,0 +1,4 @@
+$('.modal-body').html("<%= escape_javascript( render partial: 'admin/modals/addevent', locals: {pathurl: admin_event_path}) %>")
+$(document).ready(function(){
+  $('#addEventModal').modal('show');
+});

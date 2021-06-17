@@ -26,6 +26,14 @@ text-align: center;
 
   /* BODY */
 
+html,
+body {
+  
+  background-image: asset-url("rustic-larp-seam.jpg");
+  background-repeat: repeat;
+  
+}
+
   .darkparchment{
     background-image: url("darkparchment.jpg");
     background-repeat: repeat

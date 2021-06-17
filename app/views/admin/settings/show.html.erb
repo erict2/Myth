@@ -1,0 +1,51 @@
+<div class="container col-11">
+<div class="pagetitle">Site Settings</div>
+<div class="pagesubtitle" >Global Settings for the Site & Characters</div>
+
+<%= bootstrap_form_for(Setting.new, url: admin_settings_path, local: true) do |f| %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Game Information</h5>
+
+
+<%= f.text_field :game_name, value: Setting.game_name, label: 'LARP Name', :required => true %>
+  </div>
+</div>
+    </div>
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Lock Sheets</h5>
+    <h6 class="card-subtitle mb-3 text-muted">Character Sheet Controls</h6>
+
+      <%= f.check_box :sheets_locked, checked: Setting.sheets_locked?, label: 'Lock Character Sheets' %>
+      <%= f.check_box :sheets_auto_lock, checked: Setting.sheets_auto_lock?, label: 'Auto Lock Sheets' %>
+      <br/>
+      <%= f.text_field :sheets_auto_lock_day, value: Setting.sheets_auto_lock_day, label: 'Auto lock after X days?' %>
+
+  </div>
+</div>
+    </div>
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title text-danger">Game Reset</h5>
+    <p class="card-text">This section opens the gates for everyone to recreate their characters</p>
+    <%= f.check_box :allow_global_reroll, checked: Setting.allow_global_reroll?, label: 'Allow anybody to edit their character name/class/race' %>
+    <%= f.check_box :one_level_per_game, checked: Setting.one_level_per_game?, label: 'Only allow one level/profession after each leveling game' %>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+<br/>
+    <div class="text-center">
+      <%= f.submit 'Update Settings', class: "btn btn-success btn-lg" %>
+    </div>
+<% end %>
+</div>
