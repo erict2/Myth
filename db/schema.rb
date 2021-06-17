@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_010432) do
+ActiveRecord::Schema.define(version: 2021_06_17_145536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_010432) do
     t.date "acquiredate", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id", "profession_id"], name: "index_characterprofessions_on_character_id_and_profession_id", unique: true
     t.index ["character_id"], name: "index_characterprofessions_on_character_id"
     t.index ["profession_id"], name: "index_characterprofessions_on_profession_id"
   end
@@ -139,6 +140,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_010432) do
     t.integer "cabin_id"
     t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
     t.index ["character_id"], name: "index_eventattendances_on_character_id"
+    t.index ["event_id", "user_id"], name: "index_eventattendances_on_event_id_and_user_id", unique: true
     t.index ["event_id"], name: "index_eventattendances_on_event_id"
     t.index ["user_id"], name: "index_eventattendances_on_user_id"
   end

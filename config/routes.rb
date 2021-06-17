@@ -1,6 +1,44 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :settings
+      resources :users
+      resources :characters
+      resources :events
+      resources :guilds
+      resources :houses
+      resources :eventattendances
+      resources :explogs
+      resources :cabins
+      
+      resources :races
+      resources :deities
+      resources :characterclasses
+
+      resources :skills
+      resources :skilldeliveries
+      resources :skillgroups
+      resources :resttypes
+      resources :skillrequirements
+
+      resources :characterclassskillgroups, except: :index
+      resources :characterprofessions
+      resources :characterskills, except: :index
+      resources :couriers
+      
+      
+      
+      
+      resources :professions
+      resources :professiongroups
+      resources :professionrequirements
+      
+      
+      
+
+      root to: "settings#index"
+    end
   root 'pages#index'
   devise_for :users
 
@@ -35,23 +73,6 @@ Rails.application.routes.draw do
     post :changecharacter
     get :changeeventcharacter
     post :changeeventcharacter
-  end
-
-  namespace :admin do
-    resource :settings
-    resources :character do
-      get :loginas
-    end
-    resources :datatables
-    resources :users do
-      get :reset
-      get :confirm
-      resources :explogs
-    end
-
-    resources :events do
-      resources :eventattendances
-    end
   end
 
   resources :characterclass do
