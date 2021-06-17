@@ -24,7 +24,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
