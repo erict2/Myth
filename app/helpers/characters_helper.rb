@@ -131,6 +131,12 @@ module CharactersHelper
     character.events.where('startdate < ?', Time.now).maximum(:startdate).to_date
   end
 
+  def oraclesAvailable(character)
+    purchasedOracles = @character.skills.where(name: 'Oracle').count 
+    usedOracles = @character.courier.where('senddate > ? and couriertype = ?', lastPlayedEvent(@character), 'Oracle').count
+    return purchasedOracles - usedOracles
+  end
+
   def expToLevel(character)
     if character.level.between?(0, 1)
       400

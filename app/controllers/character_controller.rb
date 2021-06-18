@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CharacterController < ApplicationController
+  include CharactersHelper
+
   before_action :authenticate_user!
   before_action :check_character_user
   before_action :check_sheets_locked, only: %i[edit update trainskill trainprofession]
@@ -105,10 +107,11 @@ class CharacterController < ApplicationController
   end
 
   def sendoracle
-    @oraclecount = 5
+    @oraclecount =  oraclesAvailable(@character)
     if request.post?
       @courier = Courier.new(sendcourier_params)
       @courier.couriertype = 'Oracle'
+      @courier.recipient = @character.deity.name
       @courier.destination = 'Self'
       @courier.character_id = session[:character]
       if @courier.save

@@ -1,7 +1,6 @@
 <div class="modal-body" id="sendCourierModalBody">
   <%= bootstrap_form_for :courier, url: character_sendoracle_path do |f| %>
-    <%= f.collection_select :recipient, Deity.all.where('playeravailable = true'), :name, :name, {hide_label: true }  %>
-    <%= f.select :skillsused, options_for_select(0..@oraclecount), {label: 'Oracles Used' } %>
+    <%= f.select :skillsused, options_for_select(1..@oraclecount), {label: 'Oracles Used' } %>
     <%= f.text_area :message, :required => true, placeholder: 'Message', hide_label: true %>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
