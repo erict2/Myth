@@ -75,8 +75,10 @@
   <div class="row">
     <div class="container col-12" id="FreeLandsAreas">
       <% Worldarea.all.where(region: 'The Free Lands').each do |area|  %>
+        <div>
         <%= simple_format(area.name.html_safe, class: 'areaname')%>
         <%= simple_format(area.description.html_safe, class: 'areadescription')%>
+        </div>
       <% end %>
     </div>
   </div>
@@ -193,7 +195,7 @@
   <div class="row">
     <div class="container col-12" id="SavageHeightsAreas">
       <% Worldarea.all.where(region: 'The Savage Heights').each do |area|  %>
-        <%= simple_format(area.name.html_safe, class: 'areaname')%>
+        <%= simple_format(area.name.html_safe, class: 'areaname')%></td><td>test
         <%= simple_format(area.description.html_safe, class: 'areadescription')%>
       <% end %>
     </div>
@@ -201,8 +203,6 @@
 </div>
 
 <script type="text/javascript">
-
-
 window.onload = function() {
   document.getElementById("CantaraAreas").style.display = "none";
   document.getElementById("FreeLandsAreas").style.display = "none";
