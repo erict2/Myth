@@ -2,7 +2,7 @@
 
 module CharactersHelper
   def canEdit(_character)
-    if !sheetsLocked || (current_user.usertype == 'Admin')
+    if !sheetsLocked 
       if Setting.allow_global_reroll
         true
       elsif (@character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count) < 1
@@ -26,7 +26,7 @@ module CharactersHelper
   end
 
   def canBuyProfession(character)
-    if !sheetsLocked || (current_user.usertype == 'Admin')
+    if !sheetsLocked
       last_played_event = lastPlayedEvent(character)
       events_played = character.events.where('startdate < ? and levelingevent = ?', Time.now, true).count
       max_profession_date = character.characterprofessions.maximum('acquiredate')
@@ -64,8 +64,6 @@ module CharactersHelper
       false
     elsif (characterskill.skill.tier == 5) && (character.skills.where('tier = 5').count <= 2) && (character.skills.where('tier = 6').count >= 1)
       # Required as part of Tier 6 pyramid
-    elsif current_user.usertype == 'Admin'
-      true
     elsif @character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count < 3
       # Character has not yet played 3 games
       true
@@ -100,8 +98,6 @@ module CharactersHelper
       end
     end
 
-    return true if current_user.usertype == 'Admin'
-
     if last_played_event < characterprofession.acquiredate
       # Profession has never been used
       true
@@ -110,9 +106,7 @@ module CharactersHelper
 
   def refundPrice(character, characterskill)
     last_played_event = lastPlayedEvent(character)
-    if current_user.usertype == 'Admin'
-      0
-    elsif @character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count < 3
+    if @character.events.where('startdate <= ? AND eventtype = ? ', Time.now, 'Adventure Weekend').count < 3
       # Character has not yet played 3 games
       0
     elsif last_played_event < characterskill.acquiredate

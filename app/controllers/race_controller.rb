@@ -19,11 +19,7 @@ class RaceController < ApplicationController
   end
 
   private
-
-  def check_admin
-    redirect_to root_path if current_user.usertype != 'Admin'
-  end
-
+  
   def raceparams
     params.require(:race).permit(:name, :shortdescription, :playeravailable)
   end

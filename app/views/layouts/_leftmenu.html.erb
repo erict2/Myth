@@ -1,5 +1,7 @@
 <div class="position-sticky pt-2">
-  <% @character = Character.find_by(id: session[:character]) %>
+  <% if !session[:character].nil?
+    @character = Character.find_by(id: session[:character]) 
+    puts 'TACO TACO TACO'%>
 
   <div class='sideLink'>
     <%= link_to character_index_path do %>
@@ -17,7 +19,7 @@
   </div>
 
   <div class='sideSubLink'>
-    <%= link_to 'Update Photo', character_changephoto_path, remote: true 
+    <% #= link_to 'Update Photo', character_changephoto_path, remote: true 
     %>
   </div>
   <% if canEdit(@character) %>
@@ -109,5 +111,5 @@
       </div>
     <% end %>
   </div>
-    
+  <% end %>
 </div>

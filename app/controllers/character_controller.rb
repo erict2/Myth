@@ -13,15 +13,9 @@ class CharacterController < ApplicationController
 
   def new
     @character = Character.new
-    if current_user.usertype = 'Admin'
-      @race = Race.all
-      @characterclass = Characterclass.all
-      @deity = Deity.all
-    else
-      @race = Race.all.where('playeravailable = true')
-      @characterclass = Characterclass.all.where('playeravailable = true')
-      @deity = Deity.all.where('playeravailable = true')
-    end
+    @race = Race.all.where('playeravailable = true')
+    @characterclass = Characterclass.all.where('playeravailable = true')
+    @deity = Deity.all.where('playeravailable = true')
   end
 
   def create
@@ -37,15 +31,9 @@ class CharacterController < ApplicationController
   end
 
   def edit
-    if current_user.usertype = 'Admin'
-      @race = Race.all
-      @characterclass = Characterclass.all
-      @deity = Deity.all
-    else
-      @race = Race.all.where('playeravailable = true')
-      @characterclass = Characterclass.all.where('playeravailable = true')
-      @deity = Deity.all.where('playeravailable = true')
-    end
+    @race = Race.all.where('playeravailable = true')
+    @characterclass = Characterclass.all.where('playeravailable = true')
+    @deity = Deity.all.where('playeravailable = true')
   end
 
   def update
@@ -336,7 +324,7 @@ class CharacterController < ApplicationController
   end
 
   def check_sheets_locked
-    if helpers.sheetsLocked && (current_user.usertype != 'Admin')
+    if helpers.sheetsLocked
       redirect_to player_characters_path
       return true
     end

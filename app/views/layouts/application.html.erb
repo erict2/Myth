@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag 'changecharacter' %>
+    
     <script src="https://unpkg.com/@popperjs/core@2"></script>  
 
         <script src="https://unpkg.com/@popperjs/core@2"></script>  
@@ -58,12 +59,9 @@
  
     <% if session[:character] %>
       <%= render 'layouts/pagemodals' %>
-      
     <% end %>
 
-      
-
-    <% if user_signed_in? %>
+    <% if user_signed_in? && (current_user.characters.count > 0) %>
       <%= render partial: '/modals/changecharacter' %>
     <% end %>
 
