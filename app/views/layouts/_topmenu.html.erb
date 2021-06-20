@@ -4,6 +4,19 @@
   <div class="navbar-collapse">
     
     <div class="navbar-nav">
+      <div class='nav-item dropdown'>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">The World</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to 'The World', 'https://inkarnate.com/m/B3b77Z--world-of-hyraeth/', target: '_blank', class: 'dropdown-item' %>
+          <%= link_to 'Calendar', pages_calendar_path, class: 'dropdown-item' %>
+        </div>
+      </div>
+      <div class='nav-item dropdown'>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">The Game</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to 'Rulebook', pages_rulebook_path, class: 'dropdown-item' %>
+        </div>
+      </div>
     </div>
   
 
