@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   namespace :pages do
     get :calendar
     get :rulebook
+    get :events
+    get :community
   end
 
   
