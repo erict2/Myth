@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :pages do
+    get :setting
     get :calendar
+    get :religion
     get :rulebook
     get :events
     get :community
