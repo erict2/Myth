@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       resources :professions
       resources :professiongroups
       resources :professionrequirements
+      resources :worldareas
       
       root to: "settings#index"
     end
