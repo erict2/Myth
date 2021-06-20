@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   before_action :check_character_session
 
   def index
-    @skills = Skill.all
   end
 
   protected

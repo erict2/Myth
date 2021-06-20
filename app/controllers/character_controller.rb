@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CharacterController < ApplicationController
+  include CharactersHelper
+
   before_action :authenticate_user!
   before_action :check_character_user
   before_action :check_sheets_locked, only: %i[edit update trainskill trainprofession]
@@ -11,15 +13,9 @@ class CharacterController < ApplicationController
 
   def new
     @character = Character.new
-    if current_user.usertype = 'Admin'
-      @race = Race.all
-      @characterclass = Characterclass.all
-      @deity = Deity.all
-    else
-      @race = Race.all.where('playeravailable = true')
-      @characterclass = Characterclass.all.where('playeravailable = true')
-      @deity = Deity.all.where('playeravailable = true')
-    end
+    @race = Race.all.where('playeravailable = true')
+    @characterclass = Characterclass.all.where('playeravailable = true')
+    @deity = Deity.all.where('playeravailable = true')
   end
 
   def create
@@ -35,15 +31,9 @@ class CharacterController < ApplicationController
   end
 
   def edit
-    if current_user.usertype = 'Admin'
-      @race = Race.all
-      @characterclass = Characterclass.all
-      @deity = Deity.all
-    else
-      @race = Race.all.where('playeravailable = true')
-      @characterclass = Characterclass.all.where('playeravailable = true')
-      @deity = Deity.all.where('playeravailable = true')
-    end
+    @race = Race.all.where('playeravailable = true')
+    @characterclass = Characterclass.all.where('playeravailable = true')
+    @deity = Deity.all.where('playeravailable = true')
   end
 
   def update
@@ -73,8 +63,47 @@ class CharacterController < ApplicationController
     if request.post?
       @courier = Courier.new(sendcourier_params)
       @courier.character_id = session[:character]
+      @courier.couriertype = 'Courier'
+      @courier.skillsused = 0
       if @courier.save
         CharacterMailer.with(courier: @courier).send_courier.deliver_later
+      end
+      redirect_to character_courier_path
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def sendprayer
+    if request.post?
+      @courier = Courier.new(sendcourier_params)
+      @courier.couriertype = 'Prayer'
+      @courier.destination = 'Self'
+      @courier.skillsused = 0
+      @courier.character_id = session[:character]
+      if @courier.save
+        CharacterMailer.with(courier: @courier).send_prayer.deliver_later
+      end
+      redirect_to character_courier_path
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def sendoracle
+    @oraclecount =  oraclesAvailable(@character)
+    if request.post?
+      @courier = Courier.new(sendcourier_params)
+      @courier.couriertype = 'Oracle'
+      @courier.recipient = @character.deity.name
+      @courier.destination = 'Self'
+      @courier.character_id = session[:character]
+      if @courier.save
+        CharacterMailer.with(courier: @courier).send_oracle.deliver_later
       end
       redirect_to character_courier_path
     else
@@ -272,7 +301,7 @@ class CharacterController < ApplicationController
   end
 
   def sendcourier_params
-    params.require(:courier).permit(:recipient, :destination, :message)
+    params.require(:courier).permit(:type, :recipient, :destination, :message, :skillsused)
   end
 
   def check_character_count
@@ -295,7 +324,7 @@ class CharacterController < ApplicationController
   end
 
   def check_sheets_locked
-    if helpers.sheetsLocked && (current_user.usertype != 'Admin')
+    if helpers.sheetsLocked
       redirect_to player_characters_path
       return true
     end
