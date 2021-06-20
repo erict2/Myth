@@ -1,7 +1,11 @@
+<div id = 'gamedate'>
+  <%= Time.now.day %> day in <%= getGameMonth(Time.now.month) %><br>
+  Year <%= Time.now.year - 1300 %>
+</div>
 <div class="position-sticky pt-2">
   <% if !session[:character].nil?
     @character = Character.find_by(id: session[:character]) 
-    puts 'TACO TACO TACO'%>
+  %>
 
   <div class='sideLink'>
     <%= link_to character_index_path do %>

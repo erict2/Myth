@@ -4,6 +4,15 @@ Rails.application.routes.draw do
   root 'pages#index'
   devise_for :users
 
+  namespace :pages do
+    get :calendar
+    get :rulebook
+    get :events
+    get :community
+  end
+
+  
+
   namespace :admin do
       resources :settings
       resources :users
