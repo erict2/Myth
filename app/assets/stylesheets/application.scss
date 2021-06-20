@@ -103,6 +103,24 @@ body {
       display: block;
       width:100%;
     }
+    #profilecardimage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      #profilecardtop {
+        position: relative;
+        z-index: 1;
+      }
+
+      #characterphoto {
+        z-index: 0;
+        position: absolute;
+        width: 90%;
+      }
+    }
+    
     #profilecardmiddle {
       position: relative;
     }

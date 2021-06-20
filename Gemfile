@@ -25,9 +25,13 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 # Use devise for user auth
 gem 'devise'
+# Administrate for easy data tables
+gem "administrate"
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false
+gem 'image_processing', '~> 1.2'
+gem "mini_magick"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
