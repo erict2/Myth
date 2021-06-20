@@ -294,12 +294,35 @@ body {
     font-weight: bold;
     display: inline;
   }
+  .areadescription {
+    overflow-wrap: break-word;
+  }
   #CantaraAreas {
     display: none;
     border-style: none solid solid solid; 
     border-width: 1px;
   }
   #FreeLandsAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #PaleLandsAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #DevariaAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #FaedenAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #SavageHeightsAreas {
     display: none;
     border-style: none solid solid solid; 
     border-width: 1px;
