@@ -1,4 +1,2 @@
-class Cabin < ApplicationRecord
-  has_many :eventattendances
-  
+class Cabin < ApplicationRecord  
 end
