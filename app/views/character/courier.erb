@@ -2,12 +2,10 @@
 <div class="pagetitle">Courier Mailbox</div>
 <div class="pagesubtitle" >A list of letters sent since your last game</div>
 
-<b>
-  <%= link_to 'Write New Letter', character_sendcourier_path, remote: true  %>
-</b>
 <table class="table table-hover table-bordered table-sm">
  <thead class="thead-dark">
   <tr>
+      <th>Type</th>
       <th>Recipient</th>
       <th>Destination</th>
       <th>Send Date</th>
@@ -17,8 +15,16 @@
   <tbody>
     <% @character.courier.each do |courier| %>
       <tr class="table-light">
+        <td><%= courier.couriertype %></td>
         <td><%= courier.recipient %></td>
-        <td><%= courier.destination %></td>
+        <td> <%= 
+          if courier.couriertype == 'Courier'
+            courier.destination
+          else
+            ''
+          end
+          %>
+        </td>
         <td><%= courier.senddate %></td>
         <td>
           <%= link_to 'Read Message', character_viewcourier_path(courier_id: courier.id), remote: true  %>
@@ -27,20 +33,6 @@
     <% end %>
   </tbody>
 </table>
-
-<div class="modal fade" id="sendCourierModal" tabindex="-1" role="dialog" aria-labelledby="sendCourierModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="sendCourierModalLabel">Send New Courier</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> 
-      <div class="modal-body" id="sendCourierModalBody"></div>
-    </div>
-  </div>
-</div>
 
 <div class="modal fade" id="viewCourierModal" tabindex="-1" role="dialog" aria-labelledby="viewCourierModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
