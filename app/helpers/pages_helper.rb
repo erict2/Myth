@@ -5,7 +5,7 @@ module PagesHelper
     next_event = Event.where('startdate > ? AND levelingevent', Time.now).minimum(:startdate)
     if Setting.sheets_locked
       true
-    elsif Setting.sheets_auto_lock && ((next_event - Time.now.to_date).to_i <= Setting.sheets_auto_lock_day)
+    elsif Setting.sheets_auto_lock && ((next_event - Time.now.in_time_zone('Eastern Time (US & Canada)').to_date).to_i <= Setting.sheets_auto_lock_day)
       true
     end
   end
