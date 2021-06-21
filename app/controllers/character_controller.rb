@@ -236,7 +236,7 @@ class CharacterController < ApplicationController
     else
       @characterprofession = Characterprofession.new
       @freeprofessions = false
-      availableexp = current_user.explogs.where('acquiredate <= ? ', Time.now.end_of_day).sum(:amount)
+      availableexp = current_user.explogs.where('acquiredate <= ? ', Time.now.in_time_zone('Eastern Time (US & Canada)').end_of_day).sum(:amount)
 
       @availableprofessions = []
       @availablegroups = []

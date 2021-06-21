@@ -2,13 +2,27 @@
 <div class="container-fluid">
 <%= link_to image_tag("logo_small.png", id: "navbar-logo", :size => '40x40'), root_path, :class => "navbar-brand" %>
   <div class="navbar-collapse">
-    
     <div class="navbar-nav">
+      <div class='nav-item dropdown'>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">The World</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to 'World Setting', pages_setting_path, class: 'dropdown-item' %>
+          <%= link_to 'Calendar', pages_calendar_path, class: 'dropdown-item' %>
+          <%= link_to 'Religion', pages_religion_path, class: 'dropdown-item' %>
+        </div>
+      </div>
+      <div class='nav-item dropdown'>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">The Game</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to 'Camp', pages_camp_path, class: 'dropdown-item' %>
+          <%= link_to 'Rulebook', pages_rulebook_path, class: 'dropdown-item' %>
+          <%= link_to 'Events', pages_events_path, class: 'dropdown-item' %>
+          <%= link_to 'Join The Community', pages_community_path, class: 'dropdown-item' %>
+        </div>
+      </div>
     </div>
-  
 
     <div class="navbar-nav ml-auto align-items-end">
-      
       <% if user_signed_in? %>
         <div class='nav-item dropdown'>
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
@@ -28,8 +42,6 @@
       <% else %>
         <%= link_to 'Login', new_user_session_path, :class => "nav-link" %>
       <% end %>
-
     </div>
-
   </div>
 </div>
