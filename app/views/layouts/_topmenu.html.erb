@@ -2,7 +2,6 @@
 <div class="container-fluid">
 <%= link_to image_tag("logo_small.png", id: "navbar-logo", :size => '40x40'), root_path, :class => "navbar-brand" %>
   <div class="navbar-collapse">
-    
     <div class="navbar-nav">
       <div class='nav-item dropdown'>
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">The World</a>
@@ -22,10 +21,8 @@
         </div>
       </div>
     </div>
-  
 
     <div class="navbar-nav ml-auto align-items-end">
-      
       <% if user_signed_in? %>
         <div class='nav-item dropdown'>
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
@@ -45,8 +42,6 @@
       <% else %>
         <%= link_to 'Login', new_user_session_path, :class => "nav-link" %>
       <% end %>
-
     </div>
-
   </div>
 </div>
