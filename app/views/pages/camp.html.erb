@@ -1,0 +1,55 @@
+<div class="container col-12  mt-4" id="camppage">
+  <div class="row">
+    <div class="container col-12">
+      <%= image_tag("pages/camp/camp-header.jpg", :class => "mx-auto d-block", :id => "campheader") %><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12">
+      Myth takes place at the Windham-Tolland 4-H Camp in Pomfret Connecticut. The camp address is 326 Taft Pond Rd, Pomfret Center, CT 06259.
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12">
+      <nav class="navbar py-0 px-0" id='camptabbar'>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-link <%= checkActiveCampTab('link', 'general') %>" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'rules') %>" id="rules-tab" data-toggle="tab" href="#rules" role="tab" aria-controls="class" aria-selected="false">Camp Rules</a>
+
+          <a class="nav-link <%= checkActiveCampTab('link', 'arrival') %>" id="arrival-tab" data-toggle="tab" href="#arrival" role="tab" aria-controls="class" aria-selected="false">Arrival At Myth</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'thingsyouneed') %>" id="thingsyouneed-tab" data-toggle="tab" href="#thingsyouneed" role="tab" aria-controls="class" aria-selected="false">Things You Need</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'sleepcabins') %>" id="sleepcabins-tab" data-toggle="tab" href="#sleepcabins" role="tab" aria-controls="class" aria-selected="false">Sleeping in Cabins</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'sleeptavern') %>" id="sleeptavern-tab" data-toggle="tab" href="#sleeptavern" role="tab" aria-controls="class" aria-selected="false">Sleeping in Tavern</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'Tents') %>" id="Tents-tab" data-toggle="tab" href="#Tents" role="tab" aria-controls="class" aria-selected="false">Tents</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12">
+      <div class="tab-content" id="charTabContent">
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'general') %>" id="general" role="tabpanel" aria-labelledby="general-tab">
+          <%= render partial: 'pages/camptabs/general' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'rules') %>" id="rules" role="tabpanel" aria-labelledby="rules-tab">
+          <%= render partial: 'pages/camptabs/rules' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'arrival') %>" id="arrival" role="tabpanel" aria-labelledby="arrival-tab">
+          <%= render partial: 'pages/camptabs/arrival' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'thingsyouneed') %>" id="thingsyouneed" role="tabpanel" aria-labelledby="thingsyouneed-tab">
+          <%= render partial: 'pages/camptabs/thingsyouneed' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'sleepcabins') %>" id="sleepcabins" role="tabpanel" aria-labelledby="sleepcabins-tab">
+          <%= render partial: 'pages/camptabs/sleepcabins' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'sleeptavern') %>" id="sleeptavern" role="tabpanel" aria-labelledby="sleeptavern-tab">
+          <%= render partial: 'pages/camptabs/sleeptavern' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'tents') %>" id="tents" role="tabpanel" aria-labelledby="tents-tab">
+          <%= render partial: 'pages/camptabs/tents' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

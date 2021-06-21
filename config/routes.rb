@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get :setting
     get :calendar
     get :religion
+    get :camp
     get :rulebook
     get :events
     get :community
