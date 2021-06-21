@@ -1,0 +1,287 @@
+<div class="container col-12 mt-4" id="worldsettings">
+  <div class="row">
+    <div class="container col-12">
+      <%= image_tag("pages/setting/setting-header.jpg", :class => "mx-auto d-block") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-8 mt-2">
+      <center><h3>The World of Myth</h3></center>
+
+      <p>Wayland is the main continent in the campaign setting for the Myth Live-Action Roleplaying Game. More precisely, it is a continent on the larger world known as Hyraeth (hī – ˈrā – ith).</p>
+
+      <p>The world of Hyraeth is an ever-growing campaign setting in the Myth LARP game world. As the game progresses, information about the world continues to grow, taking players further and further into a realm filled with rich lore, forbidden secrets, and cryptic clues.</p>
+
+      <p>What sets Hyraeth apart? Your actions shape the world around you creating local lore and legend. Your character’s exploits – good or bad – can be recorded in the history of the game, creating stories told for years to come. Myth is your chance to make a difference and be remembered.</p>
+    </div>
+    <div class="container col-4 mt-2">
+      <a href='https://inkarnate.com/m/B3b77Z--world-of-hyraeth/', target='_blank'>
+        <%= image_tag("pages/setting/map.jpg", :class => "mx-auto") %>
+      </a><br>
+      <p class = "small font-italic">Click the map for more details</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="regionheader">
+      <%= image_tag("pages/setting/cantara.gif", :class => "mx-auto d-block") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-8 mt-2" id="regioninfo">
+      <p>The Kingdom of Cantara has existed for nearly 1,500 years under the rule of Marielle family. It begins with its capital city of Braeburn and stretches northward to the boundaries of the Northern Kingdoms between the Frozen Bluffs on the east and the Vloh’s Highlands on the west.  Cantara also lays claim to a series of large islands that create the boundary for Deepwater Sound. This series of islands expand from town growing town of Oakstar Beacon to bustling city of Calendor found at the base of the Valda peninsula. Cantara has 241 active castles and 93 ruined. Of these, 193 castles dot the eastern shores of Deepwater Sound and 66 ruined are along the northern portions of Moonfell Wood. The Lonely Isles house another 48 castles and 27 ruined dispersed amongst them.The Kingdom is currently ruled by his Highness, Markel Marielle, who has been one of the most respected leaders of the family in many generations. While his motivation has been unclear, King Marielle continues to use diplomacy in an effort to extend the reach of his kingdom into the Freelands where he desires to lay claim to the territories along the southern shores of The Sea of Trath to the Overwatch peaks.</p>
+      <p>The symbol of Cantara is a crowned lion with the words honor, virtue, and ferocity embedded in the crown.</p>
+    </div>
+    <div class="container col-4 mt-2" id="regionslideshow">
+      Slideshow goes here
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="AreaLink">
+      <a id="CantaraAreaLink" href="./setting">
+        <div>
+          <i class="fas fa-plus"></i>&nbsp;Places in the Kingdom of Cantara
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12" id="CantaraAreas">
+      <% Worldarea.all.where(region: 'Cantara').each do |area|  %>
+        <%= simple_format(area.name.html_safe, class: 'areaname')%>
+        <%= simple_format(area.description.html_safe, class: 'areadescription')%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container col-12 mt-2" id="regionheader">
+      <%= image_tag("pages/setting/free-lands.gif", :class => "mx-auto d-block") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="regioninfo">
+      <p>It has been called the "forgotten realms" of Hyraeth – a land without a king and a place where other kingdoms send their undesirables and criminals. The Free Lands are as their name implies: a land free of kings and queens. Instead, the people govern themselves in different ways at the various levels of civilization. Where one city may have a mayor or council another may have a chieftain or lord. Each place is left to their own devices and left to defend themselves. The people of some kingdoms consider people from the Free Lands to be the dregs of humanity.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="AreaLink">
+      <a id="FreeLandsAreaLink" href="./setting">
+        <div>
+          <i class="fas fa-plus"></i>&nbsp;Places in the Free Lands
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12" id="FreeLandsAreas">
+      <% Worldarea.all.where(region: 'The Free Lands').each do |area|  %>
+        <div>
+        <%= simple_format(area.name.html_safe, class: 'areaname')%>
+        <%= simple_format(area.description.html_safe, class: 'areadescription')%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container col-12 mt-2" id="regionheader">
+      <%= image_tag("pages/setting/pale-lands.gif", :class => "mx-auto d-block") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-8 mt-2" id="regioninfo">
+
+    </div>
+    <div class="container col-4 mt-2" id="regionslideshow">
+      Slideshow goes here
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="AreaLink">
+      <a id="PaleLandsAreaLink" href="./setting">
+        <div>
+          <i class="fas fa-plus"></i>&nbsp;Places in The Pale Lands
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12" id="PaleLandsAreas">
+      <% Worldarea.all.where(region: 'The Pale Lands').each do |area|  %>
+        <%= simple_format(area.name.html_safe, class: 'areaname')%>
+        <%= simple_format(area.description.html_safe, class: 'areadescription')%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container col-12 mt-2" id="regionheader">
+      <%= image_tag("pages/setting/devaria.gif", :class => "mx-auto d-block") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="regioninfo">
+      <p>When the Dep’El first began voyaging they ventured through the Endless Bramble and beyond the Sinking Basin. These inhospitable lands had repelled earlier travelers. The vast expanse of Windy Lake with its freezing waters, sudden storms, and monstrous creatures was barrier enough, but the lands themselves were wild stretches full of all sorts of hazards. Cautious of the dangers the unsettled world presented, the Dep’El used natural caves as easily defensible waypoints and outposts on their venturing routes. Over time, these crude stopping points gave way to elegantly hewn holdings, and, following their exile, these grew into entire cities. Aided by the Dwarves, the Dep’El mastered stonecraft and tunneling, raising great underground cities with Dwarven craftsmanship and Elven grace and beauty. Rumor has it the true capital of Devaria isn’t Aurel at all, but a huge underground city near the Thundering Summit. Tight-lipped Dep’El will never acknowledge its existence, but the number of well-paved trade roads in the eastern regions suggests the legends may in fact be true.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="AreaLink">
+      <a id="DevariaAreaLink" href="./setting">
+        <div>
+          <i class="fas fa-plus"></i>&nbsp;Places in Devaria
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12" id="DevariaAreas">
+      <% Worldarea.all.where(region: 'Devaria').each do |area|  %>
+        <%= simple_format(area.name.html_safe, class: 'areaname')%>
+        <%= simple_format(area.description.html_safe, class: 'areadescription')%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container col-12 mt-2" id="regionheader">
+      <%= image_tag("pages/setting/faeden.gif", :class => "mx-auto d-block") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="regioninfo">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="AreaLink">
+      <a id="FaedenAreaLink" href="./setting">
+        <div>
+          <i class="fas fa-plus"></i>&nbsp;Places in Faeden
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12" id="FaedenAreas">
+      <% Worldarea.all.where(region: 'Faeden').each do |area|  %>
+        <%= simple_format(area.name.html_safe, class: 'areaname')%>
+        <%= simple_format(area.description.html_safe, class: 'areadescription')%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container col-12 mt-2" id="regionheader">
+      <%= image_tag("pages/setting/savage-heights.gif", :class => "mx-auto d-block") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="regioninfo">
+      <p>Legend tells of gigantic snakes lurking in the mire that is the Am K’aax jungle. Travelers fear to enter that dark, dangerous tangle of vines and trees, knowing far too many beasts lying within would consider them no more than an easy snack. Stories filled with wickedly curving fangs, quicksand pits, and trees that bleed are told in every tavern for a hundred miles.</p>
+      <p>Legend also tempts the foolish with tales of entire cities of gold and streets paved with diamonds where there is such wealth that children are given rattles filled with sapphires.</p>
+      <p>Only the most reckless adventurers attempt to cross the Am K’aax in search of this treasure – spiders the size of oxen, savage bandits, and creatures that thirst only for the blood of mortals stand between the Freelands and the base of the Savage Heights; and even if you manage to escape those perils… well, the mountains and the mosquitos are worse.</p>
+      <p>In fact, strange magic seems to seep from the Savage Heights that will turn you in hopeless circles until Dedrot takes pity on your wandering soul. The Forbidden Coast rages unexpectedly with storms that appear out of nowhere to dash hapless ships upon barrier islands of slicing coral blades, feeding unlucky survivors of the storm to monsters lurking in the deep. There is no telling just what horrors this creeping magic keeps trapped in the inhospitable jungle beyond – but certainly, no chance of gold is worth the gruesome death awaiting.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12 mt-2" id="AreaLink">
+      <a id="SavageHeightsAreaLink" href="./setting">
+        <div>
+          <i class="fas fa-plus"></i>&nbsp;Places in The Savage Heights
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12" id="SavageHeightsAreas">
+      <% Worldarea.all.where(region: 'The Savage Heights').each do |area|  %>
+        <%= simple_format(area.name.html_safe, class: 'areaname')%></td><td>test
+        <%= simple_format(area.description.html_safe, class: 'areadescription')%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+window.onload = function() {
+  document.getElementById("CantaraAreas").style.display = "none";
+  document.getElementById("FreeLandsAreas").style.display = "none";
+  document.getElementById("PaleLandsAreas").style.display = "none";
+  document.getElementById("DevariaAreas").style.display = "none";
+  document.getElementById("FaedenAreas").style.display = "none";
+  document.getElementById("SavageHeightsAreas").style.display = "none";
+
+  document.getElementById("CantaraAreaLink").onclick = function() {
+    areadiv = document.getElementById("CantaraAreas");
+    if (areadiv.style.display === "none") {
+      areadiv.style.display = "block";
+      $(this).find($(".fas")).removeClass('fas fa-plus').addClass('fas fa-minus');
+    } else {
+      areadiv.style.display = "none";
+      $(this).find($(".fas")).removeClass('fas fa-minus').addClass('fas fa-plus');
+    }
+    return false;
+  }
+
+  document.getElementById("FreeLandsAreaLink").onclick = function() {
+    areadiv = document.getElementById("FreeLandsAreas");
+    if (areadiv.style.display === "none") {
+      areadiv.style.display = "block";
+      $(this).find($(".fas")).removeClass('fas fa-plus').addClass('fas fa-minus');
+    } else {
+      areadiv.style.display = "none";
+      $(this).find($(".fas")).removeClass('fas fa-minus').addClass('fas fa-plus');
+    }
+    return false;
+  }
+
+  document.getElementById("PaleLandsAreaLink").onclick = function() {
+    areadiv = document.getElementById("PaleLandsAreas");
+    if (areadiv.style.display === "none") {
+      areadiv.style.display = "block";
+      $(this).find($(".fas")).removeClass('fas fa-plus').addClass('fas fa-minus');
+    } else {
+      areadiv.style.display = "none";
+      $(this).find($(".fas")).removeClass('fas fa-minus').addClass('fas fa-plus');
+    }
+    return false;
+  }
+
+  document.getElementById("DevariaAreaLink").onclick = function() {
+    areadiv = document.getElementById("DevariaAreas");
+    if (areadiv.style.display === "none") {
+      areadiv.style.display = "block";
+      $(this).find($(".fas")).removeClass('fas fa-plus').addClass('fas fa-minus');
+    } else {
+      areadiv.style.display = "none";
+      $(this).find($(".fas")).removeClass('fas fa-minus').addClass('fas fa-plus');
+    }
+    return false;
+  }
+
+  document.getElementById("FaedenAreaLink").onclick = function() {
+    areadiv = document.getElementById("FaedenAreas");
+    if (areadiv.style.display === "none") {
+      areadiv.style.display = "block";
+      $(this).find($(".fas")).removeClass('fas fa-plus').addClass('fas fa-minus');
+    } else {
+      areadiv.style.display = "none";
+      $(this).find($(".fas")).removeClass('fas fa-minus').addClass('fas fa-plus');
+    }
+    return false;
+  }
+
+  document.getElementById("SavageHeightsAreaLink").onclick = function() {
+    areadiv = document.getElementById("SavageHeightsAreas");
+    if (areadiv.style.display === "none") {
+      areadiv.style.display = "block";
+      $(this).find($(".fas")).removeClass('fas fa-plus').addClass('fas fa-minus');
+    } else {
+      areadiv.style.display = "none";
+      $(this).find($(".fas")).removeClass('fas fa-minus').addClass('fas fa-plus');
+    }
+    return false;
+  }
+  
+}
+</script> 

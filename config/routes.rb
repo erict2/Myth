@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :pages do
+    get :setting
     get :calendar
+    get :religion
+    get :camp
     get :rulebook
     get :events
     get :community
@@ -38,6 +41,7 @@ Rails.application.routes.draw do
       resources :professions
       resources :professiongroups
       resources :professionrequirements
+      resources :worldareas
       
       root to: "settings#index"
     end

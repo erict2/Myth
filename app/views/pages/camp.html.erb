@@ -1,0 +1,104 @@
+<div class="container col-12  mt-4" id="camppage">
+  <div class="row">
+    <div class="container col-12">
+      <%= image_tag("pages/camp/camp-header.jpg", :class => "mx-auto d-block", :id => "campheader") %><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12">
+      Myth takes place at the Windham-Tolland 4-H Camp in Pomfret Connecticut. The camp address is 326 Taft Pond Rd, Pomfret Center, CT 06259.
+      <center>
+        <div id="tourlink">
+          <a href = "https://www.kuula.co/share/7FTj5/collection/7lb0f", target="_blank">
+            <div id="tourbutton">
+              <i class="fas fa-dice"></i>Take a 360 Degree Tour of the Site!
+            </div>
+          </a>
+        </div>
+      </center>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12">
+      <nav class="navbar py-0 px-0" id='camptabbar'>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-link <%= checkActiveCampTab('link', 'general') %>" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'rules') %>" id="rules-tab" data-toggle="tab" href="#rules" role="tab" aria-controls="class" aria-selected="false">Camp Rules</a>
+
+          <a class="nav-link <%= checkActiveCampTab('link', 'arrival') %>" id="arrival-tab" data-toggle="tab" href="#arrival" role="tab" aria-controls="class" aria-selected="false">Arrival At Myth</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'thingsyouneed') %>" id="thingsyouneed-tab" data-toggle="tab" href="#thingsyouneed" role="tab" aria-controls="class" aria-selected="false">Things You Need</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'sleepcabins') %>" id="sleepcabins-tab" data-toggle="tab" href="#sleepcabins" role="tab" aria-controls="class" aria-selected="false">Sleeping in Cabins</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'sleeptavern') %>" id="sleeptavern-tab" data-toggle="tab" href="#sleeptavern" role="tab" aria-controls="class" aria-selected="false">Sleeping in Tavern</a>
+          <a class="nav-link <%= checkActiveCampTab('link', 'tents') %>" id="tents-tab" data-toggle="tab" href="#tents" role="tab" aria-controls="class" aria-selected="false">Tents</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container col-12">
+      <div class="tab-content" id="charTabContent">
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'general') %>" id="general" role="tabpanel" aria-labelledby="general-tab">
+          <%= render partial: 'pages/camptabs/general' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'rules') %>" id="rules" role="tabpanel" aria-labelledby="rules-tab">
+          <%= render partial: 'pages/camptabs/rules' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'arrival') %>" id="arrival" role="tabpanel" aria-labelledby="arrival-tab">
+          <%= render partial: 'pages/camptabs/arrival' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'thingsyouneed') %>" id="thingsyouneed" role="tabpanel" aria-labelledby="thingsyouneed-tab">
+          <%= render partial: 'pages/camptabs/thingsyouneed' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'sleepcabins') %>" id="sleepcabins" role="tabpanel" aria-labelledby="sleepcabins-tab">
+          <%= render partial: 'pages/camptabs/sleepcabins' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'sleeptavern') %>" id="sleeptavern" role="tabpanel" aria-labelledby="sleeptavern-tab">
+          <%= render partial: 'pages/camptabs/sleeptavern' %>
+        </div>
+        <div class="tab-pane fade <%= checkActiveCampTab('content', 'tents') %>" id="tents" role="tabpanel" aria-labelledby="tents-tab">
+          <%= render partial: 'pages/camptabs/tents' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-6">
+      <h3>The Crossing</h3>
+      <p>
+        This district in Damar Keep has a small crossing bridge with a well-traveled trail that leads to the city of Ivygate (or Windhold if you follow the split in the road). Residents of the village enjoy the gentle sound of the brook that flows into the pond known as the Cauldron.
+        While the town guard makes every effort, this side of town seems to be an active target for invaders and monsters. 
+        You have been warned, adventurer. Be sure you are always on your guard when staying in this part of Damar Keep.
+      </p>
+    </div>
+    <div class="col-6">
+      <h3>The Glade</h3>
+      <p>
+        The bridge in the southern portion of the above Glade map leads to the town proper area with the Dancing Dragonfly. 
+        To the north, a precarious trail (yellow trail) leads through the woods. It is easy to get lost on the trail at night and there are many large stones and wetlands. Also in the Glade area is an amphitheater with benches and a podium. 
+        Residents closer to the bridge often enjoy the sound of the waterfall during times when the pond known as the Cauldron is full.
+      </p>
+    </div>
+  </div>
+  <div class="row cabinmaps">
+    <div class="col-6">
+      <%= image_tag("events/the_crossing.jpg") %>
+    </div>
+    <div class="col-6">
+      <%= image_tag("events/the_glade.jpg") %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <h3>The Town Proper</h3>
+    </div>
+  </div>
+  <div class="row cabinmaps">
+    <div class="col-12">
+      <%= image_tag("events/town_proper.jpg") %>
+    </div>
+  </div>
+
+
+</div>

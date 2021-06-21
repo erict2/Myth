@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class SkillDashboard < Administrate::BaseDashboard
+class WorldareaDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,20 +8,12 @@ class SkillDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    skillgroup: Field::BelongsTo,
-    resttype: Field::BelongsTo,
-    skilldelivery: Field::BelongsTo,
-    characterskills: Field::HasMany,
-    skillrequirements: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    region: Field::Select.with_options(
+      collection: ['Catara', 'The Free Lands', 'The Pale Lands', 'Devaria', 'Faeden', 'The Savage Heights'],
+    ),
     description: Field::Text,
-    incant: Field::String,
-    target: Field::String,
-    prop: Field::String,
-    tier: Field::Number,
-    maxpurchase: Field::Number,
-    playeravailable: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -33,29 +25,17 @@ class SkillDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     name
-    skillgroup
-    resttype
-    skilldelivery
+    region
+    created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     name
-    tier
-    description
-    maxpurchase
-    incant
-    target
-    prop
-    skillgroup
-    resttype
-    skilldelivery
-    skillrequirements
-    playeravailable
+    region
     created_at
     updated_at
-    characterskills
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -63,16 +43,8 @@ class SkillDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
-    tier
+    region
     description
-    maxpurchase
-    incant
-    target
-    prop
-    skillgroup
-    resttype
-    skilldelivery
-    playeravailable
   ].freeze
 
   # COLLECTION_FILTERS
@@ -87,10 +59,10 @@ class SkillDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how skills are displayed
+  # Overwrite this method to customize how settings are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(skill)
-    skill.name
+  def display_resource(worldarea)
+    worldarea.name
   end
 end

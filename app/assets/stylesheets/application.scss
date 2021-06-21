@@ -240,42 +240,149 @@ body {
   }
 }
 
-#contactlinks {
-  div {
-    text-align: center;
-  }
-  i {
-    font-size: 50px;
-    
-  }
-  #link {
-    margin: auto;
-    padding: 5px;
-    border-radius: 25px;
+#communitypage {
+  #contactlinks {
+    div {
+      text-align: center;
+    }
+    i {
+      font-size: 50px;
+    }
+    #link {
+      margin: auto;
+      padding: 5px;
+      border-radius: 25px;
 
+      a:link, a:visited, a:hover, a:active  { 
+        color: black;
+        text-decoration:none;
+        font-weight: bold;
+      }
+    }
+
+    #link:hover{
+      background: rgba(75, 75, 75, 0.25)
+    }
+
+    #facebook {
+      color: #4267B2;
+    }
+    #discord {
+      color: #7289da;
+    }
+    #youtube {
+      color: #FF0000;
+    }
+  }
+}
+
+#worldsettings {
+  #AreaLink {
+    display:flex;
+    align-items:center;
+    font-size: 25px;
+    background-color: white;
+    border-style: solid; 
+    border-width: 1px;
+    a:link, a:visited, a:hover, a:active  { 
+      color: red;
+      text-decoration:none;
+      font-weight: bold;
+    }
+  }
+  .areaname {
+    font-weight: bold;
+    display: inline;
+  }
+
+  #CantaraAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #FreeLandsAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #PaleLandsAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #DevariaAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #FaedenAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+  #SavageHeightsAreas {
+    display: none;
+    border-style: none solid solid solid; 
+    border-width: 1px;
+  }
+}
+
+#camppage {
+  #campheader{
+    height: 400px;
+    width: 800px;
+
+  }
+  #tourlink {
+    display: inline-block;
+    background-color: lightgreen;
+    margin: 4px 0px;
+    border-radius: 25px;
+    text-align: center;
     a:link, a:visited, a:hover, a:active  { 
       color: black;
       text-decoration:none;
       font-weight: bold;
     }
-
-    
-    
-  }
-
-  #link:hover{
-    background: rgba(75, 75, 75, 0.25)
-  }
-
-
-  #facebook {
-    color: #4267B2;
-  }
-  #discord {
-    color: #7289da;
-  }
-  #youtube {
-    color: #FF0000;
-  }
-
+    #tourbutton {
+      padding: 10px;
+    }
 }
+
+  #camptabbar {
+    a{
+      background-color: #6c757d;
+      color: black;
+      font-weight: bold;
+      font-family: 'Copperplate Gothic Light';
+      font-size: 16px;
+      border: 0px;
+      border-radius: 25px 25px 0px 0px;
+      
+    }
+    a.active{
+      background-color:#343a40!important;
+      border: 1px!important;
+      color: white;
+    }
+    .nav-tabs {
+      border-bottom: 1px solid#343a40
+    }
+  }
+
+  #charTabContent {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0px 0px 25px 25px;
+    padding: 5px;
+  }
+
+  .cabinmaps{
+    img {
+      display: block;
+      width:100%;
+    }
+  }
+}
+
+
