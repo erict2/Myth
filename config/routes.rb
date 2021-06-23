@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :pages do
     get :setting
     get :calendar
-    get :religion
+    get :mythology
     get :camp
     get :rulebook
     get :events
