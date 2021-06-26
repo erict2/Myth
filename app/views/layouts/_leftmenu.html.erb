@@ -34,7 +34,7 @@
 
   <% if canLevel(@character) %>
     <div class='sideSubLink'>
-      <%= link_to 'Level Up', character_levelup_path, data: { confirm: 'Leveling up will cost ' + expToLevel(@character).to_s + ' exp. This is irreversible. Are you sure?'}, method: :post, remote: true %>
+      <%= link_to 'Level Up', character_levelup_path, data: { confirm: 'Leveling up will cost ' + expToLevel(@character).to_s + ' exp. This is irreversible. Are you sure?'}, method: :post%>
     </div>
   <% end %>
 
