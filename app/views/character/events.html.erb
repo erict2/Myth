@@ -9,6 +9,8 @@
       <th>Description</th>
       <th>Start Date</th>
       <th>End Date</th>
+      <th>Cabin</th>
+      <th>Meal Plan</th>
   </tr>
   </thead>
   <tbody>
@@ -20,6 +22,16 @@
         <td><%= event.description %></td>
         <td><%= event.startdate %></td>
         <td><%= event.enddate %></td>
+        <td>
+          <%= 
+            if event.eventattendances.find_by(user_id: current_user).cabin.present?
+              event.eventattendances.find_by(user_id: current_user).cabin.name 
+            else
+              'None'
+            end
+          %>
+        </td>
+        <td><%= event.eventattendances.find_by(user_id: current_user).mealplan %></td>
       </tr>
     <% end %>
   </tbody>
