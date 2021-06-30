@@ -20,6 +20,9 @@ class EventDashboard < Administrate::BaseDashboard
     description: Field::String,
     atdoorcost: Field::Number,
     earlybirdcost: Field::Number,
+    mealplan: Field::Boolean,
+    mealplancost: Field::Number,
+    mealplandetails: Field::Text,
     eventexp: Field::Number,
     feedbackexp: Field::Number,
     levelingevent: Field::Boolean,
@@ -50,6 +53,9 @@ class EventDashboard < Administrate::BaseDashboard
     location
     atdoorcost
     earlybirdcost
+    mealplan
+    mealplancost
+    mealplandetails
     eventexp
     feedbackexp
     levelingevent
@@ -70,6 +76,9 @@ class EventDashboard < Administrate::BaseDashboard
     location
     atdoorcost
     earlybirdcost
+    mealplan
+    mealplancost
+    mealplandetails
     eventexp
     feedbackexp
     levelingevent
