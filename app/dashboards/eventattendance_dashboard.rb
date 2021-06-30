@@ -22,6 +22,9 @@ class EventattendanceDashboard < Administrate::BaseDashboard
     registrationtype: Field::Select.with_options(
       collection: ['Player', 'Cast', 'Staff'],
     ),
+    mealplan: Field::Select.with_options(
+      collection: ['', 'Meat', 'Vegan'],
+    ),
     registerdate: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -36,6 +39,7 @@ class EventattendanceDashboard < Administrate::BaseDashboard
     event
     user
     registrationtype
+    mealplan
     character
     cabin
   ].freeze
@@ -45,9 +49,10 @@ class EventattendanceDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     event
     user
-    registrationtype
+    mealplan
     character
     cabin
+    registrationtype
     registerdate
     created_at
     updated_at
@@ -62,6 +67,7 @@ class EventattendanceDashboard < Administrate::BaseDashboard
     character
     cabin
     registrationtype
+    mealplan
     registerdate
   ].freeze
 

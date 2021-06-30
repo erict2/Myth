@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_20_185843) do
+ActiveRecord::Schema.define(version: 2021_06_30_140207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 2021_06_20_185843) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "cabin_id"
+    t.string "mealplan"
     t.index ["character_id", "event_id"], name: "index_eventattendances_on_character_id_and_event_id", unique: true
     t.index ["character_id"], name: "index_eventattendances_on_character_id"
     t.index ["event_id", "user_id"], name: "index_eventattendances_on_event_id_and_user_id", unique: true
@@ -163,6 +164,9 @@ ActiveRecord::Schema.define(version: 2021_06_20_185843) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "playercount", null: false
     t.integer "castcount", null: false
+    t.boolean "mealplan", null: false
+    t.integer "mealplancost"
+    t.text "mealplandetails"
   end
 
   create_table "explogs", force: :cascade do |t|
