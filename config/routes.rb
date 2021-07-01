@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     get :community
   end
 
-  
-
   namespace :admin do
       resources :settings
       resources :users
@@ -75,6 +73,7 @@ Rails.application.routes.draw do
   resources :event do
     get :updatecabin
     patch :updatecabin
+    get :mealplan
   end
 
   namespace :player do
