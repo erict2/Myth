@@ -74,6 +74,8 @@ Rails.application.routes.draw do
     get :updatecabin
     patch :updatecabin
     get :mealplan
+    post :ordermealplan
+    post :processmealplanorder
   end
 
   namespace :player do
