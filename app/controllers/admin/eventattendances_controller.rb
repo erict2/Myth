@@ -21,7 +21,7 @@ module Admin
     end
 
     def update
-      @eventattendance = Eventattendance.find_by(id: params[:id])
+      @eventattendance = Eventattendance.find(params[:id])
       @event = Event.find_by(id: @eventattendance.event_id)
       @eventattendance.update(resource_params)
 
@@ -36,8 +36,8 @@ module Admin
     end
 
     def destroy
-      @eventattendance = Eventattendance.find_by(user_id: params[:user_id], event_id: params[:event_id])
-      @event = Event.find_by(id: params[:event_id])
+      @eventattendance = Eventattendance.find(params[:id])
+      @event = Event.find_by(id: @eventattendance.event_id)
       @explog = Explog.where('acquiredate BETWEEN ? AND ?', @event.startdate.beginning_of_day, @event.startdate.end_of_day).find_by(
         name: 'Event', user_id: @eventattendance.user_id
       )
